@@ -24,6 +24,10 @@
             "title": "span.title",
             "link": "@href"
           },
+          "detailSelectors": {
+            "title": "h3.title",
+            "date": "p.date"
+          },
           "verified": true,
           "enabled": false,
           "status": "verified",
@@ -58,13 +62,29 @@
           "category": "school_news",
           "sourceType": "official",
           "collectionType": "html",
-          "listUrl": "https://www.korea.ac.kr/",
-          "selectors": {},
-          "verified": false,
-          "enabled": false,
-          "status": "selector_required",
+          "listUrl": "https://www.korea.ac.kr/bbs/ko/42/artclList.do?layout=unknown",
+          "baseUrl": "https://www.korea.ac.kr",
+          "selectors": {
+            "item": "dl.rowWrap",
+            "title": "li.li-title a",
+            "link": "li.li-title a",
+            "date": "li.li-date"
+          },
+          "detailSelectors": {
+            "title": "div.title strong",
+            "date": "ul.detail li"
+          },
+          "titleCleanupTokens": [
+            "새글"
+          ],
+          "officialNames": [
+            "고려대학교"
+          ],
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
           "healthStatus": "unknown",
-          "notes": "공식 도메인만 등록했으며 목록 선택자 검증 전에는 수집하지 않습니다."
+          "notes": "고려대학교 공식 보도자료 목록과 상세 페이지의 제목·게시일 선택자를 2026-08-06에 진단했습니다."
         }
       ],
       "searchKeywords": [
@@ -101,8 +121,15 @@
             "title": "span.academiaItem__tit",
             "link": "a.academiaItem__link"
           },
+          "detailSelectors": {
+            "title": "h3.view__tit",
+            "date": "span.viewInfo__txt"
+          },
+          "officialNames": [
+            "연세대학교"
+          ],
           "verified": true,
-          "enabled": false,
+          "enabled": true,
           "status": "verified",
           "healthStatus": "unknown"
         }
@@ -175,10 +202,18 @@
           "selectors": {
             "item": "div.hyu-list-body-item",
             "title": "h4 a",
-            "link": "h4 a"
+            "link": "h4 a",
+            "date": "span.date"
           },
+          "detailSelectors": {
+            "title": "div.hyu-list-body-item h4",
+            "date": "div.hyu-meta-item"
+          },
+          "officialNames": [
+            "한양대학교"
+          ],
           "verified": true,
-          "enabled": false,
+          "enabled": true,
           "status": "verified",
           "healthStatus": "unknown"
         }
@@ -1142,12 +1177,26 @@
           "category": "school_news",
           "sourceType": "official",
           "collectionType": "html",
-          "listUrl": "https://www.ewha.ac.kr/",
-          "selectors": {},
-          "verified": false,
-          "enabled": false,
-          "status": "selector_required",
-          "healthStatus": "unknown"
+          "listUrl": "https://www.ewha.ac.kr/ewhaen/news/ewha-news.do",
+          "baseUrl": "https://www.ewha.ac.kr/ewhaen/news/ewha-news.do",
+          "selectors": {
+            "item": "div.bn-list-thumb01 li",
+            "title": "a.b-title",
+            "link": "a.b-title",
+            "date": "li.b-date"
+          },
+          "detailSelectors": {
+            "title": "p.b-title-box span.b-title",
+            "date": "li.b-date-box"
+          },
+          "officialNames": [
+            "Ewha Womans University"
+          ],
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown",
+          "notes": "이화여자대학교 공식 Ewha News 목록과 상세 페이지의 제목·게시일 선택자를 2026-08-06에 진단했습니다."
         }
       ],
       "searchKeywords": [

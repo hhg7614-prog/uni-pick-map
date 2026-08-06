@@ -67,6 +67,16 @@ function valueFrom(itemHtml, selector, attrName) {
   return attrName ? attribute(element, attrName) : textOf(element);
 }
 
+function cleanTitle(value, cleanupTokens = []) {
+  let title = String(value || "").replace(/\s+/g, " ").trim();
+  for (const token of cleanupTokens) {
+    const text = String(token || "").trim();
+    if (!text) continue;
+    title = title.split(text).join("").replace(/\s+/g, " ").trim();
+  }
+  return title;
+}
+
 async function htmlListCollector({ university, source, limit, fetchImpl = fetch, collectedAt = new Date().toISOString() }) {
   const selectors = source.selectors || {};
   if (!source.listUrl) return { status: "skipped", items: [], warnings: ["목록 URL이 없습니다."] };
@@ -84,7 +94,7 @@ async function htmlListCollector({ university, source, limit, fetchImpl = fetch,
   const warnings = [];
   for (const itemHtml of itemHtmlList) {
     const normalized = normalizeCollectedItem({ university, source, rawItem: {
-      title: valueFrom(itemHtml, selectors.title),
+      title: cleanTitle(valueFrom(itemHtml, selectors.title), source.titleCleanupTokens),
       link: valueFrom(itemHtml, selectors.link, selectors.link === "@href" ? null : "href") || valueFrom(itemHtml, selectors.link),
       date: valueFrom(itemHtml, selectors.date),
       summary: valueFrom(itemHtml, selectors.summary),
@@ -96,4 +106,4 @@ async function htmlListCollector({ university, source, limit, fetchImpl = fetch,
   return { status: "success", items, warnings, finalUrl: response.url };
 }
 
-module.exports = { htmlListCollector, findBySelector, textOf, attribute };
+module.exports = { htmlListCollector, findBySelector, textOf, attribute, cleanTitle };

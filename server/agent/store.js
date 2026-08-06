@@ -24,12 +24,50 @@ const MAX_STORE_ITEMS = 1000;
 // preview 에 표시할 최대 건수
 const MAX_PREVIEW_ITEMS = 30;
 
+const EXTERNAL_PREVIEW_HOSTS = new Set([
+  "youtube.com", "youtu.be", "facebook.com", "instagram.com", "x.com", "twitter.com", "tiktok.com",
+]);
+
 function now() {
   return new Date().toISOString();
 }
 
 function ensureDir(filePath) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
+}
+
+function hostOf(value) {
+  try {
+    return new URL(value).hostname.replace(/^www\./i, "").toLowerCase();
+  } catch {
+    return "";
+  }
+}
+
+function isPublicPreviewItem(item) {
+  if (!item?.publishedAt || !/^\d{4}-\d{2}-\d{2}/.test(String(item.publishedAt))) return false;
+  if (!/^https?:\/\//i.test(String(item.sourceUrl || ""))) return false;
+  const sourceHost = hostOf(item.sourceUrl);
+  const officialHost = hostOf(item.sourceSiteUrl);
+  if (!sourceHost || EXTERNAL_PREVIEW_HOSTS.has(sourceHost)) return false;
+  if (!officialHost || sourceHost !== officialHost) return false;
+  const sourceUrl = new URL(item.sourceUrl);
+  const listUrl = item.sourceSiteUrl ? new URL(item.sourceSiteUrl) : null;
+  if (sourceUrl.pathname === "/" || (listUrl && sourceUrl.href === listUrl.href)) return false;
+  if (/(?:login|signin|auth|error|404|500)/i.test(sourceUrl.pathname)) return false;
+  return true;
+}
+
+function createPreview(storeItems) {
+  const previewItems = storeItems.filter(isPublicPreviewItem).slice(0, MAX_PREVIEW_ITEMS);
+  return {
+    generatedAt: now(),
+    isDevelopmentPreview: false,
+    agentGenerated: true,
+    totalStoredItems: storeItems.length,
+    supportedUniversities: [...new Set(previewItems.map((item) => item.universityName))],
+    items: previewItems,
+  };
 }
 
 /**
@@ -98,19 +136,7 @@ function saveNewItems(newItems) {
   writeAtomic(STORE_PATH, updatedStore);
 
   // 2. preview 저장 (최신 MAX_PREVIEW_ITEMS 개만)
-  const previewItems = trimmed.slice(0, MAX_PREVIEW_ITEMS);
-  const supportedUniversities = [
-    ...new Set(previewItems.map((item) => item.universityName)),
-  ];
-
-  const preview = {
-    generatedAt: now(),
-    isDevelopmentPreview: false,
-    agentGenerated: true,
-    totalStoredItems: trimmed.length,
-    supportedUniversities,
-    items: previewItems,
-  };
+  const preview = createPreview(trimmed);
 
   writeAtomic(PREVIEW_PATH, preview);
 
@@ -124,4 +150,12 @@ function getAllItems() {
   return loadStore().items;
 }
 
-module.exports = { loadStore, saveNewItems, getAllItems, STORE_PATH, PREVIEW_PATH };
+function rebuildPreviewFromStore() {
+  ensureDir(PREVIEW_PATH);
+  const store = loadStore();
+  const preview = createPreview(store.items);
+  writeAtomic(PREVIEW_PATH, preview);
+  return { totalCount: store.items.length, previewCount: preview.items.length };
+}
+
+module.exports = { loadStore, saveNewItems, getAllItems, rebuildPreviewFromStore, isPublicPreviewItem, STORE_PATH, PREVIEW_PATH };
