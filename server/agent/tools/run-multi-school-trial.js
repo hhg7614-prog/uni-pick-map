@@ -33,7 +33,7 @@ function parseOptions(argv) {
     throw new Error(`This integration trial requires exactly the ${EXPECTED_SOURCES.size} approved --university-ids.`);
   }
   if (!Number.isInteger(limit) || limit < 1 || limit > MAX_PER_SOURCE) throw new Error(`--limit-per-source must be 1-${MAX_PER_SOURCE}.`);
-  return { ids, limit, dryRun: argv.includes("--dry-run") };
+  return { ids, limit, dryRun: argv.includes("--dry-run"), failOnUniversityError: argv.includes("--fail-on-university-error") };
 }
 
 function normalizeText(value) {
@@ -132,7 +132,7 @@ async function main() {
     if (!university || !source) throw new Error(`Approved official source is unavailable for ${id}.`);
     return { university, source };
   });
-  console.log(JSON.stringify({ phase: "validated_school_integration_trial", dryRun: options.dryRun, targetUniversityIds: options.ids, targetSources: targets.map(({ university, source }) => ({ universityId: university.universityId, universityGroupId: university.universityGroupId, sourceId: source.id, category: source.category, collectionType: source.collectionType, enabled: source.enabled })), limits: { perSource: options.limit, collectionConcurrency: 1, detailConcurrency: 1, maxAttempts: MAX_ATTEMPTS } }, null, 2));
+  console.log(JSON.stringify({ phase: "validated_school_integration_trial", dryRun: options.dryRun, failOnUniversityError: options.failOnUniversityError, targetUniversityIds: options.ids, targetSources: targets.map(({ university, source }) => ({ universityId: university.universityId, universityGroupId: university.universityGroupId, sourceId: source.id, category: source.category, collectionType: source.collectionType, enabled: source.enabled })), limits: { perSource: options.limit, collectionConcurrency: 1, detailConcurrency: 1, maxAttempts: MAX_ATTEMPTS } }, null, 2));
   if (options.dryRun) return;
 
   const storeBefore = getAllItems();
@@ -146,6 +146,11 @@ async function main() {
     } catch (error) {
       perUniversity.push({ universityId: target.university.universityId, universityName: target.university.universityName, sourceId: target.source.id, found: 0, accepted: 0, excluded: 0, warnings: [], error: error.message });
     }
+  }
+  if (options.failOnUniversityError && perUniversity.some((result) => result.error)) {
+    console.log(JSON.stringify({ storeBefore: storeBefore.length, storeAfter: storeBefore.length, foundTotal: perUniversity.reduce((sum, result) => sum + result.found, 0), acceptedTotal: candidates.length, newTotal: 0, duplicateTotal: 0, excludedTotal: perUniversity.reduce((sum, result) => sum + result.excluded, 0), backupDir: null, saveResult: { savedCount: 0, totalCount: storeBefore.length, skipped: "university_error" }, perUniversity }, null, 2));
+    process.exitCode = 1;
+    return;
   }
   const { newItems, duplicateCount } = filterNewItems(candidates, storeBefore);
   newItems.sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));

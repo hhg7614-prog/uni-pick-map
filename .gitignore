@@ -5,3 +5,7 @@ server/agent/data/multi-school-trial-backups/
 server/agent/data/null-date-repair-backups/
 server/agent/data/preview-policy-backups/
 development/university-news/data/source-config-backups/
+scripts/run-six-university-news.local.bat
+server/agent/logs/
+server/agent/data/*-backups/
+server/agent/reports/

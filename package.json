@@ -8,7 +8,9 @@
     "news:agent": "node server/agent/scheduler.js",
     "news:agent:once": "node server/agent/once.js",
     "news:agent:status": "node server/agent/status.js",
-    "news:agent:stop": "node server/agent/stop.js"
+    "news:agent:stop": "node server/agent/stop.js",
+    "news:agent:six": "node server/agent/tools/run-multi-school-trial.js --university-ids=seoul-national-university-gwanak,yonsei-university-sinchon,korea-university-seoul,hanyang-university-seoul,ewha-womans-university,dongguk-university-seoul --limit-per-source=3",
+    "news:agent:six:deploy": "node server/agent/tools/run-six-university-news-and-deploy.js"
   },
   "engines": { "node": ">=18" }
 }
