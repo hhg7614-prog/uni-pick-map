@@ -1,0 +1,58 @@
+{
+  "phase": 7,
+  "pipelineRunId": "phase7-20260805-041233-a9lb",
+  "status": "success_no_new_items",
+  "startedAt": "2026-08-05T04:12:33.356Z",
+  "completedAt": "2026-08-05T04:12:33.426Z",
+  "durationMs": 70,
+  "targetUniversities": 3,
+  "targetSources": 12,
+  "collection": {
+    "requestedSources": 3,
+    "successfulSources": 0,
+    "failedSources": 0,
+    "skippedSources": 9,
+    "collectedItems": 0,
+    "invalidItems": 0
+  },
+  "storage": {
+    "newItems": 0,
+    "duplicates": 0,
+    "duplicateCandidates": 0,
+    "storeBefore": 15,
+    "storeAfter": 15
+  },
+  "ai": {
+    "provider": "disabled",
+    "targetItems": 0,
+    "successfulItems": 0,
+    "failedItems": 0,
+    "skippedItems": 0
+  },
+  "preview": {
+    "generated": true,
+    "itemCount": 7,
+    "fallbackPreserved": false
+  },
+  "byUniversity": [
+    {
+      "universityId": "seoul-national-university-gwanak",
+      "universityName": "서울대학교",
+      "collected": 0,
+      "newlyStored": 0
+    },
+    {
+      "universityId": "yonsei-university-sinchon",
+      "universityName": "연세대학교",
+      "collected": 0,
+      "newlyStored": 0
+    },
+    {
+      "universityId": "hanyang-university-seoul",
+      "universityName": "한양대학교",
+      "collected": 0,
+      "newlyStored": 0
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,10 @@
+{
+  "name": "uni-pick-map",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server/app.js",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=18" }
+}

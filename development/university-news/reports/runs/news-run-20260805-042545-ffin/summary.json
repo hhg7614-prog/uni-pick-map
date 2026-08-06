@@ -1,0 +1,58 @@
+{
+  "phase": 8,
+  "runId": "news-run-20260805-042545-ffin",
+  "triggerType": "scheduled",
+  "status": "success_no_new_items",
+  "startedAt": "2026-08-05T04:25:45.030Z",
+  "completedAt": "2026-08-05T04:25:49.004Z",
+  "durationMs": 3974,
+  "scheduledFor": null,
+  "nextScheduledAt": null,
+  "schedulerEnabled": false,
+  "targetUniversities": 3,
+  "checkedSources": 12,
+  "successfulSources": 3,
+  "failedSources": 0,
+  "collectedItems": 13,
+  "newItems": 0,
+  "duplicates": 13,
+  "duplicateCandidates": 0,
+  "invalidItems": 0,
+  "ai": {
+    "provider": "mock",
+    "successfulItems": 0,
+    "failedItems": 0
+  },
+  "preview": {
+    "generated": true,
+    "itemCount": 7,
+    "fallbackPreserved": false
+  },
+  "byUniversity": [
+    {
+      "universityId": "seoul-national-university-gwanak",
+      "universityName": "서울대학교",
+      "checkedSources": 4,
+      "collectedItems": 4,
+      "newItems": 0,
+      "errors": 0
+    },
+    {
+      "universityId": "yonsei-university-sinchon",
+      "universityName": "연세대학교",
+      "checkedSources": 4,
+      "collectedItems": 4,
+      "newItems": 0,
+      "errors": 0
+    },
+    {
+      "universityId": "hanyang-university-seoul",
+      "universityName": "한양대학교",
+      "checkedSources": 4,
+      "collectedItems": 5,
+      "newItems": 0,
+      "errors": 0
+    }
+  ],
+  "errors": []
+}

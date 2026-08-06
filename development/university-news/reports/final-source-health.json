@@ -1,0 +1,514 @@
+[
+  {
+    "universityId": "seoul-national-university-gwanak",
+    "universityName": "서울대학교",
+    "sourceId": "snu-school-news",
+    "sourceUrl": "https://www.snu.ac.kr/snunow/snu_story",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "korea-university-seoul",
+    "universityName": "고려대학교 서울캠퍼스",
+    "sourceId": "korea-official-news",
+    "sourceUrl": "https://www.korea.ac.kr/",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "yonsei-university-sinchon",
+    "universityName": "연세대학교 신촌캠퍼스",
+    "sourceId": "yonsei-school-news",
+    "sourceUrl": "https://news.yonsei.ac.kr/",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "skku-university-insa",
+    "universityName": "성균관대학교 인사캠퍼스",
+    "sourceId": "skku-official-news",
+    "sourceUrl": "https://www.skku.edu/",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "hanyang-university-seoul",
+    "universityName": "한양대학교 서울캠퍼스",
+    "sourceId": "hanyang-school-notice",
+    "sourceUrl": "https://www.hanyang.ac.kr/web/www/notice_all",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "university-of-seoul",
+    "universityName": "서울시립대학교",
+    "sourceId": "uos-all-notice-rss",
+    "sourceUrl": "https://www.uos.ac.kr/kor/html/rss/rss.do?epTicket=LOG&identified=anonymous",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "konkuk-university-seoul",
+    "universityName": "건국대학교 서울캠퍼스",
+    "sourceId": "konkuk-official-news",
+    "sourceUrl": "https://www.konkuk.ac.kr/",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "cau-university-seoul",
+    "universityName": "중앙대학교 서울캠퍼스",
+    "sourceId": "cau-official-news",
+    "sourceUrl": "https://www.cau.ac.kr/",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "kyunghee-university-seoul",
+    "universityName": "경희대학교 서울캠퍼스",
+    "sourceId": "khu-official-news",
+    "sourceUrl": "https://www.khu.ac.kr/",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "pusan-national-university",
+    "universityName": "부산대학교",
+    "sourceId": "pnu-main-notice",
+    "sourceUrl": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN095",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "pusan-national-university",
+    "universityName": "부산대학교",
+    "sourceId": "pnu-press-release",
+    "sourceUrl": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN114",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "inha-university",
+    "universityName": "인하대학교",
+    "sourceId": "inha-general-notice",
+    "sourceUrl": "https://www.inha.ac.kr/kr/950/subview.do",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "kyungpook-national-university",
+    "universityName": "경북대학교",
+    "sourceId": "knu-general-notice",
+    "sourceUrl": "https://www.knu.ac.kr/wbbs/wbbs/bbs/btin/list.action?bbs_cde=1&menu_idx=67",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "kyungpook-national-university",
+    "universityName": "경북대학교",
+    "sourceId": "knu-official-news",
+    "sourceUrl": "https://www.knu.ac.kr/wbbs/wbbs/bbs/btin/list.action?bbs_cde=28&menu_idx=202",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "chonbuk-national-university",
+    "universityName": "전북대학교",
+    "sourceId": "jbnu-campus-notice",
+    "sourceUrl": "https://www.jbnu.ac.kr/web/news/notice/sub01.do",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "chonbuk-national-university",
+    "universityName": "전북대학교",
+    "sourceId": "jbnu-official-news",
+    "sourceUrl": "https://www.jbnu.ac.kr/web/news/plaza/sub01.do",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "chonnam-national-university",
+    "universityName": "전남대학교",
+    "sourceId": "cnu-main-news",
+    "sourceUrl": "https://today.jnu.ac.kr/WebApp/web/HOM/COM/Board/board.aspx?bbsMode=list&boardID=146&page=1",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "jeju-national-university",
+    "universityName": "제주대학교",
+    "sourceId": "jejunu-academic-notice",
+    "sourceUrl": "https://www.jejunu.ac.kr/ara/noticesurvey/outEvent.htm?category=321",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "chungnam-national-university",
+    "universityName": "충남대학교",
+    "sourceId": "cnu-official-news",
+    "sourceUrl": "https://plus.cnu.ac.kr/_prog/_board/?code=sub0307&menu_dvs_cd=0507&site_dvs_cd=en",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "chungbuk-national-university",
+    "universityName": "충북대학교",
+    "sourceId": "cbnu-general-notice",
+    "sourceUrl": "https://www.chungbuk.ac.kr/www/selectBbsNttList.do?bbsNo=8&key=813",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "chungbuk-national-university",
+    "universityName": "충북대학교",
+    "sourceId": "cbnu-official-news",
+    "sourceUrl": "https://www.chungbuk.ac.kr/www/selectBbsNttList.do?bbsNo=14&key=548",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "kangwon-national-university",
+    "universityName": "강원대학교",
+    "sourceId": "kangwon-official-press-releases",
+    "sourceUrl": "https://www.kangwon.ac.kr/ko/bbs/1005/list.do",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "gyeongsang-national-university",
+    "universityName": "경상국립대학교",
+    "sourceId": "gnu-official-notices",
+    "sourceUrl": "https://www.gnu.ac.kr/main/na/ntt/selectNttList.do?bbsId=1028&mi=1126",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "gyeongsang-national-university",
+    "universityName": "경상국립대학교",
+    "sourceId": "gnu-official-press-releases",
+    "sourceUrl": "https://www.gnu.ac.kr/main/na/ntt/selectNttList.do?mi=1070",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "busan-national-university-of-education",
+    "universityName": "부산교육대학교",
+    "sourceId": "bnue-official-school-news",
+    "sourceUrl": "https://www.bnue.ac.kr/board/community01_01",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "busan-national-university-of-education",
+    "universityName": "부산교육대학교",
+    "sourceId": "bnue-official-academic-notices",
+    "sourceUrl": "https://www.bnue.ac.kr/board/community01_02",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "seoul-national-university-of-education",
+    "universityName": "서울교육대학교",
+    "sourceId": "snue-official-news",
+    "sourceUrl": "https://www.snue.ac.kr/snue/na/ntt/selectNttList.do?bbsId=3006&mi=1310",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "korea-national-university-of-education",
+    "universityName": "한국교원대학교",
+    "sourceId": "knue-student-support-notices",
+    "sourceUrl": "https://www.knue.ac.kr/www/selectBbsNttList.do?bbsNo=258&key=1625",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "korea-university-of-technology-and-education",
+    "universityName": "한국기술교육대학교",
+    "sourceId": "koreatech-admission-notices",
+    "sourceUrl": "https://www.koreatech.ac.kr/board.es?bid=0036&cg_code=0600000000&mid=a40601000000",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "korea-marine-and-ocean-university",
+    "universityName": "한국해양대학교",
+    "sourceId": "kmou-official-notices",
+    "sourceUrl": "https://www.kmou.ac.kr/kmou/na/ntt/selectNttList.do?bbsId=10373&mi=2032",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "korea-marine-and-ocean-university",
+    "universityName": "한국해양대학교",
+    "sourceId": "kmou-official-press-releases",
+    "sourceUrl": "https://www.kmou.ac.kr/kmou/na/ntt/selectNttList.do?bbsId=10000124&mi=1455",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "korea-aerospace-university",
+    "universityName": "한국항공대학교",
+    "sourceId": "kau-channel-k-campus-news",
+    "sourceUrl": "https://kaunews.kau.ac.kr/pages/news.php",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "ewha-womans-university",
+    "universityName": "이화여자대학교",
+    "sourceId": "ewha-official-news",
+    "sourceUrl": "https://www.ewha.ac.kr/",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "sogang-university",
+    "universityName": "서강대학교",
+    "sourceId": "sogang-university-news",
+    "sourceUrl": "https://resdept.sogang.ac.kr/kr/intro/news.jsp?board_no=26&mode=list",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "hufs-seoul",
+    "universityName": "한국외국어대학교 서울캠퍼스",
+    "sourceId": "hufs-official-news",
+    "sourceUrl": "https://www.hufs.ac.kr/",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "dongguk-university-seoul",
+    "universityName": "동국대학교 서울캠퍼스",
+    "sourceId": "dongguk-seoul-school-news",
+    "sourceUrl": "https://www.dongguk.edu/article/SCHOOLNEWS/list",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "dongguk-university-seoul",
+    "universityName": "동국대학교 서울캠퍼스",
+    "sourceId": "dongguk-seoul-general-notices",
+    "sourceUrl": "https://www.dongguk.edu/article/GENERALNOTICES/list?pageIndex=0",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "hongik-university-seoul",
+    "universityName": "홍익대학교 서울캠퍼스",
+    "sourceId": "hongik-seoul-newscenter-news",
+    "sourceUrl": "https://www.hongik.ac.kr/kr/newscenter/news.do?article.offset=0&mode=list",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "hongik-university-seoul",
+    "universityName": "홍익대학교 서울캠퍼스",
+    "sourceId": "hongik-seoul-newscenter-notice",
+    "sourceUrl": "https://www.hongik.ac.kr/kr/newscenter/notice.do?article.offset=0&mode=list",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "kookmin-university",
+    "universityName": "국민대학교",
+    "sourceId": "kookmin-all-notices",
+    "sourceUrl": "https://www.kookmin.ac.kr/user/kmuNews/notice/index.do",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "soongsil-university",
+    "universityName": "숭실대학교",
+    "sourceId": "soongsil-official-notices",
+    "sourceUrl": "https://scatch.ssu.ac.kr/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "sejong-university",
+    "universityName": "세종대학교",
+    "sourceId": "sejong-general-notice",
+    "sourceUrl": "https://www.sejong.ac.kr/kor/intro/notice1.do?article.offset=0&mode=list",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "sejong-university",
+    "universityName": "세종대학교",
+    "sourceId": "sejong-regulations-notice",
+    "sourceUrl": "https://www.sejong.ac.kr/kor/intro/regulations-notice.do?article.offset=0&mode=list",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "ajou-university",
+    "universityName": "아주대학교",
+    "sourceId": "ajou-news",
+    "sourceUrl": "https://www.ajou.ac.kr/kr/ajou/news.do",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "ajou-university",
+    "universityName": "아주대학교",
+    "sourceId": "ajou-general-notice",
+    "sourceUrl": "https://www.ajou.ac.kr/kr/ajou/notice.do",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "gachon-university-global",
+    "universityName": "가천대학교 글로벌캠퍼스",
+    "sourceId": "gachon-global-campus-news",
+    "sourceUrl": "https://www.gachon.ac.kr/pr/1443/subview.do",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "dankook-university-jukjeon",
+    "universityName": "단국대학교 죽전캠퍼스",
+    "sourceId": "dankook-university-news",
+    "sourceUrl": "https://www.dankook.ac.kr/web/kor/-550",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "dankook-university-jukjeon",
+    "universityName": "단국대학교 죽전캠퍼스",
+    "sourceId": "dankook-university-general-notice",
+    "sourceUrl": "https://www.dankook.ac.kr/web/kor/-390",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "kaist-daejeon",
+    "universityName": "한국과학기술원",
+    "sourceId": "kaist-official-news",
+    "sourceUrl": "https://www.kaist.ac.kr/news/html/news/",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "postech",
+    "universityName": "포항공과대학교",
+    "sourceId": "postech-university-news",
+    "sourceUrl": "https://www.postech.ac.kr/kor/newscenter/university-news.do?mode=list",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "unist",
+    "universityName": "울산과학기술원",
+    "sourceId": "unist-university-news",
+    "sourceUrl": "https://www.unist.ac.kr/unist/center/news.do",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "pukyong-national-university-daeyeon",
+    "universityName": "부경대학교 대연캠퍼스",
+    "sourceId": "pukyong-daeyeon-pknu-now",
+    "sourceUrl": "https://www.pknu.ac.kr/main/53",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "chosun-university",
+    "universityName": "조선대학교",
+    "sourceId": "chosun-university-news",
+    "sourceUrl": "https://www3.chosun.ac.kr/chosun/2607/subview.do",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "kyungdong-university-제4캠퍼",
+    "universityName": "경동대학교 제4캠퍼",
+    "sourceId": "kyungdong-campus4-general-notice",
+    "sourceUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "kyungdong-university-제3캠퍼",
+    "universityName": "경동대학교 제3캠퍼",
+    "sourceId": "kyungdong-campus3-general-notice",
+    "sourceUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "kyungdong-university-제2캠퍼",
+    "universityName": "경동대학교 제2캠퍼",
+    "sourceId": "kyungdong-campus2-general-notice",
+    "sourceUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "kyungdong-university-본교",
+    "universityName": "경동대학교",
+    "sourceId": "kyungdong-main-general-notice",
+    "sourceUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "konkuk-university-분교",
+    "universityName": "건국대학교(글로컬) 분교",
+    "sourceId": "konkuk-glocal-today-news",
+    "sourceUrl": "https://www.kku.ac.kr/cms/FR_CON/BoardList.do?BOARD_SEQ=33&MENU_ID=1810&SITE_NO=2",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "korea-university-sejong-campus-분교",
+    "universityName": "고려대학교(세종) 분교",
+    "sourceId": "korea-official-news",
+    "sourceUrl": "https://www.korea.ac.kr/",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "dankook-university-제2캠퍼",
+    "universityName": "단국대학교 제2캠퍼",
+    "sourceId": "dankook-cheonan-university-news",
+    "sourceUrl": "https://www.dankook.ac.kr/web/kor/-550",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "dankook-university-제2캠퍼",
+    "universityName": "단국대학교 제2캠퍼",
+    "sourceId": "dankook-cheonan-general-notice",
+    "sourceUrl": "https://www.dankook.ac.kr/web/kor/-390",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "yonsei-university-mirae-campus-분교",
+    "universityName": "연세대학교(미래) 분교",
+    "sourceId": "yonsei-school-news",
+    "sourceUrl": "https://news.yonsei.ac.kr/",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "hanyang-university-erica-campus-분교",
+    "universityName": "한양대학교(ERICA) 분교",
+    "sourceId": "hanyang-school-notice",
+    "sourceUrl": "https://www.hanyang.ac.kr/web/www/notice_all",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  },
+  {
+    "universityId": "yonsei-university-international",
+    "universityName": "연세대학교 국제캠퍼스",
+    "sourceId": "yonsei-school-news",
+    "sourceUrl": "https://news.yonsei.ac.kr/",
+    "healthStatus": "unknown",
+    "reason": "최종 247개 검증 전에는 자동 수집을 활성화하지 않습니다."
+  }
+]

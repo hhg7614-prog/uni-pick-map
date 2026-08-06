@@ -1,0 +1,158 @@
+[
+  {
+    "id": "phase3-4746cb5ef5ef09e5",
+    "title": "젠더를 둘러싼 질문, 학부와 대학원이 함께 논하다",
+    "sourceUrl": "https://www.snu.ac.kr/snunow/snu_story?md=v&bbsidx=173567",
+    "normalizedSourceUrl": "https://www.snu.ac.kr/snunow/snu_story?md=v&bbsidx=173567",
+    "duplicateReason": "same_source_url",
+    "existing": {
+      "id": "phase3-4746cb5ef5ef09e5",
+      "title": "젠더를 둘러싼 질문, 학부와 대학원이 함께 논하다",
+      "sourceUrl": "https://www.snu.ac.kr/snunow/snu_story?md=v&bbsidx=173567"
+    }
+  },
+  {
+    "id": "phase3-9860389aacae49f4",
+    "title": "창작의 과정을 전시하다, Student-Up 전시 《공(간)감각》",
+    "sourceUrl": "https://www.snu.ac.kr/snunow/snu_story?md=v&bbsidx=173564",
+    "normalizedSourceUrl": "https://www.snu.ac.kr/snunow/snu_story?md=v&bbsidx=173564",
+    "duplicateReason": "same_source_url",
+    "existing": {
+      "id": "phase3-9860389aacae49f4",
+      "title": "창작의 과정을 전시하다, Student-Up 전시 《공(간)감각》",
+      "sourceUrl": "https://www.snu.ac.kr/snunow/snu_story?md=v&bbsidx=173564"
+    }
+  },
+  {
+    "id": "phase3-d8961b276d94b632",
+    "title": "경계를 넘어 지역과 함께, 대학연대 지역인재양성 사업단",
+    "sourceUrl": "https://www.snu.ac.kr/snunow/snu_story?md=v&bbsidx=173465",
+    "normalizedSourceUrl": "https://www.snu.ac.kr/snunow/snu_story?md=v&bbsidx=173465",
+    "duplicateReason": "same_source_url",
+    "existing": {
+      "id": "phase3-d8961b276d94b632",
+      "title": "경계를 넘어 지역과 함께, 대학연대 지역인재양성 사업단",
+      "sourceUrl": "https://www.snu.ac.kr/snunow/snu_story?md=v&bbsidx=173465"
+    }
+  },
+  {
+    "id": "phase3-1bb0c5e10b6c14fa",
+    "title": "생성형 AI로 도시설계, 글쓰기, 음악창작까지? AI ‘잘 쓰는 법’ 알려주는 서울대 수업들",
+    "sourceUrl": "https://www.snu.ac.kr/snunow/snu_story?md=v&bbsidx=173378",
+    "normalizedSourceUrl": "https://www.snu.ac.kr/snunow/snu_story?md=v&bbsidx=173378",
+    "duplicateReason": "same_source_url",
+    "existing": {
+      "id": "phase3-1bb0c5e10b6c14fa",
+      "title": "생성형 AI로 도시설계, 글쓰기, 음악창작까지? AI ‘잘 쓰는 법’ 알려주는 서울대 수업들",
+      "sourceUrl": "https://www.snu.ac.kr/snunow/snu_story?md=v&bbsidx=173378"
+    }
+  },
+  {
+    "id": "phase3-b20800decf4b0496",
+    "title": "우리 대학교, 과기정통부 ‘리더연구자’ 전국 최다 6명 선정",
+    "sourceUrl": "https://news.yonsei.ac.kr/kr/academia/detail?bbSeq=35911&bbCategory=fr",
+    "normalizedSourceUrl": "https://news.yonsei.ac.kr/kr/academia/detail?bbSeq=35911&bbCategory=fr",
+    "duplicateReason": "same_source_url",
+    "existing": {
+      "id": "phase3-b20800decf4b0496",
+      "title": "우리 대학교, 과기정통부 ‘리더연구자’ 전국 최다 6명 선정",
+      "sourceUrl": "https://news.yonsei.ac.kr/kr/academia/detail?bbSeq=35911&bbCategory=fr"
+    }
+  },
+  {
+    "id": "phase3-6be61161ba6c2401",
+    "title": "AI와 대학교육의 과제",
+    "sourceUrl": "https://news.yonsei.ac.kr/kr/academia/detail?bbSeq=35592&bbCategory=hs",
+    "normalizedSourceUrl": "https://news.yonsei.ac.kr/kr/academia/detail?bbSeq=35592&bbCategory=hs",
+    "duplicateReason": "same_source_url",
+    "existing": {
+      "id": "phase3-6be61161ba6c2401",
+      "title": "AI와 대학교육의 과제",
+      "sourceUrl": "https://news.yonsei.ac.kr/kr/academia/detail?bbSeq=35592&bbCategory=hs"
+    }
+  },
+  {
+    "id": "phase3-1cff45f3d6f6fc10",
+    "title": "케이팝 안무, 법은 어디까지 보호할 수 있을까",
+    "sourceUrl": "https://news.yonsei.ac.kr/kr/academia/detail?bbSeq=36023",
+    "normalizedSourceUrl": "https://news.yonsei.ac.kr/kr/academia/detail?bbSeq=36023",
+    "duplicateReason": "same_source_url",
+    "existing": {
+      "id": "phase3-1cff45f3d6f6fc10",
+      "title": "케이팝 안무, 법은 어디까지 보호할 수 있을까",
+      "sourceUrl": "https://news.yonsei.ac.kr/kr/academia/detail?bbSeq=36023"
+    }
+  },
+  {
+    "id": "phase3-61f7f069622a17a2",
+    "title": "김현재 교수팀, 산화물 반도체 트랜지스터 채널 직접 이온주입 기술 개발",
+    "sourceUrl": "https://news.yonsei.ac.kr/kr/academia/detail?bbSeq=36021",
+    "normalizedSourceUrl": "https://news.yonsei.ac.kr/kr/academia/detail?bbSeq=36021",
+    "duplicateReason": "same_source_url",
+    "existing": {
+      "id": "phase3-61f7f069622a17a2",
+      "title": "김현재 교수팀, 산화물 반도체 트랜지스터 채널 직접 이온주입 기술 개발",
+      "sourceUrl": "https://news.yonsei.ac.kr/kr/academia/detail?bbSeq=36021"
+    }
+  },
+  {
+    "id": "phase3-14bccb710c238aeb",
+    "title": "TEDxHanyangU 29회차 오거나이저 모집 (~8/16)",
+    "sourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114502",
+    "normalizedSourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114502",
+    "duplicateReason": "same_source_url",
+    "existing": {
+      "id": "phase3-14bccb710c238aeb",
+      "title": "TEDxHanyangU 29회차 오거나이저 모집 (~8/16)",
+      "sourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114502"
+    }
+  },
+  {
+    "id": "phase3-3ce6f5a55929c716",
+    "title": "[AI융합교수학습팀] 2026-2학기 장학조교 모집",
+    "sourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114501",
+    "normalizedSourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114501",
+    "duplicateReason": "same_source_url",
+    "existing": {
+      "id": "phase3-3ce6f5a55929c716",
+      "title": "[AI융합교수학습팀] 2026-2학기 장학조교 모집",
+      "sourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114501"
+    }
+  },
+  {
+    "id": "phase3-df284062893f6108",
+    "title": "[2026년 8월 학위수여식] 일반대학원 석사/박사학위 수여자 참여 안내 (수정)",
+    "sourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114303",
+    "normalizedSourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114303",
+    "duplicateReason": "same_source_url",
+    "existing": {
+      "id": "phase3-df284062893f6108",
+      "title": "[2026년 8월 학위수여식] 일반대학원 석사/박사학위 수여자 참여 안내 (수정)",
+      "sourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114303"
+    }
+  },
+  {
+    "id": "phase3-85e488800c3d5065",
+    "title": "[한양YK인터칼리지] 2026-2학기 Intercollege Leaders (학부 교과목 Tutor) 모집",
+    "sourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114401",
+    "normalizedSourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114401",
+    "duplicateReason": "same_source_url",
+    "existing": {
+      "id": "phase3-85e488800c3d5065",
+      "title": "[한양YK인터칼리지] 2026-2학기 Intercollege Leaders (학부 교과목 Tutor) 모집",
+      "sourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114401"
+    }
+  },
+  {
+    "id": "phase3-d55fca3ec05c28c3",
+    "title": "[한양YK인터칼리지] 2026-2학기 무료 집중 영어 코스(SPARK) 참여자 모집 (~8.21.(금)까지)",
+    "sourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114302",
+    "normalizedSourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114302",
+    "duplicateReason": "same_source_url",
+    "existing": {
+      "id": "phase3-d55fca3ec05c28c3",
+      "title": "[한양YK인터칼리지] 2026-2학기 무료 집중 영어 코스(SPARK) 참여자 모집 (~8.21.(금)까지)",
+      "sourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114302"
+    }
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "universityId": "knut-uiwang-campus",
+    "assetType": "image",
+    "source": "https://commons.wikimedia.org/wiki/File:Korea_National_University_of_Transportation_(Uiwang_Campus).JPG",
+    "error": "HTTP 429: Wikimedia Commons request rate limit",
+    "recordedAt": "2026-08-03",
+    "status": "deferred"
+  }
+]

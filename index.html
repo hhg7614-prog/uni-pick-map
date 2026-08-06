@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b5de8">
+  <title>UNI PICK | 전국 대학 지도</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="style.css?v=20260805-news-preview">
+</head>
+<body>
+  <header class="topbar">
+    <button class="brand" data-action="home" aria-label="UNI PICK 홈으로">UNI PICK <span>전국 대학 지도</span></button>
+    <nav class="main-nav" aria-label="주요 메뉴">
+      <button class="active" data-action="home">홈</button>
+      <button data-action="find">대학 찾기</button>
+      <button data-action="news">학교 소식</button>
+    </nav>
+    <div class="header-tools">
+      <button id="open-search" aria-label="대학 검색" title="대학 검색">⌕</button>
+      <button id="open-notices" aria-label="알림" title="알림">♧ <span>알림</span></button>
+      <button id="login-button" class="login-button">로그인</button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <section class="map-area" aria-label="전국 대학 지도">
+      <div id="map"></div>
+      <div class="map-search-card">
+        <form id="map-search-form" class="map-search-box">
+          <label class="sr-only" for="map-university-search">대학교 검색</label>
+          <input id="map-university-search" class="map-university-search-input" type="search" autocomplete="off" placeholder="" aria-label="대학교 검색">
+          <button id="map-search-submit" class="map-search-submit" type="submit" aria-label="검색 실행" title="검색"><span aria-hidden="true">➜</span></button>
+        </form>
+        <div id="university-search-suggestions" class="university-search-suggestions" role="listbox" hidden></div>
+        <div class="layer-chips" role="group" aria-label="대학 필터">
+          <button class="active" data-filter="all">전체 대학</button>
+          <button data-filter="public">국공립 대학</button>
+        </div>
+      </div>
+      <div class="map-controls" aria-label="지도 도구">
+        <button id="toggle-marker-layer" aria-label="대학 마커 표시 전환" title="대학 마커">▱</button>
+        <button id="zoom-in" aria-label="지도 확대" title="확대">+</button>
+        <button id="zoom-out" aria-label="지도 축소" title="축소">−</button>
+      </div>
+
+      <section id="university-map-card" class="university-map-card" aria-hidden="true" hidden>
+        <button id="close-university-map-card" class="university-map-card-close" type="button" aria-label="학교 정보 닫기">×</button>
+        <div class="university-card-header">
+          <div><h2 id="university-map-card-title"></h2><p id="university-map-card-campus"></p></div>
+          <div class="university-card-emblem-wrap"><img id="university-map-card-emblem" src="assets/university-emblems/placeholder-emblem.svg" alt="" loading="lazy"></div>
+        </div>
+        <dl class="university-card-info">
+          <div><dt>지역</dt><dd id="university-map-card-region"></dd></div>
+          <div><dt>설립 구분</dt><dd id="university-map-card-type"></dd></div>
+          <div><dt>학교 유형</dt><dd id="university-map-card-category"></dd></div>
+          <div><dt>대표 분야</dt><dd id="university-map-card-fields"></dd></div>
+          <div><dt>등록 학과</dt><dd id="university-map-card-majors"></dd></div>
+        </dl>
+        <button id="open-university-detail" class="primary-button" type="button">상세 정보 보기</button>
+      </section>
+
+      <div class="bottom-search-wrap">
+      <form id="news-query-form" class="bottom-query" role="search">
+        <label class="sr-only" for="news-query">대학 소식 검색</label>
+        <input id="news-query" placeholder="궁금한 대학 소식을 찾아보세요.">
+        <button type="button" id="voice-button" aria-label="음성 검색 준비 중" title="음성 검색 준비 중">♩</button>
+        <button type="submit" aria-label="소식 검색">➜</button>
+        <p>예) 서울대 연구 성과, 행사 일정, 공지사항 검색</p>
+      </form>
+      <div id="news-university-suggestions" class="university-search-suggestions bottom-suggestions" role="listbox" hidden></div>
+      </div>
+    </section>
+
+    <aside id="news-panel" class="news-panel" aria-label="학교 소식 패널">
+      <div id="news-panel-resizer" class="panel-resizer" role="separator" aria-orientation="vertical" aria-label="학교 소식 패널 너비 조절" aria-valuemin="340" aria-valuemax="760" aria-valuenow="420" tabindex="0"></div>
+      <header class="news-panel-header">
+        <div><p class="eyebrow">UNI PICK NEWS</p><h1>학교 소식</h1><p>전국 대학의 최신 소식과 캠퍼스 업데이트를 확인하세요.</p></div>
+        <div class="panel-actions"><button id="open-collection-report" aria-label="수집 보고서 열기" title="수집 보고서">▣</button><button id="refresh-news" aria-label="소식 새로고침" title="새로고침">↻</button><button id="news-panel-toggle" aria-label="패널 접기" aria-expanded="true">⌄</button></div>
+      </header>
+      <div class="news-tabs" role="tablist" aria-label="소식 종류">
+        <button class="active" data-news-category="all" role="tab" aria-selected="true">전체</button>
+        <button data-news-category="news" role="tab" aria-selected="false">뉴스 기사</button>
+        <button data-news-category="notice" role="tab" aria-selected="false">공지사항</button>
+        <button data-news-category="event" role="tab" aria-selected="false">행사 소식</button>
+      </div>
+      <div id="selected-school-context" class="selected-school-context">전국 대학 주요 소식을 보고 있습니다.</div>
+      <section id="news-list" class="news-list" aria-live="polite"></section>
+      <button id="load-more-news" class="more-news-button">더 많은 소식 보기</button>
+      <section class="quick-actions" aria-label="빠른 소식 보기">
+        <button data-news-category="all"><b>학교 소식</b><span>전체 소식 보기</span></button>
+        <button data-news-category="notice"><b>공지사항</b><span>학교 공지 확인</span></button>
+        <button data-news-category="news"><b>뉴스 기사</b><span>최신 뉴스 보기</span></button>
+        <button data-news-category="event"><b>행사 소식</b><span>행사 일정 확인</span></button>
+      </section>
+    </aside>
+  </main>
+
+  <dialog id="info-dialog"><button class="dialog-close" aria-label="닫기">×</button><div id="dialog-content"></div></dialog>
+  <dialog id="collection-report-dialog" class="collection-report-dialog"><button class="dialog-close" id="close-collection-report" aria-label="닫기">×</button><div id="collection-report-content" aria-live="polite"></div></dialog>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="universities.js?v=20260805-restore"></script>
+  <script src="script.js?v=20260805-news-preview-8-report"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "phase": 3,
+  "startedAt": "2026-08-05T01:57:49.474Z",
+  "completedAt": "2026-08-05T01:57:53.856Z",
+  "targetUniversities": 3,
+  "targetSources": 12,
+  "successfulSources": 3,
+  "failedSources": 0,
+  "skippedSources": 9,
+  "collectedItems": 13,
+  "duplicateItems": 0,
+  "invalidItems": 1,
+  "byUniversity": [
+    {
+      "universityId": "seoul-national-university-gwanak",
+      "universityName": "서울대학교",
+      "collectedItems": 4,
+      "successfulSources": 1,
+      "failedSources": 0,
+      "selectorRequiredSources": 2
+    },
+    {
+      "universityId": "yonsei-university-sinchon",
+      "universityName": "연세대학교",
+      "collectedItems": 4,
+      "successfulSources": 1,
+      "failedSources": 0,
+      "selectorRequiredSources": 2
+    },
+    {
+      "universityId": "hanyang-university-seoul",
+      "universityName": "한양대학교",
+      "collectedItems": 5,
+      "successfulSources": 1,
+      "failedSources": 0,
+      "selectorRequiredSources": 2
+    }
+  ],
+  "byCategory": {
+    "school_news": 8,
+    "school_notice": 5
+  },
+  "errors": []
+}

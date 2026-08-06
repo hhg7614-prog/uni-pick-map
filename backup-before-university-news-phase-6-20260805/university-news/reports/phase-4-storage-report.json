@@ -1,0 +1,16 @@
+{
+  "phase": 4,
+  "startedAt": "2026-08-05T02:06:11.643Z",
+  "completedAt": "2026-08-05T02:06:11.649Z",
+  "inputItems": 13,
+  "validItems": 13,
+  "newItems": 0,
+  "duplicates": 13,
+  "duplicateCandidates": 0,
+  "invalidItems": 0,
+  "storeBefore": 13,
+  "storeAfter": 13,
+  "byUniversity": {},
+  "byCategory": {},
+  "errors": []
+}

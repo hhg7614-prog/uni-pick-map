@@ -1,0 +1,23 @@
+{
+  "phase": 6,
+  "provider": "mock",
+  "model": "rule-based-test",
+  "startedAt": "2026-08-05T03:57:41.707Z",
+  "completedAt": "2026-08-05T03:57:41.713Z",
+  "targetItems": 13,
+  "processedItems": 13,
+  "successfulItems": 13,
+  "failedItems": 0,
+  "skippedItems": 0,
+  "importantItems": 6,
+  "unimportantItems": 7,
+  "lowConfidenceItems": 0,
+  "byCategory": {
+    "school_news": 6,
+    "school_notice": 5,
+    "media_news": 0,
+    "school_event": 2
+  },
+  "errors": [],
+  "storeBackup": "D:\\hhg(code)\\development\\university-news\\backups\\university-news-store-before-ai-20260805-035741.json"
+}

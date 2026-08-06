@@ -1,0 +1,145 @@
+[
+  {
+    "id": "incheon-national-university-computer-engineering",
+    "universityId": "incheon-national-university-본교",
+    "universityName": "인천대학교",
+    "campusName": "송도캠퍼스",
+    "collegeName": "정보기술대학",
+    "departmentName": "컴퓨터공학부",
+    "departmentKeywords": ["컴퓨터", "컴퓨터공학", "소프트웨어", "인공지능", "데이터"],
+    "source": "https://cse.inu.ac.kr/",
+    "verifiedAt": "2026-08-03"
+  },
+  {
+    "id": "donga-university-bumin-social-welfare",
+    "universityId": "dong-a-university-bumin",
+    "universityName": "동아대학교 부민캠퍼스",
+    "campusName": "부민캠퍼스",
+    "collegeName": "사회과학대학",
+    "departmentName": "사회복지학과",
+    "departmentKeywords": ["사회복지", "사회복지학", "상담", "복지"],
+    "source": "https://www.donga.ac.kr/sosowel/CMS/Contents/Contents.do?mCode=MN020",
+    "verifiedAt": "2026-08-03"
+  },
+  {
+    "id": "kaist-mechanical-engineering",
+    "universityId": "kaist-daejeon",
+    "universityName": "한국과학기술원",
+    "campusName": "대전 본교",
+    "collegeName": "공과대학",
+    "departmentName": "기계공학과",
+    "departmentKeywords": ["기계공학", "자율주행", "로봇", "모빌리티"],
+    "source": "https://www.kaist.ac.kr/kr/html/edu/03.html",
+    "verifiedAt": "2026-08-03"
+  },
+  {
+    "id": "kaist-electrical-engineering",
+    "universityId": "kaist-daejeon",
+    "universityName": "한국과학기술원",
+    "campusName": "대전 본교",
+    "collegeName": "공과대학",
+    "departmentName": "전기및전자공학부",
+    "departmentKeywords": ["전자공학", "전기및전자공학", "자율주행", "로봇", "인공지능"],
+    "source": "https://www.kaist.ac.kr/kr/html/edu/03.html",
+    "verifiedAt": "2026-08-03"
+  },
+  {
+    "id": "kaist-computer-science",
+    "universityId": "kaist-daejeon",
+    "universityName": "한국과학기술원",
+    "campusName": "대전 본교",
+    "collegeName": "공과대학",
+    "departmentName": "전산학부",
+    "departmentKeywords": ["컴퓨터", "컴퓨터과학", "소프트웨어", "인공지능", "전산"],
+    "source": "https://www.kaist.ac.kr/kr/html/edu/03.html",
+    "verifiedAt": "2026-08-03"
+  },
+  {
+    "id": "kaist-ai-computing",
+    "universityId": "kaist-daejeon",
+    "universityName": "한국과학기술원",
+    "campusName": "대전 본교",
+    "collegeName": "공과대학",
+    "departmentName": "AI컴퓨팅학과",
+    "departmentKeywords": ["컴퓨터", "소프트웨어", "인공지능", "데이터"],
+    "source": "https://kaist.ac.kr/",
+    "verifiedAt": "2026-08-03"
+  },
+  {
+    "id": "seoul-national-university-of-education-primary-education",
+    "universityId": "seoul-national-university-of-education",
+    "universityName": "서울교육대학교",
+    "campusName": "본교",
+    "collegeName": "초등교육과정",
+    "departmentName": "초등교육과",
+    "departmentKeywords": ["교육", "초등교육", "교육학", "상담"],
+    "source": "https://www.snue.ac.kr/",
+    "verifiedAt": "2026-08-03"
+  },
+  {
+    "id": "pusan-national-university-social-welfare",
+    "universityId": "pusan-national-university",
+    "universityName": "부산대학교",
+    "campusName": "부산캠퍼스",
+    "collegeName": "사회과학대학",
+    "departmentName": "사회복지학과",
+    "departmentKeywords": ["사회복지", "사회복지학", "상담", "복지"],
+    "source": "https://go.pusan.ac.kr/down/board/RF%280%29_240117163943.pdf",
+    "verifiedAt": "2026-08-03"
+  },
+  {
+    "id": "seoul-national-university-gwanak-computer-engineering",
+    "universityId": "seoul-national-university-gwanak",
+    "universityName": "서울대학교",
+    "campusName": "관악캠퍼스",
+    "collegeName": "공과대학",
+    "departmentName": "컴퓨터공학부",
+    "departmentKeywords": ["컴퓨터", "컴퓨터공학", "소프트웨어", "인공지능", "데이터"],
+    "source": "https://cse.snu.ac.kr/about/overview",
+    "verifiedAt": "2026-08-03"
+  },
+  {
+    "id": "yonsei-university-sinchon-advanced-computing",
+    "universityId": "yonsei-university-sinchon",
+    "universityName": "연세대학교 신촌캠퍼스",
+    "campusName": "신촌캠퍼스",
+    "collegeName": "인공지능융합대학",
+    "departmentName": "첨단컴퓨팅학부",
+    "departmentKeywords": ["컴퓨터", "컴퓨터과학", "소프트웨어", "인공지능", "인공지능시스템"],
+    "source": "https://cs.yonsei.ac.kr/csai/intro/greetings.do",
+    "verifiedAt": "2026-08-03"
+  },
+  {
+    "id": "korea-university-seoul-computer-science",
+    "universityId": "korea-university-seoul",
+    "universityName": "고려대학교 서울캠퍼스",
+    "campusName": "서울캠퍼스",
+    "collegeName": "정보대학",
+    "departmentName": "컴퓨터학과",
+    "departmentKeywords": ["컴퓨터", "컴퓨터과학", "소프트웨어", "인공지능", "전산"],
+    "source": "https://cs.korea.ac.kr/",
+    "verifiedAt": "2026-08-03"
+  },
+  {
+    "id": "hanyang-university-seoul-computer-software",
+    "universityId": "hanyang-university-seoul",
+    "universityName": "한양대학교 서울캠퍼스",
+    "campusName": "서울캠퍼스",
+    "collegeName": "소프트웨어대학",
+    "departmentName": "컴퓨터소프트웨어학부",
+    "departmentKeywords": ["컴퓨터", "컴퓨터공학", "소프트웨어", "인공지능", "데이터베이스"],
+    "source": "https://cs.hanyang.ac.kr/about/summary.php",
+    "verifiedAt": "2026-08-03"
+  },
+  {
+    "id": "hanyang-university-seoul-future-automotive",
+    "universityId": "hanyang-university-seoul",
+    "universityName": "한양대학교 서울캠퍼스",
+    "campusName": "서울캠퍼스",
+    "collegeName": "공과대학",
+    "departmentName": "미래자동차공학과",
+    "departmentKeywords": ["자율주행", "자동차공학", "미래자동차공학", "모빌리티", "기계공학"],
+    "source": "https://www.hanyang.ac.kr/documents/portlet_file_entry/20122/%EB%B6%99%EC%9E%841%28%EC%88%98%EC%A0%95%EB%B3%B8%29.2026%2B%EC%A0%84%EA%B3%BC%EB%AA%A8%EC%A7%91%EC%A0%95%EC%9B%90%2B%EB%B0%8F%2B%EB%A9%B4%EC%A0%91%EC%97%AC%EB%B6%80%2B%EC%95%88%EB%82%B4%EB%AC%B8.pdf/8c5557b2-c564-2273-96d4-46a7fdaf58ef?download=true&status=0",
+    "verifiedAt": "2026-08-03"
+  }
+]

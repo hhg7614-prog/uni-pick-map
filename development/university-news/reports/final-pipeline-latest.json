@@ -1,0 +1,14 @@
+{
+  "phase": "final",
+  "generatedAt": "2026-08-05T06:20:55.271Z",
+  "dryRun": true,
+  "targetUniversityRecords": 247,
+  "configuredUniversities": 40,
+  "unresolvedUniversities": 207,
+  "expectedNetworkRequests": 0,
+  "expectedDetailLinkChecks": 0,
+  "expectedAiRequests": 0,
+  "automaticScheduleEnabled": false,
+  "status": "dry_run",
+  "message": "외부 요청 없이 대상과 미해결 출처만 확인했습니다."
+}

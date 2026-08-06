@@ -1,0 +1,1724 @@
+[
+  {
+    "universityId": "korea-university-seoul",
+    "universityName": "고려대학교 서울캠퍼스",
+    "logoStatus": "review-required",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "yonsei-university-sinchon",
+    "universityName": "연세대학교 신촌캠퍼스",
+    "logoStatus": "review-required",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "skku-university-insa",
+    "universityName": "성균관대학교 인사캠퍼스",
+    "logoStatus": "review-required",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hanyang-university-seoul",
+    "universityName": "한양대학교 서울캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "university-of-seoul",
+    "universityName": "서울시립대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "konkuk-university-seoul",
+    "universityName": "건국대학교 서울캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "cau-university-seoul",
+    "universityName": "중앙대학교 서울캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kyunghee-university-seoul",
+    "universityName": "경희대학교 서울캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "pusan-national-university",
+    "universityName": "부산대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "inha-university",
+    "universityName": "인하대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kyungpook-national-university",
+    "universityName": "경북대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "chonbuk-national-university",
+    "universityName": "전북대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "chonnam-national-university",
+    "universityName": "전남대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "jeju-national-university",
+    "universityName": "제주대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "chungnam-national-university",
+    "universityName": "충남대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "chungbuk-national-university",
+    "universityName": "충북대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kangwon-national-university",
+    "universityName": "강원대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gyeongsang-national-university",
+    "universityName": "경상국립대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "busan-national-university-of-education",
+    "universityName": "부산교육대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "seoul-national-university-of-education",
+    "universityName": "서울교육대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "korea-national-university-of-education",
+    "universityName": "한국교원대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "korea-university-of-technology-and-education",
+    "universityName": "한국기술교육대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "korea-marine-and-ocean-university",
+    "universityName": "한국해양대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "korea-aerospace-university",
+    "universityName": "한국항공대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "ewha-womans-university",
+    "universityName": "이화여자대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "sogang-university",
+    "universityName": "서강대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hufs-seoul",
+    "universityName": "한국외국어대학교 서울캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "dongguk-university-seoul",
+    "universityName": "동국대학교 서울캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hongik-university-seoul",
+    "universityName": "홍익대학교 서울캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kookmin-university",
+    "universityName": "국민대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "soongsil-university",
+    "universityName": "숭실대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "sejong-university",
+    "universityName": "세종대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "ajou-university",
+    "universityName": "아주대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gachon-university-global",
+    "universityName": "가천대학교 글로벌캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "dankook-university-jukjeon",
+    "universityName": "단국대학교 죽전캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kyonggi-university-suwon",
+    "universityName": "경기대학교 수원캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kaist-daejeon",
+    "universityName": "한국과학기술원",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "postech",
+    "universityName": "포항공과대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "unist",
+    "universityName": "울산과학기술원",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "dgist",
+    "universityName": "대구경북과학기술원",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "pukyong-national-university-daeyeon",
+    "universityName": "부경대학교 대연캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "donga-university-seunghak",
+    "universityName": "동아대학교 승학캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "yeungnam-university-gyeongsan",
+    "universityName": "영남대학교 경산캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "chosun-university",
+    "universityName": "조선대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kyungdong-university-제4캠퍼",
+    "universityName": "경동대학교 제4캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kyungdong-university-제3캠퍼",
+    "universityName": "경동대학교 제3캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kyungdong-university-제2캠퍼",
+    "universityName": "경동대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kyungdong-university-본교",
+    "universityName": "경동대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kyungnam-university-본교",
+    "universityName": "경남대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kyonggi-university-제2캠퍼",
+    "universityName": "경기대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "konyang-university-제2캠퍼",
+    "universityName": "건양대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "konyang-university-본교",
+    "universityName": "건양대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "konkuk-university-분교",
+    "universityName": "건국대학교(글로컬) 분교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gangseo-university-본교",
+    "universityName": "강서대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kangnam-university-본교",
+    "universityName": "강남대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "methodist-theological-university-본교",
+    "universityName": "감리교신학대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "the-catholic-university-of-korea-제3캠퍼",
+    "universityName": "가톨릭대학교 제3캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "the-catholic-university-of-korea-제2캠퍼",
+    "universityName": "가톨릭대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "the-catholic-university-of-korea-본교",
+    "universityName": "가톨릭대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "catholic-kwandong-university-본교",
+    "universityName": "가톨릭관동대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kaya-university-본교",
+    "universityName": "가야대학교(김해)",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kaya-university-제2캠퍼",
+    "universityName": "가야대학교(고령) 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "mokpo-national-university-본교",
+    "universityName": "국립목포대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kumoh-national-institute-of-technology-본교",
+    "universityName": "국립금오공과대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kunsan-national-university-본교",
+    "universityName": "국립군산대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kongju-national-university-본교",
+    "universityName": "국립공주대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gyeongguk-national-university-본교",
+    "universityName": "국립경국대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gangneung-wonju-national-university-제2캠퍼",
+    "universityName": "국립강릉원주대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gangneung-wonju-national-university-본교",
+    "universityName": "국립강릉원주대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kwangju-womens-university-본교",
+    "universityName": "광주여자대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gwangju-university-본교",
+    "universityName": "광주대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gwangju-national-university-of-education-본교",
+    "universityName": "광주교육대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gwangju-institute-of-science-and-technology-본교",
+    "universityName": "광주과학기술원",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gwangju-catholic-university-본교",
+    "universityName": "광주가톨릭대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kwangwoon-university-본교",
+    "universityName": "광운대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kwangshin-university-본교",
+    "universityName": "광신대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gongju-national-university-of-education-본교",
+    "universityName": "공주교육대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kosin-university-본교",
+    "universityName": "고신대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "korea-university-sejong-campus-분교",
+    "universityName": "고려대학교(세종) 분교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "keimyung-university-본교",
+    "universityName": "계명대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kyungil-university-본교",
+    "universityName": "경일대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gyeongin-national-university-of-education-제2캠퍼",
+    "universityName": "경인교육대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gyeongin-national-university-of-education-본교",
+    "universityName": "경인교육대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kyungwoon-university-본교",
+    "universityName": "경운대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kyungsung-university-본교",
+    "universityName": "경성대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "daegu-university-본교",
+    "universityName": "대구대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "daegu-national-university-of-education-본교",
+    "universityName": "대구교육대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "daegu-catholic-university-본교",
+    "universityName": "대구가톨릭대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "dankook-university-제2캠퍼",
+    "universityName": "단국대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "namseoul-university-본교",
+    "universityName": "남서울대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "nambu-university-본교",
+    "universityName": "남부대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "korea-nazarene-university-본교",
+    "universityName": "나사렛대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gimcheon-university-본교",
+    "universityName": "김천대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "geumgang-university-본교",
+    "universityName": "금강대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "far-east-university-본교",
+    "universityName": "극동대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hanbat-national-university-본교",
+    "universityName": "국립한밭대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "korea-national-university-of-transportation-본교",
+    "universityName": "국립한국교통대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "changwon-national-university-제3캠퍼",
+    "universityName": "국립창원대학교(남해캠퍼스) 제3캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "changwon-national-university-제2캠퍼",
+    "universityName": "국립창원대학교(거창캠퍼스) 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "changwon-national-university-본교",
+    "universityName": "국립창원대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "sunchon-national-university-본교",
+    "universityName": "국립순천대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "mokpo-national-maritime-university-본교",
+    "universityName": "국립목포해양대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "busan-university-of-foreign-studies-본교",
+    "universityName": "부산외국어대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "catholic-university-of-pusan-본교",
+    "universityName": "부산가톨릭대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "baekseok-university-본교",
+    "universityName": "백석대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "pai-chai-university-본교",
+    "universityName": "배재대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "mokpo-catholic-university-본교",
+    "universityName": "목포가톨릭대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "mokwon-university-본교",
+    "universityName": "목원대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "myongji-university-social-science-campus-제2캠퍼",
+    "universityName": "명지대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "myongji-university-natural-science-campus-본교",
+    "universityName": "명지대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "luther-university-본교",
+    "universityName": "루터대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "dong-eui-university-본교",
+    "universityName": "동의대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "dongyang-university-본교",
+    "universityName": "동양대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "dongshinuniversity-본교",
+    "universityName": "동신대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "dongseo-university-본교",
+    "universityName": "동서대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "tongmyong-university-본교",
+    "universityName": "동명대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "dongduk-womens-university-본교",
+    "universityName": "동덕여자대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "dongguk-university-분교",
+    "universityName": "동국대학교(WISE) 분교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "duksung-womens-university-본교",
+    "universityName": "덕성여자대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "daejin-university-본교",
+    "universityName": "대진대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "daejeon-theological-university-본교",
+    "universityName": "대전신학대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "daejeon-university-본교",
+    "universityName": "대전대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "daejeoncatholicuniversity-본교",
+    "universityName": "대전가톨릭대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "daeshin-university-본교",
+    "universityName": "대신대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "daegu-haany-university-본교",
+    "universityName": "대구한의대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "semyung-university-본교",
+    "universityName": "세명대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "sungshin-womens-university-본교",
+    "universityName": "성신여자대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "sungkonghoe-university-본교",
+    "universityName": "성공회대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "sungkyul-university-본교",
+    "universityName": "성결대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "sun-moon-university-본교",
+    "universityName": "선문대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "seowon-university-본교",
+    "universityName": "서원대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "seoul-hanyoung-university-본교",
+    "universityName": "서울한영대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "seoul-jangsin-university-본교",
+    "universityName": "서울장신대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "seoul-womens-university-본교",
+    "universityName": "서울여자대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "seoul-theological-university-본교",
+    "universityName": "서울신학대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "seoul-christian-university-본교",
+    "universityName": "서울기독대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "seoul-national-university-of-science-and-technology-본교",
+    "universityName": "서울과학기술대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "seokyeong-university-본교",
+    "universityName": "서경대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "sangji-university-본교",
+    "universityName": "상지대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "sangmyung-university-제2캠퍼",
+    "universityName": "상명대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "sangmyung-university-seoul-본교",
+    "universityName": "상명대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "sahmyook-university-본교",
+    "universityName": "삼육대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "busan-presbyterian-university-본교",
+    "universityName": "부산장신대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "yewon-arts-university-본교",
+    "universityName": "예원예술대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "jesus-university-본교",
+    "universityName": "예수대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "youngsan-university-of-seon-studies-본교",
+    "universityName": "영산선학대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "youngsan-university-제2캠퍼",
+    "universityName": "영산대학교(해운대) 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "youngsan-university-본교",
+    "universityName": "영산대학교(양산)",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "youngnam-theological-university-seminary-본교",
+    "universityName": "영남신학대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "yonsei-university-mirae-campus-분교",
+    "universityName": "연세대학교(미래) 분교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "anyang-university-제2캠퍼",
+    "universityName": "안양대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "anyang-university-본교",
+    "universityName": "안양대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "acts-university-본교",
+    "universityName": "아신대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "shinhan-university-제2캠퍼",
+    "universityName": "신한대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "shinhan-unvirsity-본교",
+    "universityName": "신한대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "silla-university-본교",
+    "universityName": "신라대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "singyeongju-university-본교",
+    "universityName": "신경주대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "soonchunhyang-university-본교",
+    "universityName": "순천향대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "sookmyung-womens-university-본교",
+    "universityName": "숙명여자대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "the-university-of-suwon-본교",
+    "universityName": "수원대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "suwon-catholic-university-본교",
+    "universityName": "수원가톨릭대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "songwon-university-본교",
+    "universityName": "송원대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "sehan-university-본교",
+    "universityName": "세한대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "jeonju-university-본교",
+    "universityName": "전주대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "jeonju-national-university-of-education-본교",
+    "universityName": "전주교육대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "presbyterian-university-theological-seminary-본교",
+    "universityName": "장로회신학대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "incheon-national-university-본교",
+    "universityName": "인천대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "incheon-catholic-university-제2캠퍼",
+    "universityName": "인천가톨릭대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "incheon-catholic-university-본교",
+    "universityName": "인천가톨릭대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "inje-university-제2캠퍼",
+    "universityName": "인제대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "inje-university-본교",
+    "universityName": "인제대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "eulji-university-제3캠퍼",
+    "universityName": "을지대학교 제3캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "eulji-university-제2캠퍼",
+    "universityName": "을지대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "eulji-university-본교",
+    "universityName": "을지대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "u1-university-본교",
+    "universityName": "유원대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "uiduk-university-본교",
+    "universityName": "위덕대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "wonkwang-university-본교",
+    "universityName": "원광대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "university-of-ulsan-본교",
+    "universityName": "울산대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "woosong-university-본교",
+    "universityName": "우송대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "woosuk-university-본교",
+    "universityName": "우석대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "yong-in-university-본교",
+    "universityName": "용인대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "yewon-arts-university-제2캠퍼",
+    "universityName": "예원예술대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "tech-university-of-korea-본교",
+    "universityName": "한국공학대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hankyong-national-university-본교",
+    "universityName": "한경국립대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "pyeongtaek-university-본교",
+    "universityName": "평택대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "calvin-university-본교",
+    "universityName": "칼빈대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "chuncheon-national-university-of-education-본교",
+    "universityName": "춘천교육대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "chugye-university-for-the-arts-본교",
+    "universityName": "추계예술대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "chongshin-university-본교",
+    "universityName": "총신대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "chodang-university-본교",
+    "universityName": "초당대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "cheongju-university-본교",
+    "universityName": "청주대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "cheongju-national-university-of-education-본교",
+    "universityName": "청주교육대학교",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "chungwoon-university-본교",
+    "universityName": "청운대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "changshin-university-본교",
+    "universityName": "창신대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "cha-university-본교",
+    "universityName": "차의과학대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "chinju-national-uinversity-of-education-본교",
+    "universityName": "진주교육대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "jungwon-university-본교",
+    "universityName": "중원대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "joong-ang-sangha-university-본교",
+    "universityName": "중앙승가대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "chung-ang-university-제2캠퍼",
+    "universityName": "중앙대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "joongbu-university-본교",
+    "universityName": "중부대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "jejuinternationaluniversity-본교",
+    "universityName": "제주국제대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "haniluniv-presb-theol-sem-본교",
+    "universityName": "한일장신대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hanyang-university-erica-campus-분교",
+    "universityName": "한양대학교(ERICA) 분교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hanshin-university-본교",
+    "universityName": "한신대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hansei-university-본교",
+    "universityName": "한세대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hansung-university-본교",
+    "universityName": "한성대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hanseo-university-본교",
+    "universityName": "한서대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hallym-university-본교",
+    "universityName": "한림대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "halla-university-본교",
+    "universityName": "한라대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "handong-global-university-본교",
+    "universityName": "한동대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hannam-university-본교",
+    "universityName": "한남대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "korea-baptist-theological-university-seminary-본교",
+    "universityName": "한국침례신학대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "korea-national-sport-university-본교",
+    "universityName": "한국체육대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "korea-national-university-of-heritage-본교",
+    "universityName": "한국전통문화대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "korea-institute-of-energy-technology-본교",
+    "universityName": "한국에너지공과대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "korean-bible-university-본교",
+    "universityName": "한국성서대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hwasung-medi-science-university-본교",
+    "universityName": "화성의과학대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hongik-university-제2캠퍼",
+    "universityName": "홍익대학교 제2캠퍼",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "howon-university-본교",
+    "universityName": "호원대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hoseo-university-본교",
+    "universityName": "호서대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "honam-theological-university-seminary-본교",
+    "universityName": "호남신학대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "honam-university-본교",
+    "universityName": "호남대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hyupsung-university-본교",
+    "universityName": "협성대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "catholic-kkottongnae-university",
+    "universityName": "가톨릭꽃동네대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "daegu-arts-university",
+    "universityName": "대구예술대학교",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "sungkyunkwan-university-natural-sciences",
+    "universityName": "성균관대학교 자연과학캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kyunghee-university-global",
+    "universityName": "경희대학교 국제캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "hufs-global-campus",
+    "universityName": "한국외국어대학교 글로벌캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gachon-university-medical",
+    "universityName": "가천대학교 메디컬캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kangwon-national-university-samcheok",
+    "universityName": "강원대학교 삼척캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kangwon-national-university-dogye",
+    "universityName": "강원대학교 도계캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kongju-national-university-cheonan",
+    "universityName": "국립공주대학교 천안캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kongju-national-university-yesan",
+    "universityName": "국립공주대학교 예산캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "knut-jeungpyeong-campus",
+    "universityName": "국립한국교통대학교 증평캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "knut-uiwang-campus",
+    "universityName": "국립한국교통대학교 의왕캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "chungbuk-national-university-osong",
+    "universityName": "충북대학교 오송캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "pusan-national-university-miryang",
+    "universityName": "부산대학교 밀양캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "pusan-national-university-yangsan",
+    "universityName": "부산대학교 양산캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gyeongsang-national-university-chilam",
+    "universityName": "경상국립대학교 칠암캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "gyeongsang-national-university-tongyeong",
+    "universityName": "경상국립대학교 통영캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "kyungpook-national-university-sangju",
+    "universityName": "경북대학교 상주캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "dong-a-university-bumin",
+    "universityName": "동아대학교 부민캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "verified",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "dong-a-university-gudeok",
+    "universityName": "동아대학교 구덕캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "chonnam-national-university-yeosu",
+    "universityName": "전남대학교 여수캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "jeonbuk-national-university-iksan",
+    "universityName": "전북대학교 특성화캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  },
+  {
+    "universityId": "yonsei-university-international",
+    "universityName": "연세대학교 국제캠퍼스",
+    "logoStatus": "missing",
+    "imageStatus": "missing",
+    "reason": "검증된 로컬 이미지 파일 및 출처 레코드가 필요합니다."
+  }
+]

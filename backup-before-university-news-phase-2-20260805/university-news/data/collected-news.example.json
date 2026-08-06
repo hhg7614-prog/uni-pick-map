@@ -1,0 +1,29 @@
+[
+  {
+    "id": "example-news-item",
+    "universityId": "example-university-campus",
+    "universityGroupId": "example-university",
+    "universityName": "예시대학교",
+    "campusName": "본교",
+    "category": "school_news",
+    "categoryLabel": "학교 소식",
+    "title": "예시 소식 항목",
+    "summary": "개발용 데이터 구조를 확인하기 위한 예시입니다.",
+    "contentText": "",
+    "sourceName": "예시 공식 홈페이지",
+    "sourceType": "official",
+    "sourceUrl": "",
+    "sourceSiteUrl": "",
+    "thumbnailUrl": "",
+    "publishedAt": null,
+    "collectedAt": null,
+    "processedAt": null,
+    "urlHash": "",
+    "contentHash": "",
+    "isImportant": null,
+    "keywords": [],
+    "aiProcessed": false,
+    "status": "pending",
+    "errorMessage": null
+  }
+]

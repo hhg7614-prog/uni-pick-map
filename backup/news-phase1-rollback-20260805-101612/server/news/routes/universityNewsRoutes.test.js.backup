@@ -1,0 +1,41 @@
+"use strict";
+
+const test = require("node:test");
+const assert = require("node:assert/strict");
+const { loadData } = require("../../services/dataService");
+const config = require("../../config/newsConfig");
+const { createNewsRepository } = require("../repositories/newsRepository");
+const { createUniversityNewsService } = require("../services/universityNewsService");
+const { handleUniversityNewsRoute } = require("./universityNewsRoutes");
+
+function createService() {
+  const data = loadData();
+  return createUniversityNewsService({
+    repository: createNewsRepository(data.sampleUniversityNews),
+    universities: data.universities,
+    config,
+    sourceEntries: data.universityNewsSources.items,
+  });
+}
+
+test("뉴스 API 라우트는 4개 분류와 개발용 샘플을 반환한다", () => {
+  const response = handleUniversityNewsRoute("/api/news/categories/school_notice", new URLSearchParams(), createService());
+  assert.equal(response.status, 200);
+  assert.equal(response.payload.filters.category, "school_notice");
+  assert.equal(response.payload.items[0].isSample, true);
+});
+
+test("잘못된 분류는 400, 없는 대학은 404를 반환한다", () => {
+  const service = createService();
+  assert.equal(handleUniversityNewsRoute("/api/news/categories/invalid", new URLSearchParams(), service).status, 400);
+  assert.equal(handleUniversityNewsRoute("/api/universities/missing/news", new URLSearchParams(), service).status, 404);
+});
+
+test("상태 API는 실제 247개 대학과 비활성화 상태를 반환한다", () => {
+  const response = handleUniversityNewsRoute("/api/news/status", new URLSearchParams(), createService());
+  assert.equal(response.status, 200);
+  assert.equal(response.payload.registeredUniversityEntries, 247);
+  assert.equal(response.payload.collectorEnabled, false);
+  assert.equal(response.payload.schedulerEnabled, false);
+  assert.equal(response.payload.aiEnabled, false);
+});

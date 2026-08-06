@@ -1,0 +1,16 @@
+{
+  "universityId": "example-university-campus",
+  "universityGroupId": "example-university",
+  "universityName": "예시대학교",
+  "campusName": "본교",
+  "enabled": false,
+  "sources": [
+    { "id": "example-school-news", "category": "school_news", "categoryLabel": "학교 소식", "name": "공식 학교 소식", "sourceType": "official", "collectionType": "html", "listUrl": "", "rssUrl": "", "baseUrl": "", "selectors": {}, "enabled": false, "verified": false, "status": "pending" },
+    { "id": "example-school-notice", "category": "school_notice", "categoryLabel": "학교 공지사항", "name": "공식 공지사항", "sourceType": "official", "collectionType": "html", "listUrl": "", "rssUrl": "", "baseUrl": "", "selectors": {}, "enabled": false, "verified": false, "status": "pending" },
+    { "id": "example-media-news", "category": "media_news", "categoryLabel": "뉴스 기사", "name": "외부 뉴스 검색", "sourceType": "media", "collectionType": "news_api", "listUrl": "", "rssUrl": "", "baseUrl": "", "selectors": {}, "enabled": false, "verified": false, "status": "pending" },
+    { "id": "example-school-event", "category": "school_event", "categoryLabel": "행사 소식", "name": "공식 행사 소식", "sourceType": "official", "collectionType": "html", "listUrl": "", "rssUrl": "", "baseUrl": "", "selectors": {}, "enabled": false, "verified": false, "status": "pending" }
+  ],
+  "searchKeywords": [],
+  "createdAt": null,
+  "updatedAt": null
+}

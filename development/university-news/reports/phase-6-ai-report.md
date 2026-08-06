@@ -1,0 +1,76 @@
+# UNI PICK 뉴스 시스템 6단계 AI 처리 보고서
+
+- 제공자: mock
+- 처리 시각: 2026-08-05T03:57:41.713Z
+- 대상: 13건 / 성공: 13건 / 실패: 0건 / 건너뜀: 0건
+- 중요: 6건 / 제외 후보: 7건 / 낮은 신뢰도: 0건
+
+## 항목별 결과
+
+- 젠더를 둘러싼 질문, 학부와 대학원이 함께 논하다
+  - 기존 → AI 카테고리: school_news → school_news
+  - 중요도/신뢰도: true / 0.78
+  - 키워드: 젠더를, 둘러싼, 질문, 학부와, 대학원이
+  - 결과: completed
+- 창작의 과정을 전시하다, Student-Up 전시 《공(간)감각》
+  - 기존 → AI 카테고리: school_news → school_event
+  - 중요도/신뢰도: false / 0.78
+  - 키워드: 창작의, 과정을, 전시하다, Student, Up
+  - 결과: completed
+- 경계를 넘어 지역과 함께, 대학연대 지역인재양성 사업단
+  - 기존 → AI 카테고리: school_news → school_news
+  - 중요도/신뢰도: false / 0.78
+  - 키워드: 경계를, 넘어, 지역과, 함께, 대학연대
+  - 결과: completed
+- 생성형 AI로 도시설계, 글쓰기, 음악창작까지? AI ‘잘 쓰는 법’ 알려주는 서울대 수업들
+  - 기존 → AI 카테고리: school_news → school_event
+  - 중요도/신뢰도: false / 0.78
+  - 키워드: 생성형, AI로, 도시설계, 글쓰기, 음악창작까지
+  - 결과: completed
+- 우리 대학교, 과기정통부 ‘리더연구자’ 전국 최다 6명 선정
+  - 기존 → AI 카테고리: school_news → school_news
+  - 중요도/신뢰도: true / 0.78
+  - 키워드: 우리, 과기정통부, 리더연구자, 전국, 최다
+  - 결과: completed
+- AI와 대학교육의 과제
+  - 기존 → AI 카테고리: school_news → school_news
+  - 중요도/신뢰도: false / 0.78
+  - 키워드: AI와, 대학교육의, 과제, school, news
+  - 결과: completed
+- 케이팝 안무, 법은 어디까지 보호할 수 있을까
+  - 기존 → AI 카테고리: school_news → school_news
+  - 중요도/신뢰도: false / 0.78
+  - 키워드: 케이팝, 안무, 법은, 어디까지, 보호할
+  - 결과: completed
+- 김현재 교수팀, 산화물 반도체 트랜지스터 채널 직접 이온주입 기술 개발
+  - 기존 → AI 카테고리: school_news → school_news
+  - 중요도/신뢰도: false / 0.78
+  - 키워드: 김현재, 교수팀, 산화물, 반도체, 트랜지스터
+  - 결과: completed
+- TEDxHanyangU 29회차 오거나이저 모집 (~8/16)
+  - 기존 → AI 카테고리: school_notice → school_notice
+  - 중요도/신뢰도: true / 0.78
+  - 키워드: TEDxHanyangU, 29회차, 오거나이저, 모집, 16
+  - 결과: completed
+- [AI융합교수학습팀] 2026-2학기 장학조교 모집
+  - 기존 → AI 카테고리: school_notice → school_notice
+  - 중요도/신뢰도: true / 0.78
+  - 키워드: AI융합교수학습팀, 2026, 2학기, 장학조교, 모집
+  - 결과: completed
+- [2026년 8월 학위수여식] 일반대학원 석사/박사학위 수여자 참여 안내 (수정)
+  - 기존 → AI 카테고리: school_notice → school_notice
+  - 중요도/신뢰도: false / 0.78
+  - 키워드: 2026년, 8월, 학위수여식, 일반대학원, 석사
+  - 결과: completed
+- [한양YK인터칼리지] 2026-2학기 Intercollege Leaders (학부 교과목 Tutor) 모집
+  - 기존 → AI 카테고리: school_notice → school_notice
+  - 중요도/신뢰도: true / 0.78
+  - 키워드: 한양YK인터칼리지, 2026, 2학기, Intercollege, Leaders
+  - 결과: completed
+- [한양YK인터칼리지] 2026-2학기 무료 집중 영어 코스(SPARK) 참여자 모집 (~8.21.(금)까지)
+  - 기존 → AI 카테고리: school_notice → school_notice
+  - 중요도/신뢰도: true / 0.78
+  - 키워드: 한양YK인터칼리지, 2026, 2학기, 무료, 집중
+  - 결과: completed
+
+Mock 결과는 실제 AI가 아니라 규칙 기반 테스트 결과입니다. 원본 제목, URL, 출처, 날짜는 변경하지 않았습니다.

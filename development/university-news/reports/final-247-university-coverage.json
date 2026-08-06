@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-08-05T07:00:31.091Z",
+  "totalUniversityRecords": 247,
+  "configuredUniversities": 51,
+  "verifiedUniversities": 0,
+  "partiallyVerifiedUniversities": 0,
+  "unresolvedUniversities": 196,
+  "coverage": {
+    "schoolNews": 29,
+    "schoolNotice": 26,
+    "schoolEvent": 0,
+    "mediaNews": 0
+  },
+  "sources": {
+    "total": 64,
+    "healthy": 0,
+    "warning": 0,
+    "failing": 0,
+    "disabled": 0,
+    "unknown": 64
+  },
+  "detailLinks": {
+    "verified": 0,
+    "reviewRequired": 0,
+    "mismatch": 0,
+    "homepageRejected": 0,
+    "listPageRejected": 0,
+    "missing": 0
+  },
+  "errors": []
+}

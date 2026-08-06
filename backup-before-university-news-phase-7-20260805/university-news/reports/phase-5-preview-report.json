@@ -1,0 +1,13 @@
+{
+  "phase": 5,
+  "generatedAt": "2026-08-05T03:57:41.764Z",
+  "storeItems": 13,
+  "previewItems": 6,
+  "excludedItems": 0,
+  "byUniversity": {
+    "연세대학교": 1,
+    "서울대학교": 1,
+    "한양대학교": 4
+  },
+  "outputFile": "data/university-news-preview.json"
+}

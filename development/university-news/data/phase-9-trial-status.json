@@ -1,0 +1,25 @@
+{
+  "phase": 9,
+  "trialEnabled": false,
+  "trialStatus": "stopped",
+  "startedAt": "2026-08-05T04:38:01.288Z",
+  "endsAt": "2026-08-06T04:38:01.288Z",
+  "timezone": "Asia/Seoul",
+  "scheduleExpression": "0 */3 * * *",
+  "targetUniversities": [
+    "서울대학교",
+    "연세대학교",
+    "한양대학교"
+  ],
+  "expectedRuns": 8,
+  "completedRuns": 0,
+  "successfulRuns": 0,
+  "partialSuccessRuns": 0,
+  "failedRuns": 0,
+  "skippedOverlapRuns": 0,
+  "lastRunAt": null,
+  "nextRunAt": null,
+  "autoDisableAfterTrial": true,
+  "createdAt": "2026-08-05T04:38:01.288Z",
+  "updatedAt": "2026-08-05T04:44:54.285Z"
+}

@@ -1,0 +1,39 @@
+{
+  "phase": 7,
+  "pipelineRunId": "phase7-20260805-042510-9qv6",
+  "status": "dry_run",
+  "startedAt": "2026-08-05T04:25:10.988Z",
+  "completedAt": "2026-08-05T04:25:10.992Z",
+  "durationMs": 4,
+  "targetUniversities": 3,
+  "targetSources": 12,
+  "collection": {
+    "requestedSources": 3,
+    "successfulSources": 0,
+    "failedSources": 0,
+    "skippedSources": 9,
+    "collectedItems": 0,
+    "invalidItems": 0
+  },
+  "storage": {
+    "newItems": 0,
+    "duplicates": 0,
+    "duplicateCandidates": 0,
+    "storeBefore": 15,
+    "storeAfter": 15
+  },
+  "ai": {
+    "provider": "disabled",
+    "targetItems": 0,
+    "successfulItems": 0,
+    "failedItems": 0,
+    "skippedItems": 0
+  },
+  "preview": {
+    "generated": false,
+    "itemCount": 7,
+    "fallbackPreserved": true
+  },
+  "byUniversity": [],
+  "errors": []
+}

@@ -1,0 +1,13 @@
+{
+  "collectorEnabled": false,
+  "schedulerEnabled": false,
+  "aiEnabled": false,
+  "databaseEnabled": false,
+  "collectionIntervalHours": 3,
+  "batchSize": 50,
+  "maxConcurrency": 5,
+  "requestTimeoutMs": 15000,
+  "requestDelayMs": 1500,
+  "retryCount": 2,
+  "enabledCategories": ["school_news", "school_notice", "media_news", "school_event"]
+}

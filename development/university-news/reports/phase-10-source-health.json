@@ -1,0 +1,102 @@
+[
+  {
+    "universityId": "seoul-national-university-gwanak",
+    "universityName": "서울대학교",
+    "sourceId": "snu-school-news",
+    "sourceName": "서울대학교 서울대뉴스",
+    "url": "https://www.snu.ac.kr/snunow/snu_story",
+    "healthStatus": "unknown",
+    "status": "verified",
+    "reason": "9단계 반복 실행 0회: 건강 상태는 unknown으로 유지"
+  },
+  {
+    "universityId": "yonsei-university-sinchon",
+    "universityName": "연세대학교",
+    "sourceId": "yonsei-school-news",
+    "sourceName": "연세대학교 연세소식",
+    "url": "https://news.yonsei.ac.kr/",
+    "healthStatus": "unknown",
+    "status": "verified",
+    "reason": "9단계 반복 실행 0회: 건강 상태는 unknown으로 유지"
+  },
+  {
+    "universityId": "hanyang-university-seoul",
+    "universityName": "한양대학교",
+    "sourceId": "hanyang-school-notice",
+    "sourceName": "한양대학교 전체 공지",
+    "url": "https://www.hanyang.ac.kr/web/www/notice_all",
+    "healthStatus": "unknown",
+    "status": "verified",
+    "reason": "9단계 반복 실행 0회: 건강 상태는 unknown으로 유지"
+  },
+  {
+    "universityId": "korea-university-seoul",
+    "universityName": "고려대학교",
+    "sourceId": "korea-official-news",
+    "sourceName": "고려대학교 공식 소식",
+    "url": "https://www.korea.ac.kr/",
+    "healthStatus": "unknown",
+    "status": "selector_required",
+    "reason": "공식 도메인 등록 후 selector 검증 대기"
+  },
+  {
+    "universityId": "skku-university-insa",
+    "universityName": "성균관대학교",
+    "sourceId": "skku-official-news",
+    "sourceName": "성균관대학교 공식 소식",
+    "url": "https://www.skku.edu/",
+    "healthStatus": "unknown",
+    "status": "selector_required",
+    "reason": "공식 도메인 등록 후 selector 검증 대기"
+  },
+  {
+    "universityId": "kyunghee-university-seoul",
+    "universityName": "경희대학교",
+    "sourceId": "khu-official-news",
+    "sourceName": "경희대학교 공식 소식",
+    "url": "https://www.khu.ac.kr/",
+    "healthStatus": "unknown",
+    "status": "selector_required",
+    "reason": "공식 도메인 등록 후 selector 검증 대기"
+  },
+  {
+    "universityId": "cau-university-seoul",
+    "universityName": "중앙대학교",
+    "sourceId": "cau-official-news",
+    "sourceName": "중앙대학교 공식 소식",
+    "url": "https://www.cau.ac.kr/",
+    "healthStatus": "unknown",
+    "status": "selector_required",
+    "reason": "공식 도메인 등록 후 selector 검증 대기"
+  },
+  {
+    "universityId": "hufs-seoul",
+    "universityName": "한국외국어대학교",
+    "sourceId": "hufs-official-news",
+    "sourceName": "한국외국어대학교 공식 소식",
+    "url": "https://www.hufs.ac.kr/",
+    "healthStatus": "unknown",
+    "status": "selector_required",
+    "reason": "공식 도메인 등록 후 selector 검증 대기"
+  },
+  {
+    "universityId": "konkuk-university-seoul",
+    "universityName": "건국대학교",
+    "sourceId": "konkuk-official-news",
+    "sourceName": "건국대학교 공식 소식",
+    "url": "https://www.konkuk.ac.kr/",
+    "healthStatus": "unknown",
+    "status": "selector_required",
+    "reason": "공식 도메인 등록 후 selector 검증 대기"
+  },
+  {
+    "universityId": "ewha-womans-university",
+    "universityName": "이화여자대학교",
+    "sourceId": "ewha-official-news",
+    "sourceName": "이화여자대학교 공식 소식",
+    "url": "https://www.ewha.ac.kr/",
+    "healthStatus": "unknown",
+    "status": "selector_required",
+    "reason": "공식 도메인 등록 후 selector 검증 대기"
+  }
+]

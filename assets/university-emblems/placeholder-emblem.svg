@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="대학교 엠블럼 준비 중">
+  <rect width="256" height="256" rx="48" fill="#eef4ff"/>
+  <path d="M44 104 128 62l84 42-84 42-84-42Zm26 18v48c0 16 26 31 58 31s58-15 58-31v-48l-58 29-58-29Z" fill="#0b5de8"/>
+  <path d="M212 105v57" stroke="#0b5de8" stroke-width="10" stroke-linecap="round"/><circle cx="212" cy="174" r="10" fill="#0b5de8"/>
+  <text x="128" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#52617a">EMBLEM</text>
+</svg>
