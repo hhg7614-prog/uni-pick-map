@@ -9,3 +9,5 @@ scripts/run-six-university-news.local.bat
 server/agent/logs/
 server/agent/data/*-backups/
 server/agent/reports/
+server/agent/data/agent-status.json
+server/agent/data/reports/
