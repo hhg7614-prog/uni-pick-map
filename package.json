@@ -4,7 +4,11 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node server/app.js",
-    "test": "node --test"
+    "test": "node --test",
+    "news:agent": "node server/agent/scheduler.js",
+    "news:agent:once": "node server/agent/once.js",
+    "news:agent:status": "node server/agent/status.js",
+    "news:agent:stop": "node server/agent/stop.js"
   },
   "engines": { "node": ">=18" }
 }
