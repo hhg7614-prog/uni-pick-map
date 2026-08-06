@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-06T08:00:15.370Z",
+  "generatedAt": "2026-08-06T08:20:48.465Z",
   "isDevelopmentPreview": false,
   "agentGenerated": true,
-  "totalStoredItems": 20,
+  "totalStoredItems": 21,
   "supportedUniversities": [
     "한양대학교 서울캠퍼스",
     "고려대학교 서울캠퍼스",
@@ -12,6 +12,38 @@
     "이화여자대학교"
   ],
   "items": [
+    {
+      "id": "phase3-046456f87a55412a",
+      "universityId": "hanyang-university-seoul",
+      "universityGroupId": "hanyang-university",
+      "universityName": "한양대학교 서울캠퍼스",
+      "campusName": "서울캠퍼스",
+      "category": "school_notice",
+      "title": "(모집기간 연장)2026년 제23기 한양스타트업아카데미 교육생 모집(~8. 11.(화) 15:00 까지)",
+      "summary": "",
+      "contentText": "",
+      "sourceName": "한양대학교 전체 공지",
+      "sourceType": "official",
+      "sourceUrl": "https://www.hanyang.ac.kr/notice_all?p_p_id=kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_action=view_message&_kr_ac_hanyang_noticeBoard_web_portlet_NoticeBoardPortlet_entryId=114901",
+      "sourceSiteUrl": "https://www.hanyang.ac.kr/web/www/notice_all",
+      "thumbnailUrl": "",
+      "publishedAt": "2026-08-06",
+      "collectedAt": "2026-08-06T08:20:44.889Z",
+      "urlHash": "046456f87a55412afa6bd5f75b18b6d2afc9ae06377f5d7805885a5b6b6d039e",
+      "contentHash": "f461d7c9adc5857b7bbc903363012ec68ce2cd2f5478614170e935b92b89ca1b",
+      "isImportant": null,
+      "keywords": [],
+      "aiProcessed": false,
+      "status": "collected",
+      "errorMessage": null,
+      "isSampleCollection": true,
+      "detailValidation": {
+        "verified": true,
+        "sourceTitle": "(모집기간 연장)2026년 제23기 한양스타트업아카데미 교육생 모집(~8. 11.(화) 15:00 까지)",
+        "sourceDate": "등록일 2026. 8. 6",
+        "attempts": 1
+      }
+    },
     {
       "id": "phase3-84b3e99329d8b4ce",
       "universityId": "hanyang-university-seoul",
