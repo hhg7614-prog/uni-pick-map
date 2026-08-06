@@ -1,6 +1,6 @@
 "use strict";
 
-// Explicit, allow-listed integration trial for exactly five validated universities.
+// Explicit, allow-listed integration trial for validated universities only.
 // It never enables schedules, commits, pushes, or deploys.
 
 const fs = require("fs");
@@ -22,6 +22,7 @@ const EXPECTED_SOURCES = new Map([
   ["korea-university-seoul", "korea-official-news"],
   ["hanyang-university-seoul", "hanyang-school-notice"],
   ["ewha-womans-university", "ewha-official-news"],
+  ["dongguk-university-seoul", "dongguk-seoul-school-news"],
 ]);
 
 function parseOptions(argv) {
@@ -29,7 +30,7 @@ function parseOptions(argv) {
   const ids = (read("--university-ids") || "").split(",").map((value) => value.trim()).filter(Boolean);
   const limit = Number(read("--limit-per-source") || MAX_PER_SOURCE);
   if (ids.length !== EXPECTED_SOURCES.size || new Set(ids).size !== EXPECTED_SOURCES.size || ids.some((id) => !EXPECTED_SOURCES.has(id))) {
-    throw new Error("This integration trial requires exactly the five approved --university-ids.");
+    throw new Error(`This integration trial requires exactly the ${EXPECTED_SOURCES.size} approved --university-ids.`);
   }
   if (!Number.isInteger(limit) || limit < 1 || limit > MAX_PER_SOURCE) throw new Error(`--limit-per-source must be 1-${MAX_PER_SOURCE}.`);
   return { ids, limit, dryRun: argv.includes("--dry-run") };
@@ -131,7 +132,7 @@ async function main() {
     if (!university || !source) throw new Error(`Approved official source is unavailable for ${id}.`);
     return { university, source };
   });
-  console.log(JSON.stringify({ phase: "five_school_integration_trial", dryRun: options.dryRun, targetUniversityIds: options.ids, targetSources: targets.map(({ university, source }) => ({ universityId: university.universityId, universityGroupId: university.universityGroupId, sourceId: source.id, category: source.category, collectionType: source.collectionType, enabled: source.enabled })), limits: { perSource: options.limit, collectionConcurrency: 1, detailConcurrency: 1, maxAttempts: MAX_ATTEMPTS } }, null, 2));
+  console.log(JSON.stringify({ phase: "validated_school_integration_trial", dryRun: options.dryRun, targetUniversityIds: options.ids, targetSources: targets.map(({ university, source }) => ({ universityId: university.universityId, universityGroupId: university.universityGroupId, sourceId: source.id, category: source.category, collectionType: source.collectionType, enabled: source.enabled })), limits: { perSource: options.limit, collectionConcurrency: 1, detailConcurrency: 1, maxAttempts: MAX_ATTEMPTS } }, null, 2));
   if (options.dryRun) return;
 
   const storeBefore = getAllItems();

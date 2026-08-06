@@ -59,7 +59,10 @@ function isPublicPreviewItem(item) {
 }
 
 function createPreview(storeItems) {
-  const previewItems = storeItems.filter(isPublicPreviewItem).slice(0, MAX_PREVIEW_ITEMS);
+  const previewItems = storeItems
+    .filter(isPublicPreviewItem)
+    .sort((first, second) => String(second.publishedAt).localeCompare(String(first.publishedAt)))
+    .slice(0, MAX_PREVIEW_ITEMS);
   return {
     generatedAt: now(),
     isDevelopmentPreview: false,

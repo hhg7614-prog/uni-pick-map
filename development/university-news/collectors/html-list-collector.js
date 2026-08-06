@@ -67,6 +67,13 @@ function valueFrom(itemHtml, selector, attrName) {
   return attrName ? attribute(element, attrName) : textOf(element);
 }
 
+function detailLinkFromValue(value) {
+  const text = String(value || "").trim();
+  if (!text) return "";
+  const locationMatch = text.match(/(?:location\.href|location\.assign\()\s*=?\s*["']([^"']+)["']/i);
+  return locationMatch ? locationMatch[1] : text;
+}
+
 function cleanTitle(value, cleanupTokens = []) {
   let title = String(value || "").replace(/\s+/g, " ").trim();
   for (const token of cleanupTokens) {
@@ -95,7 +102,7 @@ async function htmlListCollector({ university, source, limit, fetchImpl = fetch,
   for (const itemHtml of itemHtmlList) {
     const normalized = normalizeCollectedItem({ university, source, rawItem: {
       title: cleanTitle(valueFrom(itemHtml, selectors.title), source.titleCleanupTokens),
-      link: valueFrom(itemHtml, selectors.link, selectors.link === "@href" ? null : "href") || valueFrom(itemHtml, selectors.link),
+      link: detailLinkFromValue(valueFrom(itemHtml, selectors.link, selectors.linkAttribute || (selectors.link === "@href" ? null : "href")) || valueFrom(itemHtml, selectors.link)),
       date: valueFrom(itemHtml, selectors.date),
       summary: valueFrom(itemHtml, selectors.summary),
       thumbnail: valueFrom(itemHtml, selectors.thumbnail, "src")
@@ -106,4 +113,4 @@ async function htmlListCollector({ university, source, limit, fetchImpl = fetch,
   return { status: "success", items, warnings, finalUrl: response.url };
 }
 
-module.exports = { htmlListCollector, findBySelector, textOf, attribute, cleanTitle };
+module.exports = { htmlListCollector, findBySelector, textOf, attribute, cleanTitle, detailLinkFromValue };

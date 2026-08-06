@@ -1308,10 +1308,23 @@
           "rssUrl": "",
           "listUrl": "https://www.dongguk.edu/article/SCHOOLNEWS/list",
           "baseUrl": "https://www.dongguk.edu",
-          "selectors": {},
+          "selectors": {
+            "item": "div.board_image ul li",
+            "title": "div.top div.txt p.tit",
+            "link": "a",
+            "linkAttribute": "onclick",
+            "date": "div.info span",
+            "summary": "div.top div.txt p.desc",
+            "thumbnail": "div.thumb img"
+          },
+          "detailSelectors": {
+            "title": "div.board_view div.tit p",
+            "date": "div.board_view div.info span"
+          },
+          "officialNames": ["동국대학교"],
           "verified": true,
-          "enabled": false,
-          "status": "selector_required",
+          "enabled": true,
+          "status": "verified",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T06:35:00.000Z",
           "notes": "공식 학교소식 목록과 실제 상세 게시물 경로를 확인했습니다. HTML 선택자 분석 전에는 수집하지 않습니다."
