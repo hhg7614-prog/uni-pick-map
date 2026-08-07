@@ -7,6 +7,7 @@ const fs = require("fs");
 const path = require("path");
 const { spawnSync, execFileSync } = require("child_process");
 const { getAgentConfig } = require("../config");
+const { PUBLIC_REPORT_PATH, buildCollectionReport, writePublicCollectionReport } = require("../collection-report");
 
 const ROOT = path.resolve(__dirname, "../../..");
 const SIX_UNIVERSITY_IDS = [
@@ -21,6 +22,7 @@ const GENERATED_NEWS_FILES = [
   "server/agent/data/agent-news-store.json",
   "data/university-news-preview.json",
 ];
+const PUBLIC_REPORT_FILE = path.relative(ROOT, PUBLIC_REPORT_PATH).replace(/\\/g, "/");
 const NEWS_SCOPE_FILES = [
   "development/university-news/data/university-news-sources.final.json",
   "development/university-news/collectors/html-list-collector.js",
@@ -108,6 +110,44 @@ function runSixUniversityTrial() {
   process.stdout.write(result.stdout || "");
   process.stderr.write(result.stderr || "");
   if (result.status !== 0) throw new Error(`Six-university collection failed with exit code ${result.status}.`);
+  const marker = '\n{\n  "storeBefore"';
+  const start = String(result.stdout || "").lastIndexOf(marker);
+  if (start < 0) throw new Error("Six-university collection did not return a result summary.");
+  return JSON.parse(String(result.stdout).slice(start + 1));
+}
+
+function publicTrialMetrics(trial) {
+  return {
+    foundTotal: Number(trial.foundTotal || 0),
+    acceptedTotal: Number(trial.acceptedTotal || 0),
+    newTotal: Number(trial.newTotal || 0),
+    duplicateTotal: Number(trial.duplicateTotal || 0),
+    excludedTotal: Number(trial.excludedTotal || 0),
+    perUniversity: (trial.perUniversity || []).map((row) => ({
+      universityId: row.universityId,
+      found: Number(row.found || 0),
+      accepted: Number(row.accepted || 0),
+      newCount: Number(row.newCount || 0),
+      duplicateCount: Number(row.duplicateCount || 0),
+      excluded: Number(row.excluded || 0),
+      errorCount: row.error ? 1 : 0,
+    })),
+  };
+}
+
+function writeSuccessfulReport({ status, startedAt, completedAt, trial, preview, deployment }) {
+  const metrics = publicTrialMetrics(trial);
+  const report = buildCollectionReport({
+    status,
+    startedAt,
+    completedAt,
+    targetUniversityIds: SIX_UNIVERSITY_IDS,
+    trial: metrics,
+    previewCount: preview.count,
+    deployment,
+  });
+  writePublicCollectionReport(report);
+  return metrics;
 }
 
 function main() {
@@ -117,11 +157,14 @@ function main() {
     throw new Error("Automatic scheduler or AI must remain disabled for this task.");
   }
   ensureSafeStart();
-  runSixUniversityTrial();
+  const trial = runSixUniversityTrial();
+  const newTotal = Number(trial.newTotal || 0);
   const preview = validatePreview();
   const changed = changedFilesAgainstHead(GENERATED_NEWS_FILES);
   if (changed.length === 0) {
-    const logFile = appendLog({ startedAt, completedAt: new Date().toISOString(), status: "no_new_items", targetUniversityIds: SIX_UNIVERSITY_IDS, previewCount: preview.count, stagedFiles: [], commit: null, pushed: false });
+    const completedAt = new Date().toISOString();
+    const metrics = writeSuccessfulReport({ status: "no_new_items", startedAt, completedAt, trial, preview, deployment: { commitCreated: false, pushed: false, renderStatus: "not_required" } });
+    const logFile = appendLog({ startedAt, completedAt, status: "no_new_items", targetUniversityIds: SIX_UNIVERSITY_IDS, previewCount: preview.count, newTotal, collectionSummary: metrics, stagedFiles: [], commit: null, pushed: false });
     console.log(`[six-news-deploy] No new items. Commit and push skipped. Log: ${logFile}`);
     return;
   }
@@ -129,15 +172,27 @@ function main() {
   const staged = runGit(["diff", "--cached", "--name-only"]).split("\n").filter(Boolean);
   if (staged.some((file) => !GENERATED_NEWS_FILES.includes(file))) throw new Error("Unexpected staged file; deployment stopped.");
   runGit(["commit", "-m", "chore(news): refresh six validated universities"]);
-  runGit(["push", "origin", "main"]);
-  const logFile = appendLog({ startedAt, completedAt: new Date().toISOString(), status: "pushed", targetUniversityIds: SIX_UNIVERSITY_IDS, previewCount: preview.count, stagedFiles: staged, commit: runGit(["rev-parse", "HEAD"]), pushed: true, renderStatus: "push_completed_waiting_for_render" });
+  const newsCommit = runGit(["rev-parse", "HEAD"]);
+  const completedAt = new Date().toISOString();
+  const metrics = writeSuccessfulReport({ status: "deployed", startedAt, completedAt, trial, preview, deployment: { commitCreated: true, commitHash: newsCommit, pushed: true, renderStatus: "push_completed_waiting_for_render" } });
+  runGit(["add", "--", PUBLIC_REPORT_FILE]);
+  const reportStaged = runGit(["diff", "--cached", "--name-only"]).split("\n").filter(Boolean);
+  if (reportStaged.length !== 1 || reportStaged[0] !== PUBLIC_REPORT_FILE) throw new Error("Unexpected staged report file; deployment stopped.");
+  runGit(["commit", "-m", "chore(news): update collection report"]);
+  try {
+    runGit(["push", "origin", "main"]);
+  } catch (error) {
+    error.notificationStatus = "push_failed";
+    throw error;
+  }
+  const logFile = appendLog({ startedAt, completedAt: new Date().toISOString(), status: "deployed", targetUniversityIds: SIX_UNIVERSITY_IDS, previewCount: preview.count, newTotal, collectionSummary: metrics, stagedFiles: [...staged, ...reportStaged], commit: newsCommit, reportCommit: runGit(["rev-parse", "HEAD"]), pushed: true, renderStatus: "push_completed_waiting_for_render" });
   console.log(`[six-news-deploy] Push completed. Render will deploy automatically. Log: ${logFile}`);
 }
 
 try {
   main();
 } catch (error) {
-  const logFile = appendLog({ startedAt: new Date().toISOString(), completedAt: new Date().toISOString(), status: "failed", targetUniversityIds: SIX_UNIVERSITY_IDS, error: error.message, pushed: false });
+  const logFile = appendLog({ startedAt: new Date().toISOString(), completedAt: new Date().toISOString(), status: error.notificationStatus || "failed", targetUniversityIds: SIX_UNIVERSITY_IDS, previewCount: null, newTotal: 0, error: error.message, pushed: false });
   console.error(`[six-news-deploy] ${error.message}\nLog: ${logFile}`);
   process.exitCode = 1;
 }
