@@ -1,6 +1,6 @@
 "use strict";
 
-function parseDate(value) {
+function parseDate(value, options = {}) {
   const text = String(value || "").replace(/\s+/g, " ").trim();
   if (!text) return { value: null, warning: null };
 
@@ -19,6 +19,21 @@ function parseDate(value) {
     const parsed = new Date(Date.UTC(year, month - 1, day));
     if (parsed.getUTCFullYear() === year && parsed.getUTCMonth() === month - 1 && parsed.getUTCDate() === day) {
       return { value: `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`, warning: null };
+    }
+  }
+
+  // A few official Korean university boards render dates as YY-MM-DD.  Do not
+  // guess this format globally: it is accepted only by an explicitly opted-in
+  // source configuration, and only for 20xx years.
+  if (options.allowTwoDigitYear) {
+    const shortMatch = text.match(/\b(\d{2})\s*[.\-/]\s*(\d{1,2})\s*[.\-/]\s*(\d{1,2})\b/);
+    if (shortMatch) {
+      const [shortYear, month, day] = shortMatch.slice(1).map(Number);
+      const year = 2000 + shortYear;
+      const parsed = new Date(Date.UTC(year, month - 1, day));
+      if (parsed.getUTCFullYear() === year && parsed.getUTCMonth() === month - 1 && parsed.getUTCDate() === day) {
+        return { value: `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`, warning: null };
+      }
     }
   }
 

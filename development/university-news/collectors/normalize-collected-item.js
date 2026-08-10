@@ -9,7 +9,7 @@ function normalizeCollectedItem({ university, source, rawItem, collectedAt }) {
   const sourceUrl = resolveUrl(rawItem.link, source.baseUrl || source.listUrl || source.rssUrl);
   if (!title || !sourceUrl) return { item: null, warning: "제목 또는 원문 링크가 없어 제외했습니다." };
 
-  const parsedDate = parseDate(rawItem.date);
+  const parsedDate = parseDate(rawItem.date, source.datePolicy || {});
   const item = {
     id: "",
     universityId: university.universityId,
@@ -28,6 +28,9 @@ function normalizeCollectedItem({ university, source, rawItem, collectedAt }) {
     sourceSiteUrl: source.listUrl || source.rssUrl || "",
     thumbnailUrl: resolveUrl(rawItem.thumbnail, source.baseUrl || source.listUrl || source.rssUrl) || "",
     publishedAt: parsedDate.value,
+    // This is useful audit information for sources that have explicitly
+    // approved a verified list-date fallback. Existing consumers can ignore it.
+    dateSource: rawItem.dateSource || "list_date",
     collectedAt,
     urlHash: "",
     contentHash: "",

@@ -1334,7 +1334,9 @@
             "title": "div.board_view div.tit p",
             "date": "div.board_view div.info span"
           },
-          "officialNames": ["동국대학교"],
+          "officialNames": [
+            "동국대학교"
+          ],
           "verified": true,
           "enabled": true,
           "status": "verified",
@@ -3090,7 +3092,40 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "daegu-catholic-press",
+          "name": "대구가톨릭대학교 언론보도",
+          "category": "school_news",
+          "categoryLabel": "학교 소식",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.cu.ac.kr/introduction/result/press",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td a",
+            "link": "td a",
+            "date": "td",
+            "dateIndex": 4
+          },
+          "detailSelectors": {
+            "title": "div.view_info h6",
+            "date": "div.view_info span"
+          },
+          "datePolicy": {
+            "prefer": "list",
+            "allowVerifiedListDateFallback": true,
+            "rejectDetailDateIfConflictDaysGreaterThan": 31
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown",
+          "officialNames": [
+            "대구가톨릭대학교"
+          ]
+        }
+      ],
       "searchKeywords": [
         "대구가톨릭대학교",
         "대구가톨릭대학교"
@@ -3743,7 +3778,34 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "tongmyong-press",
+          "name": "동명대학교 대학뉴스",
+          "category": "school_news",
+          "categoryLabel": "학교 소식",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.tu.ac.kr/newsweb/sub01_01.do",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.subject a",
+            "link": "td.subject a",
+            "date": "td.data"
+          },
+          "detailSelectors": {
+            "title": "div.viewTop h2",
+            "date": "div.viewTop li"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown",
+          "officialNames": [
+            "동명대학교"
+          ]
+        }
+      ],
       "searchKeywords": [
         "동명대학교",
         "동명대학교"
@@ -6199,7 +6261,36 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "skku-natural-sciences-press",
+          "name": "성균관대학교 보도자료",
+          "category": "school_news",
+          "categoryLabel": "학교 소식",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.skku.edu/skku/campus/skk_comm/press.do",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.left a",
+            "link": "td.left a",
+            "date": "td",
+            "dateIndex": 2
+          },
+          "detailSelectors": {
+            "title": "em.ellipsis",
+            "date": "th span.date"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown",
+          "officialNames": [
+            "성균관대학교 자연과학캠퍼스",
+            "성균관대학교"
+          ]
+        }
+      ],
       "searchKeywords": [
         "성균관대학교 자연과학캠퍼스",
         "성균관대 자연과학"

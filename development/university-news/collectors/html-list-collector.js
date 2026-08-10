@@ -105,10 +105,14 @@ async function htmlListCollector({ university, source, limit, fetchImpl = fetch,
   const items = [];
   const warnings = [];
   for (const itemHtml of itemHtmlList) {
+    const listDate = Number.isInteger(selectors.dateIndex) ? indexedValueFrom(itemHtml, selectors.date, selectors.dateIndex) : valueFrom(itemHtml, selectors.date);
     const normalized = normalizeCollectedItem({ university, source, rawItem: {
       title: cleanTitle(valueFrom(itemHtml, selectors.title), source.titleCleanupTokens),
       link: detailLinkFromValue(valueFrom(itemHtml, selectors.link, selectors.linkAttribute || (selectors.link === "@href" ? null : "href")) || valueFrom(itemHtml, selectors.link)),
-      date: Number.isInteger(selectors.dateIndex) ? indexedValueFrom(itemHtml, selectors.date, selectors.dateIndex) : valueFrom(itemHtml, selectors.date),
+      // A source can explicitly prefer a date verified from its own list row.
+      // No current-time fallback is ever used by the collector.
+      date: listDate,
+      dateSource: source.datePolicy && source.datePolicy.prefer === "list" ? "verified_list_date" : "list_date",
       summary: valueFrom(itemHtml, selectors.summary),
       thumbnail: valueFrom(itemHtml, selectors.thumbnail, "src")
     }, collectedAt });
