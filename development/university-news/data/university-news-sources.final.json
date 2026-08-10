@@ -159,14 +159,27 @@
         {
           "id": "skku-official-news",
           "name": "성균관대학교 공식 소식",
-          "category": "school_news",
+          "category": "school_notice",
           "sourceType": "official",
           "collectionType": "html",
-          "listUrl": "https://www.skku.edu/",
-          "selectors": {},
-          "verified": false,
-          "enabled": false,
-          "status": "selector_required",
+          "listUrl": "https://www.skku.edu/skku/campus/skk_comm/notice01.do",
+          "selectors": {
+            "item": "dl.board-list-content-wrap",
+            "title": "dt.board-list-content-title a",
+            "link": "dt.board-list-content-title a",
+            "date": "dd.board-list-content-info li",
+            "dateIndex": 2
+          },
+          "detailSelectors": {
+            "title": "table.board_view em.ellipsis"
+          },
+          "officialNames": [
+            "성균관대학교"
+          ],
+          "allowListDateFallback": true,
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
           "healthStatus": "unknown"
         }
       ],

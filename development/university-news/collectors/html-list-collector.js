@@ -67,6 +67,11 @@ function valueFrom(itemHtml, selector, attrName) {
   return attrName ? attribute(element, attrName) : textOf(element);
 }
 
+function indexedValueFrom(itemHtml, selector, index) {
+  const elements = findBySelector(itemHtml, selector);
+  return textOf(elements[Number.isInteger(index) ? index : 0]);
+}
+
 function detailLinkFromValue(value) {
   const text = String(value || "").trim();
   if (!text) return "";
@@ -103,7 +108,7 @@ async function htmlListCollector({ university, source, limit, fetchImpl = fetch,
     const normalized = normalizeCollectedItem({ university, source, rawItem: {
       title: cleanTitle(valueFrom(itemHtml, selectors.title), source.titleCleanupTokens),
       link: detailLinkFromValue(valueFrom(itemHtml, selectors.link, selectors.linkAttribute || (selectors.link === "@href" ? null : "href")) || valueFrom(itemHtml, selectors.link)),
-      date: valueFrom(itemHtml, selectors.date),
+      date: Number.isInteger(selectors.dateIndex) ? indexedValueFrom(itemHtml, selectors.date, selectors.dateIndex) : valueFrom(itemHtml, selectors.date),
       summary: valueFrom(itemHtml, selectors.summary),
       thumbnail: valueFrom(itemHtml, selectors.thumbnail, "src")
     }, collectedAt });

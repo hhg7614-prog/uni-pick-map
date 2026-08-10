@@ -22,6 +22,7 @@ function normalizeCollectedItem({ university, source, rawItem, collectedAt }) {
     summary: String(rawItem.summary || "").replace(/\s+/g, " ").trim(),
     contentText: "",
     sourceName: source.name,
+    sourceId: source.id || "",
     sourceType: "official",
     sourceUrl,
     sourceSiteUrl: source.listUrl || source.rssUrl || "",

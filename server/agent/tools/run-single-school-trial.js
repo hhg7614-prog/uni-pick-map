@@ -82,12 +82,16 @@ function backupBeforeSave() {
   return directory;
 }
 
-function extractDetail(html, source) {
+function extractDetail(html, source, listPublishedAt) {
   const selectors = source.detailSelectors || {};
   const title = selectors.title ? textOf(findBySelector(html, selectors.title)[0]) : "";
   const dateValues = selectors.date ? findBySelector(html, selectors.date).map(textOf) : [];
   const rawDate = dateValues.find((value) => parseDate(value).value) || dateValues[0] || "";
-  return { title, rawDate, publishedAt: parseDate(rawDate).value, dateSelector: selectors.date || "" };
+  const parsed = parseDate(rawDate).value;
+  if (!parsed && source.allowListDateFallback && listPublishedAt) {
+    return { title, rawDate: listPublishedAt, publishedAt: listPublishedAt, dateSelector: "list-date fallback" };
+  }
+  return { title, rawDate, publishedAt: parsed, dateSelector: selectors.date || "" };
 }
 
 async function main() {
@@ -122,7 +126,7 @@ async function main() {
         diagnostic.detailValidation = "rejected"; diagnostic.method = "redirect/login/error validation"; diagnostic.reason = "login_or_error_or_non_detail_page";
         excluded.push(diagnostic); diagnostics.push(diagnostic); continue;
       }
-      const detail = extractDetail(html, source);
+      const detail = extractDetail(html, source, item.publishedAt);
       diagnostic.publishedAtRaw = detail.rawDate;
       diagnostic.dateLocation = detail.dateSelector;
       diagnostic.method = "detail page selector";
@@ -140,7 +144,7 @@ async function main() {
       }
       diagnostic.storable = true;
       diagnostics.push(diagnostic);
-      accepted.push({ ...item, sourceUrl: diagnostic.sourceUrl, publishedAt: detail.publishedAt, detailValidation: { verified: true, sourceTitle: detail.title, sourceDate: detail.rawDate } });
+      accepted.push({ ...item, sourceId: source.id || "", sourceUrl: diagnostic.sourceUrl, publishedAt: detail.publishedAt, detailValidation: { verified: true, sourceTitle: detail.title, sourceDate: detail.rawDate } });
     } catch (error) {
       diagnostic.detailValidation = "failed"; diagnostic.method = "detail request"; diagnostic.reason = "detail_fetch_failed"; diagnostic.error = error.message;
       excluded.push(diagnostic); diagnostics.push(diagnostic);
