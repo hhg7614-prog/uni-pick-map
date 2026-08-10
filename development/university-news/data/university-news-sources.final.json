@@ -3580,7 +3580,31 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "mokpo-catholic-university-notice",
+          "name": "목포가톨릭대학교 공지사항",
+          "category": "school_notice",
+          "categoryLabel": "공지사항",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.mcu.ac.kr/bb/bbBoard.php?boardID=NOTICE&pageID=mcu0701000000",
+          "selectors": {
+            "item": "div.list_body ul li",
+            "title": "span.subject a",
+            "link": "span.subject a",
+            "date": "span.date"
+          },
+          "detailSelectors": {
+            "title": "div.view_head h6",
+            "date": "div.text_info span"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown"
+        }
+      ],
       "searchKeywords": [
         "목포가톨릭대학교",
         "목포가톨릭대학교"
