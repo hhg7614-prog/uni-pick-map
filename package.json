@@ -20,7 +20,8 @@
     "news:onboard:agent-v1:next20": "node server/agent/onboarding/tools/run-university-feed-agent-v1.js --next20",
     "news:onboard:agent-v1:integrity-regression": "node server/agent/onboarding/tools/run-university-feed-agent-v1.js --integrity-regression",
     "news:onboard:agent-v1:next20-selection-test": "node server/agent/onboarding/tools/run-university-feed-agent-v1-queue.js --selection-test",
-    "news:onboard:agent-v1:retry10": "node server/agent/onboarding/tools/run-university-feed-agent-v1-queue.js --retry10"
+    "news:onboard:agent-v1:retry10": "node server/agent/onboarding/tools/run-priority-network-retry10.js",
+    "news:onboard:agent-v1:retry10:select": "node server/agent/onboarding/tools/run-priority-network-retry10.js --selection-only"
   },
   "engines": {
     "node": ">=18"
