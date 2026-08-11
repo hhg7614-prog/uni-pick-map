@@ -1,0 +1,7 @@
+"use strict";
+const decode=value=>String(value||"").replace(/&amp;/gi,"&").replace(/&quot;/gi,'"').trim();
+function absolute(value,base){try{const url=new URL(decode(value),base);return /^https?:$/.test(url.protocol)?url.href:null}catch{return null}}
+function blocked(url){return !url||/\b(?:logo|icon|sprite|banner|header|footer|sns|share|facebook|instagram|twitter|youtube)\b/i.test(url)}
+function attrs(tag){return Object.fromEntries([...String(tag).matchAll(/([\w:-]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/g)].map(m=>[m[1].toLowerCase(),m[2]||m[3]||m[4]||""]))}
+function imageFromArticle(html,detailUrl){const body=(String(html).match(/<(?:article|main|div)\b[^>]*(?:article|content|view|board-view|cont|body)[^>]*>[\s\S]{0,200000}?<\/(?:article|main|div)>/i)||[])[0]||"";for(const tag of body.match(/<img\b[^>]*>/gi)||[]){const a=attrs(tag),url=absolute(a.src||a["data-src"]||a["data-original"]||a["data-lazy-src"],detailUrl);if(!blocked(url))return{imageUrl:url,imageSource:"detail"}}for(const tag of String(html).match(/<meta\b[^>]*>/gi)||[]){const a=attrs(tag);if(/^(og:image|twitter:image)$/i.test(a.property||a.name||"")){const url=absolute(a.content,detailUrl);if(!blocked(url))return{imageUrl:url,imageSource:"og"}}}const structured=[...String(html).matchAll(/"image"\s*:\s*"([^"]+)"/gi)];for(const match of structured){const url=absolute(match[1],detailUrl);if(!blocked(url))return{imageUrl:url,imageSource:"structured"}}return{imageUrl:null,imageSource:null}}
+module.exports={absolute,imageFromArticle};

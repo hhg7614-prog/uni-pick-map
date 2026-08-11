@@ -57,6 +57,7 @@ async function runOnce({ trigger = "manual" } = {}) {
   let totalDuplicate = 0;
   let totalErrors = 0;
   let allNewItems = [];
+  const imageStats = { itemsProcessed: 0, withImage: 0, withoutImage: 0, newImages: 0, backfilledImages: 0, imageErrors: 0 };
 
   try {
     // 대상 대학 목록
@@ -96,7 +97,9 @@ async function runOnce({ trigger = "manual" } = {}) {
         );
 
         totalCollected += uResult.items.length;
+        for (const item of uResult.items) { imageStats.itemsProcessed += 1; if (item.imageUrl) imageStats.withImage += 1; else imageStats.withoutImage += 1; if (item.imageError) imageStats.imageErrors += 1; }
         totalNew += newItems.length;
+        imageStats.newImages += newItems.filter(item => item.imageUrl).length;
         totalDuplicate += duplicateCount;
         allNewItems.push(...newItems);
 
@@ -149,6 +152,7 @@ async function runOnce({ trigger = "manual" } = {}) {
     errorCount: totalErrors,
     totalStoredItems: getAllItems().length,
     universityResults,
+    imageStats,
   });
 
   pruneOldReports(30);
