@@ -21,9 +21,10 @@ function cleanAndCurrent() {
   git(["fetch","origin","main"]);
   if (git(["rev-parse","HEAD"]) !== git(["rev-parse","origin/main"])) throw new Error("SCHEDULER_WORKSPACE_BEHIND_OR_AHEAD");
 }
-function validateGenerated() {
+function itemKey(item) { return item.normalizedSourceUrl || item.sourceUrl || item.id; }
+function validateGenerated(preExistingKeys) {
   for (const file of GENERATED) JSON.parse(fs.readFileSync(path.join(ROOT, file), "utf8"));
-  const invalid = getAllItems().filter(item => !item.publishedAt);
+  const invalid = getAllItems().filter(item => !preExistingKeys.has(itemKey(item)) && !item.publishedAt);
   if (invalid.length) throw new Error(`PUBLISHED_AT_NULL:${invalid.length}`);
 }
 function runTests() { execFileSync("npm", ["test"], { cwd: ROOT, stdio: "inherit", shell: process.platform === "win32" }); }
@@ -46,12 +47,13 @@ function main() {
 async function asyncMain() {
   const startedAt = new Date().toISOString(); const lock = acquireRuntimeLock("news-update-agent");
   if (!lock.acquired) throw new Error("NEWS_AGENT_ALREADY_RUNNING");
-  const before = { store: getAllItems().length, preview: countPreview(), activeSources: getTargetUniversities().reduce((n,u)=>n+u.sources.length,0) };
+  const beforeItems = getAllItems(); const preExistingKeys = new Set(beforeItems.map(itemKey));
+  const before = { store: beforeItems.length, preview: countPreview(), activeSources: getTargetUniversities().reduce((n,u)=>n+u.sources.length,0), preExistingPublishedAtNull: beforeItems.filter(item=>!item.publishedAt).length };
   let status = "FAILED", run, changed = [];
   try {
     cleanAndCurrent();
     run = await runOnce({ trigger: "windows-task-scheduler" });
-    validateGenerated();
+    validateGenerated(preExistingKeys);
     runTests();
     changed = git(["diff","--name-only","HEAD","--",...GENERATED]).split("\n").filter(Boolean);
     if (changed.length === 0) status = "NO_CHANGES";
@@ -64,7 +66,7 @@ async function asyncMain() {
       status = "DEPLOY_TRIGGERED";
     }
     const completedAt = new Date().toISOString();
-    const payload = { agent:"news-update", runId:`news-${startedAt.replace(/[-:.TZ]/g,"")}`, status: status === "DEPLOY_TRIGGERED" ? "SUCCESS" : "NO_CHANGES", startedAt, finishedAt:completedAt, processed:(run.universityResults||[]).length, success:(run.universityResults||[]).filter(x=>!x.error && !(x.errors||[]).length).length, failed:(run.universityResults||[]).filter(x=>x.error || (x.errors||[]).length).length, activeSources: before.activeSources, successfulSources: (run.universityResults||[]).filter(x=>!x.error && !(x.errors||[]).length).length, failedSources: (run.universityResults||[]).filter(x=>x.error || (x.errors||[]).length).length, newItems: run.newCount||0, duplicates: run.duplicateCount||0, publishedAtNull: 0, storeBefore: before.store, storeAfter: getAllItems().length, previewBefore: before.preview, previewAfter: countPreview(), commitHash: status === "DEPLOY_TRIGGERED" ? git(["rev-parse","HEAD"]) : null, pushStatus: status === "DEPLOY_TRIGGERED" ? "배포 요청 완료" : "실행하지 않음", renderStatus: status === "DEPLOY_TRIGGERED" ? "deploy_triggered" : "not_required", nextRun: "09:30 / 16:30", messageKo: status === "DEPLOY_TRIGGERED" ? "뉴스 업데이트와 배포 요청이 완료되었습니다." : "새로운 뉴스가 없습니다.", reportOpen: "REPORT_OPEN_SKIPPED" };
+    const payload = { agent:"news-update", runId:`news-${startedAt.replace(/[-:.TZ]/g,"")}`, status: status === "DEPLOY_TRIGGERED" ? "SUCCESS" : "NO_CHANGES", startedAt, finishedAt:completedAt, processed:(run.universityResults||[]).length, success:(run.universityResults||[]).filter(x=>!x.error && !(x.errors||[]).length).length, failed:(run.universityResults||[]).filter(x=>x.error || (x.errors||[]).length).length, activeSources: before.activeSources, successfulSources: (run.universityResults||[]).filter(x=>!x.error && !(x.errors||[]).length).length, failedSources: (run.universityResults||[]).filter(x=>x.error || (x.errors||[]).length).length, newItems: run.newCount||0, duplicates: run.duplicateCount||0, publishedAtNull: 0, preExistingPublishedAtNull: before.preExistingPublishedAtNull, storeBefore: before.store, storeAfter: getAllItems().length, previewBefore: before.preview, previewAfter: countPreview(), commitHash: status === "DEPLOY_TRIGGERED" ? git(["rev-parse","HEAD"]) : null, pushStatus: status === "DEPLOY_TRIGGERED" ? "배포 요청 완료" : "실행하지 않음", renderStatus: status === "DEPLOY_TRIGGERED" ? "deploy_triggered" : "not_required", nextRun: "09:30 / 16:30", messageKo: status === "DEPLOY_TRIGGERED" ? "뉴스 업데이트와 배포 요청이 완료되었습니다." : "새로운 뉴스가 없습니다.", reportOpen: "REPORT_OPEN_SKIPPED" };
     writeResult(payload);
     writeHtmlReport(REPORT_PATH, "UNI PICK News Update Report", payload); console.log(JSON.stringify(payload, null, 2));
   } catch (error) {
