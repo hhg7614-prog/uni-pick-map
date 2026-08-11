@@ -4618,7 +4618,37 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "youngsan-university-shared-general-feed",
+          "name": "영산대학교 공통 공지",
+          "sourceScope": "GENERAL_UNIVERSITY_FEED",
+          "campusScope": "SHARED_SOURCE",
+          "category": "school_news",
+          "categoryLabel": "학교 소식",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.ysu.ac.kr/kor/CMS/Board/Board.do?mCode=MN016",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "a",
+            "link": "a",
+            "date": "td",
+            "dateIndex": 3
+          },
+          "detailSelectors": {
+            "title": "h4"
+          },
+          "datePolicy": {
+            "prefer": "list"
+          },
+          "dateProvenance": "LIST_ROW_VERIFIED",
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "healthy"
+        }
+      ],
       "searchKeywords": [
         "영산대학교(양산)",
         "영산대학교(양산)"
