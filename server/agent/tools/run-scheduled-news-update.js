@@ -12,6 +12,7 @@ const { writeHtmlReport } = require("../report-html");
 
 const ROOT = path.resolve(__dirname, "../../..");
 const REPORT_PATH = path.join(ROOT, "server/agent/news/reports/ui/latest-news-update-report.html");
+const RESULT_PATH = path.join(ROOT, "server/agent/runtime/news-update-result.json");
 const GENERATED = ["server/agent/data/agent-news-store.json", "data/university-news-preview.json"];
 function git(args, allowFailure = false) { try { return execFileSync("git", args, { cwd: ROOT, encoding: "utf8", stdio:["ignore","pipe","pipe"] }).trim(); } catch (e) { if (allowFailure) return ""; throw new Error((e.stderr || e.message).trim()); } }
 function countPreview() { try { return (JSON.parse(fs.readFileSync(PREVIEW_PATH,"utf8")).items || []).length; } catch { return 0; } }
@@ -26,6 +27,7 @@ function validateGenerated() {
   if (invalid.length) throw new Error(`PUBLISHED_AT_NULL:${invalid.length}`);
 }
 function runTests() { execFileSync("npm", ["test"], { cwd: ROOT, stdio: "inherit", shell: process.platform === "win32" }); }
+function writeResult(payload) { fs.mkdirSync(path.dirname(RESULT_PATH), { recursive: true }); const temporary = `${RESULT_PATH}.tmp`; fs.writeFileSync(temporary, JSON.stringify(payload, null, 2) + "\n", "utf8"); JSON.parse(fs.readFileSync(temporary, "utf8")); fs.renameSync(temporary, RESULT_PATH); }
 function main() {
   const startedAt = new Date().toISOString();
   const lock = acquireRuntimeLock("news-update-agent");
@@ -62,10 +64,13 @@ async function asyncMain() {
       status = "DEPLOY_TRIGGERED";
     }
     const completedAt = new Date().toISOString();
-    const payload = { status, startedAt, completedAt, activeSources: before.activeSources, successfulSources: (run.universityResults||[]).filter(x=>!x.error && !(x.errors||[]).length).length, failedSources: (run.universityResults||[]).filter(x=>x.error || (x.errors||[]).length).length, newItems: run.newCount||0, duplicates: run.duplicateCount||0, publishedAtNull: 0, storeBefore: before.store, storeAfter: getAllItems().length, previewBefore: before.preview, previewAfter: countPreview(), commit: status === "DEPLOY_TRIGGERED" ? git(["rev-parse","HEAD"]) : null, push: status === "DEPLOY_TRIGGERED", render: status === "DEPLOY_TRIGGERED" ? "deploy_triggered" : "not_required", nextRun: "09:30 / 16:30", reportOpen: "REPORT_OPEN_SKIPPED" };
+    const payload = { agent:"news-update", runId:`news-${startedAt.replace(/[-:.TZ]/g,"")}`, status: status === "DEPLOY_TRIGGERED" ? "SUCCESS" : "NO_CHANGES", startedAt, finishedAt:completedAt, processed:(run.universityResults||[]).length, success:(run.universityResults||[]).filter(x=>!x.error && !(x.errors||[]).length).length, failed:(run.universityResults||[]).filter(x=>x.error || (x.errors||[]).length).length, activeSources: before.activeSources, successfulSources: (run.universityResults||[]).filter(x=>!x.error && !(x.errors||[]).length).length, failedSources: (run.universityResults||[]).filter(x=>x.error || (x.errors||[]).length).length, newItems: run.newCount||0, duplicates: run.duplicateCount||0, publishedAtNull: 0, storeBefore: before.store, storeAfter: getAllItems().length, previewBefore: before.preview, previewAfter: countPreview(), commitHash: status === "DEPLOY_TRIGGERED" ? git(["rev-parse","HEAD"]) : null, pushStatus: status === "DEPLOY_TRIGGERED" ? "배포 요청 완료" : "실행하지 않음", renderStatus: status === "DEPLOY_TRIGGERED" ? "deploy_triggered" : "not_required", nextRun: "09:30 / 16:30", messageKo: status === "DEPLOY_TRIGGERED" ? "뉴스 업데이트와 배포 요청이 완료되었습니다." : "새로운 뉴스가 없습니다.", reportOpen: "REPORT_OPEN_SKIPPED" };
+    writeResult(payload);
     writeHtmlReport(REPORT_PATH, "UNI PICK News Update Report", payload); console.log(JSON.stringify(payload, null, 2));
   } catch (error) {
-    const payload = { status: error.message === "NEWS_AGENT_ALREADY_RUNNING" ? "NEWS_AGENT_ALREADY_RUNNING" : "FAILED", startedAt, completedAt:new Date().toISOString(), error:error.message, reportOpen:"REPORT_OPEN_SKIPPED" };
+    const warning = /^PUBLISHED_AT_NULL:/.test(error.message);
+    const payload = { agent:"news-update", runId:`news-${startedAt.replace(/[-:.TZ]/g,"")}`, status: warning ? "WARNING" : "FAILED", startedAt, finishedAt:new Date().toISOString(), processed:0, success:0, failed:1, newItems:0, duplicates:0, error:error.message, messageKo: warning ? "수집은 완료되었지만 게시일이 없는 항목이 있어 자동 배포를 중단했습니다." : "뉴스 자동 업데이트 중 오류가 발생했습니다.", pushStatus:"실행하지 않음", renderStatus:"not_required", reportOpen:"REPORT_OPEN_SKIPPED" };
+    writeResult(payload);
     writeHtmlReport(REPORT_PATH, "UNI PICK News Update Report", payload); console.error(JSON.stringify(payload,null,2)); process.exitCode=1;
   } finally { releaseRuntimeLock(lock); }
 }
