@@ -25,6 +25,7 @@ const { collectForUniversity } = require("./collector");
 const { filterNewItems } = require("./dedup");
 const { getAllItems, saveNewItems } = require("./store");
 const { acquireLock, releaseLock } = require("./lock");
+const { acquireRuntimeLock, releaseRuntimeLock } = require("./runtime-lock");
 const { saveReport, pruneOldReports } = require("./report");
 
 function log(message) {
@@ -113,7 +114,14 @@ async function runOnce({ trigger = "manual" } = {}) {
 
       // 신규 항목 저장 (저장소 + preview 원자적)
       if (allNewItems.length > 0) {
-        const saveResult = saveNewItems(allNewItems);
+        const writeLock = acquireRuntimeLock("production-news-write");
+        if (!writeLock.acquired) throw new Error("PRODUCTION_NEWS_WRITE_ALREADY_RUNNING");
+        let saveResult;
+        try {
+          saveResult = saveNewItems(allNewItems);
+        } finally {
+          releaseRuntimeLock(writeLock);
+        }
         log(`저장 완료: ${saveResult.savedCount}건 (누적: ${saveResult.totalCount}건)`);
       } else {
         log("신규 게시물이 없습니다.");
