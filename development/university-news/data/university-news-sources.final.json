@@ -2373,7 +2373,35 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "methodist-theological-university-general-feed",
+          "name": "감리교신학대학교 메인 최신 소식",
+          "sourceScope": "GENERAL_UNIVERSITY_FEED",
+          "category": "school_news",
+          "categoryLabel": "학교 소식",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.mtu.ac.kr/mtu/main/main.do?mId=1",
+          "selectors": {
+            "item": "div.main-board-area.pc div.main-board-box",
+            "title": "strong.title",
+            "link": "a",
+            "date": "span.date"
+          },
+          "detailSelectors": {
+            "title": "div.board-view div.title-area h4",
+            "date": "div.board-view-information dl.board-view-date dd"
+          },
+          "datePolicy": {
+            "prefer": "list"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "healthy"
+        }
+      ],
       "searchKeywords": [
         "감리교신학대학교",
         "감리교신학대학교"

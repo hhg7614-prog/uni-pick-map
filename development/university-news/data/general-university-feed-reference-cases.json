@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "description": "Verified production reference cases for GENERAL_UNIVERSITY_FEED. Selectors are evidence for diagnosis only and must not be copied to unrelated university sites.",
+  "cases": [
+    {
+      "universityId": "methodist-theological-university-본교",
+      "universityName": "감리교신학대학교",
+      "sourceId": "methodist-theological-university-general-feed",
+      "sourceUrl": "https://www.mtu.ac.kr/mtu/main/main.do?mId=1",
+      "sourceScope": "GENERAL_UNIVERSITY_FEED",
+      "officialDomain": "mtu.ac.kr",
+      "listSelectors": {
+        "item": "div.main-board-area.pc div.main-board-box",
+        "title": "strong.title",
+        "link": "a",
+        "date": "span.date"
+      },
+      "detailSelectors": {
+        "title": "div.board-view div.title-area h4",
+        "date": "div.board-view-information dl.board-view-date dd"
+      },
+      "dateStrategy": "list_row_date_verified_against_detail_visible_date",
+      "itemCategoryStrategy": "Per-item metadata: UNIVERSITY_NEWS, EVENT, PROGRAM, SCHOLARSHIP, RECRUITMENT, OTHER. The production UI category remains school_news.",
+      "qualityConditions": {
+        "minimumRepeatedItems": 3,
+        "minimumUniqueDetailUrls": 3,
+        "minimumTitleMatches": 2,
+        "publishedAtNull": 0,
+        "menuContamination": false,
+        "qualityScore": 100
+      }
+    }
+  ]
+}
