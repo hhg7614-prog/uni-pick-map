@@ -5326,7 +5326,37 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "university-of-ulsan-general-feed",
+          "name": "울산대학교 일반공지",
+          "sourceScope": "GENERAL_UNIVERSITY_FEED",
+          "campusScope": "ALL_UNIVERSITY",
+          "category": "school_news",
+          "categoryLabel": "학교 소식",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.ulsan.ac.kr/kor/CMS/Board/Board.do?mCode=MN113",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "a",
+            "link": "a",
+            "date": "td",
+            "dateIndex": 3
+          },
+          "detailSelectors": {
+            "title": "h4.vtitle"
+          },
+          "datePolicy": {
+            "prefer": "list"
+          },
+          "dateProvenance": "LIST_ROW_VERIFIED",
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "healthy"
+        }
+      ],
       "searchKeywords": [
         "울산대학교",
         "울산대학교"
