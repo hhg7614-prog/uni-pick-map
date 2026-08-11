@@ -3125,7 +3125,37 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "daegu-national-university-of-education-general-feed",
+          "name": "대구교육대학교 공지사항",
+          "sourceScope": "GENERAL_UNIVERSITY_FEED",
+          "category": "school_news",
+          "categoryLabel": "학교 소식",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "http://www.dnue.ac.kr/kor/CMS/Board/Board.do?mCode=MN168",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "a",
+            "link": "a",
+            "date": "td",
+            "dateIndex": 3
+          },
+          "detailSelectors": {
+            "title": "h4.vtitle"
+          },
+          "datePolicy": {
+            "prefer": "list"
+          },
+          "dateProvenance": "LIST_ROW_VERIFIED",
+          "campusScope": "ALL_UNIVERSITY",
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "healthy"
+        }
+      ],
       "searchKeywords": [
         "대구교육대학교",
         "대구교육대학교"
