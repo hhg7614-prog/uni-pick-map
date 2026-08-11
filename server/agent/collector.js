@@ -16,6 +16,7 @@ const { rssCollector } = require(
 const { normalizeUrl } = require(
   "../../development/university-news/utils/normalize-url"
 );
+const { imageFromArticle } = require("./article-image");
 
 /**
  * 수집된 항목의 sourceUrl 이 목록 페이지 URL과 동일한지 확인합니다.
@@ -97,6 +98,12 @@ async function collectFromSource(university, source, limit = 5) {
     // id 접두어를 agent 전용으로 변경
     item.id = `agent-${item.urlHash ? item.urlHash.slice(0, 16) : Date.now()}`;
     item.isSampleCollection = false;
+    item.imageUrl = null;
+    item.imageSource = null;
+    try {
+      const detail = await fetch(item.sourceUrl, { headers: { "User-Agent": "UNI-PICK-University-News-Research/0.1", Accept: "text/html,application/xhtml+xml" }, redirect: "follow" });
+      if (detail.ok && /^https?:\/\//i.test(detail.url)) Object.assign(item, imageFromArticle(await detail.text(), detail.url));
+    } catch { /* Image is optional; keep the verified news item. */ }
     validItems.push(item);
   }
 
