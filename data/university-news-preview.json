@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-11T00:04:47.405Z",
+  "generatedAt": "2026-08-11T00:32:28.556Z",
   "isDevelopmentPreview": false,
   "agentGenerated": true,
-  "totalStoredItems": 44,
+  "totalStoredItems": 47,
   "supportedUniversities": [
     "목포가톨릭대학교",
     "성균관대학교 자연과학캠퍼스",
@@ -16,6 +16,41 @@
     "동명대학교"
   ],
   "items": [
+    {
+      "id": "phase3-7f974a7f92bbe549",
+      "universityId": "kyungnam-university-본교",
+      "universityGroupId": "kyungnam-university-본교",
+      "universityName": "경남대학교",
+      "campusName": "본교",
+      "category": "school_news",
+      "categoryLabel": "학교 소식",
+      "title": "2026학년도 2학기 이중설강제도 시행 안내",
+      "summary": "",
+      "contentText": "",
+      "sourceName": "경남대학교 최신 학사 안내",
+      "sourceId": "kyungnam-university-general-feed",
+      "sourceType": "official",
+      "sourceUrl": "https://www.kyungnam.ac.kr/bbs/ko/1398/199092/artclView.do",
+      "sourceSiteUrl": "https://www.kyungnam.ac.kr/ko/8443/subview.do",
+      "thumbnailUrl": "",
+      "publishedAt": "2026-08-11",
+      "dateSource": "list_date",
+      "collectedAt": "2026-08-11T00:32:27.335Z",
+      "urlHash": "7f974a7f92bbe549da0be1c1073d2620e322fe39fba51a58f7597f02b1f9e364",
+      "contentHash": "8e9624b0428d546ff63e968f5c0ffb2c067e52feefcf686630ee58afb04bc5a0",
+      "isImportant": null,
+      "keywords": [],
+      "aiProcessed": false,
+      "status": "collected",
+      "errorMessage": null,
+      "isSampleCollection": true,
+      "contentCategory": "OTHER",
+      "detailValidation": {
+        "verified": true,
+        "sourceTitle": "2026학년도 2학기 이중설강제도 시행 안내",
+        "dateProvenance": "list_row_date"
+      }
+    },
     {
       "id": "phase3-625732ebfbac5d1c",
       "universityId": "mokpo-catholic-university-본교",
@@ -981,42 +1016,6 @@
         "sourceTitle": "동명대 학부생·교직원 대상 &#039;롯데워터파크&#039; 특별 할인 프로모션",
         "sourceDate": "등록일 : 2026-07-28",
         "detailDate": "2026-07-28",
-        "dateDeltaDays": 0
-      }
-    },
-    {
-      "id": "phase3-89f52dffa063b78f",
-      "universityId": "daegu-catholic-university-본교",
-      "universityGroupId": "daegu-catholic-university-본교",
-      "universityName": "대구가톨릭대학교",
-      "campusName": "본교",
-      "category": "school_news",
-      "categoryLabel": "학교 소식",
-      "title": "‘제5회 미래모빌리티 썸머캠프’ 개최",
-      "summary": "",
-      "contentText": "",
-      "sourceName": "대구가톨릭대학교 언론보도",
-      "sourceId": "daegu-catholic-press",
-      "sourceType": "official",
-      "sourceUrl": "https://www.cu.ac.kr/introduction/result/press?mode=view&mv_data=aWR4PTE4NjI3NSZzdGFydFBhZ2U9MSZsaXN0Tm89MSZ0YWJsZT1jc19iYnNfZGF0YSZjb2RlPW5ld3Mmc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mbGlzdF9zY2FsZT0=||",
-      "sourceSiteUrl": "https://www.cu.ac.kr/introduction/result/press",
-      "thumbnailUrl": "",
-      "publishedAt": "2026-07-24",
-      "dateSource": "verified_list_date",
-      "collectedAt": "2026-08-10T06:27:51.519Z",
-      "urlHash": "89f52dffa063b78f4deaa458848821d491927a2b4e16713048d3a62a7e043415",
-      "contentHash": "27846c09184016ad1e48e8f6bbcd8546784dad677bb163e82fcdbd9c7b1ae1ca",
-      "isImportant": null,
-      "keywords": [],
-      "aiProcessed": false,
-      "status": "collected",
-      "errorMessage": null,
-      "isSampleCollection": true,
-      "detailValidation": {
-        "verified": true,
-        "sourceTitle": "‘제5회 미래모빌리티 썸머캠프’ 개최",
-        "sourceDate": "배부일 : 2026/07/24",
-        "detailDate": "2026-07-24",
         "dateDeltaDays": 0
       }
     }

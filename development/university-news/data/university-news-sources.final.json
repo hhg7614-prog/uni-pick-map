@@ -2200,7 +2200,34 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "kyungnam-university-general-feed",
+          "name": "경남대학교 최신 학사 안내",
+          "sourceScope": "GENERAL_UNIVERSITY_FEED",
+          "category": "school_news",
+          "categoryLabel": "학교 소식",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.kyungnam.ac.kr/ko/8443/subview.do",
+          "selectors": {
+            "item": "tbody tr.notice",
+            "title": "td.td-subject strong",
+            "link": "td.td-subject a",
+            "date": "td.td-date"
+          },
+          "detailSelectors": {
+            "title": "h2.view-title"
+          },
+          "datePolicy": {
+            "prefer": "list_row_date"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "healthy"
+        }
+      ],
       "searchKeywords": [
         "경남대학교",
         "경남대학교"
