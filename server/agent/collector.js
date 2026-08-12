@@ -7,7 +7,7 @@
  * 홈페이지 목록 URL과 동일한 링크는 상세 링크로 인정하지 않고 제외합니다.
  */
 
-const { htmlListCollector } = require(
+const { htmlListCollector, findBySelector, textOf } = require(
   "../../development/university-news/collectors/html-list-collector"
 );
 const { rssCollector } = require(
@@ -17,6 +17,43 @@ const { normalizeUrl } = require(
   "../../development/university-news/utils/normalize-url"
 );
 const { imageFromArticle } = require("./article-image");
+const { parseDate } = require("../../development/university-news/utils/parse-date");
+
+const EXTERNAL_NEWS_HOSTS = new Set([
+  "youtube.com", "youtu.be", "facebook.com", "instagram.com", "x.com", "twitter.com", "tiktok.com",
+]);
+
+function normalizedText(value) {
+  return String(value || "")
+    .replace(/&#0*39;|&apos;/gi, "'")
+    .replace(/&quot;/gi, '"')
+    .replace(/&amp;/gi, "&")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function isExternalNewsUrl(value) {
+  try {
+    const host = new URL(value).hostname.replace(/^www\./i, "").toLowerCase();
+    return EXTERNAL_NEWS_HOSTS.has(host);
+  } catch {
+    return false;
+  }
+}
+
+function officialDetailDate(html, item, source) {
+  const selectors = source.detailSelectors || {};
+  if (!selectors.title || !selectors.date) return null;
+  const detailTitle = textOf(findBySelector(html, selectors.title)[0]);
+  if (!detailTitle || normalizedText(detailTitle) !== normalizedText(item.title)) return null;
+  for (const rawDate of findBySelector(html, selectors.date).map(textOf)) {
+    const parsed = parseDate(rawDate, source.datePolicy || {});
+    if (parsed.value) return { value: parsed.value, rawDate };
+  }
+  return null;
+}
 
 /**
  * 수집된 항목의 sourceUrl 이 목록 페이지 URL과 동일한지 확인합니다.
@@ -95,6 +132,10 @@ async function collectFromSource(university, source, limit = 5) {
       );
       continue;
     }
+    if (isExternalNewsUrl(item.sourceUrl)) {
+      warnings.push(`INVALID_EXTERNAL_NEWS: ${item.title} (${item.sourceUrl})`);
+      continue;
+    }
     // id 접두어를 agent 전용으로 변경
     item.id = `agent-${item.urlHash ? item.urlHash.slice(0, 16) : Date.now()}`;
     item.isSampleCollection = false;
@@ -102,7 +143,18 @@ async function collectFromSource(university, source, limit = 5) {
     item.imageSource = null;
     try {
       const detail = await fetch(item.sourceUrl, { headers: { "User-Agent": "UNI-PICK-University-News-Research/0.1", Accept: "text/html,application/xhtml+xml" }, redirect: "follow" });
-      if (detail.ok && /^https?:\/\//i.test(detail.url)) Object.assign(item, imageFromArticle(await detail.text(), detail.url));
+      if (detail.ok && /^https?:\/\//i.test(detail.url)) {
+        const html = await detail.text();
+        if (!item.publishedAt) {
+          const recovered = officialDetailDate(html, item, source);
+          if (recovered) {
+            item.publishedAt = recovered.value;
+            item.dateSource = "detail_visible_date";
+            item.detailDateRaw = recovered.rawDate;
+          }
+        }
+        Object.assign(item, imageFromArticle(html, detail.url));
+      }
     } catch { /* Image is optional; keep the verified news item. */ }
     validItems.push(item);
   }
@@ -134,4 +186,4 @@ async function collectForUniversity(university, limitPerSource = 5) {
   return { items: allItems, warnings: allWarnings, sourceResults };
 }
 
-module.exports = { collectFromSource, collectForUniversity, isListUrl };
+module.exports = { collectFromSource, collectForUniversity, isListUrl, isExternalNewsUrl, officialDetailDate };
