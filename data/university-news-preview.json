@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-12T07:30:16.957Z",
+  "generatedAt": "2026-08-13T00:30:17.275Z",
   "isDevelopmentPreview": false,
   "agentGenerated": true,
-  "totalStoredItems": 72,
+  "totalStoredItems": 73,
   "supportedUniversities": [
     "고려대학교 서울캠퍼스",
     "한양대학교 서울캠퍼스",
@@ -16,6 +16,36 @@
     "대구교육대학교"
   ],
   "items": [
+    {
+      "id": "agent-f5d42e01d50a5ddf",
+      "universityId": "korea-university-seoul",
+      "universityGroupId": "korea-university",
+      "universityName": "고려대학교 서울캠퍼스",
+      "campusName": "서울캠퍼스",
+      "category": "school_news",
+      "title": "“이 옷, 나에게 잘 맞을까?” 온라인 쇼핑 고민 줄이는 리뷰 정보 찾았다",
+      "summary": "",
+      "contentText": "",
+      "sourceName": "고려대학교 공식 소식",
+      "sourceId": "korea-official-news",
+      "sourceType": "official",
+      "sourceUrl": "https://www.korea.ac.kr/bbs/ko/42/122039/artclView.do",
+      "sourceSiteUrl": "https://www.korea.ac.kr/bbs/ko/42/artclList.do?layout=unknown",
+      "thumbnailUrl": "",
+      "publishedAt": "2026-08-13",
+      "dateSource": "list_date",
+      "collectedAt": "2026-08-13T00:30:04.273Z",
+      "urlHash": "f5d42e01d50a5ddf17a3fe9641d158452086d9dc0e218a706b98977cfc598669",
+      "contentHash": "05fe218f0ca257b02cc704166d69a2517e5d673723c35531aef869357be052d8",
+      "isImportant": null,
+      "keywords": [],
+      "aiProcessed": false,
+      "status": "collected",
+      "errorMessage": null,
+      "isSampleCollection": false,
+      "imageUrl": "https://www.korea.ac.kr/Web-home/_UI/images/Global_Symbol.jpg",
+      "imageSource": "og"
+    },
     {
       "id": "agent-f07abae45fd81c55",
       "universityId": "korea-university-seoul",
@@ -964,38 +994,6 @@
       "detailValidation": {
         "verified": true,
         "sourceTitle": "(축하객 대상) 2026년 여름 전체 학위수여식 참석 안내",
-        "sourceDate": "2026-08-07"
-      }
-    },
-    {
-      "id": "phase3-8a02c8525f04f280",
-      "universityId": "skku-university-insa",
-      "universityGroupId": "skku-university-insa",
-      "universityName": "성균관대학교 인사캠퍼스",
-      "campusName": "캠퍼스",
-      "category": "school_notice",
-      "title": "2026년 여름 전체 학위수여식 개최 안내",
-      "summary": "",
-      "contentText": "",
-      "sourceName": "성균관대학교 공식 소식",
-      "sourceId": "skku-official-news",
-      "sourceType": "official",
-      "sourceUrl": "https://www.skku.edu/skku/campus/skk_comm/notice01.do?mode=view&articleNo=138911&article.offset=0&articleLimit=10",
-      "sourceSiteUrl": "https://www.skku.edu/skku/campus/skk_comm/notice01.do",
-      "thumbnailUrl": "",
-      "publishedAt": "2026-08-07",
-      "collectedAt": "2026-08-10T04:16:04.388Z",
-      "urlHash": "8a02c8525f04f2807a3f007f5ecd6704ff900081dee29e62746c90e56b783a15",
-      "contentHash": "5108607c57c433eff9d52a575deecccb333d8807eea5e8bd9758ce4b2d4e1cc8",
-      "isImportant": null,
-      "keywords": [],
-      "aiProcessed": false,
-      "status": "collected",
-      "errorMessage": null,
-      "isSampleCollection": true,
-      "detailValidation": {
-        "verified": true,
-        "sourceTitle": "2026년 여름 전체 학위수여식 개최 안내",
         "sourceDate": "2026-08-07"
       }
     }
