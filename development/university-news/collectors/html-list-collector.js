@@ -3,7 +3,13 @@
 const { normalizeCollectedItem } = require("./normalize-collected-item");
 
 function decodeHtml(text) {
-  return String(text || "").replace(/&nbsp;/gi, " ").replace(/&amp;/gi, "&").replace(/&quot;/gi, '"').replace(/&#39;|&apos;/gi, "'").replace(/&lt;/gi, "<").replace(/&gt;/gi, ">");
+  return String(text || "")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&quot;|&#0*34;/gi, '"')
+    .replace(/&#0*39;|&apos;/gi, "'")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">");
 }
 
 function parseToken(token) {
@@ -101,7 +107,11 @@ async function htmlListCollector({ university, source, limit, fetchImpl = fetch,
   const contentType = response.headers.get("content-type") || "";
   if (!/html/i.test(contentType)) throw new Error(`HTML 목록 페이지가 아닙니다 (${contentType || "content-type 없음"})`);
   const html = await response.text();
-  const itemHtmlList = findBySelector(html, selectors.item).slice(0, limit);
+  // Pull a wider candidate pool than the final limit: many boards pin
+  // "공지" rows at the top regardless of date, so slicing to `limit` here
+  // (before dates are even parsed) can silently drop genuinely newer
+  // regular articles that happen to sit below the pinned rows.
+  const itemHtmlList = findBySelector(html, selectors.item).slice(0, Math.max(limit * 6, 30));
   const items = [];
   const warnings = [];
   for (const itemHtml of itemHtmlList) {
@@ -119,7 +129,19 @@ async function htmlListCollector({ university, source, limit, fetchImpl = fetch,
     if (normalized.item) items.push(normalized.item);
     if (normalized.warning) warnings.push(normalized.warning);
   }
-  return { status: "success", items, warnings, finalUrl: response.url };
+  // Rank by actual publish date (most recent first), not by position on the
+  // page, so pinned/notice rows don't push real recent news out of the
+  // final `limit` cut. Items without a parseable date sort last, keeping
+  // their original page order among themselves.
+  items.sort((first, second) => {
+    const firstDate = first.publishedAt || "";
+    const secondDate = second.publishedAt || "";
+    if (firstDate && secondDate) return secondDate.localeCompare(firstDate);
+    if (firstDate) return -1;
+    if (secondDate) return 1;
+    return 0;
+  });
+  return { status: "success", items: items.slice(0, limit), warnings, finalUrl: response.url };
 }
 
 module.exports = { htmlListCollector, findBySelector, textOf, attribute, cleanTitle, detailLinkFromValue };
