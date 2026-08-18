@@ -17,6 +17,7 @@ const { normalizeUrl } = require(
   "../../development/university-news/utils/normalize-url"
 );
 const { imageFromArticle } = require("./article-image");
+const { emblemForUniversityId } = require("./university-directory");
 const { parseDate } = require("../../development/university-news/utils/parse-date");
 
 const EXTERNAL_NEWS_HOSTS = new Set([
@@ -156,6 +157,14 @@ async function collectFromSource(university, source, limit = 5) {
         Object.assign(item, imageFromArticle(html, detail.url));
       }
     } catch { /* Image is optional; keep the verified news item. */ }
+    if (!item.imageUrl) {
+      // 2순위: 본문에서 이미지를 못 찾았으면 학교 공식 엠블럼으로 대체합니다.
+      const fallbackLogo = emblemForUniversityId(university.universityId);
+      if (fallbackLogo) {
+        item.imageUrl = fallbackLogo;
+        item.imageSource = "university-logo-fallback";
+      }
+    }
     validItems.push(item);
   }
 
