@@ -306,6 +306,26 @@
           "enabled": false,
           "status": "selector_required",
           "healthStatus": "unknown"
+        },
+        {
+          "id": "konkuk-general-notice",
+          "name": "건국대학교 공지사항",
+          "category": "school_notice",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.konkuk.ac.kr/kbs/10473/subview.do",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.td-subject a",
+            "link": "td.td-subject a",
+            "linkAttribute": "href",
+            "date": "td.td-date"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown",
+          "verifiedAt": "2026-08-18T06:26:46.500Z"
         }
       ],
       "searchKeywords": [
@@ -437,6 +457,26 @@
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T05:20:00.000Z",
           "notes": "공식 보도자료 목록과 개별 상세 페이지 링크 구조를 확인했습니다. HTML 선택자 분석 전에는 수집하지 않습니다."
+        },
+        {
+          "id": "pnu-general-notice",
+          "name": "부산대학교 공지사항",
+          "category": "school_notice",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN095",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.subject a",
+            "link": "td.subject a",
+            "linkAttribute": "href",
+            "date": "td.date"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown",
+          "verifiedAt": "2026-08-18T06:25:05.874Z"
         }
       ],
       "searchKeywords": [
@@ -637,6 +677,27 @@
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T05:43:00.000Z",
           "notes": "전남대학교 공식 미디어포털의 주요뉴스 목록과 개별 상세 페이지 링크 구조를 확인했습니다. HTML 선택자 분석 전에는 수집하지 않습니다."
+        },
+        {
+          "id": "jnu-general-notice",
+          "name": "전남대학교 공지사항",
+          "category": "school_notice",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.jnu.ac.kr/WebApp/web/HOM/COM/Board/board.aspx?boardID=5",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.title a",
+            "link": "td.title a",
+            "linkAttribute": "href",
+            "date": "td",
+            "dateIndex": 3
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown",
+          "verifiedAt": "2026-08-18T06:19:32.824Z"
         }
       ],
       "searchKeywords": [
@@ -719,6 +780,26 @@
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T05:51:00.000Z",
           "notes": "충남대학교 공식 CNU NEWS 목록과 개별 상세 페이지 링크 구조를 확인했습니다. HTML 선택자 분석 전에는 수집하지 않습니다."
+        },
+        {
+          "id": "cnu-school-news",
+          "name": "충남대학교 새소식",
+          "category": "school_news",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://plus.cnu.ac.kr/_prog/_board/?code=sub07_0701&site_dvs_cd=kr&menu_dvs_cd=0701",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.title a",
+            "link": "td.title a",
+            "linkAttribute": "href",
+            "date": "td.date"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown",
+          "verifiedAt": "2026-08-18T06:13:04.339Z"
         }
       ],
       "searchKeywords": [
@@ -778,6 +859,27 @@
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T05:51:00.000Z",
           "notes": "공식 CBNU 뉴스 목록과 개별 상세 페이지 링크 구조를 확인했습니다. HTML 선택자 분석 전에는 수집하지 않습니다."
+        },
+        {
+          "id": "cbnu-school-notice",
+          "name": "충북대학교 공지사항",
+          "category": "school_notice",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.cbnu.ac.kr/www/selectBbsNttList.do?bbsNo=8&key=813",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.p-subject a",
+            "link": "td.p-subject a",
+            "linkAttribute": "href",
+            "date": "td",
+            "dateIndex": 5
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown",
+          "verifiedAt": "2026-08-18T06:15:56.597Z"
         }
       ],
       "searchKeywords": [
@@ -819,6 +921,25 @@
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T06:02:00.000Z",
           "notes": "공식 보도자료 목록과 개별 상세 페이지 링크 구조를 확인했습니다. HTML 선택자 분석 전에는 수집하지 않습니다."
+        },
+        {
+          "id": "kangwon-general-notice",
+          "name": "강원대학교 일반공지",
+          "category": "school_notice",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.kangwon.ac.kr/ko/bbs/504/list.do",
+          "selectors": {
+            "item": "a.bbs-card-item",
+            "title": "p",
+            "link": "@href",
+            "date": "span.bbs-card-info"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown",
+          "verifiedAt": "2026-08-18T06:16:49.953Z"
         }
       ],
       "searchKeywords": [
@@ -1019,6 +1140,27 @@
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T06:14:00.000Z",
           "notes": "공식 학생 지원 공지사항 목록과 개별 상세 페이지 링크 구조를 확인했습니다. HTML 선택자 분석 전에는 수집하지 않습니다."
+        },
+        {
+          "id": "knue-general-notice",
+          "name": "한국교원대학교 공지사항",
+          "category": "school_notice",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.knue.ac.kr/www/selectBbsNttList.do?bbsNo=258&key=1625",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.p-subject a",
+            "link": "td.p-subject a",
+            "linkAttribute": "href",
+            "date": "td",
+            "dateIndex": 3
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown",
+          "verifiedAt": "2026-08-18T06:28:51.801Z"
         }
       ],
       "searchKeywords": [
@@ -1928,6 +2070,26 @@
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T08:10:00.000Z",
           "notes": "국립부경대학교 공식 부경나우의 게시물 상세 URL(/main/53?action=view&no=...) 구조를 확인했습니다. 대연캠퍼스를 포함하는 대학 공식 소식이며 HTML 선택자 분석 전에는 수집하지 않습니다."
+        },
+        {
+          "id": "pknu-general-notice",
+          "name": "부경대학교 공지사항",
+          "category": "school_notice",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.pknu.ac.kr/main/163",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.bdlTitle a",
+            "link": "td.bdlTitle a",
+            "linkAttribute": "href",
+            "date": "td.bdlDate"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown",
+          "verifiedAt": "2026-08-18T06:28:51.732Z"
         }
       ],
       "searchKeywords": [
@@ -4376,7 +4538,28 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "seoultech-general-notice",
+          "name": "서울과학기술대학교 공지사항",
+          "category": "school_notice",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.seoultech.ac.kr/service/info/notice",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.dn2 a",
+            "link": "td.dn2 a",
+            "linkAttribute": "href",
+            "date": "td.dn5"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown",
+          "verifiedAt": "2026-08-18T06:29:32.871Z"
+        }
+      ],
       "searchKeywords": [
         "서울과학기술대학교",
         "서울과학기술대학교"
