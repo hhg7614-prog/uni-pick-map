@@ -79,8 +79,13 @@ function isListUrl(sourceUrl, listUrl) {
     const url2 = new URL(norm2);
     const path1 = url1.origin + url1.pathname;
     const path2 = url2.origin + url2.pathname;
-    // 경로까지 동일하고, 수집 URL 에 path depth 가 없으면 목록 URL로 판단
-    if (path1 === path2) return true;
+    // 경로가 같아도, 목록 URL에는 없는 새 쿼리 파라미터(mode=view, board_seq 등)로
+    // 상세글을 구분하는 게시판이 많으므로 그런 새 파라미터가 있으면 상세 링크로 인정합니다.
+    if (path1 === path2) {
+      const listKeys = new Set(url2.searchParams.keys());
+      const hasDistinguishingParam = [...url1.searchParams.keys()].some((key) => !listKeys.has(key));
+      if (!hasDistinguishingParam) return true;
+    }
   } catch {
     // URL 파싱 실패 시 무시
   }
