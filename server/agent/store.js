@@ -21,8 +21,17 @@ const PREVIEW_PATH = path.join(PROJECT_ROOT, "data/university-news-preview.json"
 // 최대 저장 건수 (오래된 것부터 제거)
 const MAX_STORE_ITEMS = 1000;
 
-// preview 에 표시할 최대 건수
-const MAX_PREVIEW_ITEMS = 30;
+// preview 전체 최대 건수 (안전장치, 대학 수가 늘어도 무한정 커지지 않도록)
+const MAX_PREVIEW_ITEMS = 200;
+
+// 대학 1곳당 preview에 넣을 최대 건수. 이 상한이 없으면 공지가 잦은 대학이
+// 상위 N건을 모두 차지해서, 공지 빈도가 낮은 대학은 실제로 수집이 되고도
+// 화면에는 "소식 없음"으로 보이는 문제가 생깁니다.
+const MAX_PREVIEW_ITEMS_PER_UNIVERSITY = 4;
+
+// 이 연도보다 이전에 게시된 항목은 preview에 노출하지 않습니다.
+// (개발 초기 목업/샘플 데이터가 실제 수집 데이터처럼 섞여 보이는 것을 방지)
+const MIN_PREVIEW_YEAR = 2026;
 
 const EXTERNAL_PREVIEW_HOSTS = new Set([
   "youtube.com", "youtu.be", "facebook.com", "instagram.com", "x.com", "twitter.com", "tiktok.com",
@@ -46,6 +55,7 @@ function hostOf(value) {
 
 function isPublicPreviewItem(item) {
   if (!item?.publishedAt || !/^\d{4}-\d{2}-\d{2}/.test(String(item.publishedAt))) return false;
+  if (Number(String(item.publishedAt).slice(0, 4)) < MIN_PREVIEW_YEAR) return false;
   if (!/^https?:\/\//i.test(String(item.sourceUrl || ""))) return false;
   const sourceHost = hostOf(item.sourceUrl);
   const officialHost = hostOf(item.sourceSiteUrl);
@@ -59,8 +69,24 @@ function isPublicPreviewItem(item) {
 }
 
 function createPreview(storeItems) {
-  const previewItems = storeItems
+  const eligible = storeItems
     .filter(isPublicPreviewItem)
+    .sort((first, second) => String(second.publishedAt).localeCompare(String(first.publishedAt)));
+
+  // 대학별로 최신 N건까지만 남겨서, 공지가 잦은 대학이 전체 목록을
+  // 독점하지 않고 모든 대학이 고르게 노출되도록 합니다.
+  // 캠퍼스별 고유 id로 카운트합니다 (같은 학교의 다른 캠퍼스끼리 할당량을
+  // 나눠 갖지 않도록 - 예: 연세대 신촌/국제 캠퍼스는 각각 별도로 보장).
+  const perUniversityCount = new Map();
+  const balanced = eligible.filter((item) => {
+    const key = item.universityId || item.universityGroupId;
+    const count = perUniversityCount.get(key) || 0;
+    if (count >= MAX_PREVIEW_ITEMS_PER_UNIVERSITY) return false;
+    perUniversityCount.set(key, count + 1);
+    return true;
+  });
+
+  const previewItems = balanced
     .sort((first, second) => String(second.publishedAt).localeCompare(String(first.publishedAt)))
     .slice(0, MAX_PREVIEW_ITEMS);
   return {

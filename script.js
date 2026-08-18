@@ -2,11 +2,7 @@
 
 const $ = selector => document.querySelector(selector);
 const safe = value => String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[char]));
-const fallbackNews = [
-  {id:"general-1",category:"news",categoryLabel:"뉴스 기사",title:"전국 대학 캠퍼스 업데이트를 확인하세요",summary:"UNI PICK에서 대학별 공지와 뉴스 정보를 모아 보여드립니다.",publishedAt:"2025-05-23",sourceName:"UNI PICK",sourceUrl:"#"},
-  {id:"general-2",category:"notice",categoryLabel:"공지사항",title:"대학별 공식 공지사항은 원문에서 확인하세요",summary:"소식 카드를 선택하면 관련 학교의 공식 웹사이트를 열 수 있습니다.",publishedAt:"2025-05-22",sourceName:"UNI PICK",sourceUrl:"#"},
-  {id:"general-3",category:"event",categoryLabel:"행사 소식",title:"전국 캠퍼스 행사 소식 모아보기",summary:"관심 있는 대학을 선택하면 해당 학교 소식을 우선으로 표시합니다.",publishedAt:"2025-05-21",sourceName:"UNI PICK",sourceUrl:"#"}
-];
+const fallbackNews = [];
 const collectedNewsPreview = {loaded:false,loading:null,items:[],reason:null};
 const universityData = (Array.isArray(window.UNI_PICK_UNIVERSITIES) ? window.UNI_PICK_UNIVERSITIES : []).map(item => ({...item,campusName:item.campusName||item.campusType||"캠퍼스",district:item.district||item.city||"",fields:Array.isArray(item.fields)?item.fields:[],majors:Array.isArray(item.majors)?item.majors:[],lat:Number(item.lat??item.latitude),lng:Number(item.lng??item.longitude),emblem:item.emblem||"assets/university-emblems/placeholder-emblem.svg"})).filter(item => Number.isFinite(item.lat) && Number.isFinite(item.lng));
 const appState = {activeMenu:"home",selectedUniversityId:null,universityResults:[...universityData],filter:"all",markersVisible:true,newsCategory:"all",newsQuery:"",newsPage:1,newsItems:[...fallbackNews]};
