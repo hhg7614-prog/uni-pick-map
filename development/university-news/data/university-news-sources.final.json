@@ -669,13 +669,42 @@
           "rssUrl": "",
           "listUrl": "https://www.jbnu.ac.kr/web/news/notice/sub01.do",
           "baseUrl": "https://www.jbnu.ac.kr",
-          "selectors": {},
+          "selectors": {
+            "item": "table.tbl_Board_01 tbody tr",
+            "title": "td.td-title a",
+            "link": "td.td-title a",
+            "linkAttribute": "onclick",
+            "date": "ul.etc-list li",
+            "dateIndex": 0
+          },
+          "detailSelectors": {
+            "title": "h2.title",
+            "date": "ul.etc-list li"
+          },
+          "jsDetailLinkRule": {
+            "enabled": true,
+            "pattern": "functionCall",
+            "functionName": "pf_DetailMove",
+            "argCount": 1,
+            "fixedParams": { "menu": "2377" },
+            "urlTemplate": "https://www.jbnu.ac.kr/web/Board/{arg0}/detailView.do?pageIndex=1&menu={menu}",
+            "verification": {
+              "method": "manual-curl-get-equivalence",
+              "verifiedAt": "2026-08-28",
+              "sampleRequests": [
+                "https://www.jbnu.ac.kr/web/Board/216647/detailView.do?pageIndex=1&menu=2377",
+                "https://www.jbnu.ac.kr/web/Board/216636/detailView.do?pageIndex=1&menu=2377",
+                "https://www.jbnu.ac.kr/web/Board/216633/detailView.do?pageIndex=1&menu=2377"
+              ],
+              "notes": "교내공지 게시판(pf_getParams가 menu=2377 고정)에서 GET 검증. 3건 목록↔상세 제목·날짜(ul.etc-list li[0]) 일치, '전북대학교' 다수 언급 확인."
+            }
+          },
           "verified": true,
-          "enabled": false,
-          "status": "selector_required",
+          "enabled": true,
+          "status": "verified",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T05:38:00.000Z",
-          "notes": "공식 교내공지 목록과 개별 상세 페이지 링크 구조를 확인했습니다. HTML 선택자 분석 전에는 수집하지 않습니다."
+          "notes": "selectors/jsDetailLinkRule(pf_DetailMove, 1-인자+fixedParams menu=2377) 확정, 3건 교차검증(제목·날짜·대학명) 통과. officialNames 불필요(본문에 '전북대학교' 그대로 등장)."
         },
         {
           "id": "jbnu-official-news",
@@ -1066,17 +1095,20 @@
           "category": "school_notice",
           "categoryLabel": "학교 공지사항",
           "sourceType": "official",
-          "collectionType": "html",
-          "rssUrl": "",
+          "collectionType": "rss",
+          "rssUrl": "https://www.gnu.ac.kr/main/na/ntt/selectRssFeed.do?mi=1126&bbsId=1028",
           "listUrl": "https://www.gnu.ac.kr/main/na/ntt/selectNttList.do?bbsId=1028&mi=1126",
           "baseUrl": "https://www.gnu.ac.kr",
-          "selectors": {},
+          "detailSelectors": {
+            "title": "th.title",
+            "date": "table td"
+          },
           "verified": true,
-          "enabled": false,
-          "status": "selector_required",
+          "enabled": true,
+          "status": "verified",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T06:02:00.000Z",
-          "notes": "공식 공지사항 목록과 개별 상세 페이지 링크 구조를 확인했습니다. HTML 선택자 분석 전에는 수집하지 않습니다."
+          "notes": "정상 동작하는 RSS 피드(selectRssFeed.do) 확인해 collectionType을 rss로 전환. 3건 교차검증(제목·날짜·대학명) 통과. officialNames 불필요(본문에 '경상국립대학교' 그대로 등장)."
         },
         {
           "id": "gnu-official-press-releases",
@@ -2023,13 +2055,43 @@
           "rssUrl": "",
           "listUrl": "https://www.dankook.ac.kr/web/kor/-390",
           "baseUrl": "https://www.dankook.ac.kr",
-          "selectors": {},
+          "selectors": {
+            "item": "div.dku-list-body-item",
+            "title": "h4 a",
+            "link": "h4 a",
+            "linkAttribute": "onclick",
+            "date": "p.text-center",
+            "dateIndex": 1
+          },
+          "titleCleanupTokens": ["일반 ", "행사 ", "특강 "],
+          "detailSelectors": {
+            "title": "table.dku-bbs-view_message-inner th",
+            "date": "table.dku-bbs-view_message-inner td"
+          },
+          "officialNames": ["단국대학교"],
+          "jsDetailLinkRule": {
+            "enabled": true,
+            "pattern": "functionCall",
+            "functionName": "_dku_bbs_web_BbsPortlet_viewMessage",
+            "argCount": 3,
+            "urlTemplate": "https://www.dankook.ac.kr/web/kor/-390?p_p_id=dku_bbs_web_BbsPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_dku_bbs_web_BbsPortlet_cur=1&_dku_bbs_web_BbsPortlet_action=view_message&_dku_bbs_web_BbsPortlet_orderBy=createDate&_dku_bbs_web_BbsPortlet_bbsMessageId={arg0}",
+            "verification": {
+              "method": "manual-curl-get-equivalence",
+              "verifiedAt": "2026-08-28",
+              "sampleRequests": [
+                "https://www.dankook.ac.kr/web/kor/-390?p_p_id=dku_bbs_web_BbsPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_dku_bbs_web_BbsPortlet_cur=1&_dku_bbs_web_BbsPortlet_action=view_message&_dku_bbs_web_BbsPortlet_orderBy=createDate&_dku_bbs_web_BbsPortlet_bbsMessageId=179021",
+                "https://www.dankook.ac.kr/web/kor/-390?p_p_id=dku_bbs_web_BbsPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_dku_bbs_web_BbsPortlet_cur=1&_dku_bbs_web_BbsPortlet_action=view_message&_dku_bbs_web_BbsPortlet_orderBy=createDate&_dku_bbs_web_BbsPortlet_bbsMessageId=181015",
+                "https://www.dankook.ac.kr/web/kor/-390?p_p_id=dku_bbs_web_BbsPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_dku_bbs_web_BbsPortlet_cur=1&_dku_bbs_web_BbsPortlet_action=view_message&_dku_bbs_web_BbsPortlet_orderBy=createDate&_dku_bbs_web_BbsPortlet_bbsMessageId=181124"
+              ],
+              "notes": "location.href= 대입문을 역산해 GET 검증. 3건 목록↔상세 제목·날짜·'단국대학교' 일치. 주의: 상단 고정('공지' 배지) 게시물은 상세 테이블에 '공지 게시기간' 행이 하나 더 있어 date 선택자가 드물게 그 시작일을 집어올 수 있음(수집 실패는 아니며 경미한 날짜 오차 가능성)."
+            }
+          },
           "verified": true,
-          "enabled": false,
-          "status": "selector_required",
+          "enabled": true,
+          "status": "verified",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T07:02:00.000Z",
-          "notes": "대학 본부 공식 일반공지 목록입니다. 양 캠퍼스 공통 공지가 포함될 수 있으며, HTML 선택자 분석 전에는 수집하지 않습니다."
+          "notes": "selectors/jsDetailLinkRule/officialNames 확정, 3건 교차검증 통과. 고정 공지글 날짜 추출에 경미한 위험 있음(위 jsDetailLinkRule.verification.notes 참고)."
         }
       ],
       "searchKeywords": [
