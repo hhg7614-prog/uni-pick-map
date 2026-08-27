@@ -11,19 +11,74 @@
     "news:agent:stop": "node server/agent/stop.js",
     "news:agent:six": "node server/agent/tools/run-multi-school-trial.js --university-ids=seoul-national-university-gwanak,yonsei-university-sinchon,korea-university-seoul,hanyang-university-seoul,ewha-womans-university,dongguk-university-seoul --limit-per-source=3",
     "news:agent:six:deploy": "node server/agent/tools/run-six-university-news-and-deploy.js",
-    "news:onboard:production-batch": "node server/agent/onboarding/tools/run-production-onboarding-batch.js",
-    "news:onboard:production-batch:status": "node server/agent/onboarding/tools/run-production-onboarding-batch.js --status",
-    "news:onboard:production-batch:resume": "node server/agent/onboarding/tools/run-production-onboarding-batch.js --resume",
-    "news:onboard:production-batch:test10": "node server/agent/onboarding/tools/run-production-onboarding-batch.js --test10",
-    "news:onboard:metadata-row-integrity:test6": "node server/agent/onboarding/tools/run-metadata-row-integrity-test6.js",
-    "news:onboard:agent-v1:test10": "node server/agent/onboarding/tools/run-university-feed-agent-v1.js",
-    "news:onboard:agent-v1:next20": "node server/agent/onboarding/tools/run-university-feed-agent-v1.js --next20",
-    "news:onboard:agent-v1:integrity-regression": "node server/agent/onboarding/tools/run-university-feed-agent-v1.js --integrity-regression",
-    "news:onboard:agent-v1:next20-selection-test": "node server/agent/onboarding/tools/run-university-feed-agent-v1-queue.js --selection-test",
-    "news:onboard:agent-v1:retry10": "node server/agent/onboarding/tools/run-priority-network-retry10.js",
-    "news:onboard:agent-v1:retry10:select": "node server/agent/onboarding/tools/run-priority-network-retry10.js --selection-only"
+    "news:agent:scheduled": "node server/agent/tools/run-scheduled-news-update.js",
+    "news:sources:247:dry": "node server/agent/tools/run-247-source-diagnostics.js --dry-run",
+    "news:sources:247": "node server/agent/tools/run-247-source-diagnostics.js",
+    "news:sources:247:resume": "node server/agent/tools/run-247-source-diagnostics.js --resume",
+    "news:sources:247:test:resume": "node server/agent/tools/run-247-source-diagnostics.js --resume-test",
+    "news:sources:247:test:status": "node server/agent/tools/run-247-source-diagnostics.js --status-test",
+    "news:sources:247:retry-errors": "node server/agent/tools/run-247-source-diagnostics.js --retry-errors",
+    "news:sources:247:status": "node server/agent/tools/run-247-source-diagnostics.js --status",
+    "news:screen:selector-required": "node server/agent/tools/screen-selector-required-sources.js",
+    "news:source:approve": "node server/agent/tools/approve-source-diagnostic.js",
+    "news:system:status": "node server/agent/tools/build-hourly-status.js",
+    "news:system:watchdog": "node server/agent/tools/uni-pick-watchdog.js",
+    "news:onboard": "node server/agent/onboarding/run-onboarding-agent.js",
+    "news:onboard:status": "node server/agent/onboarding/run-onboarding-agent.js --status",
+    "news:onboard:resume": "node server/agent/onboarding/run-onboarding-agent.js --resume",
+    "news:onboard:retry": "node server/agent/onboarding/run-onboarding-agent.js --retry"
+    ,"news:onboard:prepare": "node server/agent/onboarding/run-onboarding-agent.js --prepare"
+    ,"news:onboard:queue": "node server/agent/onboarding/run-onboarding-agent.js --queue"
+    ,"news:onboard:diagnose": "node server/agent/onboarding/run-onboarding-agent.js --diagnose"
+    ,"news:onboard:one": "node server/agent/onboarding/tools/run-one-onboarding.js"
+    ,"news:onboard:batch": "node server/agent/onboarding/tools/run-onboarding-batch.js"
+    ,"news:onboard:batch:resume": "node server/agent/onboarding/tools/run-onboarding-batch.js --resume"
+    ,"news:onboard:batch:status": "node server/agent/onboarding/tools/run-onboarding-batch.js --status"
+    ,"news:onboard:batch:retry": "node server/agent/onboarding/tools/run-onboarding-batch.js --retry"
+    ,"news:onboard:batch:test10": "node server/agent/onboarding/tools/run-onboarding-batch.js --test10"
+    ,"news:onboard:batch:second-pass": "node server/agent/onboarding/tools/run-onboarding-batch.js --second-pass"
+    ,"news:onboard:analyze-failures": "node server/agent/onboarding/tools/analyze-onboarding-failures.js"
+    ,"news:onboard:analyze-failures:status": "node server/agent/onboarding/tools/analyze-onboarding-failures.js --status"
+    ,"news:onboard:smart-retry": "node server/agent/onboarding/tools/run-smart-retry.js"
+    ,"news:onboard:smart-retry:status": "node server/agent/onboarding/tools/run-smart-retry.js --status"
+    ,"news:onboard:smart-retry:resume": "node server/agent/onboarding/tools/run-smart-retry.js --resume"
+    ,"news:onboard:smart-retry:test10": "node server/agent/onboarding/tools/run-smart-retry.js --test10"
+    ,"news:onboard:smart-retry:test10-recovery": "node server/agent/onboarding/tools/run-smart-retry.js --test10-recovery"
+    ,"news:onboard:quality:test10": "node server/agent/onboarding/tools/run-source-quality-test10.js"
+    ,"news:onboard:smart-retry:test20-quality": "node server/agent/onboarding/tools/run-quality-recovery-test20.js"
+    ,"news:onboard:smart-retry:test20-quality-recovery": "node server/agent/onboarding/tools/run-quality-recovery-final-test20.js"
+    ,"news:onboard:recover:test3": "node server/agent/onboarding/tools/run-selector-date-recovery-test3.js"
+    ,"news:onboard:collector-config:test4": "node server/agent/onboarding/tools/build-collector-config.js"
+    ,"news:onboard:activate:collector-ready": "node server/agent/onboarding/tools/activate-collector-ready.js"
+    ,"news:onboard:production-batch": "node server/agent/onboarding/tools/run-production-onboarding-batch.js"
+    ,"news:onboard:production-batch:status": "node server/agent/onboarding/tools/run-production-onboarding-batch.js --status"
+    ,"news:onboard:production-batch:resume": "node server/agent/onboarding/tools/run-production-onboarding-batch.js --resume"
+    ,"news:onboard:production-batch:test10": "node server/agent/onboarding/tools/run-production-onboarding-batch.js --test10"
+    ,"news:onboard:metadata-row-integrity:test6": "node server/agent/onboarding/tools/run-metadata-row-integrity-test6.js"
+    ,"news:onboard:bootstrap-retry:test10": "node server/agent/onboarding/tools/run-bootstrap-retry-test10.js"
+    ,"news:onboard:bootstrap-discovery-v2:test10": "node server/agent/onboarding/tools/run-bootstrap-discovery-v2-test10.js"
+    ,"news:onboard:general-feed:test10": "node server/agent/onboarding/tools/run-general-university-feed-test10.js"
+    ,"news:onboard:general-feed:mtu-title-recovery": "node server/agent/onboarding/tools/run-general-feed-mtu-title-recovery.js"
+    ,"news:onboard:candidate-recovery:test10": "node server/agent/onboarding/tools/run-candidate-recovery-test10.js"
+    ,"news:onboard:candidate-recovery:test10-v2": "node server/agent/onboarding/tools/run-candidate-recovery-test10-v2.js"
+    ,"news:onboard:content-container:test5": "node server/agent/onboarding/tools/run-content-container-test5.js"
+    ,"news:onboard:agent-v1:test10": "node server/agent/onboarding/tools/run-university-feed-agent-v1.js"
+    ,"news:onboard:agent-v1:next20": "node server/agent/onboarding/tools/run-university-feed-agent-v1.js --next20"
+    ,"news:onboard:agent-v1:pipeline-integrity:test3": "node server/agent/onboarding/tools/run-pipeline-integrity-test3.js"
+    ,"news:onboard:agent-v1:integrity-regression": "node server/agent/onboarding/tools/run-university-feed-agent-v1.js --integrity-regression"
+    ,"news:onboard:agent-v1:next20-selection-test": "node server/agent/onboarding/tools/run-university-feed-agent-v1-queue.js --selection-test"
+    ,"news:onboard:agent-v1:retry10": "node server/agent/onboarding/tools/run-priority-network-retry10.js"
+    ,"news:onboard:agent-v1:retry10:select": "node server/agent/onboarding/tools/run-priority-network-retry10.js --selection-only"
+    ,"news:onboard:agent-v1:container-precision:test10": "node server/agent/onboarding/tools/run-container-precision-test10.js"
+    ,"news:onboard:agent-v1:container-precision-v2:test10": "node server/agent/onboarding/tools/run-container-precision-v2-test10.js"
+    ,"news:onboard:agent-v1:container-precision-v21:test10": "node server/agent/onboarding/tools/run-container-precision-v21-test10.js"
+    ,"news:onboard:agent-v1:dnue-title:test": "node server/agent/onboarding/tools/run-dnue-title-validation.js"
+    ,"news:onboard:agent-v1:dnue-collector:dry-run": "node server/agent/onboarding/tools/run-dnue-collector-dry-run.js"
+    ,"news:onboard:agent-v1:feed-section-integration:regression": "node server/agent/onboarding/tools/run-feed-section-integration-regression.js"
+    ,"news:onboard:agent-v1:ysu2-title:test": "node server/agent/onboarding/tools/run-ysu2-title-validation.js"
+    ,"news:onboard:agent-v1:ysu2-collector:dry-run": "node server/agent/onboarding/tools/run-ysu2-collector-dry-run.js"
+    ,"news:onboard:agent-v1:ulsan-title:test": "node server/agent/onboarding/tools/run-ulsan-title-validation.js"
+    ,"news:onboard:agent-v1:ulsan-collector:dry-run": "node server/agent/onboarding/tools/run-ulsan-collector-dry-run.js"
   },
-  "engines": {
-    "node": ">=18"
-  }
+  "engines": { "node": ">=18" }
 }

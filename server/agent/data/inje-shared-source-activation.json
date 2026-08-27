@@ -1,0 +1,122 @@
+{
+  "status": "ACTIVATED_LOCAL",
+  "sourceAdded": true,
+  "ownerOnly": true,
+  "secondCampusSourceAdded": false,
+  "sharedSourcePolicy": {
+    "campusScope": "SHARED_SOURCE",
+    "canonicalOwner": "inje-university-본교",
+    "visibleToCampuses": [
+      "inje-university-본교",
+      "inje-university-제2캠퍼"
+    ],
+    "collectOnce": true,
+    "duplicateStorage": false
+  },
+  "dryRun": {
+    "success": true,
+    "status": 200,
+    "finalUrl": "https://scsc.inje.ac.kr/scsc/community/news.do?mode=list",
+    "rawRows": 13,
+    "extracted": 11,
+    "unique": 11,
+    "duplicateKeys": 0,
+    "distinctTitles": 11,
+    "distinctDates": 11,
+    "detailTested": 5,
+    "detailPass": 5,
+    "titlePass": 5,
+    "datePass": 5,
+    "validUrls": 5,
+    "detailSamples": [
+      {
+        "articleNo": "75283",
+        "title": "[공지] [의무실] 에볼라바이러스병 주의 안내",
+        "publishedAt": "2026-06-02",
+        "detailUrl": "https://scsc.inje.ac.kr/scsc/community/news.do?mode=view&articleNo=75283&article.offset=0&articleLimit=10",
+        "detailKey": "ARTICLE_NO:75283",
+        "status": 200,
+        "finalUrl": "https://scsc.inje.ac.kr/scsc/community/news.do?mode=view&articleNo=75283&article.offset=0&articleLimit=10",
+        "validUrl": true,
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true,
+        "error": null
+      },
+      {
+        "articleNo": "74928",
+        "title": "[공지] [인권센터] 재학생 대상 2026년도 폭력예방 의무교육 등 이수 안내",
+        "publishedAt": "2026-05-06",
+        "detailUrl": "https://scsc.inje.ac.kr/scsc/community/news.do?mode=view&articleNo=74928&article.offset=0&articleLimit=10",
+        "detailKey": "ARTICLE_NO:74928",
+        "status": 200,
+        "finalUrl": "https://scsc.inje.ac.kr/scsc/community/news.do?mode=view&articleNo=74928&article.offset=0&articleLimit=10",
+        "validUrl": true,
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true,
+        "error": null
+      },
+      {
+        "articleNo": "75874",
+        "title": "[국제개별협력본부] 인제대, 캄보디아 국립의대 교육병원 ‘개원 로드맵’ 본격화",
+        "publishedAt": "2026-08-12",
+        "detailUrl": "https://scsc.inje.ac.kr/scsc/community/news.do?mode=view&articleNo=75874&article.offset=0&articleLimit=10",
+        "detailKey": "ARTICLE_NO:75874",
+        "status": 200,
+        "finalUrl": "https://scsc.inje.ac.kr/scsc/community/news.do?mode=view&articleNo=75874&article.offset=0&articleLimit=10",
+        "validUrl": true,
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true,
+        "error": null
+      },
+      {
+        "articleNo": "75742",
+        "title": "[사무처 관리과] 인제대, 일강원 옥상에 태양광 발전 설비 구축… ESG 경영 실천",
+        "publishedAt": "2026-07-22",
+        "detailUrl": "https://scsc.inje.ac.kr/scsc/community/news.do?mode=view&articleNo=75742&article.offset=0&articleLimit=10",
+        "detailKey": "ARTICLE_NO:75742",
+        "status": 200,
+        "finalUrl": "https://scsc.inje.ac.kr/scsc/community/news.do?mode=view&articleNo=75742&article.offset=0&articleLimit=10",
+        "validUrl": true,
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true,
+        "error": null
+      },
+      {
+        "articleNo": "75704",
+        "title": "[중대재해예방센터] 혹서기 실외근무자를 위한 쉼터 '무더위 쉼표' 운영 안내",
+        "publishedAt": "2026-07-20",
+        "detailUrl": "https://scsc.inje.ac.kr/scsc/community/news.do?mode=view&articleNo=75704&article.offset=0&articleLimit=10",
+        "detailKey": "ARTICLE_NO:75704",
+        "status": 200,
+        "finalUrl": "https://scsc.inje.ac.kr/scsc/community/news.do?mode=view&articleNo=75704&article.offset=0&articleLimit=10",
+        "validUrl": true,
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true,
+        "error": null
+      }
+    ]
+  },
+  "tests": {
+    "exitCode": 0,
+    "stdout": "\n> uni-pick-map@1.0.0 test\n> node --test\n\nTAP version 13\n# Subtest: official detail date is used only when the visible detail title matches\nok 1 - official detail date is used only when the visible detail title matches\n  ---\n  duration_ms: 3.1063\n  ...\n# Subtest: external video URLs are excluded before they can become null-dated news\nok 2 - external video URLs are excluded before they can become null-dated news\n  ---\n  duration_ms: 0.3259\n  ...\n# Subtest: NETWORK diagnostics classify ECONNRESET and generic fetch errors\nok 3 - NETWORK diagnostics classify ECONNRESET and generic fetch errors\n  ---\n  duration_ms: 2.4258\n  ...\n# Subtest: NETWORK diagnostics classify HTTP responses without changing successful responses\nok 4 - NETWORK diagnostics classify HTTP responses without changing successful responses\n  ---\n  duration_ms: 0.4542\n  ...\n# Subtest: NETWORK subtype policy separates recheck, TLS review, manual review, and cooldown\nok 5 - NETWORK subtype policy separates recheck, TLS review, manual review, and cooldown\n  ---\n  duration_ms: 1.6462\n  ...\n# Subtest: same homepage uses one network request for three logical requests\nok 6 - same homepage uses one network request for three logical requests\n  ---\n  duration_ms: 0.4064\n  ...\n# Subtest: NETWORK diagnostics are included in future result JSON and Korean HTML\nok 7 - NETWORK diagnostics are included in future result JSON and Korean HTML\n  ---\n  duration_ms: 0.8059\n  ...\n# Subtest: final pending batch accepts all nine without retry fill\nok 8 - final pending batch accepts all nine without retry fill\n  ---\n  duration_ms: 1.5541\n  ...\n# Subtest: normal pending batch remains twenty\nok 9 - normal pending batch remains twenty\n  ---\n  duration_ms: 0.1593\n  ...\n# Subtest: zero pending completes the initial sweep without selection\nok 10 - zero pending completes the initial sweep without selection\n  ---\n  duration_ms: 0.1358\n  ...\n# Subtest: 247개 대학 진단 dry-run은 외부 요청 없이 전체 목록을 확인한다\nok 11 - 247개 대학 진단 dry-run은 외부 요청 없이 전체 목록을 확인한다\n  ---\n  duration_ms: 9.2638\n  ...\n# Subtest: 게시일은 실제 한국어 날짜 형식만 ISO 날짜로 변환한다\nok 12 - 게시일은 실제 한국어 날짜 형식만 ISO 날짜로 변환한다\n  ---\n  duration_ms: 0.547\n  ...\n# Subtest: 추적 파라미터가 달라도 같은 공식 URL로 정규화한다\nok 13 - 추적 파라미터가 달라도 같은 공식 URL로 정규화한다\n  ---\n  duration_ms: 0.9209\n  ...\n# Subtest: 후보 점수는 공식 상세 링크와 실제 날짜가 있을 때만 높은 등급이 된다\nok 14 - 후보 점수는 공식 상세 링크와 실제 날짜가 있을 때만 높은 등급이 된다\n  ---\n  duration_ms: 0.1687\n  ...\n# Subtest: emblemForUniversityId returns a real logo path for a school with a verified emblem\nok 15 - emblemForUniversityId returns a real logo path for a school with a verified emblem\n  ---\n  duration_ms: 7.0266\n  ...\n# Subtest: emblemForUniversityId returns null when the school only has the placeholder emblem\nok 16 - emblemForUniversityId returns null when the school only has the placeholder emblem\n  ---\n  duration_ms: 0.1954\n  ...\n# Subtest: emblemForUniversityId returns null for an unknown university id\nok 17 - emblemForUniversityId returns null for an unknown university id\n  ---\n  duration_ms: 0.1335\n  ...\n# Subtest: 수도권 국립 컴퓨터 검색은 검증된 서울대·인천대 학과만 반환한다\nok 18 - 수도권 국립 컴퓨터 검색은 검증된 서울대·인천대 학과만 반환한다\n  ---\n  duration_ms: 11.7931\n  ...\n# Subtest: 부산 사립 사회복지는 동아대 부민캠퍼스의 확인된 학과를 반환한다\nok 19 - 부산 사립 사회복지는 동아대 부민캠퍼스의 확인된 학과를 반환한다\n  ---\n  duration_ms: 1.0381\n  ...\n# Subtest: 성적만 입력하면 추정하지 않고 제한 안내로 끝낸다\nok 20 - 성적만 입력하면 추정하지 않고 제한 안내로 끝낸다\n  ---\n  duration_ms: 0.5546\n  ...\n# Subtest: 존재하지 않는 위치와 학교는 결과 없음으로 처리한다\nok 21 - 존재하지 않는 위치와 학교는 결과 없음으로 처리한다\n  ---\n  duration_ms: 1.31\n  ...\n# Subtest: 서울 근처는 수도권으로 변환한다\nok 22 - 서울 근처는 수도권으로 변환한다\n  ---\n  duration_ms: 0.6115\n  ...\n1..22\n# tests 22\n# suites 0\n# pass 22\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 326.1977\n",
+    "stderr": ""
+  },
+  "rollback": false,
+  "backup": "D:\\hhg(code)\\server\\agent\\backups\\inje-shared-source-activation\\20260824021003",
+  "beforeHashes": {
+    "catalog": "9755a80ecbb007e69e5204249cb4cb5f8bc8a888da3254e8052f9f55169dbb30",
+    "store": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "preview": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "afterHashes": {
+    "catalog": "ab4a9e0f93d512321f22f1bd25cf5f73d7776943d34b5e7c1149c82ed1f95afb",
+    "store": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "preview": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "error": null
+}

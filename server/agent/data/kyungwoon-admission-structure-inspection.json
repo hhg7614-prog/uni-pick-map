@@ -1,0 +1,3293 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-24T00:04:03.883Z",
+  "universityId": "kyungwoon-university-본교",
+  "universityName": "경운대학교",
+  "startUrl": "https://www.ikw.ac.kr/ipsi/main.tc",
+  "startStatus": 200,
+  "anchors": 232,
+  "candidateCount": 15,
+  "testedCount": 15,
+  "testedCandidates": [
+    {
+      "label": "새창열림",
+      "url": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331786",
+      "initialScore": 185,
+      "reasons": [
+        "공지:55",
+        "수시:45",
+        "모집:40",
+        "안내:25",
+        "BOARD_SIGNAL:20",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "UNIQUE_POSTS_3_PLUS:20",
+        "TITLE_VARIETY:15"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331786",
+      "bytes": 58455,
+      "finalScore": 260,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "LI",
+            "totalContainers": 81,
+            "extracted": 32,
+            "unique": 26,
+            "withDate": 0,
+            "distinctTitles": 22,
+            "sampleItems": [
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+                "publishedAt": null,
+                "text": "공지사항 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "학생부종합전형 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+                "publishedAt": null,
+                "text": "학생부종합전형"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+                "publishedAt": null,
+                "text": "정시모집 정시모집 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+                "publishedAt": null,
+                "text": "편입학 편입학 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "편입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+                "publishedAt": null,
+                "text": "편입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+                "publishedAt": null,
+                "text": "외국인 외국인 공지사항"
+              }
+            ]
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 44,
+            "extracted": 4,
+            "unique": 4,
+            "withDate": 0,
+            "distinctTitles": 4,
+            "sampleItems": [
+              {
+                "type": "DIV",
+                "title": "수시모집",
+                "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+                "publishedAt": null,
+                "text": "경운대학교 메뉴 수시모집 수시모집"
+              },
+              {
+                "type": "DIV",
+                "title": "고교연계프로그램 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5752&pageSeq=4682",
+                "publishedAt": null,
+                "text": "수시모집 홈 수시모집 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 공지사항 공지사항 모집요강 학생부종합전형 신입학 Q&A 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+              },
+              {
+                "type": "DIV",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000081965&fileSeq=2&pass=",
+                "publishedAt": null,
+                "text": "2027학년도 수시모집요강 표지.png 미리보기 --> 2027학년도 경운대학교 수시모집요강.pdf 미리보기 -->"
+              },
+              {
+                "type": "DIV",
+                "title": "개인정보처리방침",
+                "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+                "publishedAt": null,
+                "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+              }
+            ]
+          }
+        ],
+        "best": {
+          "type": "LI",
+          "totalContainers": 81,
+          "extracted": 32,
+          "unique": 26,
+          "withDate": 0,
+          "distinctTitles": 22,
+          "sampleItems": [
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+              "publishedAt": null,
+              "text": "공지사항 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "학생부종합전형 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+              "publishedAt": null,
+              "text": "학생부종합전형"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+              "publishedAt": null,
+              "text": "정시모집 정시모집 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+              "publishedAt": null,
+              "text": "편입학 편입학 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "편입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+              "publishedAt": null,
+              "text": "편입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+              "publishedAt": null,
+              "text": "외국인 외국인 공지사항"
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "label": "새창열림",
+      "url": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331202",
+      "initialScore": 170,
+      "reasons": [
+        "공지:55",
+        "입학:35",
+        "전형:35",
+        "안내:25",
+        "BOARD_SIGNAL:20",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "UNIQUE_POSTS_3_PLUS:20",
+        "TITLE_VARIETY:15"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331202",
+      "bytes": 59364,
+      "finalScore": 245,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "LI",
+            "totalContainers": 81,
+            "extracted": 32,
+            "unique": 26,
+            "withDate": 0,
+            "distinctTitles": 22,
+            "sampleItems": [
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+                "publishedAt": null,
+                "text": "공지사항 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "학생부종합전형 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+                "publishedAt": null,
+                "text": "학생부종합전형"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+                "publishedAt": null,
+                "text": "정시모집 정시모집 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+                "publishedAt": null,
+                "text": "편입학 편입학 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "편입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+                "publishedAt": null,
+                "text": "편입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+                "publishedAt": null,
+                "text": "외국인 외국인 공지사항"
+              }
+            ]
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 43,
+            "extracted": 4,
+            "unique": 4,
+            "withDate": 0,
+            "distinctTitles": 4,
+            "sampleItems": [
+              {
+                "type": "DIV",
+                "title": "수시모집",
+                "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+                "publishedAt": null,
+                "text": "경운대학교 메뉴 수시모집 수시모집"
+              },
+              {
+                "type": "DIV",
+                "title": "고교연계프로그램 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5752&pageSeq=4682",
+                "publishedAt": null,
+                "text": "수시모집 홈 수시모집 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 공지사항 공지사항 모집요강 학생부종합전형 신입학 Q&A 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+              },
+              {
+                "type": "DIV",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000081314&fileSeq=1&pass=",
+                "publishedAt": null,
+                "text": "2028학년도 대학입학전형시행계획 주요사항(최종).pdf 미리보기 -->"
+              },
+              {
+                "type": "DIV",
+                "title": "개인정보처리방침",
+                "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+                "publishedAt": null,
+                "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+              }
+            ]
+          }
+        ],
+        "best": {
+          "type": "LI",
+          "totalContainers": 81,
+          "extracted": 32,
+          "unique": 26,
+          "withDate": 0,
+          "distinctTitles": 22,
+          "sampleItems": [
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+              "publishedAt": null,
+              "text": "공지사항 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "학생부종합전형 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+              "publishedAt": null,
+              "text": "학생부종합전형"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+              "publishedAt": null,
+              "text": "정시모집 정시모집 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+              "publishedAt": null,
+              "text": "편입학 편입학 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "편입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+              "publishedAt": null,
+              "text": "편입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+              "publishedAt": null,
+              "text": "외국인 외국인 공지사항"
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "label": "새창열림",
+      "url": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331907",
+      "initialScore": 160,
+      "reasons": [
+        "공지:55",
+        "수시:45",
+        "모집:40",
+        "BOARD_SIGNAL:20",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "UNIQUE_POSTS_3_PLUS:20",
+        "TITLE_VARIETY:15"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331907",
+      "bytes": 57908,
+      "finalScore": 235,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "LI",
+            "totalContainers": 81,
+            "extracted": 32,
+            "unique": 26,
+            "withDate": 0,
+            "distinctTitles": 22,
+            "sampleItems": [
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+                "publishedAt": null,
+                "text": "공지사항 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "학생부종합전형 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+                "publishedAt": null,
+                "text": "학생부종합전형"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+                "publishedAt": null,
+                "text": "정시모집 정시모집 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+                "publishedAt": null,
+                "text": "편입학 편입학 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "편입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+                "publishedAt": null,
+                "text": "편입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+                "publishedAt": null,
+                "text": "외국인 외국인 공지사항"
+              }
+            ]
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 43,
+            "extracted": 4,
+            "unique": 4,
+            "withDate": 0,
+            "distinctTitles": 4,
+            "sampleItems": [
+              {
+                "type": "DIV",
+                "title": "수시모집",
+                "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+                "publishedAt": null,
+                "text": "경운대학교 메뉴 수시모집 수시모집"
+              },
+              {
+                "type": "DIV",
+                "title": "고교연계프로그램 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5752&pageSeq=4682",
+                "publishedAt": null,
+                "text": "수시모집 홈 수시모집 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 공지사항 공지사항 모집요강 학생부종합전형 신입학 Q&A 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+              },
+              {
+                "type": "DIV",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000082216&fileSeq=1&pass=",
+                "publishedAt": null,
+                "text": "2026학년도 경운대학교 수시모집 성적자료.pdf 미리보기 --> 2026학년도 경운대학교 수시모집 성적자료1.png 미리보기 --> 2026학년도 경운대학교 수시모집 성적자료2.png 미리보기 -->"
+              },
+              {
+                "type": "DIV",
+                "title": "개인정보처리방침",
+                "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+                "publishedAt": null,
+                "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+              }
+            ]
+          }
+        ],
+        "best": {
+          "type": "LI",
+          "totalContainers": 81,
+          "extracted": 32,
+          "unique": 26,
+          "withDate": 0,
+          "distinctTitles": 22,
+          "sampleItems": [
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+              "publishedAt": null,
+              "text": "공지사항 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "학생부종합전형 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+              "publishedAt": null,
+              "text": "학생부종합전형"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+              "publishedAt": null,
+              "text": "정시모집 정시모집 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+              "publishedAt": null,
+              "text": "편입학 편입학 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "편입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+              "publishedAt": null,
+              "text": "편입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+              "publishedAt": null,
+              "text": "외국인 외국인 공지사항"
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "label": "공지사항 바로가기",
+      "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+      "initialScore": 120,
+      "reasons": [
+        "공지사항:65",
+        "공지:55",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "UNIQUE_POSTS_3_PLUS:20",
+        "POST_DATES_3_PLUS:30"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/board/list.tc?mn=2415&mngNo=12&categoryNo=48&pageSeq=1608&protocol=http",
+      "bytes": 76716,
+      "finalScore": 210,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 18,
+            "extracted": 18,
+            "unique": 15,
+            "withDate": 15,
+            "distinctTitles": 1,
+            "sampleItems": [
+              {
+                "type": "TR",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000082216&fileSeq=1",
+                "publishedAt": "2026-06-04",
+                "text": "30 수시 [입시결과]2026학년도 수시모집 성적자료 2026-06-04 입학홍보처 조회수 7544 파일 다운로드"
+              },
+              {
+                "type": "TR",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000081965&fileSeq=2",
+                "publishedAt": "2026-07-23",
+                "text": "29 수시 2027학년도 경운대학교 수시 모집 요강 안내(2026.07.23) 2026-05-31 입학홍보처 조회수 5772 파일 다운로드"
+              },
+              {
+                "type": "TR",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000081314&fileSeq=1",
+                "publishedAt": "2026-04-29",
+                "text": "28 수시 2028학년도 대학입학전형시행계획 주요사항 안내 2026-04-29 입학홍보처 조회수 1872 파일 다운로드"
+              },
+              {
+                "type": "TR",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000080675&fileSeq=1",
+                "publishedAt": "2026-03-30",
+                "text": "27 수시 2026학년도 경운대학교 선행학습 영향평가 결과보고 2026-03-30 입학홍보처 조회수 918 파일 다운로드"
+              },
+              {
+                "type": "TR",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000079688&fileSeq=1",
+                "publishedAt": "2026-02-24",
+                "text": "26 수시 2026학년도【신입생│편입생】등록확인 및 납부확인서 안내 2026-02-24 경운대 입학 조회수 2066 파일 다운로드"
+              },
+              {
+                "type": "TR",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000070365&fileSeq=1",
+                "publishedAt": "2025-04-29",
+                "text": "25 수시 2027학년도 대학입학전형시행계획 주요사항 2025-04-29 입학홍보처 조회수 2533 파일 다운로드"
+              },
+              {
+                "type": "TR",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000069653&fileSeq=1",
+                "publishedAt": "2025-03-31",
+                "text": "24 수시 2025학년도 경운대학교 선행학습 영향평가 결과보고서 2025-03-31 입학홍보처 조회수 616 파일 다운로드"
+              },
+              {
+                "type": "TR",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000065014&fileSeq=1",
+                "publishedAt": "2024-06-25",
+                "text": "23 수시 2025학년도 대학입학전형시행계획 주요사항 안내 (수정) 2024-06-25 경운대 입학 조회수 210 파일 다운로드"
+              }
+            ]
+          },
+          {
+            "type": "LI",
+            "totalContainers": 79,
+            "extracted": 32,
+            "unique": 26,
+            "withDate": 0,
+            "distinctTitles": 22,
+            "sampleItems": [
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+                "publishedAt": null,
+                "text": "공지사항 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "학생부종합전형 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+                "publishedAt": null,
+                "text": "학생부종합전형"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+                "publishedAt": null,
+                "text": "정시모집 정시모집 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+                "publishedAt": null,
+                "text": "편입학 편입학 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "편입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+                "publishedAt": null,
+                "text": "편입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+                "publishedAt": null,
+                "text": "외국인 외국인 공지사항"
+              }
+            ]
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 87,
+            "extracted": 3,
+            "unique": 3,
+            "withDate": 0,
+            "distinctTitles": 3,
+            "sampleItems": [
+              {
+                "type": "DIV",
+                "title": "수시모집",
+                "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+                "publishedAt": null,
+                "text": "경운대학교 메뉴 수시모집 수시모집"
+              },
+              {
+                "type": "DIV",
+                "title": "고교연계프로그램 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5752&pageSeq=4682",
+                "publishedAt": null,
+                "text": "수시모집 홈 수시모집 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 공지사항 공지사항 모집요강 학생부종합전형 신입학 Q&A 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+              },
+              {
+                "type": "DIV",
+                "title": "개인정보처리방침",
+                "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+                "publishedAt": null,
+                "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+              }
+            ]
+          }
+        ],
+        "best": {
+          "type": "TR",
+          "totalContainers": 18,
+          "extracted": 18,
+          "unique": 15,
+          "withDate": 15,
+          "distinctTitles": 1,
+          "sampleItems": [
+            {
+              "type": "TR",
+              "title": "파일 다운로드",
+              "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000082216&fileSeq=1",
+              "publishedAt": "2026-06-04",
+              "text": "30 수시 [입시결과]2026학년도 수시모집 성적자료 2026-06-04 입학홍보처 조회수 7544 파일 다운로드"
+            },
+            {
+              "type": "TR",
+              "title": "파일 다운로드",
+              "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000081965&fileSeq=2",
+              "publishedAt": "2026-07-23",
+              "text": "29 수시 2027학년도 경운대학교 수시 모집 요강 안내(2026.07.23) 2026-05-31 입학홍보처 조회수 5772 파일 다운로드"
+            },
+            {
+              "type": "TR",
+              "title": "파일 다운로드",
+              "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000081314&fileSeq=1",
+              "publishedAt": "2026-04-29",
+              "text": "28 수시 2028학년도 대학입학전형시행계획 주요사항 안내 2026-04-29 입학홍보처 조회수 1872 파일 다운로드"
+            },
+            {
+              "type": "TR",
+              "title": "파일 다운로드",
+              "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000080675&fileSeq=1",
+              "publishedAt": "2026-03-30",
+              "text": "27 수시 2026학년도 경운대학교 선행학습 영향평가 결과보고 2026-03-30 입학홍보처 조회수 918 파일 다운로드"
+            },
+            {
+              "type": "TR",
+              "title": "파일 다운로드",
+              "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000079688&fileSeq=1",
+              "publishedAt": "2026-02-24",
+              "text": "26 수시 2026학년도【신입생│편입생】등록확인 및 납부확인서 안내 2026-02-24 경운대 입학 조회수 2066 파일 다운로드"
+            },
+            {
+              "type": "TR",
+              "title": "파일 다운로드",
+              "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000070365&fileSeq=1",
+              "publishedAt": "2025-04-29",
+              "text": "25 수시 2027학년도 대학입학전형시행계획 주요사항 2025-04-29 입학홍보처 조회수 2533 파일 다운로드"
+            },
+            {
+              "type": "TR",
+              "title": "파일 다운로드",
+              "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000069653&fileSeq=1",
+              "publishedAt": "2025-03-31",
+              "text": "24 수시 2025학년도 경운대학교 선행학습 영향평가 결과보고서 2025-03-31 입학홍보처 조회수 616 파일 다운로드"
+            },
+            {
+              "type": "TR",
+              "title": "파일 다운로드",
+              "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000065014&fileSeq=1",
+              "publishedAt": "2024-06-25",
+              "text": "23 수시 2025학년도 대학입학전형시행계획 주요사항 안내 (수정) 2024-06-25 경운대 입학 조회수 210 파일 다운로드"
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "label": "공지사항 바로가기",
+      "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+      "initialScore": 120,
+      "reasons": [
+        "공지사항:65",
+        "공지:55",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "UNIQUE_POSTS_3_PLUS:20",
+        "TITLE_VARIETY:15"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/board/list.tc?mn=2416&mngNo=12&categoryNo=49&pageSeq=2111&protocol=http",
+      "bytes": 47614,
+      "finalScore": 195,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 1,
+            "extracted": 1,
+            "unique": 1,
+            "withDate": 1,
+            "distinctTitles": 1,
+            "sampleItems": [
+              {
+                "type": "TR",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000072576&fileSeq=3",
+                "publishedAt": "2025-09-01",
+                "text": "1 정시 2026학년도 정시모집 요강 안내 (원서포함) 2025-09-01 입학홍보처 조회수 3769 파일 다운로드"
+              }
+            ]
+          },
+          {
+            "type": "LI",
+            "totalContainers": 78,
+            "extracted": 31,
+            "unique": 26,
+            "withDate": 0,
+            "distinctTitles": 23,
+            "sampleItems": [
+              {
+                "type": "LI",
+                "title": "수시모집 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+                "publishedAt": null,
+                "text": "정시모집 수시모집"
+              },
+              {
+                "type": "LI",
+                "title": "학생부종합전형 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+                "publishedAt": null,
+                "text": "학생부종합전형"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+                "publishedAt": null,
+                "text": "공지사항 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+                "publishedAt": null,
+                "text": "편입학 편입학 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "편입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+                "publishedAt": null,
+                "text": "편입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+                "publishedAt": null,
+                "text": "외국인 외국인 공지사항"
+              }
+            ]
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 33,
+            "extracted": 3,
+            "unique": 3,
+            "withDate": 0,
+            "distinctTitles": 3,
+            "sampleItems": [
+              {
+                "type": "DIV",
+                "title": "수시모집",
+                "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+                "publishedAt": null,
+                "text": "경운대학교 메뉴 수시모집 수시모집"
+              },
+              {
+                "type": "DIV",
+                "title": "고교연계프로그램 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5752&pageSeq=4682",
+                "publishedAt": null,
+                "text": "정시모집 홈 정시모집 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 공지사항 공지사항 모집요강 지원현황 신입학 Q&A 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+              },
+              {
+                "type": "DIV",
+                "title": "개인정보처리방침",
+                "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+                "publishedAt": null,
+                "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+              }
+            ]
+          }
+        ],
+        "best": {
+          "type": "LI",
+          "totalContainers": 78,
+          "extracted": 31,
+          "unique": 26,
+          "withDate": 0,
+          "distinctTitles": 23,
+          "sampleItems": [
+            {
+              "type": "LI",
+              "title": "수시모집 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+              "publishedAt": null,
+              "text": "정시모집 수시모집"
+            },
+            {
+              "type": "LI",
+              "title": "학생부종합전형 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+              "publishedAt": null,
+              "text": "학생부종합전형"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+              "publishedAt": null,
+              "text": "공지사항 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+              "publishedAt": null,
+              "text": "편입학 편입학 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "편입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+              "publishedAt": null,
+              "text": "편입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+              "publishedAt": null,
+              "text": "외국인 외국인 공지사항"
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "label": "공지사항 바로가기",
+      "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+      "initialScore": 120,
+      "reasons": [
+        "공지사항:65",
+        "공지:55",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "UNIQUE_POSTS_3_PLUS:20",
+        "TITLE_VARIETY:15"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/board/list.tc?mn=2420&mngNo=12&categoryNo=50&pageSeq=2112&protocol=http",
+      "bytes": 45771,
+      "finalScore": 195,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 1,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "LI",
+            "totalContainers": 78,
+            "extracted": 31,
+            "unique": 26,
+            "withDate": 0,
+            "distinctTitles": 23,
+            "sampleItems": [
+              {
+                "type": "LI",
+                "title": "수시모집 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+                "publishedAt": null,
+                "text": "편입학 수시모집"
+              },
+              {
+                "type": "LI",
+                "title": "학생부종합전형 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+                "publishedAt": null,
+                "text": "학생부종합전형"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+                "publishedAt": null,
+                "text": "정시모집 정시모집 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+                "publishedAt": null,
+                "text": "공지사항 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "편입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+                "publishedAt": null,
+                "text": "편입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+                "publishedAt": null,
+                "text": "외국인 외국인 공지사항"
+              }
+            ]
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 31,
+            "extracted": 3,
+            "unique": 3,
+            "withDate": 0,
+            "distinctTitles": 3,
+            "sampleItems": [
+              {
+                "type": "DIV",
+                "title": "수시모집",
+                "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+                "publishedAt": null,
+                "text": "경운대학교 메뉴 수시모집 수시모집"
+              },
+              {
+                "type": "DIV",
+                "title": "고교연계프로그램 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5752&pageSeq=4682",
+                "publishedAt": null,
+                "text": "편입학 홈 편입학 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 공지사항 공지사항 모집요강 지원현황 편입학 Q&A 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+              },
+              {
+                "type": "DIV",
+                "title": "개인정보처리방침",
+                "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+                "publishedAt": null,
+                "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+              }
+            ]
+          }
+        ],
+        "best": {
+          "type": "LI",
+          "totalContainers": 78,
+          "extracted": 31,
+          "unique": 26,
+          "withDate": 0,
+          "distinctTitles": 23,
+          "sampleItems": [
+            {
+              "type": "LI",
+              "title": "수시모집 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+              "publishedAt": null,
+              "text": "편입학 수시모집"
+            },
+            {
+              "type": "LI",
+              "title": "학생부종합전형 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+              "publishedAt": null,
+              "text": "학생부종합전형"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+              "publishedAt": null,
+              "text": "정시모집 정시모집 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+              "publishedAt": null,
+              "text": "공지사항 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "편입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+              "publishedAt": null,
+              "text": "편입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+              "publishedAt": null,
+              "text": "외국인 외국인 공지사항"
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "label": "공지사항 바로가기",
+      "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+      "initialScore": 120,
+      "reasons": [
+        "공지사항:65",
+        "공지:55",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "UNIQUE_POSTS_3_PLUS:20",
+        "TITLE_VARIETY:15"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/board/list.tc?mn=2440&mngNo=151&pageSeq=2125&protocol=http",
+      "bytes": 48064,
+      "finalScore": 195,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 2,
+            "extracted": 2,
+            "unique": 2,
+            "withDate": 2,
+            "distinctTitles": 1,
+            "sampleItems": [
+              {
+                "type": "TR",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000083137&fileSeq=1",
+                "publishedAt": "2026-06-15",
+                "text": "2 2026-2학기 외국인 편입학 일정 안내(7월28(화)~8월3일(월)) 2026-06-15 입학홍보처 조회수 135 파일 다운로드"
+              },
+              {
+                "type": "TR",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000083136&fileSeq=1",
+                "publishedAt": "2026-06-15",
+                "text": "1 2026-2학기 외국인 신입학 일정 안내(7월28(화)~8월3일(월)) 2026-06-15 입학홍보처 조회수 346 파일 다운로드"
+              }
+            ]
+          },
+          {
+            "type": "LI",
+            "totalContainers": 78,
+            "extracted": 30,
+            "unique": 26,
+            "withDate": 0,
+            "distinctTitles": 23,
+            "sampleItems": [
+              {
+                "type": "LI",
+                "title": "수시모집 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+                "publishedAt": null,
+                "text": "외국인 수시모집"
+              },
+              {
+                "type": "LI",
+                "title": "학생부종합전형 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+                "publishedAt": null,
+                "text": "학생부종합전형"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+                "publishedAt": null,
+                "text": "정시모집 정시모집 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+                "publishedAt": null,
+                "text": "편입학 편입학 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "편입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+                "publishedAt": null,
+                "text": "편입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+                "publishedAt": null,
+                "text": "공지사항 공지사항"
+              }
+            ]
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 36,
+            "extracted": 3,
+            "unique": 3,
+            "withDate": 0,
+            "distinctTitles": 3,
+            "sampleItems": [
+              {
+                "type": "DIV",
+                "title": "수시모집",
+                "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+                "publishedAt": null,
+                "text": "경운대학교 메뉴 수시모집 수시모집"
+              },
+              {
+                "type": "DIV",
+                "title": "고교연계프로그램 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5752&pageSeq=4682",
+                "publishedAt": null,
+                "text": "외국인 홈 외국인 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 공지사항 공지사항 모집요강 필요서식 Q&A 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+              },
+              {
+                "type": "DIV",
+                "title": "개인정보처리방침",
+                "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+                "publishedAt": null,
+                "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+              }
+            ]
+          }
+        ],
+        "best": {
+          "type": "LI",
+          "totalContainers": 78,
+          "extracted": 30,
+          "unique": 26,
+          "withDate": 0,
+          "distinctTitles": 23,
+          "sampleItems": [
+            {
+              "type": "LI",
+              "title": "수시모집 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+              "publishedAt": null,
+              "text": "외국인 수시모집"
+            },
+            {
+              "type": "LI",
+              "title": "학생부종합전형 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+              "publishedAt": null,
+              "text": "학생부종합전형"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+              "publishedAt": null,
+              "text": "정시모집 정시모집 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+              "publishedAt": null,
+              "text": "편입학 편입학 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "편입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+              "publishedAt": null,
+              "text": "편입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+              "publishedAt": null,
+              "text": "공지사항 공지사항"
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "label": "새창열림",
+      "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+      "initialScore": 85,
+      "reasons": [
+        "수시:45",
+        "모집:40",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "UNIQUE_POSTS_3_PLUS:20",
+        "TITLE_VARIETY:15"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+      "bytes": 41247,
+      "finalScore": 160,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "LI",
+            "totalContainers": 77,
+            "extracted": 32,
+            "unique": 26,
+            "withDate": 0,
+            "distinctTitles": 22,
+            "sampleItems": [
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+                "publishedAt": null,
+                "text": "모집요강 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "학생부종합전형 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+                "publishedAt": null,
+                "text": "학생부종합전형"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+                "publishedAt": null,
+                "text": "정시모집 정시모집 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+                "publishedAt": null,
+                "text": "편입학 편입학 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "편입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+                "publishedAt": null,
+                "text": "편입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+                "publishedAt": null,
+                "text": "외국인 외국인 공지사항"
+              }
+            ]
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 30,
+            "extracted": 2,
+            "unique": 2,
+            "withDate": 0,
+            "distinctTitles": 2,
+            "sampleItems": [
+              {
+                "type": "DIV",
+                "title": "고교연계프로그램 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5752&pageSeq=4682",
+                "publishedAt": null,
+                "text": "수시모집 홈 수시모집 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 모집요강 공지사항 모집요강 학생부종합전형 신입학 Q&A 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+              },
+              {
+                "type": "DIV",
+                "title": "개인정보처리방침",
+                "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+                "publishedAt": null,
+                "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+              }
+            ]
+          }
+        ],
+        "best": {
+          "type": "LI",
+          "totalContainers": 77,
+          "extracted": 32,
+          "unique": 26,
+          "withDate": 0,
+          "distinctTitles": 22,
+          "sampleItems": [
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+              "publishedAt": null,
+              "text": "모집요강 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "학생부종합전형 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+              "publishedAt": null,
+              "text": "학생부종합전형"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+              "publishedAt": null,
+              "text": "정시모집 정시모집 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+              "publishedAt": null,
+              "text": "편입학 편입학 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "편입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+              "publishedAt": null,
+              "text": "편입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+              "publishedAt": null,
+              "text": "외국인 외국인 공지사항"
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "label": "새창열림",
+      "url": "https://www.ikw.ac.kr/ipsi/page/2418/1762.tc",
+      "initialScore": 85,
+      "reasons": [
+        "정시:45",
+        "모집:40",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "UNIQUE_POSTS_3_PLUS:20",
+        "TITLE_VARIETY:15"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/page/2418/1762.tc",
+      "bytes": 42263,
+      "finalScore": 160,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "LI",
+            "totalContainers": 77,
+            "extracted": 31,
+            "unique": 26,
+            "withDate": 0,
+            "distinctTitles": 23,
+            "sampleItems": [
+              {
+                "type": "LI",
+                "title": "수시모집 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+                "publishedAt": null,
+                "text": "정시모집 수시모집"
+              },
+              {
+                "type": "LI",
+                "title": "학생부종합전형 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+                "publishedAt": null,
+                "text": "학생부종합전형"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+                "publishedAt": null,
+                "text": "모집요강 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+                "publishedAt": null,
+                "text": "편입학 편입학 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "편입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+                "publishedAt": null,
+                "text": "편입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+                "publishedAt": null,
+                "text": "외국인 외국인 공지사항"
+              }
+            ]
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 30,
+            "extracted": 3,
+            "unique": 3,
+            "withDate": 0,
+            "distinctTitles": 3,
+            "sampleItems": [
+              {
+                "type": "DIV",
+                "title": "수시모집",
+                "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+                "publishedAt": null,
+                "text": "경운대학교 메뉴 수시모집 수시모집"
+              },
+              {
+                "type": "DIV",
+                "title": "고교연계프로그램 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5752&pageSeq=4682",
+                "publishedAt": null,
+                "text": "정시모집 홈 정시모집 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 모집요강 공지사항 모집요강 지원현황 신입학 Q&A 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+              },
+              {
+                "type": "DIV",
+                "title": "개인정보처리방침",
+                "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+                "publishedAt": null,
+                "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+              }
+            ]
+          }
+        ],
+        "best": {
+          "type": "LI",
+          "totalContainers": 77,
+          "extracted": 31,
+          "unique": 26,
+          "withDate": 0,
+          "distinctTitles": 23,
+          "sampleItems": [
+            {
+              "type": "LI",
+              "title": "수시모집 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+              "publishedAt": null,
+              "text": "정시모집 수시모집"
+            },
+            {
+              "type": "LI",
+              "title": "학생부종합전형 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+              "publishedAt": null,
+              "text": "학생부종합전형"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+              "publishedAt": null,
+              "text": "모집요강 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+              "publishedAt": null,
+              "text": "편입학 편입학 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "편입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+              "publishedAt": null,
+              "text": "편입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+              "publishedAt": null,
+              "text": "외국인 외국인 공지사항"
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "label": "새창열림",
+      "url": "https://www.ikw.ac.kr/ipsi/board/list.tc?mn=2414&mngNo=13&pageSeq=1609",
+      "initialScore": 55,
+      "reasons": [
+        "입학:35",
+        "BOARD_SIGNAL:20",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "UNIQUE_POSTS_3_PLUS:20",
+        "TITLE_VARIETY:15"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/board/list.tc?mn=2414&mngNo=13&pageSeq=1609",
+      "bytes": 63272,
+      "finalScore": 130,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 15,
+            "extracted": 1,
+            "unique": 1,
+            "withDate": 1,
+            "distinctTitles": 1,
+            "sampleItems": [
+              {
+                "type": "TR",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000085275&fileSeq=1",
+                "publishedAt": "2026-08-17",
+                "text": "992 학생부교과 성적산출 방법 [1] 2026-08-17 경운대 조회수 5 파일 다운로드"
+              }
+            ]
+          },
+          {
+            "type": "LI",
+            "totalContainers": 87,
+            "extracted": 32,
+            "unique": 26,
+            "withDate": 0,
+            "distinctTitles": 22,
+            "sampleItems": [
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+                "publishedAt": null,
+                "text": "신입학 Q&A 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "학생부종합전형 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+                "publishedAt": null,
+                "text": "학생부종합전형"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+                "publishedAt": null,
+                "text": "정시모집 정시모집 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+                "publishedAt": null,
+                "text": "편입학 편입학 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "편입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+                "publishedAt": null,
+                "text": "편입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+                "publishedAt": null,
+                "text": "외국인 외국인 공지사항"
+              }
+            ]
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 61,
+            "extracted": 3,
+            "unique": 3,
+            "withDate": 0,
+            "distinctTitles": 3,
+            "sampleItems": [
+              {
+                "type": "DIV",
+                "title": "수시모집",
+                "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+                "publishedAt": null,
+                "text": "경운대학교 메뉴 수시모집 수시모집"
+              },
+              {
+                "type": "DIV",
+                "title": "고교연계프로그램 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5752&pageSeq=4682",
+                "publishedAt": null,
+                "text": "수시모집 홈 수시모집 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 신입학 Q&A 공지사항 모집요강 학생부종합전형 신입학 Q&A 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+              },
+              {
+                "type": "DIV",
+                "title": "개인정보처리방침",
+                "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+                "publishedAt": null,
+                "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+              }
+            ]
+          }
+        ],
+        "best": {
+          "type": "LI",
+          "totalContainers": 87,
+          "extracted": 32,
+          "unique": 26,
+          "withDate": 0,
+          "distinctTitles": 22,
+          "sampleItems": [
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+              "publishedAt": null,
+              "text": "신입학 Q&A 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "학생부종합전형 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+              "publishedAt": null,
+              "text": "학생부종합전형"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+              "publishedAt": null,
+              "text": "정시모집 정시모집 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+              "publishedAt": null,
+              "text": "편입학 편입학 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "편입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+              "publishedAt": null,
+              "text": "편입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+              "publishedAt": null,
+              "text": "외국인 외국인 공지사항"
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "label": "새창열림",
+      "url": "https://www.ikw.ac.kr/ipsi/board/list.tc?mn=2414&mngNo=13&pageSeq=1609&protocol=http",
+      "initialScore": 55,
+      "reasons": [
+        "입학:35",
+        "BOARD_SIGNAL:20",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "UNIQUE_POSTS_3_PLUS:20",
+        "TITLE_VARIETY:15"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/board/list.tc?mn=2414&mngNo=13&pageSeq=1609&protocol=http",
+      "bytes": 63272,
+      "finalScore": 130,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 15,
+            "extracted": 1,
+            "unique": 1,
+            "withDate": 1,
+            "distinctTitles": 1,
+            "sampleItems": [
+              {
+                "type": "TR",
+                "title": "파일 다운로드",
+                "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000085275&fileSeq=1",
+                "publishedAt": "2026-08-17",
+                "text": "992 학생부교과 성적산출 방법 [1] 2026-08-17 경운대 조회수 5 파일 다운로드"
+              }
+            ]
+          },
+          {
+            "type": "LI",
+            "totalContainers": 87,
+            "extracted": 32,
+            "unique": 26,
+            "withDate": 0,
+            "distinctTitles": 22,
+            "sampleItems": [
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+                "publishedAt": null,
+                "text": "신입학 Q&A 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "학생부종합전형 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+                "publishedAt": null,
+                "text": "학생부종합전형"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+                "publishedAt": null,
+                "text": "정시모집 정시모집 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+                "publishedAt": null,
+                "text": "편입학 편입학 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "편입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+                "publishedAt": null,
+                "text": "편입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+                "publishedAt": null,
+                "text": "외국인 외국인 공지사항"
+              }
+            ]
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 61,
+            "extracted": 3,
+            "unique": 3,
+            "withDate": 0,
+            "distinctTitles": 3,
+            "sampleItems": [
+              {
+                "type": "DIV",
+                "title": "수시모집",
+                "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+                "publishedAt": null,
+                "text": "경운대학교 메뉴 수시모집 수시모집"
+              },
+              {
+                "type": "DIV",
+                "title": "고교연계프로그램 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5752&pageSeq=4682",
+                "publishedAt": null,
+                "text": "수시모집 홈 수시모집 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 신입학 Q&A 공지사항 모집요강 학생부종합전형 신입학 Q&A 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+              },
+              {
+                "type": "DIV",
+                "title": "개인정보처리방침",
+                "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+                "publishedAt": null,
+                "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+              }
+            ]
+          }
+        ],
+        "best": {
+          "type": "LI",
+          "totalContainers": 87,
+          "extracted": 32,
+          "unique": 26,
+          "withDate": 0,
+          "distinctTitles": 22,
+          "sampleItems": [
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+              "publishedAt": null,
+              "text": "신입학 Q&A 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "학생부종합전형 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+              "publishedAt": null,
+              "text": "학생부종합전형"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+              "publishedAt": null,
+              "text": "정시모집 정시모집 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+              "publishedAt": null,
+              "text": "편입학 편입학 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "편입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+              "publishedAt": null,
+              "text": "편입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+              "publishedAt": null,
+              "text": "외국인 외국인 공지사항"
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "label": "합격자조회 및 고지서 출력",
+      "url": "https://www.ikw.ac.kr/tabBoard/view.tc?mn=2442&tabBoardSeq=2&pageSeq=1772&type=P&tabOrder=3",
+      "initialScore": 50,
+      "reasons": [
+        "합격:30",
+        "BOARD_SIGNAL:20",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "UNIQUE_POSTS_3_PLUS:20",
+        "TITLE_VARIETY:15"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/tabBoard/view.tc?mn=2442&tabBoardSeq=2&pageSeq=1772&type=P&tabOrder=3",
+      "bytes": 43903,
+      "finalScore": 125,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "LI",
+            "totalContainers": 87,
+            "extracted": 40,
+            "unique": 31,
+            "withDate": 0,
+            "distinctTitles": 28,
+            "sampleItems": [
+              {
+                "type": "LI",
+                "title": "수시모집 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+                "publishedAt": null,
+                "text": "입학도우미 수시모집"
+              },
+              {
+                "type": "LI",
+                "title": "학생부종합전형 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+                "publishedAt": null,
+                "text": "학생부종합전형"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+                "publishedAt": null,
+                "text": "정시모집 정시모집 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+                "publishedAt": null,
+                "text": "편입학 편입학 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "편입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+                "publishedAt": null,
+                "text": "편입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+                "publishedAt": null,
+                "text": "외국인 외국인 공지사항"
+              }
+            ]
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 30,
+            "extracted": 4,
+            "unique": 4,
+            "withDate": 0,
+            "distinctTitles": 4,
+            "sampleItems": [
+              {
+                "type": "DIV",
+                "title": "수시모집",
+                "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+                "publishedAt": null,
+                "text": "경운대학교 메뉴 수시모집 수시모집"
+              },
+              {
+                "type": "DIV",
+                "title": "KW어디가? 온라인 입학상담 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5703&pageSeq=4564",
+                "publishedAt": null,
+                "text": "입학도우미 홈 입학도우미 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 지원자 서비스 입학상담 KW어디가? 온라인 입학상담 학과상담 성적산출 KEY POINT 지원자 서비스 면접일정 확인 고교별 지원 조회 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+              },
+              {
+                "type": "DIV",
+                "title": "합격자 조회 및 등록",
+                "url": "https://www.ikw.ac.kr/ipsi/tabBoard/view.tc?mn=2442&tabBoardSeq=2&pageSeq=1772&type=S&tabOrder=3",
+                "publishedAt": null,
+                "text": "지원자 서비스 원서접수 접수자확인 수험표확인 합격자 조회 및 등록 외국인 원서 접수 외국인 합격자 조회 | 경운대학교 수시모집 합격자 조회 수시 수시 창의인재전형 1단계 합격자 조회 --> 바로가기"
+              },
+              {
+                "type": "DIV",
+                "title": "개인정보처리방침",
+                "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+                "publishedAt": null,
+                "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+              }
+            ]
+          }
+        ],
+        "best": {
+          "type": "LI",
+          "totalContainers": 87,
+          "extracted": 40,
+          "unique": 31,
+          "withDate": 0,
+          "distinctTitles": 28,
+          "sampleItems": [
+            {
+              "type": "LI",
+              "title": "수시모집 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+              "publishedAt": null,
+              "text": "입학도우미 수시모집"
+            },
+            {
+              "type": "LI",
+              "title": "학생부종합전형 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+              "publishedAt": null,
+              "text": "학생부종합전형"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+              "publishedAt": null,
+              "text": "정시모집 정시모집 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+              "publishedAt": null,
+              "text": "편입학 편입학 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "편입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+              "publishedAt": null,
+              "text": "편입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+              "publishedAt": null,
+              "text": "외국인 외국인 공지사항"
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "label": "새창열림",
+      "url": "https://www.ikw.ac.kr/ipsi/tabBoard/view.tc?mn=2442&tabBoardSeq=2&pageSeq=1772&type=S&tabOrder=3",
+      "initialScore": 50,
+      "reasons": [
+        "합격:30",
+        "BOARD_SIGNAL:20",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "UNIQUE_POSTS_3_PLUS:20",
+        "TITLE_VARIETY:15"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/tabBoard/view.tc?mn=2442&tabBoardSeq=2&pageSeq=1772&type=S&tabOrder=3",
+      "bytes": 45098,
+      "finalScore": 125,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "LI",
+            "totalContainers": 87,
+            "extracted": 39,
+            "unique": 30,
+            "withDate": 0,
+            "distinctTitles": 27,
+            "sampleItems": [
+              {
+                "type": "LI",
+                "title": "수시모집 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+                "publishedAt": null,
+                "text": "입학도우미 수시모집"
+              },
+              {
+                "type": "LI",
+                "title": "학생부종합전형 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+                "publishedAt": null,
+                "text": "학생부종합전형"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+                "publishedAt": null,
+                "text": "정시모집 정시모집 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+                "publishedAt": null,
+                "text": "편입학 편입학 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "편입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+                "publishedAt": null,
+                "text": "편입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+                "publishedAt": null,
+                "text": "외국인 외국인 공지사항"
+              }
+            ]
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 30,
+            "extracted": 4,
+            "unique": 4,
+            "withDate": 0,
+            "distinctTitles": 4,
+            "sampleItems": [
+              {
+                "type": "DIV",
+                "title": "수시모집",
+                "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+                "publishedAt": null,
+                "text": "경운대학교 메뉴 수시모집 수시모집"
+              },
+              {
+                "type": "DIV",
+                "title": "KW어디가? 온라인 입학상담 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5703&pageSeq=4564",
+                "publishedAt": null,
+                "text": "입학도우미 홈 입학도우미 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 지원자 서비스 입학상담 KW어디가? 온라인 입학상담 학과상담 성적산출 KEY POINT 지원자 서비스 면접일정 확인 고교별 지원 조회 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+              },
+              {
+                "type": "DIV",
+                "title": "외국인 합격자 조회",
+                "url": "https://www.ikw.ac.kr/ipsi/tabBoard/view.tc?mn=2442&tabBoardSeq=2&pageSeq=1772&type=S&tabOrder=5",
+                "publishedAt": null,
+                "text": "지원자 서비스 원서접수 접수자확인 수험표확인 합격자 조회 및 등록 외국인 원서 접수 외국인 합격자 조회 수시모집 합격자 조회 수시 수시 창의인재전형 1단계 합격자 조회 --> 바로가기"
+              },
+              {
+                "type": "DIV",
+                "title": "개인정보처리방침",
+                "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+                "publishedAt": null,
+                "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+              }
+            ]
+          }
+        ],
+        "best": {
+          "type": "LI",
+          "totalContainers": 87,
+          "extracted": 39,
+          "unique": 30,
+          "withDate": 0,
+          "distinctTitles": 27,
+          "sampleItems": [
+            {
+              "type": "LI",
+              "title": "수시모집 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+              "publishedAt": null,
+              "text": "입학도우미 수시모집"
+            },
+            {
+              "type": "LI",
+              "title": "학생부종합전형 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+              "publishedAt": null,
+              "text": "학생부종합전형"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+              "publishedAt": null,
+              "text": "정시모집 정시모집 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+              "publishedAt": null,
+              "text": "편입학 편입학 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "편입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+              "publishedAt": null,
+              "text": "편입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+              "publishedAt": null,
+              "text": "외국인 외국인 공지사항"
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "label": "모집요강 바로가기",
+      "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2413&pageSeq=1606",
+      "initialScore": 40,
+      "reasons": [
+        "모집:40",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "UNIQUE_POSTS_3_PLUS:20",
+        "TITLE_VARIETY:15"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc?protocol=http",
+      "bytes": 41247,
+      "finalScore": 115,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "LI",
+            "totalContainers": 77,
+            "extracted": 32,
+            "unique": 26,
+            "withDate": 0,
+            "distinctTitles": 22,
+            "sampleItems": [
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+                "publishedAt": null,
+                "text": "모집요강 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "학생부종합전형 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+                "publishedAt": null,
+                "text": "학생부종합전형"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+                "publishedAt": null,
+                "text": "정시모집 정시모집 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "신입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+                "publishedAt": null,
+                "text": "신입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+                "publishedAt": null,
+                "text": "편입학 편입학 공지사항"
+              },
+              {
+                "type": "LI",
+                "title": "편입학 Q&A 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+                "publishedAt": null,
+                "text": "편입학 Q&A"
+              },
+              {
+                "type": "LI",
+                "title": "공지사항 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+                "publishedAt": null,
+                "text": "외국인 외국인 공지사항"
+              }
+            ]
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 30,
+            "extracted": 3,
+            "unique": 3,
+            "withDate": 0,
+            "distinctTitles": 3,
+            "sampleItems": [
+              {
+                "type": "DIV",
+                "title": "수시모집",
+                "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+                "publishedAt": null,
+                "text": "경운대학교 메뉴 수시모집 수시모집"
+              },
+              {
+                "type": "DIV",
+                "title": "고교연계프로그램 바로가기",
+                "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5752&pageSeq=4682",
+                "publishedAt": null,
+                "text": "수시모집 홈 수시모집 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 모집요강 공지사항 모집요강 학생부종합전형 신입학 Q&A 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+              },
+              {
+                "type": "DIV",
+                "title": "개인정보처리방침",
+                "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+                "publishedAt": null,
+                "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+              }
+            ]
+          }
+        ],
+        "best": {
+          "type": "LI",
+          "totalContainers": 77,
+          "extracted": 32,
+          "unique": 26,
+          "withDate": 0,
+          "distinctTitles": 22,
+          "sampleItems": [
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+              "publishedAt": null,
+              "text": "모집요강 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "학생부종합전형 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+              "publishedAt": null,
+              "text": "학생부종합전형"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+              "publishedAt": null,
+              "text": "정시모집 정시모집 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+              "publishedAt": null,
+              "text": "편입학 편입학 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "편입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+              "publishedAt": null,
+              "text": "편입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+              "publishedAt": null,
+              "text": "외국인 외국인 공지사항"
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "label": "새창열림",
+      "url": "https://www.ikw.ac.kr/ipsi/apply/postAddressPrint.tc",
+      "initialScore": 55,
+      "reasons": [
+        "입학:35",
+        "BOARD_SIGNAL:20",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/apply/postAddressPrint.tc",
+      "bytes": 3342,
+      "finalScore": 95,
+      "structure": {
+        "reports": [
+          {
+            "type": "TR",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "LI",
+            "totalContainers": 10,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "ARTICLE",
+            "totalContainers": 0,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          },
+          {
+            "type": "DIV",
+            "totalContainers": 3,
+            "extracted": 0,
+            "unique": 0,
+            "withDate": 0,
+            "distinctTitles": 0,
+            "sampleItems": []
+          }
+        ],
+        "best": {
+          "type": "TR",
+          "totalContainers": 0,
+          "extracted": 0,
+          "unique": 0,
+          "withDate": 0,
+          "distinctTitles": 0,
+          "sampleItems": []
+        }
+      },
+      "error": null
+    }
+  ],
+  "bestCandidate": {
+    "label": "새창열림",
+    "url": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331786",
+    "initialScore": 185,
+    "reasons": [
+      "공지:55",
+      "수시:45",
+      "모집:40",
+      "안내:25",
+      "BOARD_SIGNAL:20",
+      "HTTP_200:20",
+      "OFFICIAL_DOMAIN:20",
+      "UNIQUE_POSTS_3_PLUS:20",
+      "TITLE_VARIETY:15"
+    ],
+    "status": 200,
+    "finalUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331786",
+    "bytes": 58455,
+    "finalScore": 260,
+    "structure": {
+      "reports": [
+        {
+          "type": "TR",
+          "totalContainers": 0,
+          "extracted": 0,
+          "unique": 0,
+          "withDate": 0,
+          "distinctTitles": 0,
+          "sampleItems": []
+        },
+        {
+          "type": "LI",
+          "totalContainers": 81,
+          "extracted": 32,
+          "unique": 26,
+          "withDate": 0,
+          "distinctTitles": 22,
+          "sampleItems": [
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+              "publishedAt": null,
+              "text": "공지사항 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "학생부종합전형 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+              "publishedAt": null,
+              "text": "학생부종합전형"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+              "publishedAt": null,
+              "text": "정시모집 정시모집 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "신입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+              "publishedAt": null,
+              "text": "신입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+              "publishedAt": null,
+              "text": "편입학 편입학 공지사항"
+            },
+            {
+              "type": "LI",
+              "title": "편입학 Q&A 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+              "publishedAt": null,
+              "text": "편입학 Q&A"
+            },
+            {
+              "type": "LI",
+              "title": "공지사항 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+              "publishedAt": null,
+              "text": "외국인 외국인 공지사항"
+            }
+          ]
+        },
+        {
+          "type": "ARTICLE",
+          "totalContainers": 0,
+          "extracted": 0,
+          "unique": 0,
+          "withDate": 0,
+          "distinctTitles": 0,
+          "sampleItems": []
+        },
+        {
+          "type": "DIV",
+          "totalContainers": 44,
+          "extracted": 4,
+          "unique": 4,
+          "withDate": 0,
+          "distinctTitles": 4,
+          "sampleItems": [
+            {
+              "type": "DIV",
+              "title": "수시모집",
+              "url": "https://www.ikw.ac.kr/ipsi/page/2413/1606.tc",
+              "publishedAt": null,
+              "text": "경운대학교 메뉴 수시모집 수시모집"
+            },
+            {
+              "type": "DIV",
+              "title": "고교연계프로그램 바로가기",
+              "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=5752&pageSeq=4682",
+              "publishedAt": null,
+              "text": "수시모집 홈 수시모집 수시모집 정시모집 편입학 외국인 고교연계프로그램 대학정보 입학도우미 공지사항 공지사항 모집요강 학생부종합전형 신입학 Q&A 인쇄하기 공유하기 페이스북 네이버블로그 북마크추가"
+            },
+            {
+              "type": "DIV",
+              "title": "파일 다운로드",
+              "url": "https://www.ikw.ac.kr/jfile/readFile.tc?fileId=JF00000081965&fileSeq=2&pass=",
+              "publishedAt": null,
+              "text": "2027학년도 수시모집요강 표지.png 미리보기 --> 2027학년도 경운대학교 수시모집요강.pdf 미리보기 -->"
+            },
+            {
+              "type": "DIV",
+              "title": "개인정보처리방침",
+              "url": "https://www.ikw.ac.kr/page/3223/2131.tc",
+              "publishedAt": null,
+              "text": "교내 주요사이트 개인정보처리방침 부서연락처 오시는길 대학요람 예산공고 결산공고 교육만족도조사 정보공개제도 규정집 교육개혁6대과제 실습실안전교육센터 청탁금지법 개인정보처리방침 (39160) 경북 구미시 산동읍 강동로 730 전화번호 : 054-479-1114 COPYRIGHT 2022 KYUNGWOON UNIVERSITY. ALL RIGHTS RESERVED"
+            }
+          ]
+        }
+      ],
+      "best": {
+        "type": "LI",
+        "totalContainers": 81,
+        "extracted": 32,
+        "unique": 26,
+        "withDate": 0,
+        "distinctTitles": 22,
+        "sampleItems": [
+          {
+            "type": "LI",
+            "title": "공지사항 바로가기",
+            "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+            "publishedAt": null,
+            "text": "공지사항 공지사항"
+          },
+          {
+            "type": "LI",
+            "title": "학생부종합전형 바로가기",
+            "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2411&pageSeq=1610",
+            "publishedAt": null,
+            "text": "학생부종합전형"
+          },
+          {
+            "type": "LI",
+            "title": "신입학 Q&A 바로가기",
+            "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2414&pageSeq=1609",
+            "publishedAt": null,
+            "text": "신입학 Q&A"
+          },
+          {
+            "type": "LI",
+            "title": "공지사항 바로가기",
+            "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2416&pageSeq=2111",
+            "publishedAt": null,
+            "text": "정시모집 정시모집 공지사항"
+          },
+          {
+            "type": "LI",
+            "title": "신입학 Q&A 바로가기",
+            "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2419&pageSeq=1609",
+            "publishedAt": null,
+            "text": "신입학 Q&A"
+          },
+          {
+            "type": "LI",
+            "title": "공지사항 바로가기",
+            "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2420&pageSeq=2112",
+            "publishedAt": null,
+            "text": "편입학 편입학 공지사항"
+          },
+          {
+            "type": "LI",
+            "title": "편입학 Q&A 바로가기",
+            "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2423&pageSeq=2173",
+            "publishedAt": null,
+            "text": "편입학 Q&A"
+          },
+          {
+            "type": "LI",
+            "title": "공지사항 바로가기",
+            "url": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2440&pageSeq=2125",
+            "publishedAt": null,
+            "text": "외국인 외국인 공지사항"
+          }
+        ]
+      }
+    },
+    "error": null
+  },
+  "decision": "BOARD_CANDIDATE_REVIEW",
+  "proposedSource": {
+    "id": "kyungwoon-general-feed",
+    "name": "경운대학교 새창열림",
+    "category": "school_news",
+    "sourceType": "official",
+    "collectionType": "html_or_custom",
+    "listUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331786",
+    "campusScope": "CAMPUS_SPECIFIC",
+    "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+    "preferredStructure": "LI",
+    "verified": false,
+    "enabled": false,
+    "status": "candidate_pending_validation",
+    "autoActivate": false
+  },
+  "nextAction": "INSPECT_KYUNGWOON_BOARD_ROWS",
+  "requests": 16,
+  "operationalHashUnchanged": true,
+  "safety": {
+    "readOnly": true,
+    "curlTlsBypass": false,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

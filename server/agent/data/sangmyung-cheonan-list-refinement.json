@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-24T00:23:05.993Z",
+  "universityId": "sangmyung-university-제2캠퍼",
+  "universityName": "상명대학교 제2캠퍼",
+  "status": 200,
+  "finalUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=list&srCampus=smuc",
+  "containers": 205,
+  "analyzed": 18,
+  "unique": 18,
+  "structureCounts": {
+    "LI": 18
+  },
+  "withDates": 0,
+  "distinctTitles": 7,
+  "distinctDates": 0,
+  "samples": [
+    {
+      "structure": "LI",
+      "articleNo": "767883",
+      "title": "상명 [글로벌]",
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767883&srCampus=smuc&article.offset=0&articleLimit=10",
+      "publishedAt": null,
+      "dateCandidates": [],
+      "detailKey": "ARTICLE:767883",
+      "text": "상명 [글로벌] [국제언어문화교육원] 일본 대학생과의 교류회 참가 학생 모집 공고 No. 767883"
+    },
+    {
+      "structure": "LI",
+      "articleNo": "767853",
+      "title": "상명 [일반]",
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767853&srCampus=smuc&article.offset=0&articleLimit=10",
+      "publishedAt": null,
+      "dateCandidates": [],
+      "detailKey": "ARTICLE:767853",
+      "text": "상명 [일반] [혁신IR센터] 2026년 학부교육실태조사 참여 사전 신청 안내 No. 767853"
+    },
+    {
+      "structure": "LI",
+      "articleNo": "767851",
+      "title": "상명 [비교과]",
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767851&srCampus=smuc&article.offset=0&articleLimit=10",
+      "publishedAt": null,
+      "dateCandidates": [],
+      "detailKey": "ARTICLE:767851",
+      "text": "상명 [비교과] [인문사회 융합인재양성사업단] HUSS 공통 비교과 프로그램 &#039;탐험하락: 읽고·듣고·보고 AI로 다시 만나는 백제&#039; 안내 No. 767851"
+    },
+    {
+      "structure": "LI",
+      "articleNo": "767850",
+      "title": "상명 [비교과]",
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767850&srCampus=smuc&article.offset=0&articleLimit=10",
+      "publishedAt": null,
+      "dateCandidates": [],
+      "detailKey": "ARTICLE:767850",
+      "text": "상명 [비교과] [인문사회 융합인재양성사업단] HUSS 공통 비교과 프로그램 &#039;사회구조 변동을 쓰다&#039; 안내 No. 767850"
+    },
+    {
+      "structure": "LI",
+      "articleNo": "767798",
+      "title": "상명 [학사]",
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767798&srCampus=smuc&article.offset=0&articleLimit=10",
+      "publishedAt": null,
+      "dateCandidates": [],
+      "detailKey": "ARTICLE:767798",
+      "text": "상명 [학사] 상명대학교 2025학년도 후기 학위수여식 안내 No. 767798"
+    },
+    {
+      "structure": "LI",
+      "articleNo": "767797",
+      "title": "상명 [글로벌]",
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767797&srCampus=smuc&article.offset=0&articleLimit=10",
+      "publishedAt": null,
+      "dateCandidates": [],
+      "detailKey": "ARTICLE:767797",
+      "text": "상명 [글로벌] 2026년 상명대학교-단국대학교-해외대학교 학부생 온라인 언어문화교류회 모집 요강 No. 767797"
+    },
+    {
+      "structure": "LI",
+      "articleNo": "767525",
+      "title": "상명 [등록/장학]",
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767525&srCampus=smuc&article.offset=0&articleLimit=10",
+      "publishedAt": null,
+      "dateCandidates": [],
+      "detailKey": "ARTICLE:767525",
+      "text": "상명 [등록/장학] 2026학년도 2학기 학부 및 대학원 재학생 등록 안내 No. 767525"
+    },
+    {
+      "structure": "LI",
+      "articleNo": "766942",
+      "title": "상명 [학사]",
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=766942&srCampus=smuc&article.offset=0&articleLimit=10",
+      "publishedAt": null,
+      "dateCandidates": [],
+      "detailKey": "ARTICLE:766942",
+      "text": "상명 [학사] [교무처] 수강신청 학점이월제 시행 안내 No. 766942"
+    }
+  ],
+  "detailValidation": {
+    "tested": 5,
+    "pass": 0,
+    "titlePass": 0,
+    "dateTested": 0,
+    "datePass": 0,
+    "validUrls": 5,
+    "checks": [
+      {
+        "structure": "LI",
+        "articleNo": "767883",
+        "title": "상명 [글로벌]",
+        "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767883&srCampus=smuc&article.offset=0&articleLimit=10",
+        "publishedAt": null,
+        "dateCandidates": [],
+        "detailKey": "ARTICLE:767883",
+        "text": "상명 [글로벌] [국제언어문화교육원] 일본 대학생과의 교류회 참가 학생 모집 공고 No. 767883",
+        "status": 200,
+        "finalUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767883&srCampus=smuc&article.offset=0&articleLimit=10",
+        "titleMatch": false,
+        "dateMatch": null,
+        "pass": false
+      },
+      {
+        "structure": "LI",
+        "articleNo": "767853",
+        "title": "상명 [일반]",
+        "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767853&srCampus=smuc&article.offset=0&articleLimit=10",
+        "publishedAt": null,
+        "dateCandidates": [],
+        "detailKey": "ARTICLE:767853",
+        "text": "상명 [일반] [혁신IR센터] 2026년 학부교육실태조사 참여 사전 신청 안내 No. 767853",
+        "status": 200,
+        "finalUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767853&srCampus=smuc&article.offset=0&articleLimit=10",
+        "titleMatch": false,
+        "dateMatch": null,
+        "pass": false
+      },
+      {
+        "structure": "LI",
+        "articleNo": "767851",
+        "title": "상명 [비교과]",
+        "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767851&srCampus=smuc&article.offset=0&articleLimit=10",
+        "publishedAt": null,
+        "dateCandidates": [],
+        "detailKey": "ARTICLE:767851",
+        "text": "상명 [비교과] [인문사회 융합인재양성사업단] HUSS 공통 비교과 프로그램 &#039;탐험하락: 읽고·듣고·보고 AI로 다시 만나는 백제&#039; 안내 No. 767851",
+        "status": 200,
+        "finalUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767851&srCampus=smuc&article.offset=0&articleLimit=10",
+        "titleMatch": false,
+        "dateMatch": null,
+        "pass": false
+      },
+      {
+        "structure": "LI",
+        "articleNo": "767850",
+        "title": "상명 [비교과]",
+        "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767850&srCampus=smuc&article.offset=0&articleLimit=10",
+        "publishedAt": null,
+        "dateCandidates": [],
+        "detailKey": "ARTICLE:767850",
+        "text": "상명 [비교과] [인문사회 융합인재양성사업단] HUSS 공통 비교과 프로그램 &#039;사회구조 변동을 쓰다&#039; 안내 No. 767850",
+        "status": 200,
+        "finalUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767850&srCampus=smuc&article.offset=0&articleLimit=10",
+        "titleMatch": false,
+        "dateMatch": null,
+        "pass": false
+      },
+      {
+        "structure": "LI",
+        "articleNo": "767798",
+        "title": "상명 [학사]",
+        "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767798&srCampus=smuc&article.offset=0&articleLimit=10",
+        "publishedAt": null,
+        "dateCandidates": [],
+        "detailKey": "ARTICLE:767798",
+        "text": "상명 [학사] 상명대학교 2025학년도 후기 학위수여식 안내 No. 767798",
+        "status": 200,
+        "finalUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767798&srCampus=smuc&article.offset=0&articleLimit=10",
+        "titleMatch": false,
+        "dateMatch": null,
+        "pass": false
+      }
+    ]
+  },
+  "decision": "LIST_STRUCTURE_REVIEW_REQUIRED",
+  "proposedCollector": null,
+  "nextAction": "INSPECT_SANGMYUNG_DATE_CELL",
+  "requests": 6,
+  "operationalHashUnchanged": true,
+  "safety": {
+    "readOnly": true,
+    "curlTlsBypass": false,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

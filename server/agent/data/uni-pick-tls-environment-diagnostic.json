@@ -1,0 +1,208 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T06:19:48.392Z",
+  "environment": {
+    "node": "v20.16.0",
+    "openssl": "3.0.13+quic",
+    "platform": "win32",
+    "arch": "x64",
+    "nodeExtraCaCerts": null,
+    "tlsRejectUnauthorized": null
+  },
+  "processed": 8,
+  "classificationCounts": {
+    "NODE_CA_COMPATIBILITY": 7,
+    "HOSTNAME_MISMATCH": 1
+  },
+  "nodeCaCompatibility": 7,
+  "siteChainIssue": 0,
+  "hostnameMismatch": 1,
+  "overallDecision": "NODE_CA_COMPATIBILITY_DOMINANT",
+  "results": [
+    {
+      "universityId": "mokpo-national-university-본교",
+      "universityName": "국립목포대학교",
+      "url": "https://www.mokpo.ac.kr/",
+      "node": {
+        "ok": false,
+        "subtype": "TLS_CHAIN_ERROR",
+        "causeCode": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+        "causeMessage": "unable to verify the first certificate"
+      },
+      "windowsCurl": {
+        "exitCode": 0,
+        "success": true,
+        "finalStatus": 200,
+        "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r\n"
+      },
+      "classification": "NODE_CA_COMPATIBILITY",
+      "confidence": "HIGH",
+      "autoRetry": false,
+      "recommendedAction": "Windows/curl은 인증서를 신뢰하지만 Node/OpenSSL만 실패합니다. Node CA 체인 호환 정책을 별도로 설계합니다."
+    },
+    {
+      "universityId": "daeshin-university-본교",
+      "universityName": "대신대학교",
+      "url": "https://www.daeshin.ac.kr/",
+      "node": {
+        "ok": false,
+        "subtype": "TLS_CHAIN_ERROR",
+        "causeCode": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+        "causeMessage": "unable to verify the first certificate"
+      },
+      "windowsCurl": {
+        "exitCode": 0,
+        "success": true,
+        "finalStatus": 200,
+        "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r\n"
+      },
+      "classification": "NODE_CA_COMPATIBILITY",
+      "confidence": "HIGH",
+      "autoRetry": false,
+      "recommendedAction": "Windows/curl은 인증서를 신뢰하지만 Node/OpenSSL만 실패합니다. Node CA 체인 호환 정책을 별도로 설계합니다."
+    },
+    {
+      "universityId": "sangmyung-university-제2캠퍼",
+      "universityName": "상명대학교 제2캠퍼",
+      "url": "https://www.smuc.ac.kr/",
+      "node": {
+        "ok": false,
+        "subtype": "TLS_HOSTNAME_MISMATCH",
+        "causeCode": "ERR_TLS_CERT_ALTNAME_INVALID",
+        "causeMessage": "Hostname/IP does not match certificate's altnames: Host: www.smuc.ac.kr. is not in the cert's altnames: DNS:*.smu.ac.kr, DNS:smu.ac.kr"
+      },
+      "windowsCurl": {
+        "exitCode": 60,
+        "success": false,
+        "finalStatus": null,
+        "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r\ncurl: (60) schannel: SNI or certificate check failed: SEC_E_WRONG_PRINCIPAL (0x80090322) - ��� �� �̸��� ��Ȯ���� �ʽ��ϴ�.\r\nMore details here: https://curl.se/docs/sslcerts.html\r\n\r\ncurl failed to verify the legitimacy of the server and therefore could not\r\nestablish a secure connection to it. To learn more about this situation and\r\nhow to fix it, please visit the webpage mentioned above.\r\n"
+      },
+      "classification": "HOSTNAME_MISMATCH",
+      "confidence": "HIGH",
+      "autoRetry": false,
+      "recommendedAction": "공식 canonical hostname을 다시 확인합니다."
+    },
+    {
+      "universityId": "hwasung-medi-science-university-본교",
+      "universityName": "화성의과학대학교",
+      "url": "https://www.hsmu.ac.kr/",
+      "node": {
+        "ok": false,
+        "subtype": "TLS_CHAIN_ERROR",
+        "causeCode": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+        "causeMessage": "unable to verify the first certificate"
+      },
+      "windowsCurl": {
+        "exitCode": 0,
+        "success": true,
+        "finalStatus": 200,
+        "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r\n\r  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0\r  0 67890    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0\r\n"
+      },
+      "classification": "NODE_CA_COMPATIBILITY",
+      "confidence": "HIGH",
+      "autoRetry": false,
+      "recommendedAction": "Windows/curl은 인증서를 신뢰하지만 Node/OpenSSL만 실패합니다. Node CA 체인 호환 정책을 별도로 설계합니다."
+    },
+    {
+      "universityId": "changshin-university-본교",
+      "universityName": "창신대학교",
+      "url": "https://www.cs.ac.kr/",
+      "node": {
+        "ok": false,
+        "subtype": "TLS_CHAIN_ERROR",
+        "causeCode": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+        "causeMessage": "unable to verify the first certificate"
+      },
+      "windowsCurl": {
+        "exitCode": 0,
+        "success": true,
+        "finalStatus": 200,
+        "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0\r\n"
+      },
+      "classification": "NODE_CA_COMPATIBILITY",
+      "confidence": "HIGH",
+      "autoRetry": false,
+      "recommendedAction": "Windows/curl은 인증서를 신뢰하지만 Node/OpenSSL만 실패합니다. Node CA 체인 호환 정책을 별도로 설계합니다."
+    },
+    {
+      "universityId": "keimyung-university-본교",
+      "universityName": "계명대학교",
+      "url": "https://www.kmu.ac.kr/",
+      "node": {
+        "ok": false,
+        "subtype": "TLS_CHAIN_ERROR",
+        "causeCode": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+        "causeMessage": "unable to verify the first certificate"
+      },
+      "windowsCurl": {
+        "exitCode": 0,
+        "success": true,
+        "finalStatus": 200,
+        "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     9    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r\n"
+      },
+      "classification": "NODE_CA_COMPATIBILITY",
+      "confidence": "HIGH",
+      "autoRetry": false,
+      "recommendedAction": "Windows/curl은 인증서를 신뢰하지만 Node/OpenSSL만 실패합니다. Node CA 체인 호환 정책을 별도로 설계합니다."
+    },
+    {
+      "universityId": "inje-university-본교",
+      "universityName": "인제대학교",
+      "url": "https://www.inje.ac.kr/",
+      "node": {
+        "ok": false,
+        "subtype": "TLS_CHAIN_ERROR",
+        "causeCode": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+        "causeMessage": "unable to verify the first certificate"
+      },
+      "windowsCurl": {
+        "exitCode": 0,
+        "success": true,
+        "finalStatus": 200,
+        "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r\n"
+      },
+      "classification": "NODE_CA_COMPATIBILITY",
+      "confidence": "HIGH",
+      "autoRetry": false,
+      "recommendedAction": "Windows/curl은 인증서를 신뢰하지만 Node/OpenSSL만 실패합니다. Node CA 체인 호환 정책을 별도로 설계합니다."
+    },
+    {
+      "universityId": "inje-university-제2캠퍼",
+      "universityName": "인제대학교 제2캠퍼",
+      "url": "https://www.inje.ac.kr/",
+      "node": {
+        "ok": false,
+        "subtype": "TLS_CHAIN_ERROR",
+        "causeCode": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+        "causeMessage": "unable to verify the first certificate"
+      },
+      "windowsCurl": {
+        "exitCode": 0,
+        "success": true,
+        "finalStatus": 200,
+        "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r\n"
+      },
+      "classification": "NODE_CA_COMPATIBILITY",
+      "confidence": "HIGH",
+      "autoRetry": false,
+      "recommendedAction": "Windows/curl은 인증서를 신뢰하지만 Node/OpenSSL만 실패합니다. Node CA 체인 호환 정책을 별도로 설계합니다."
+    }
+  ],
+  "recommendedPolicy": [
+    "TLS 검증 비활성화 금지",
+    "NODE_TLS_REJECT_UNAUTHORIZED=0 사용 금지",
+    "Windows가 신뢰하는 인증서를 Node에서도 안전하게 검증하는 방법 검토",
+    "사이트별 예외 우회보다 CA 환경 호환성을 우선 해결",
+    "HOSTNAME_MISMATCH는 Node CA 문제와 별도로 canonical URL 수정"
+  ],
+  "safety": {
+    "readOnly": true,
+    "tlsVerificationDisabled": false,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

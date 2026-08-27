@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T05:57:53.227Z",
+  "project": {
+    "id": "uni-pick",
+    "name": "UNI PICK",
+    "root": "D:\\hhg(code)"
+  },
+  "overallStatus": "CRITICAL",
+  "runtime": {
+    "runtimeStatus": "IDLE",
+    "agentEnabled": false,
+    "lastRunId": "run-202608180707033",
+    "lastRunAt": "2026-08-18T07:07:50.248Z",
+    "lastRunAgeHours": 70.83,
+    "lastTrigger": "manual",
+    "lastNewCount": 33,
+    "lastErrorCount": 0,
+    "totalStoredItems": 196
+  },
+  "universities": {
+    "totalEntries": 247,
+    "uniqueUniversityIds": 247,
+    "duplicateIdCount": 0,
+    "duplicateIds": [],
+    "missingCoordinateCount": 0,
+    "missingCoordinateIds": [],
+    "missingWebsiteCount": 0,
+    "invalidWebsiteCount": 0,
+    "campusTypeCounts": {
+      "본교": 180,
+      "캠퍼스": 46,
+      "이원화캠퍼스": 21
+    }
+  },
+  "sourceValidation": {
+    "status": "completed",
+    "total": 247,
+    "processed": 247,
+    "coveragePercent": 100,
+    "success": 7,
+    "review": 42,
+    "error": 153,
+    "skipped": 45,
+    "retryTotal": 195,
+    "retryProcessed": 195,
+    "lastUniversityId": "yonsei-university-international",
+    "qualityStatus": "CRITICAL"
+  },
+  "newsStore": {
+    "version": 1,
+    "storeUpdatedAt": "2026-08-18T07:07:50.240Z",
+    "totalItems": 196,
+    "universityCoverageCount": 25,
+    "sourceCount": 25,
+    "duplicateSourceUrlGroups": 0,
+    "duplicateUrlHashGroups": 0,
+    "duplicateContentHashGroups": 5,
+    "errorItemCount": 0,
+    "missingPublishedAtCount": 0,
+    "missingSourceUrlCount": 0,
+    "aiProcessedCount": 0,
+    "latestPublishedAt": "2026-08-18T00:00:00.000Z",
+    "latestNewsAgeHours": 77.96,
+    "staleThresholdHours": 72,
+    "staleNewsCount": 196
+  },
+  "priorityIssueCount": 3,
+  "priorityIssues": [
+    {
+      "severity": "CRITICAL",
+      "code": "SOURCE_VALIDATION_ERRORS",
+      "title": "???異쒖쿂 寃利??ㅻ쪟媛 ?⑥븘 ?덉뒿?덈떎.",
+      "detail": "247媛????以?153媛쒓? error ?곹깭?낅땲??",
+      "recommendedAction": "error ??숈쓣 ?먯씤 ?좏삎蹂꾨줈 遺꾨쪟?섍퀬 ?먮룞 蹂듦뎄 媛????ぉ怨??щ엺 寃????ぉ??遺꾨━?⑸땲??"
+    },
+    {
+      "severity": "MEDIUM",
+      "code": "SOURCE_REVIEW_QUEUE",
+      "title": "異쒖쿂 ?щ엺 寃????곸씠 ?⑥븘 ?덉뒿?덈떎.",
+      "detail": "42媛???숈씠 review ?곹깭?낅땲??",
+      "recommendedAction": "review ?ъ쑀瑜?遺꾨쪟?섍퀬 ?믪? ?좊ː?꾩쓽 ?꾨낫遺???먮룞 ?뱀씤 媛???щ?瑜?寃?좏빀?덈떎."
+    },
+    {
+      "severity": "MEDIUM",
+      "code": "NEWS_AGENT_DISABLED",
+      "title": "怨듭? ?섏쭛 Agent媛 鍮꾪솢???곹깭?낅땲??",
+      "detail": "agentEnabled=false ?곹깭?낅땲??",
+      "recommendedAction": "?섎룄?곸씤 鍮꾪솢???곹깭?몄? ?뺤씤?섍퀬 ?덉빟 ?섏쭛 ?뺤콉怨??쇱튂?섎뒗吏 ?먭??⑸땲??"
+    }
+  ],
+  "safety": {
+    "readOnly": true,
+    "automaticFixes": false,
+    "deploymentTriggered": false,
+    "collectionTriggered": false
+  }
+}

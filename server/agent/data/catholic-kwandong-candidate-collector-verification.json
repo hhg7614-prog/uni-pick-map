@@ -1,0 +1,319 @@
+{
+  "decision": "COLLECTOR_READY",
+  "universityId": "catholic-kwandong-university-본교",
+  "universityName": "가톨릭관동대학교",
+  "inputCandidate": {
+    "url": "https://www.cku.ac.kr/bbs/cku_kr/1202/366455/artclView.do?layout=unknown",
+    "evaluationCandidate": null
+  },
+  "detailCandidate": {
+    "status": 200,
+    "finalUrl": "https://www.cku.ac.kr/cku_kr/5787/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGY2t1X2tyJTJGMTIwMiUyRjM2NjQ1NSUyRmFydGNsVmlldy5kbyUzRg%3D%3D",
+    "bytes": 227590,
+    "officialDomain": true
+  },
+  "selectedList": {
+    "url": "https://www.cku.ac.kr/cku_kr/5787/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGY2t1X2tyJTJGMTIwMiUyRjM2NjQ1NSUyRmFydGNsVmlldy5kbyUzRg%3D%3D",
+    "finalUrl": "https://www.cku.ac.kr/cku_kr/5787/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGY2t1X2tyJTJGMTIwMiUyRjM2NjQ1NSUyRmFydGNsVmlldy5kbyUzRg%3D%3D",
+    "status": 200,
+    "bytes": 227590,
+    "score": 145,
+    "articleViewCount": 33,
+    "dateCount": 25,
+    "uniqueDateCount": 13,
+    "rowCount": 22,
+    "officialDomain": true
+  },
+  "collector": {
+    "rawRows": 22,
+    "extracted": 21,
+    "unique": 21,
+    "duplicateKeys": 0,
+    "distinctTitles": 21,
+    "distinctDates": 12
+  },
+  "samples": [
+    {
+      "articleId": "366699",
+      "title": "[ANCHOR사업단]2026학년도 창업랩(R-Startup Lab) 모집 안내",
+      "publishedAt": "2026-08-13",
+      "detailUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/366699/artclView.do",
+      "detailKey": "ARTICLE_ID:366699"
+    },
+    {
+      "articleId": "366668",
+      "title": "[ANCHOR사업단]2026학년도 로컬창업 맞춤형 사업화 지원 프로그램 참여자 모집 안내",
+      "publishedAt": "2026-08-12",
+      "detailUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/366668/artclView.do",
+      "detailKey": "ARTICLE_ID:366668"
+    },
+    {
+      "articleId": "366661",
+      "title": "[ANCHOR사업단]2026학년도 기술창업동아리(T-Seed Lab) 모집 안내",
+      "publishedAt": "2026-08-12",
+      "detailUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/366661/artclView.do",
+      "detailKey": "ARTICLE_ID:366661"
+    },
+    {
+      "articleId": "366534",
+      "title": "수강신청할때 소단위전공(MD)교과목도 꼭 신청하세요!",
+      "publishedAt": "2026-08-06",
+      "detailUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/366534/artclView.do",
+      "detailKey": "ARTICLE_ID:366534"
+    },
+    {
+      "articleId": "366480",
+      "title": "2026학년도 2학기 강릉 시내 통학버스 운영 안내",
+      "publishedAt": "2026-08-03",
+      "detailUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/366480/artclView.do",
+      "detailKey": "ARTICLE_ID:366480"
+    }
+  ],
+  "detailValidation": {
+    "tested": 5,
+    "pass": 5,
+    "titlePass": 5,
+    "datePass": 5,
+    "validUrls": 5
+  },
+  "detailSamples": [
+    {
+      "articleId": "366699",
+      "title": "[ANCHOR사업단]2026학년도 창업랩(R-Startup Lab) 모집 안내",
+      "publishedAt": "2026-08-13",
+      "url": "https://www.cku.ac.kr/bbs/cku_kr/1202/366699/artclView.do",
+      "status": 200,
+      "finalUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/366699/artclView.do",
+      "validUrl": true,
+      "titleMatch": true,
+      "dateMatch": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "articleId": "366668",
+      "title": "[ANCHOR사업단]2026학년도 로컬창업 맞춤형 사업화 지원 프로그램 참여자 모집 안내",
+      "publishedAt": "2026-08-12",
+      "url": "https://www.cku.ac.kr/bbs/cku_kr/1202/366668/artclView.do",
+      "status": 200,
+      "finalUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/366668/artclView.do",
+      "validUrl": true,
+      "titleMatch": true,
+      "dateMatch": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "articleId": "366661",
+      "title": "[ANCHOR사업단]2026학년도 기술창업동아리(T-Seed Lab) 모집 안내",
+      "publishedAt": "2026-08-12",
+      "url": "https://www.cku.ac.kr/bbs/cku_kr/1202/366661/artclView.do",
+      "status": 200,
+      "finalUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/366661/artclView.do",
+      "validUrl": true,
+      "titleMatch": true,
+      "dateMatch": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "articleId": "366534",
+      "title": "수강신청할때 소단위전공(MD)교과목도 꼭 신청하세요!",
+      "publishedAt": "2026-08-06",
+      "url": "https://www.cku.ac.kr/bbs/cku_kr/1202/366534/artclView.do",
+      "status": 200,
+      "finalUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/366534/artclView.do",
+      "validUrl": true,
+      "titleMatch": true,
+      "dateMatch": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "articleId": "366480",
+      "title": "2026학년도 2학기 강릉 시내 통학버스 운영 안내",
+      "publishedAt": "2026-08-03",
+      "url": "https://www.cku.ac.kr/bbs/cku_kr/1202/366480/artclView.do",
+      "status": 200,
+      "finalUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/366480/artclView.do",
+      "validUrl": true,
+      "titleMatch": true,
+      "dateMatch": true,
+      "pass": true,
+      "error": null
+    }
+  ],
+  "listCandidates": [
+    {
+      "url": "https://www.cku.ac.kr/cku_kr/5787/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGY2t1X2tyJTJGMTIwMiUyRjM2NjQ1NSUyRmFydGNsVmlldy5kbyUzRg%3D%3D",
+      "reasons": [
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK"
+      ],
+      "reachable": true,
+      "status": 200,
+      "finalUrl": "https://www.cku.ac.kr/cku_kr/5787/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGY2t1X2tyJTJGMTIwMiUyRjM2NjQ1NSUyRmFydGNsVmlldy5kbyUzRg%3D%3D",
+      "articleViewCount": 33,
+      "dateCount": 25,
+      "rowCount": 22,
+      "score": 145,
+      "error": null
+    },
+    {
+      "url": "https://www.cku.ac.kr/cku_kr/5787/subview.do",
+      "reasons": [
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "DETAIL_PAGE_SUBVIEW_LINK",
+        "KNOWN_CKU_SUBVIEW"
+      ],
+      "reachable": true,
+      "status": 200,
+      "finalUrl": "https://www.cku.ac.kr/cku_kr/5787/subview.do",
+      "articleViewCount": 21,
+      "dateCount": 21,
+      "rowCount": 22,
+      "score": 145,
+      "error": null
+    },
+    {
+      "url": "https://www.cku.ac.kr/cku_kr/5787/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGY2t1X2tyJTJGMTIwMiUyRmFydGNsTGlzdC5kbyUzRmJic0NsU2VxJTNEMTU4OSUyNmJic09wZW5XcmRTZXElM0QlMjZpc1ZpZXdNaW5lJTNEZmFsc2UlMjZzcmNoQ29sdW1uJTNEc2olMjZzcmNoV3JkJTNEJTI2",
+      "reasons": [
+        "DETAIL_PAGE_SUBVIEW_LINK"
+      ],
+      "reachable": true,
+      "status": 200,
+      "finalUrl": "https://www.cku.ac.kr/cku_kr/5787/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGY2t1X2tyJTJGMTIwMiUyRmFydGNsTGlzdC5kbyUzRmJic0NsU2VxJTNEMTU4OSUyNmJic09wZW5XcmRTZXElM0QlMjZpc1ZpZXdNaW5lJTNEZmFsc2UlMjZzcmNoQ29sdW1uJTNEc2olMjZzcmNoV3JkJTNEJTI2",
+      "articleViewCount": 21,
+      "dateCount": 21,
+      "rowCount": 22,
+      "score": 145,
+      "error": null
+    },
+    {
+      "url": "https://www.cku.ac.kr/cku_kr/5787/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGY2t1X2tyJTJGMTIwMiUyRmFydGNsTGlzdC5kbyUzRmJic0NsU2VxJTNEMTU4NCUyNmJic09wZW5XcmRTZXElM0QlMjZpc1ZpZXdNaW5lJTNEZmFsc2UlMjZzcmNoQ29sdW1uJTNEc2olMjZzcmNoV3JkJTNEJTI2",
+      "reasons": [
+        "DETAIL_PAGE_SUBVIEW_LINK"
+      ],
+      "reachable": true,
+      "status": 200,
+      "finalUrl": "https://www.cku.ac.kr/cku_kr/5787/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGY2t1X2tyJTJGMTIwMiUyRmFydGNsTGlzdC5kbyUzRmJic0NsU2VxJTNEMTU4NCUyNmJic09wZW5XcmRTZXElM0QlMjZpc1ZpZXdNaW5lJTNEZmFsc2UlMjZzcmNoQ29sdW1uJTNEc2olMjZzcmNoV3JkJTNEJTI2",
+      "articleViewCount": 21,
+      "dateCount": 25,
+      "rowCount": 22,
+      "score": 145,
+      "error": null
+    },
+    {
+      "url": "https://www.cku.ac.kr/bbs/cku_kr/1202/artclList.do",
+      "reasons": [
+        "STANDARD_ARTCL_LIST"
+      ],
+      "reachable": true,
+      "status": 200,
+      "finalUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/artclList.do",
+      "articleViewCount": 21,
+      "dateCount": 21,
+      "rowCount": 22,
+      "score": 145,
+      "error": null
+    },
+    {
+      "url": "https://www.cku.ac.kr/cku_kr/5787/subview.do?enc=",
+      "reasons": [
+        "KNOWN_CKU_SUBVIEW_EMPTY_ENC"
+      ],
+      "reachable": true,
+      "status": 200,
+      "finalUrl": "https://www.cku.ac.kr/cku_kr/5787/subview.do?enc=",
+      "articleViewCount": 21,
+      "dateCount": 21,
+      "rowCount": 22,
+      "score": 145,
+      "error": null
+    },
+    {
+      "url": "https://www.cku.ac.kr/bbs/cku_kr/1202/rssList.do?row=50",
+      "reasons": [
+        "DETAIL_PAGE_BOARD_LINK",
+        "DETAIL_PAGE_BOARD_LINK"
+      ],
+      "reachable": true,
+      "status": 200,
+      "finalUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/rssList.do?row=50",
+      "articleViewCount": 0,
+      "dateCount": 52,
+      "rowCount": 0,
+      "score": 70,
+      "error": null
+    }
+  ],
+  "proposedCollector": {
+    "id": "catholic-kwandong-general-feed",
+    "name": "가톨릭관동대학교 공지사항",
+    "category": "school_notice",
+    "sourceType": "official",
+    "collectionType": "custom_html",
+    "listUrl": "https://www.cku.ac.kr/cku_kr/5787/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGY2t1X2tyJTJGMTIwMiUyRjM2NjQ1NSUyRmFydGNsVmlldy5kbyUzRg%3D%3D",
+    "campusScope": "CAMPUS_SPECIFIC",
+    "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+    "parser": {
+      "itemStrategy": "CKU_BOARD_TR_WITH_ARTICLE_DETAIL",
+      "itemSelector": "tr",
+      "titleStrategy": "ARTCL_VIEW_ANCHOR",
+      "dateStrategy": "ROW_DATE",
+      "detailStrategy": "CKU_ARTCL_VIEW",
+      "detailIdParameter": "ARTICLE_ID",
+      "dedupeKey": "ARTICLE_ID"
+    },
+    "verified": false,
+    "enabled": false,
+    "status": "collector_ready_pending_activation",
+    "healthStatus": "validated",
+    "autoActivate": false
+  },
+  "nextAction": "VERIFY_CATHOLIC_KWANDONG_ACTIVATION_READY",
+  "requests": 13,
+  "outputFile": "D:\\hhg(code)\\server\\agent\\data\\catholic-kwandong-candidate-collector-verification.json",
+  "safety": {
+    "readOnly": true,
+    "automaticActivation": false,
+    "automaticSourceMutation": false,
+    "sourceModified": false,
+    "catalogModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

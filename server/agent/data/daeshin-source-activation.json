@@ -1,0 +1,36 @@
+{
+  "status": "ACTIVATED_LOCAL",
+  "sourceAdded": true,
+  "dryRun": {
+    "success": true,
+    "rawRows": 16,
+    "extracted": 15,
+    "unique": 15,
+    "duplicateKeys": 0,
+    "distinctTitles": 15,
+    "distinctDates": 13,
+    "detailTested": 5,
+    "detailPass": 5,
+    "titlePass": 5,
+    "datePass": 5,
+    "validUrls": 5
+  },
+  "tests": {
+    "exitCode": 0,
+    "stdout": "\n> uni-pick-map@1.0.0 test\n> node --test\n\nTAP version 13\n# Subtest: official detail date is used only when the visible detail title matches\nok 1 - official detail date is used only when the visible detail title matches\n  ---\n  duration_ms: 3.0908\n  ...\n# Subtest: external video URLs are excluded before they can become null-dated news\nok 2 - external video URLs are excluded before they can become null-dated news\n  ---\n  duration_ms: 0.3157\n  ...\n# Subtest: NETWORK diagnostics classify ECONNRESET and generic fetch errors\nok 3 - NETWORK diagnostics classify ECONNRESET and generic fetch errors\n  ---\n  duration_ms: 1.5436\n  ...\n# Subtest: NETWORK diagnostics classify HTTP responses without changing successful responses\nok 4 - NETWORK diagnostics classify HTTP responses without changing successful responses\n  ---\n  duration_ms: 0.2816\n  ...\n# Subtest: NETWORK subtype policy separates recheck, TLS review, manual review, and cooldown\nok 5 - NETWORK subtype policy separates recheck, TLS review, manual review, and cooldown\n  ---\n  duration_ms: 1.0973\n  ...\n# Subtest: same homepage uses one network request for three logical requests\nok 6 - same homepage uses one network request for three logical requests\n  ---\n  duration_ms: 0.2455\n  ...\n# Subtest: NETWORK diagnostics are included in future result JSON and Korean HTML\nok 7 - NETWORK diagnostics are included in future result JSON and Korean HTML\n  ---\n  duration_ms: 0.5019\n  ...\n# Subtest: final pending batch accepts all nine without retry fill\nok 8 - final pending batch accepts all nine without retry fill\n  ---\n  duration_ms: 1.5884\n  ...\n# Subtest: normal pending batch remains twenty\nok 9 - normal pending batch remains twenty\n  ---\n  duration_ms: 0.1663\n  ...\n# Subtest: zero pending completes the initial sweep without selection\nok 10 - zero pending completes the initial sweep without selection\n  ---\n  duration_ms: 0.1353\n  ...\n# Subtest: 247개 대학 진단 dry-run은 외부 요청 없이 전체 목록을 확인한다\nok 11 - 247개 대학 진단 dry-run은 외부 요청 없이 전체 목록을 확인한다\n  ---\n  duration_ms: 11.8164\n  ...\n# Subtest: 게시일은 실제 한국어 날짜 형식만 ISO 날짜로 변환한다\nok 12 - 게시일은 실제 한국어 날짜 형식만 ISO 날짜로 변환한다\n  ---\n  duration_ms: 0.625\n  ...\n# Subtest: 추적 파라미터가 달라도 같은 공식 URL로 정규화한다\nok 13 - 추적 파라미터가 달라도 같은 공식 URL로 정규화한다\n  ---\n  duration_ms: 0.975\n  ...\n# Subtest: 후보 점수는 공식 상세 링크와 실제 날짜가 있을 때만 높은 등급이 된다\nok 14 - 후보 점수는 공식 상세 링크와 실제 날짜가 있을 때만 높은 등급이 된다\n  ---\n  duration_ms: 0.1755\n  ...\n# Subtest: emblemForUniversityId returns a real logo path for a school with a verified emblem\nok 15 - emblemForUniversityId returns a real logo path for a school with a verified emblem\n  ---\n  duration_ms: 9.034\n  ...\n# Subtest: emblemForUniversityId returns null when the school only has the placeholder emblem\nok 16 - emblemForUniversityId returns null when the school only has the placeholder emblem\n  ---\n  duration_ms: 0.2014\n  ...\n# Subtest: emblemForUniversityId returns null for an unknown university id\nok 17 - emblemForUniversityId returns null for an unknown university id\n  ---\n  duration_ms: 0.1437\n  ...\n# Subtest: 수도권 국립 컴퓨터 검색은 검증된 서울대·인천대 학과만 반환한다\nok 18 - 수도권 국립 컴퓨터 검색은 검증된 서울대·인천대 학과만 반환한다\n  ---\n  duration_ms: 11.883\n  ...\n# Subtest: 부산 사립 사회복지는 동아대 부민캠퍼스의 확인된 학과를 반환한다\nok 19 - 부산 사립 사회복지는 동아대 부민캠퍼스의 확인된 학과를 반환한다\n  ---\n  duration_ms: 0.8449\n  ...\n# Subtest: 성적만 입력하면 추정하지 않고 제한 안내로 끝낸다\nok 20 - 성적만 입력하면 추정하지 않고 제한 안내로 끝낸다\n  ---\n  duration_ms: 0.5413\n  ...\n# Subtest: 존재하지 않는 위치와 학교는 결과 없음으로 처리한다\nok 21 - 존재하지 않는 위치와 학교는 결과 없음으로 처리한다\n  ---\n  duration_ms: 1.3071\n  ...\n# Subtest: 서울 근처는 수도권으로 변환한다\nok 22 - 서울 근처는 수도권으로 변환한다\n  ---\n  duration_ms: 0.6228\n  ...\n1..22\n# tests 22\n# suites 0\n# pass 22\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 347.9368\n",
+    "stderr": ""
+  },
+  "rollback": false,
+  "backup": "D:\\hhg(code)\\server\\agent\\backups\\daeshin-source-activation\\20260824014041",
+  "beforeHashes": {
+    "catalog": "141cd3343e3cb4e9e1777700dba5da1b59292538a5b6eeb2946fc22ef4f6701a",
+    "store": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "preview": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "afterHashes": {
+    "catalog": "9755a80ecbb007e69e5204249cb4cb5f8bc8a888da3254e8052f9f55169dbb30",
+    "store": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "preview": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "error": null
+}

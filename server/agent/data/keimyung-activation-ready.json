@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T07:18:37.711Z",
+  "universityId": "keimyung-university-본교",
+  "universityName": "계명대학교",
+  "phase": "ACTIVATION_READY_VERIFICATION",
+  "source": {
+    "id": "keimyung-academic-notice",
+    "name": "계명대학교 학사공지",
+    "category": "school_notice",
+    "sourceType": "official",
+    "collectionType": "html",
+    "listUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=144",
+    "selectors": {
+      "item": "tbody tr",
+      "title": "td.subject a[href*='cmd=2'][href*='parm_bod_uid='][href*='mnu_uid=144']",
+      "link": "td.subject a[href*='cmd=2'][href*='parm_bod_uid='][href*='mnu_uid=144']",
+      "linkAttribute": "href",
+      "date": "td.date"
+    },
+    "verified": false,
+    "enabled": false,
+    "status": "collector_ready_pending_activation",
+    "healthStatus": "validated",
+    "campusScope": "CAMPUS_SPECIFIC",
+    "autoActivate": false
+  },
+  "list": {
+    "status": 200,
+    "finalUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=144",
+    "bytes": 91797,
+    "totalRows": 33
+  },
+  "collectorDryRun": {
+    "totalCollected": 32,
+    "uniqueItems": 32,
+    "sampleCount": 5,
+    "publishedAtNull": 0,
+    "duplicateUrls": 0,
+    "validUrlCount": 5,
+    "titleNonEmpty": 5
+  },
+  "detailValidation": {
+    "checked": 5,
+    "pass": 5
+  },
+  "samples": [
+    {
+      "universityId": "keimyung-university-본교",
+      "universityName": "계명대학교",
+      "category": "school_notice",
+      "title": "2026년 8월 졸업(2025학년도 후기 학위수여) 안내",
+      "sourceUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&pagePrvNxt=1&pageRef=0&pageOrder=0&cmd=2&parm_bod_uid=269791&srchVoteType=-1&srchEnable=1&srchBgpUid=-1&srchKeyword=&srchSDate=&srchColumn=&srchEDate=&mnu_uid=144&",
+      "publishedAt": "2026-08-10",
+      "rawDate": "26-08-10",
+      "sourceName": "계명대학교 학사공지",
+      "sourceId": "keimyung-academic-notice",
+      "sourceType": "official",
+      "status": "dry_run"
+    },
+    {
+      "universityId": "keimyung-university-본교",
+      "universityName": "계명대학교",
+      "category": "school_notice",
+      "title": "2026학년도 2학기 특허청-지식재산학 학점은행 수강 안내",
+      "sourceUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&pagePrvNxt=1&pageRef=0&pageOrder=0&cmd=2&parm_bod_uid=269511&srchVoteType=-1&srchEnable=1&srchBgpUid=-1&srchKeyword=&srchSDate=&srchColumn=&srchEDate=&mnu_uid=144&",
+      "publishedAt": "2026-07-24",
+      "rawDate": "26-07-24",
+      "sourceName": "계명대학교 학사공지",
+      "sourceId": "keimyung-academic-notice",
+      "sourceType": "official",
+      "status": "dry_run"
+    },
+    {
+      "universityId": "keimyung-university-본교",
+      "universityName": "계명대학교",
+      "category": "school_notice",
+      "title": "2026학년도 2학기 우수 혁신교과목 안내",
+      "sourceUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&pagePrvNxt=1&pageRef=0&pageOrder=0&cmd=2&parm_bod_uid=269473&srchVoteType=-1&srchEnable=1&srchBgpUid=-1&srchKeyword=&srchSDate=&srchColumn=&srchEDate=&mnu_uid=144&",
+      "publishedAt": "2026-07-23",
+      "rawDate": "26-07-23",
+      "sourceName": "계명대학교 학사공지",
+      "sourceId": "keimyung-academic-notice",
+      "sourceType": "official",
+      "status": "dry_run"
+    },
+    {
+      "universityId": "keimyung-university-본교",
+      "universityName": "계명대학교",
+      "category": "school_notice",
+      "title": "2026학년도 2학기 학점등록 신청 안내(수정 공지★)",
+      "sourceUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&pagePrvNxt=1&pageRef=0&pageOrder=0&cmd=2&parm_bod_uid=269403&srchVoteType=-1&srchEnable=1&srchBgpUid=-1&srchKeyword=&srchSDate=&srchColumn=&srchEDate=&mnu_uid=144&",
+      "publishedAt": "2026-07-21",
+      "rawDate": "26-07-21",
+      "sourceName": "계명대학교 학사공지",
+      "sourceId": "keimyung-academic-notice",
+      "sourceType": "official",
+      "status": "dry_run"
+    },
+    {
+      "universityId": "keimyung-university-본교",
+      "universityName": "계명대학교",
+      "category": "school_notice",
+      "title": "2026년 8월(2025학년도 후기) 최종 졸업사정 결과 조회 및 후속 절차 안내",
+      "sourceUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&pagePrvNxt=1&pageRef=0&pageOrder=0&cmd=2&parm_bod_uid=269217&srchVoteType=-1&srchEnable=1&srchBgpUid=-1&srchKeyword=&srchSDate=&srchColumn=&srchEDate=&mnu_uid=144&",
+      "publishedAt": "2026-07-15",
+      "rawDate": "26-07-15",
+      "sourceName": "계명대학교 학사공지",
+      "sourceId": "keimyung-academic-notice",
+      "sourceType": "official",
+      "status": "dry_run"
+    }
+  ],
+  "detailChecks": [
+    {
+      "title": "2026년 8월 졸업(2025학년도 후기 학위수여) 안내",
+      "sourceUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&pagePrvNxt=1&pageRef=0&pageOrder=0&cmd=2&parm_bod_uid=269791&srchVoteType=-1&srchEnable=1&srchBgpUid=-1&srchKeyword=&srchSDate=&srchColumn=&srchEDate=&mnu_uid=144&",
+      "publishedAt": "2026-08-10",
+      "detailStatus": 200,
+      "officialDomain": true,
+      "titleMatch": true,
+      "pass": true
+    },
+    {
+      "title": "2026학년도 2학기 특허청-지식재산학 학점은행 수강 안내",
+      "sourceUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&pagePrvNxt=1&pageRef=0&pageOrder=0&cmd=2&parm_bod_uid=269511&srchVoteType=-1&srchEnable=1&srchBgpUid=-1&srchKeyword=&srchSDate=&srchColumn=&srchEDate=&mnu_uid=144&",
+      "publishedAt": "2026-07-24",
+      "detailStatus": 200,
+      "officialDomain": true,
+      "titleMatch": true,
+      "pass": true
+    },
+    {
+      "title": "2026학년도 2학기 우수 혁신교과목 안내",
+      "sourceUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&pagePrvNxt=1&pageRef=0&pageOrder=0&cmd=2&parm_bod_uid=269473&srchVoteType=-1&srchEnable=1&srchBgpUid=-1&srchKeyword=&srchSDate=&srchColumn=&srchEDate=&mnu_uid=144&",
+      "publishedAt": "2026-07-23",
+      "detailStatus": 200,
+      "officialDomain": true,
+      "titleMatch": true,
+      "pass": true
+    },
+    {
+      "title": "2026학년도 2학기 학점등록 신청 안내(수정 공지★)",
+      "sourceUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&pagePrvNxt=1&pageRef=0&pageOrder=0&cmd=2&parm_bod_uid=269403&srchVoteType=-1&srchEnable=1&srchBgpUid=-1&srchKeyword=&srchSDate=&srchColumn=&srchEDate=&mnu_uid=144&",
+      "publishedAt": "2026-07-21",
+      "detailStatus": 200,
+      "officialDomain": true,
+      "titleMatch": true,
+      "pass": true
+    },
+    {
+      "title": "2026년 8월(2025학년도 후기) 최종 졸업사정 결과 조회 및 후속 절차 안내",
+      "sourceUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&pagePrvNxt=1&pageRef=0&pageOrder=0&cmd=2&parm_bod_uid=269217&srchVoteType=-1&srchEnable=1&srchBgpUid=-1&srchKeyword=&srchSDate=&srchColumn=&srchEDate=&mnu_uid=144&",
+      "publishedAt": "2026-07-15",
+      "detailStatus": 200,
+      "officialDomain": true,
+      "titleMatch": true,
+      "pass": true
+    }
+  ],
+  "decision": "ACTIVATION_READY",
+  "activationPolicy": {
+    "autoActivate": false,
+    "requiresExplicitActivationStep": true,
+    "requiresVerifiedTrueMutation": true,
+    "requiresEnabledTrueMutation": true
+  },
+  "proposedActivation": {
+    "universityId": "keimyung-university-본교",
+    "sourceId": "keimyung-academic-notice",
+    "listUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=144",
+    "selectors": {
+      "item": "tbody tr",
+      "title": "td.subject a[href*='cmd=2'][href*='parm_bod_uid='][href*='mnu_uid=144']",
+      "link": "td.subject a[href*='cmd=2'][href*='parm_bod_uid='][href*='mnu_uid=144']",
+      "linkAttribute": "href",
+      "date": "td.date"
+    },
+    "desiredVerified": true,
+    "desiredEnabled": true,
+    "status": "awaiting_activation"
+  },
+  "requestCount": 6,
+  "operationalHashUnchanged": true,
+  "beforeHashes": {
+    "development\\university-news\\data\\university-news-sources.final.json": "21b1f5c5284d8deffcf411dc22c2cdd0b27302234f1c848fbbf7396dfea7badd",
+    "server\\agent\\data\\agent-news-store.json": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "data\\university-news-preview.json": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "afterHashes": {
+    "development\\university-news\\data\\university-news-sources.final.json": "21b1f5c5284d8deffcf411dc22c2cdd0b27302234f1c848fbbf7396dfea7badd",
+    "server\\agent\\data\\agent-news-store.json": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "data\\university-news-preview.json": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "safety": {
+    "readOnly": true,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "verifiedModified": false,
+    "enabledModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false,
+    "tlsVerificationDisabled": false
+  }
+}

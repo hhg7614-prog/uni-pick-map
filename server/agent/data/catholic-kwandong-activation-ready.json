@@ -1,0 +1,82 @@
+{
+  "decision": "ACTIVATION_READY",
+  "activationReady": true,
+  "reasons": [],
+  "universityId": "catholic-kwandong-university-본교",
+  "universityName": "가톨릭관동대학교",
+  "canonicalization": {
+    "collectorSelectedListUrl": "https://www.cku.ac.kr/cku_kr/5787/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGY2t1X2tyJTJGMTIwMiUyRjM2NjQ1NSUyRmFydGNsVmlldy5kbyUzRg%3D%3D",
+    "canonicalListUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/artclList.do",
+    "canonicalListValidated": true,
+    "reason": "상세 게시글 enc URL 대신 게시판의 안정적인 공식 artclList.do URL을 source 기준 URL로 사용합니다."
+  },
+  "collector": {
+    "decision": "COLLECTOR_READY",
+    "extracted": 21,
+    "unique": 21,
+    "duplicateKeys": 0,
+    "distinctTitles": 21,
+    "distinctDates": 12
+  },
+  "detailValidation": {
+    "tested": 5,
+    "pass": 5,
+    "titlePass": 5,
+    "datePass": 5,
+    "validUrls": 5
+  },
+  "catalog": {
+    "file": "university-news-sources.final.json",
+    "universityFound": true,
+    "sourceCount": 0,
+    "duplicateSourceId": false,
+    "duplicateSourceIdCount": 0,
+    "duplicateListUrl": false,
+    "duplicateListUrlCount": 0,
+    "duplicateVerifiedEnabledListUrl": false,
+    "duplicateVerifiedEnabledListUrlCount": 0
+  },
+  "proposedActivation": {
+    "canonicalOwner": "catholic-kwandong-university-본교",
+    "source": {
+      "id": "catholic-kwandong-general-feed",
+      "name": "가톨릭관동대학교 공지사항",
+      "category": "school_notice",
+      "sourceType": "official",
+      "collectionType": "custom_html",
+      "listUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/artclList.do",
+      "campusScope": "CAMPUS_SPECIFIC",
+      "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+      "canonicalOwner": "catholic-kwandong-university-본교",
+      "duplicateStorage": false,
+      "collectOnce": false,
+      "parser": {
+        "itemStrategy": "CKU_BOARD_TR_WITH_ARTICLE_DETAIL",
+        "itemSelector": "tr",
+        "titleStrategy": "ARTCL_VIEW_ANCHOR",
+        "dateStrategy": "ROW_DATE",
+        "detailStrategy": "CKU_ARTCL_VIEW",
+        "detailIdParameter": "ARTICLE_ID",
+        "dedupeKey": "ARTICLE_ID"
+      },
+      "verified": true,
+      "enabled": true,
+      "status": "awaiting_activation",
+      "healthStatus": "validated"
+    }
+  },
+  "nextAction": "ACTIVATE_CATHOLIC_KWANDONG_SOURCE_LOCAL",
+  "outputFile": "D:\\hhg(code)\\server\\agent\\data\\catholic-kwandong-activation-ready.json",
+  "safety": {
+    "readOnly": true,
+    "automaticActivation": false,
+    "automaticSourceMutation": false,
+    "sourceModified": false,
+    "catalogModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

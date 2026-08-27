@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-08-10T06:22:49.474Z",
+  "items": [
+    {
+      "universityId": "daegu-catholic-university-본교",
+      "universityName": "대구가톨릭대학교",
+      "universityGroupId": "daegu-catholic-university-본교",
+      "finalDecision": "COLLECTOR_CONFIG_READY",
+      "source": {
+        "id": "daegu-catholic-press",
+        "name": "대구가톨릭대학교 언론보도",
+        "category": "school_news",
+        "categoryLabel": "학교 소식",
+        "sourceType": "official",
+        "collectionType": "html",
+        "listUrl": "https://www.cu.ac.kr/introduction/result/press",
+        "selectors": {
+          "item": "tbody tr",
+          "title": "td a",
+          "link": "td a",
+          "date": "td",
+          "dateIndex": 4
+        },
+        "detailSelectors": {
+          "title": "div.view_info h6",
+          "date": "div.view_info span"
+        },
+        "datePolicy": {
+          "prefer": "list",
+          "allowVerifiedListDateFallback": true,
+          "rejectDetailDateIfConflictDaysGreaterThan": 31
+        },
+        "verified": false,
+        "enabled": false,
+        "status": "collector_config_candidate",
+        "healthStatus": "unknown"
+      }
+    },
+    {
+      "universityId": "tongmyong-university-본교",
+      "universityName": "동명대학교",
+      "universityGroupId": "tongmyong-university-본교",
+      "finalDecision": "COLLECTOR_CONFIG_READY",
+      "source": {
+        "id": "tongmyong-press",
+        "name": "동명대학교 대학뉴스",
+        "category": "school_news",
+        "categoryLabel": "학교 소식",
+        "sourceType": "official",
+        "collectionType": "html",
+        "listUrl": "https://www.tu.ac.kr/newsweb/sub01_01.do",
+        "selectors": {
+          "item": "tbody tr",
+          "title": "td.subject a",
+          "link": "td.subject a",
+          "date": "td.data"
+        },
+        "detailSelectors": {
+          "title": "div.viewTop h2",
+          "date": "div.viewTop li"
+        },
+        "verified": false,
+        "enabled": false,
+        "status": "collector_config_candidate",
+        "healthStatus": "unknown"
+      }
+    },
+    {
+      "universityId": "sungkyunkwan-university-natural-sciences",
+      "universityName": "성균관대학교 자연과학캠퍼스",
+      "universityGroupId": "sungkyunkwan-university-natural-sciences",
+      "finalDecision": "COLLECTOR_CONFIG_READY",
+      "source": {
+        "id": "skku-natural-sciences-press",
+        "name": "성균관대학교 보도자료",
+        "category": "school_news",
+        "categoryLabel": "학교 소식",
+        "sourceType": "official",
+        "collectionType": "html",
+        "listUrl": "https://www.skku.edu/skku/campus/skk_comm/press.do",
+        "selectors": {
+          "item": "tbody tr",
+          "title": "td.left a",
+          "link": "td.left a",
+          "date": "td",
+          "dateIndex": 2
+        },
+        "detailSelectors": {
+          "title": "em.ellipsis",
+          "date": "th span.date"
+        },
+        "verified": false,
+        "enabled": false,
+        "status": "collector_config_candidate",
+        "healthStatus": "unknown"
+      }
+    },
+    {
+      "universityId": "korea-national-sport-university-본교",
+      "universityName": "한국체육대학교",
+      "universityGroupId": "korea-national-sport-university-본교",
+      "finalDecision": "COLLECTOR_CONFIG_READY",
+      "source": {
+        "id": "knsu-press-release",
+        "name": "한국체육대학교 보도자료",
+        "category": "school_news",
+        "categoryLabel": "학교 소식",
+        "sourceType": "official",
+        "collectionType": "html",
+        "listUrl": "https://www.knsu.ac.kr/knsu/info/press-release.do",
+        "selectors": {
+          "item": "tbody tr",
+          "title": "td.b-td-title a",
+          "link": "td.b-td-title a",
+          "date": "span.b-date"
+        },
+        "detailSelectors": {
+          "title": "p.b-title-box span",
+          "date": "li.b-date-box span"
+        },
+        "datePolicy": {
+          "allowTwoDigitYear": true
+        },
+        "verified": false,
+        "enabled": false,
+        "status": "collector_config_candidate",
+        "healthStatus": "unknown"
+      }
+    }
+  ]
+}

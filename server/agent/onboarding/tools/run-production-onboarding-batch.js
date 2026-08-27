@@ -8,6 +8,7 @@ const { recoverUnstableSource } = require("./recover-unstable-source");
 const { recoverSourceCandidate } = require("./recover-source-candidate");
 const { validateSourceQuality } = require("./validate-source-quality");
 const { recoverSourceQuality } = require("./recover-source-quality");
+const { getOfficialHomepage } = require("./get-official-homepage");
 const { htmlListCollector } = require("../../../../development/university-news/collectors/html-list-collector");
 
 const ROOT = path.resolve(__dirname, "../../../..");
@@ -15,6 +16,7 @@ const DATA = path.join(ROOT, "server", "agent", "onboarding", "data");
 const REPORTS = path.join(ROOT, "server", "agent", "onboarding", "reports", "production-batch");
 const QUEUE = path.join(DATA, "onboarding-smart-retry-queue.json");
 const STATE = path.join(DATA, "production-batch-state.json");
+const BOOTSTRAP_RETRY_QUEUE = path.join(DATA, "bootstrap-retry-queue.json");
 const CATALOG = path.join(ROOT, "development", "university-news", "data", "university-news-sources.final.json");
 const BATCH_SIZE = 10;
 
@@ -28,8 +30,12 @@ function status() { console.log(JSON.stringify(read(STATE, { status: "idle", cur
 async function technicalResult(item) {
   const diagnosis = existingSummary(item.universityId);
   const existingCandidate = diagnosis.recommendedCandidate?.url || diagnosis.candidates?.[0]?.url || null;
-  const discovery = await recoverSourceCandidate({ university: item, existingCandidate });
-  const candidateUrl = discovery.decision === "CANDIDATE_READY" ? discovery.recommendedCandidate.url : existingCandidate;
+  const bootstrap = existingCandidate ? null : getOfficialHomepage(item.universityId);
+  if (!existingCandidate && !bootstrap) return { decision: "BOOTSTRAP_HOMEPAGE_MISSING", candidateUrl: null, bootstrapHomepage: null, externalRequests: 0 };
+  const seed = existingCandidate || bootstrap.url;
+  const discovery = await recoverSourceCandidate({ university: item, existingCandidate: seed });
+  if (discovery.decision !== "CANDIDATE_READY") return { decision: existingCandidate ? "CANDIDATE_REVIEW" : "BOOTSTRAP_DISCOVERY_FAILED", candidateUrl: null, bootstrapHomepage: bootstrap?.url || null, bootstrapDomain: bootstrap?.domain || null, homepageSource: bootstrap?.source || null, candidateDiscovery: discovery, externalRequests: discovery.requests.length };
+  const candidateUrl = discovery.recommendedCandidate.url;
   const recovery = await recoverUnstableSource({ universityId: item.universityId, universityName: item.universityName, diagnosis, candidateUrl, primaryReason: item.primaryReason });
   return {
     ...recovery,
@@ -38,6 +44,9 @@ async function technicalResult(item) {
     technicalRecoveryInputUrl: candidateUrl,
     qualityInputUrl: candidateUrl,
     discoverySourceScope: discovery.discoverySourceScope || null,
+    bootstrapHomepage: bootstrap?.url || null,
+    bootstrapDomain: bootstrap?.domain || null,
+    homepageSource: bootstrap?.source || null,
   };
 }
 
@@ -65,6 +74,9 @@ async function processUniversity(item, catalog, sourceCounts) {
   if (isVerified(catalog, item.universityId)) return { universityId: item.universityId, universityName: item.universityName, finalStatus: "SKIPPED_EXISTING_VERIFIED", collected: 0, previewVisibility: "not_applicable" };
   try {
     const recovery = await technicalResult(item);
+    if (recovery.decision === "BOOTSTRAP_HOMEPAGE_MISSING" || recovery.decision === "BOOTSTRAP_DISCOVERY_FAILED" || recovery.decision === "CANDIDATE_REVIEW") {
+      return { universityId: item.universityId, universityName: item.universityName, finalStatus: recovery.decision, recovery, quality: { decision: "QUALITY_NOT_RUN_NO_CANDIDATE", sourceCandidate: "", sourceIsList: false, sourceScope: "OTHER", qualityScore: 0 }, collected: 0, previewVisibility: "not_applicable" };
+    }
     if (recovery.candidateDiscovery?.decision === "CANDIDATE_READY" &&
       (recovery.candidateDiscoveryUrl !== recovery.technicalRecoveryInputUrl || recovery.technicalRecoveryInputUrl !== recovery.qualityInputUrl)) {
       return { universityId: item.universityId, universityName: item.universityName, finalStatus: "CANDIDATE_HANDOFF_ERROR", recovery, collected: 0, previewVisibility: "not_applicable" };
@@ -96,21 +108,23 @@ async function main() {
   if (process.argv.includes("--status")) return status();
   const test = process.argv.includes("--test10");
   const resume = process.argv.includes("--resume");
-  const queue = read(QUEUE, { items: [] }); const catalog = read(CATALOG, { universities: [] });
+  const queue = read(QUEUE, { items: [] }); const retryQueue = read(BOOTSTRAP_RETRY_QUEUE, { items: [] }); const catalog = read(CATALOG, { universities: [] });
   const state = read(STATE, { currentIndex: 0, processedUniversityIds: [], processed: 0, activated: 0, review: 0, technicalReview: 0, collectorReview: 0, failed: 0, networkError: 0, lastBatch: 0, lastCommit: null, lastPush: null });
   const high = queue.items.filter(item => item.recoveryLikelihood === "HIGH");
   const start = resume ? Number(state.currentIndex || 0) : 0;
-  const selected = high.slice(start, start + (test ? BATCH_SIZE : BATCH_SIZE));
+  const retryItems = retryQueue.items.filter(item => !isVerified(catalog, item.universityId));
+  const usingBootstrapRetry = resume && retryItems.length > 0;
+  const selected = usingBootstrapRetry ? retryItems.slice(0, BATCH_SIZE) : high.slice(start, start + (test ? BATCH_SIZE : BATCH_SIZE));
   if (!selected.length) { state.status = "completed"; state.updatedAt = now(); write(STATE, state); console.log(JSON.stringify(state, null, 2)); return; }
   const batchNumber = Number(state.lastBatch || 0) + 1; const batchId = `batch-${String(batchNumber).padStart(3, "0")}`;
   state.status = "running"; state.currentIndex = start; state.updatedAt = now(); write(STATE, state);
-  const counts = Object.fromEntries(["ACTIVATED_SUCCESS", "QUALITY_REVIEW_FINAL", "TECHNICAL_REVIEW", "COLLECTOR_CONFIG_REVIEW", "ACTIVATION_FAILED", "NETWORK_ERROR", "SKIPPED_EXISTING_VERIFIED", "CANDIDATE_HANDOFF_ERROR"].map(key => [key, 0]));
+  const counts = Object.fromEntries(["ACTIVATED_SUCCESS", "QUALITY_REVIEW_FINAL", "TECHNICAL_REVIEW", "COLLECTOR_CONFIG_REVIEW", "ACTIVATION_FAILED", "NETWORK_ERROR", "SKIPPED_EXISTING_VERIFIED", "CANDIDATE_HANDOFF_ERROR", "BOOTSTRAP_HOMEPAGE_MISSING", "BOOTSTRAP_DISCOVERY_FAILED", "CANDIDATE_REVIEW"].map(key => [key, 0]));
   const sourceCounts = new Map(); for (const item of selected) { const url = existingSummary(item.universityId).recommendedCandidate?.url; if (url) sourceCounts.set(url, (sourceCounts.get(url) || 0) + 1); }
   const items = [];
   for (const item of selected) {
     state.currentUniversityId = item.universityId; state.currentUniversityName = item.universityName; state.updatedAt = now(); write(STATE, state);
     const result = await processUniversity(item, catalog, sourceCounts); counts[result.finalStatus] = (counts[result.finalStatus] || 0) + 1; items.push(result);
-    state.processed++; state.processedUniversityIds = [...new Set([...(state.processedUniversityIds || []), item.universityId])]; state.currentIndex++; state.updatedAt = now(); write(STATE, state);
+    state.processed++; state.processedUniversityIds = [...new Set([...(state.processedUniversityIds || []), item.universityId])]; if (!usingBootstrapRetry) state.currentIndex++; state.updatedAt = now(); write(STATE, state);
   }
   state.status = "completed_batch"; state.lastBatch = batchNumber; state.activated += counts.ACTIVATED_SUCCESS; state.review += counts.QUALITY_REVIEW_FINAL; state.technicalReview += counts.TECHNICAL_REVIEW; state.collectorReview += counts.COLLECTOR_CONFIG_REVIEW; state.failed += counts.ACTIVATION_FAILED; state.networkError += counts.NETWORK_ERROR; state.updatedAt = now(); write(STATE, state);
   const completedAt = now();

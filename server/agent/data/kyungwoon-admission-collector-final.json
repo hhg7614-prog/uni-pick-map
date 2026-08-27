@@ -1,0 +1,159 @@
+{
+  "schemaVersion": "3.0",
+  "generatedAt": "2026-08-24T00:15:39.640Z",
+  "universityId": "kyungwoon-university-본교",
+  "universityName": "경운대학교",
+  "status": 200,
+  "finalUrl": "https://www.ikw.ac.kr/ipsi/board/list.tc?mn=2415&mngNo=12&categoryNo=48&pageSeq=1608&protocol=http",
+  "rawRows": 18,
+  "extracted": 18,
+  "unique": 15,
+  "duplicateKeys": 3,
+  "distinctTitles": 15,
+  "distinctDates": 13,
+  "extractedSamples": [
+    {
+      "boardNo": "331907",
+      "title": "[입시결과]2026학년도 수시모집 성적자료",
+      "publishedAt": "2026-06-04",
+      "detailUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331907",
+      "detailKey": "BOARD:331907"
+    },
+    {
+      "boardNo": "331786",
+      "title": "2027학년도 경운대학교 수시 모집 요강 안내(2026.07.23)",
+      "publishedAt": "2026-05-31",
+      "detailUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331786",
+      "detailKey": "BOARD:331786"
+    },
+    {
+      "boardNo": "331202",
+      "title": "2028학년도 대학입학전형시행계획 주요사항 안내",
+      "publishedAt": "2026-04-29",
+      "detailUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331202",
+      "detailKey": "BOARD:331202"
+    },
+    {
+      "boardNo": "330665",
+      "title": "2026학년도 경운대학교 선행학습 영향평가 결과보고",
+      "publishedAt": "2026-03-30",
+      "detailUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=330665",
+      "detailKey": "BOARD:330665"
+    },
+    {
+      "boardNo": "329982",
+      "title": "2026학년도【신입생│편입생】등록확인 및 납부확인서 안내",
+      "publishedAt": "2026-02-24",
+      "detailUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=329982",
+      "detailKey": "BOARD:329982"
+    }
+  ],
+  "detailValidation": {
+    "tested": 5,
+    "pass": 5,
+    "titlePass": 5,
+    "datePass": 5,
+    "validUrls": 5,
+    "checks": [
+      {
+        "boardNo": "331907",
+        "title": "[입시결과]2026학년도 수시모집 성적자료",
+        "publishedAt": "2026-06-04",
+        "detailUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331907",
+        "detailKey": "BOARD:331907",
+        "status": 200,
+        "finalUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331907",
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true
+      },
+      {
+        "boardNo": "331786",
+        "title": "2027학년도 경운대학교 수시 모집 요강 안내(2026.07.23)",
+        "publishedAt": "2026-05-31",
+        "detailUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331786",
+        "detailKey": "BOARD:331786",
+        "status": 200,
+        "finalUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331786",
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true
+      },
+      {
+        "boardNo": "331202",
+        "title": "2028학년도 대학입학전형시행계획 주요사항 안내",
+        "publishedAt": "2026-04-29",
+        "detailUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331202",
+        "detailKey": "BOARD:331202",
+        "status": 200,
+        "finalUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=331202",
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true
+      },
+      {
+        "boardNo": "330665",
+        "title": "2026학년도 경운대학교 선행학습 영향평가 결과보고",
+        "publishedAt": "2026-03-30",
+        "detailUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=330665",
+        "detailKey": "BOARD:330665",
+        "status": 200,
+        "finalUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=330665",
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true
+      },
+      {
+        "boardNo": "329982",
+        "title": "2026학년도【신입생│편입생】등록확인 및 납부확인서 안내",
+        "publishedAt": "2026-02-24",
+        "detailUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=329982",
+        "detailKey": "BOARD:329982",
+        "status": 200,
+        "finalUrl": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo=329982",
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true
+      }
+    ]
+  },
+  "decision": "COLLECTOR_READY",
+  "proposedCollector": {
+    "id": "kyungwoon-admission-general-feed",
+    "name": "경운대학교 입학·모집 소식",
+    "category": "school_news",
+    "sourceType": "official",
+    "collectionType": "custom_html",
+    "listUrl": "https://www.ikw.ac.kr/ipsi/board/list.tc?mn=2415&mngNo=12&categoryNo=48&pageSeq=1608&protocol=http",
+    "campusScope": "CAMPUS_SPECIFIC",
+    "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+    "parser": {
+      "item": "tbody tr",
+      "titleStrategy": "A_TIT_TEXT",
+      "titleSelector": "a.tit",
+      "dateStrategy": "DIV_ADD_FIRST_SPAN",
+      "detailStrategy": "SELECT_BOARD_DETAIL",
+      "detailIdRegex": "selectBoardDetail\\s*\\(\\s*['\"](\\d+)['\"]\\s*\\)",
+      "detailUrlTemplate": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo={id}",
+      "dedupeKey": "BOARD_NO"
+    },
+    "verified": false,
+    "enabled": false,
+    "status": "collector_ready_pending_activation",
+    "healthStatus": "validated",
+    "autoActivate": false
+  },
+  "nextAction": "VERIFY_KYUNGWOON_ACTIVATION_READY",
+  "requests": 6,
+  "operationalHashUnchanged": true,
+  "safety": {
+    "readOnly": true,
+    "curlTlsBypass": false,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

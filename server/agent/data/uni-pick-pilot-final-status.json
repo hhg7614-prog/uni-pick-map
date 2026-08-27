@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-24T02:38:52.848Z",
+  "status": "PILOT_COMPLETE",
+  "pilotComplete": true,
+  "processed": 10,
+  "resolvedCount": 9,
+  "environmentBlockedCount": 1,
+  "actionableCount": 0,
+  "unexpectedUnresolvedCount": 0,
+  "overlapCount": 0,
+  "counts": {
+    "RESOLVED_BY_EXISTING_VERIFIED_SOURCE": 9,
+    "ENVIRONMENT_WAF_BLOCKED": 1
+  },
+  "environmentBlocked": [
+    {
+      "universityId": "mokpo-national-university-본교",
+      "universityName": "국립목포대학교",
+      "nextClass": "ENVIRONMENT_WAF_BLOCKED",
+      "networkSubtype": "ENVIRONMENT_WAF_BLOCKED",
+      "cooldown": true,
+      "retryable": true,
+      "nextAction": "RETRY_IN_DIFFERENT_ENVIRONMENT",
+      "reason": "공식 게시판은 존재하지만 현재 로컬 환경에서 국립목포대학교 웹방화벽 정책에 의해 HTML 수집 요청이 차단됩니다."
+    }
+  ],
+  "unexpectedUnresolved": [],
+  "planner": {
+    "resolvedCount": 9,
+    "cooldownCount": 1,
+    "environmentBlockedCount": 1,
+    "actionableCount": 0,
+    "nextAction": null
+  },
+  "cleanup": {
+    "status": "STALE_STATE_CLEANED",
+    "staleRemoved": null,
+    "transientBefore": 1,
+    "transientAfter": 0,
+    "rollback": false
+  },
+  "completionPolicy": {
+    "resolvedOrEnvironmentBlockedOnly": true,
+    "environmentBlockedAcceptedAsDeferred": true,
+    "actionableMustBeZero": true,
+    "nextActionMustBeNull": true,
+    "staleTransientStateCleaned": true,
+    "productionMutation": false
+  },
+  "nextAction": "PREPARE_NEXT_UNIVERSITY_BATCH",
+  "safety": {
+    "readOnly": true,
+    "networkRequests": 0,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

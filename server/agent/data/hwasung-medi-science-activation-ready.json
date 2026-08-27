@@ -1,0 +1,180 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T07:47:43.052Z",
+  "universityId": "hwasung-medi-science-university-본교",
+  "universityName": "화성의과학대학교",
+  "sourceId": "hwasung-medi-science-general-feed",
+  "decision": "ACTIVATION_READY",
+  "activationReady": true,
+  "reasons": [],
+  "list": {
+    "status": 200,
+    "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+    "rows": 18,
+    "extracted": 17,
+    "unique": 17,
+    "duplicateKeys": 0,
+    "distinctIds": 17,
+    "distinctTitles": 17,
+    "distinctDates": 15
+  },
+  "route": {
+    "functionName": "fn_goView",
+    "method": "SAME_PAGE:idx",
+    "urlTemplate": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx={id}",
+    "stable": true
+  },
+  "detailValidation": {
+    "tested": 5,
+    "pass": 5,
+    "titlePass": 5,
+    "datePass": 5,
+    "validUrls": 5,
+    "checks": [
+      {
+        "title": "2026학년도 1학기 자율형 기숙사 드림하우스 예비입주자 모집안내(수정)",
+        "titleMethod": "ANCHOR_TEXT",
+        "publishedAt": "2026-04-01",
+        "detailId": "3336",
+        "detailKey": "ID:3336",
+        "detailUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx=3336",
+        "status": 200,
+        "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx=3336",
+        "officialDomain": true,
+        "sameAsList": false,
+        "titleMatch": true,
+        "dateMatch": true,
+        "bodyLength": 3012,
+        "pass": true,
+        "reason": null
+      },
+      {
+        "title": "교양 인사이트 MSP 수기 공모전-화제의 MSP, 나의 생각을 깨우다",
+        "titleMethod": "ANCHOR_TEXT",
+        "publishedAt": "2026-06-16",
+        "detailId": "3511",
+        "detailKey": "ID:3511",
+        "detailUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx=3511",
+        "status": 200,
+        "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx=3511",
+        "officialDomain": true,
+        "sameAsList": false,
+        "titleMatch": true,
+        "dateMatch": true,
+        "bodyLength": 3012,
+        "pass": true,
+        "reason": null
+      },
+      {
+        "title": "교양교과목 제안 공모전-AI와 의과학을 잇다",
+        "titleMethod": "ANCHOR_TEXT",
+        "publishedAt": "2026-06-16",
+        "detailId": "3512",
+        "detailKey": "ID:3512",
+        "detailUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx=3512",
+        "status": 200,
+        "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx=3512",
+        "officialDomain": true,
+        "sameAsList": false,
+        "titleMatch": true,
+        "dateMatch": true,
+        "bodyLength": 3012,
+        "pass": true,
+        "reason": null
+      },
+      {
+        "title": "2026학년도 드림하우스 예비입주자 추가 모집 안내(수정)",
+        "titleMethod": "ANCHOR_TEXT",
+        "publishedAt": "2026-07-09",
+        "detailId": "3555",
+        "detailKey": "ID:3555",
+        "detailUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx=3555",
+        "status": 200,
+        "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx=3555",
+        "officialDomain": true,
+        "sameAsList": false,
+        "titleMatch": true,
+        "dateMatch": true,
+        "bodyLength": 3012,
+        "pass": true,
+        "reason": null
+      },
+      {
+        "title": "2026학년도 2학기 등록금 납부 안내",
+        "titleMethod": "ANCHOR_TEXT",
+        "publishedAt": "2026-08-04",
+        "detailId": "3602",
+        "detailKey": "ID:3602",
+        "detailUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx=3602",
+        "status": 200,
+        "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx=3602",
+        "officialDomain": true,
+        "sameAsList": false,
+        "titleMatch": true,
+        "dateMatch": true,
+        "bodyLength": 3012,
+        "pass": true,
+        "reason": null
+      }
+    ]
+  },
+  "catalog": {
+    "catalogFound": true,
+    "sourceCount": 0,
+    "duplicateSourceId": false,
+    "duplicateListUrl": false,
+    "duplicateVerifiedEnabledListUrl": false,
+    "existingSources": []
+  },
+  "proposedActivation": {
+    "universityId": "hwasung-medi-science-university-본교",
+    "universityName": "화성의과학대학교",
+    "source": {
+      "id": "hwasung-medi-science-general-feed",
+      "name": "화성의과학대학교 공식 소식",
+      "category": "school_news",
+      "sourceType": "official",
+      "collectionType": "custom_html",
+      "listUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+      "campusScope": "CAMPUS_SPECIFIC",
+      "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+      "parser": {
+        "item": "tbody tr",
+        "structure": "TR",
+        "titleStrategy": "TITLE_ATTRIBUTE_OR_LONGEST_ANCHOR_TEXT",
+        "dateStrategy": "VISIBLE_DATE_IN_ROW",
+        "detailStrategy": "FN_GOVIEW_ID_TO_QUERY",
+        "detailFunction": "fn_goView",
+        "detailIdRegex": "fn_goView\\s*\\(\\s*[\"']?(\\d{2,})[\"']?",
+        "detailUrlTemplate": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx={id}"
+      },
+      "verified": true,
+      "enabled": true,
+      "status": "awaiting_activation",
+      "healthStatus": "validated"
+    }
+  },
+  "nextAction": "ACTIVATE_HSMU_SOURCE_LOCAL",
+  "requests": 6,
+  "operationalHashUnchanged": true,
+  "beforeHashes": {
+    "catalog": "3d53b00ec8911dea9cc234bfb8ad7b31007d80a5c99ac9da3cc7ddca2dc6616c",
+    "store": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "preview": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "afterHashes": {
+    "catalog": "3d53b00ec8911dea9cc234bfb8ad7b31007d80a5c99ac9da3cc7ddca2dc6616c",
+    "store": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "preview": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "safety": {
+    "readOnly": true,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false,
+    "tlsVerificationDisabled": false
+  }
+}

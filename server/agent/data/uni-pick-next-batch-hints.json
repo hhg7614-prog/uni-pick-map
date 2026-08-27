@@ -1,0 +1,385 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-24T02:42:00.999Z",
+  "decision": "NEXT_BATCH_HINTS_PARTIAL",
+  "sourceBatch": "uni-pick-next-university-batch.json",
+  "sourceCatalog": "university-news-sources.final.json",
+  "counts": {
+    "total": 10,
+    "catalogFound": 10,
+    "hintsAvailable": 1,
+    "noCatalogUrlHint": 9,
+    "catalogUniversityNotFound": 0
+  },
+  "results": [
+    {
+      "order": 1,
+      "universityId": "kyungdong-university-본교",
+      "universityName": "경동대학교",
+      "catalogFound": true,
+      "catalogKeys": [
+        "universityId",
+        "universityGroupId",
+        "universityName",
+        "campusName",
+        "enabled",
+        "verificationStatus",
+        "healthStatus",
+        "sources",
+        "searchKeywords",
+        "lastCheckedAt",
+        "lastSuccessfulCollectionAt",
+        "coverage"
+      ],
+      "homepageHints": [],
+      "existingSourceCount": 1,
+      "existingSources": [
+        {
+          "id": "kyungdong-main-general-notice",
+          "name": "경동대학교 공식 공통 공지",
+          "category": "school_notice",
+          "sourceType": "official",
+          "collectionType": "html",
+          "verified": true,
+          "enabled": false,
+          "status": "selector_required",
+          "healthStatus": "unknown",
+          "listUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+          "parser": null,
+          "urls": [
+            {
+              "path": "$.listUrl",
+              "value": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+              "url": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+              "hostname": "kduniv.ac.kr"
+            },
+            {
+              "path": "$.baseUrl",
+              "value": "https://www.kduniv.ac.kr",
+              "url": "https://www.kduniv.ac.kr/",
+              "hostname": "kduniv.ac.kr"
+            }
+          ]
+        }
+      ],
+      "totalUrlHints": 2,
+      "urlHints": [
+        {
+          "path": "$.sources[0].listUrl",
+          "value": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+          "url": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+          "hostname": "kduniv.ac.kr"
+        },
+        {
+          "path": "$.sources[0].baseUrl",
+          "value": "https://www.kduniv.ac.kr",
+          "url": "https://www.kduniv.ac.kr/",
+          "hostname": "kduniv.ac.kr"
+        }
+      ],
+      "domainCandidates": [
+        {
+          "hostname": "kduniv.ac.kr",
+          "score": 150,
+          "reasons": [
+            "CATALOG_URL_FIELD",
+            "EXISTING_SOURCE",
+            "SOURCE_URL"
+          ],
+          "sampleUrls": [
+            "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+            "https://www.kduniv.ac.kr/"
+          ]
+        }
+      ],
+      "viableDomainCount": 1,
+      "bestDomainCandidate": {
+        "hostname": "kduniv.ac.kr",
+        "score": 150,
+        "reasons": [
+          "CATALOG_URL_FIELD",
+          "EXISTING_SOURCE",
+          "SOURCE_URL"
+        ],
+        "sampleUrls": [
+          "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+          "https://www.kduniv.ac.kr/"
+        ]
+      },
+      "hintStatus": "HINTS_AVAILABLE"
+    },
+    {
+      "order": 2,
+      "universityId": "kaya-university-본교",
+      "universityName": "가야대학교(김해)",
+      "catalogFound": true,
+      "catalogKeys": [
+        "universityId",
+        "universityGroupId",
+        "universityName",
+        "campusName",
+        "enabled",
+        "verificationStatus",
+        "healthStatus",
+        "sources",
+        "searchKeywords",
+        "lastCheckedAt",
+        "lastSuccessfulCollectionAt",
+        "coverage"
+      ],
+      "homepageHints": [],
+      "existingSourceCount": 0,
+      "existingSources": [],
+      "totalUrlHints": 0,
+      "urlHints": [],
+      "domainCandidates": [],
+      "viableDomainCount": 0,
+      "bestDomainCandidate": null,
+      "hintStatus": "NO_CATALOG_URL_HINT"
+    },
+    {
+      "order": 3,
+      "universityId": "catholic-kwandong-university-본교",
+      "universityName": "가톨릭관동대학교",
+      "catalogFound": true,
+      "catalogKeys": [
+        "universityId",
+        "universityGroupId",
+        "universityName",
+        "campusName",
+        "enabled",
+        "verificationStatus",
+        "healthStatus",
+        "sources",
+        "searchKeywords",
+        "lastCheckedAt",
+        "lastSuccessfulCollectionAt",
+        "coverage"
+      ],
+      "homepageHints": [],
+      "existingSourceCount": 0,
+      "existingSources": [],
+      "totalUrlHints": 0,
+      "urlHints": [],
+      "domainCandidates": [],
+      "viableDomainCount": 0,
+      "bestDomainCandidate": null,
+      "hintStatus": "NO_CATALOG_URL_HINT"
+    },
+    {
+      "order": 4,
+      "universityId": "the-catholic-university-of-korea-본교",
+      "universityName": "가톨릭대학교",
+      "catalogFound": true,
+      "catalogKeys": [
+        "universityId",
+        "universityGroupId",
+        "universityName",
+        "campusName",
+        "enabled",
+        "verificationStatus",
+        "healthStatus",
+        "sources",
+        "searchKeywords",
+        "lastCheckedAt",
+        "lastSuccessfulCollectionAt",
+        "coverage"
+      ],
+      "homepageHints": [],
+      "existingSourceCount": 0,
+      "existingSources": [],
+      "totalUrlHints": 0,
+      "urlHints": [],
+      "domainCandidates": [],
+      "viableDomainCount": 0,
+      "bestDomainCandidate": null,
+      "hintStatus": "NO_CATALOG_URL_HINT"
+    },
+    {
+      "order": 5,
+      "universityId": "kangnam-university-본교",
+      "universityName": "강남대학교",
+      "catalogFound": true,
+      "catalogKeys": [
+        "universityId",
+        "universityGroupId",
+        "universityName",
+        "campusName",
+        "enabled",
+        "verificationStatus",
+        "healthStatus",
+        "sources",
+        "searchKeywords",
+        "lastCheckedAt",
+        "lastSuccessfulCollectionAt",
+        "coverage"
+      ],
+      "homepageHints": [],
+      "existingSourceCount": 0,
+      "existingSources": [],
+      "totalUrlHints": 0,
+      "urlHints": [],
+      "domainCandidates": [],
+      "viableDomainCount": 0,
+      "bestDomainCandidate": null,
+      "hintStatus": "NO_CATALOG_URL_HINT"
+    },
+    {
+      "order": 6,
+      "universityId": "gangseo-university-본교",
+      "universityName": "강서대학교",
+      "catalogFound": true,
+      "catalogKeys": [
+        "universityId",
+        "universityGroupId",
+        "universityName",
+        "campusName",
+        "enabled",
+        "verificationStatus",
+        "healthStatus",
+        "sources",
+        "searchKeywords",
+        "lastCheckedAt",
+        "lastSuccessfulCollectionAt",
+        "coverage"
+      ],
+      "homepageHints": [],
+      "existingSourceCount": 0,
+      "existingSources": [],
+      "totalUrlHints": 0,
+      "urlHints": [],
+      "domainCandidates": [],
+      "viableDomainCount": 0,
+      "bestDomainCandidate": null,
+      "hintStatus": "NO_CATALOG_URL_HINT"
+    },
+    {
+      "order": 7,
+      "universityId": "konyang-university-본교",
+      "universityName": "건양대학교",
+      "catalogFound": true,
+      "catalogKeys": [
+        "universityId",
+        "universityGroupId",
+        "universityName",
+        "campusName",
+        "enabled",
+        "verificationStatus",
+        "healthStatus",
+        "sources",
+        "searchKeywords",
+        "lastCheckedAt",
+        "lastSuccessfulCollectionAt",
+        "coverage"
+      ],
+      "homepageHints": [],
+      "existingSourceCount": 0,
+      "existingSources": [],
+      "totalUrlHints": 0,
+      "urlHints": [],
+      "domainCandidates": [],
+      "viableDomainCount": 0,
+      "bestDomainCandidate": null,
+      "hintStatus": "NO_CATALOG_URL_HINT"
+    },
+    {
+      "order": 8,
+      "universityId": "kyungsung-university-본교",
+      "universityName": "경성대학교",
+      "catalogFound": true,
+      "catalogKeys": [
+        "universityId",
+        "universityGroupId",
+        "universityName",
+        "campusName",
+        "enabled",
+        "verificationStatus",
+        "healthStatus",
+        "sources",
+        "searchKeywords",
+        "lastCheckedAt",
+        "lastSuccessfulCollectionAt",
+        "coverage"
+      ],
+      "homepageHints": [],
+      "existingSourceCount": 0,
+      "existingSources": [],
+      "totalUrlHints": 0,
+      "urlHints": [],
+      "domainCandidates": [],
+      "viableDomainCount": 0,
+      "bestDomainCandidate": null,
+      "hintStatus": "NO_CATALOG_URL_HINT"
+    },
+    {
+      "order": 9,
+      "universityId": "gyeongin-national-university-of-education-본교",
+      "universityName": "경인교육대학교",
+      "catalogFound": true,
+      "catalogKeys": [
+        "universityId",
+        "universityGroupId",
+        "universityName",
+        "campusName",
+        "enabled",
+        "verificationStatus",
+        "healthStatus",
+        "sources",
+        "searchKeywords",
+        "lastCheckedAt",
+        "lastSuccessfulCollectionAt",
+        "coverage"
+      ],
+      "homepageHints": [],
+      "existingSourceCount": 0,
+      "existingSources": [],
+      "totalUrlHints": 0,
+      "urlHints": [],
+      "domainCandidates": [],
+      "viableDomainCount": 0,
+      "bestDomainCandidate": null,
+      "hintStatus": "NO_CATALOG_URL_HINT"
+    },
+    {
+      "order": 10,
+      "universityId": "kyungil-university-본교",
+      "universityName": "경일대학교",
+      "catalogFound": true,
+      "catalogKeys": [
+        "universityId",
+        "universityGroupId",
+        "universityName",
+        "campusName",
+        "enabled",
+        "verificationStatus",
+        "healthStatus",
+        "sources",
+        "searchKeywords",
+        "lastCheckedAt",
+        "lastSuccessfulCollectionAt",
+        "coverage"
+      ],
+      "homepageHints": [],
+      "existingSourceCount": 0,
+      "existingSources": [],
+      "totalUrlHints": 0,
+      "urlHints": [],
+      "domainCandidates": [],
+      "viableDomainCount": 0,
+      "bestDomainCandidate": null,
+      "hintStatus": "NO_CATALOG_URL_HINT"
+    }
+  ],
+  "nextAction": "RESOLVE_MISSING_OFFICIAL_DOMAINS",
+  "safety": {
+    "readOnly": true,
+    "networkRequests": 0,
+    "sourceModified": false,
+    "catalogModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

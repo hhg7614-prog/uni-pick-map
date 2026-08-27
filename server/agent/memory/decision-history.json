@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "0.1",
+  "updatedAt": "2026-08-26T02:33:23.199Z",
+  "items": [
+    {
+      "generatedAt": "2026-08-26T02:33:23.185Z",
+      "goal": null,
+      "intentType": "NO_GOAL",
+      "selectedAction": "WAIT_FOR_GOAL",
+      "decisionScore": 10,
+      "reasons": [
+        "현재 목표 유형은 NO_GOAL으로 판단했습니다.",
+        "현재 목표와 상태 사이에 1개의 정보/진행 차이가 있습니다.",
+        "\"WAIT_FOR_GOAL\" 행동이 현재 후보 중 기대효과 대비 위험과 비용이 가장 낮아 우선 행동으로 선택되었습니다."
+      ]
+    }
+  ]
+}

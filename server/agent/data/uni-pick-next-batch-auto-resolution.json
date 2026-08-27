@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-27T02:03:10.581Z",
+  "decision": "NEXT_BATCH_AUTO_RESOLUTION_APPLIED",
+  "mode": "APPLY",
+  "processed": 10,
+  "counts": {
+    "RESOLVED": 6,
+    "MANUAL_REVIEW": 4
+  },
+  "results": [
+    {
+      "universityId": "kyungdong-university-본교",
+      "universityName": "경동대학교",
+      "initialState": "RESOLVED",
+      "finalState": "RESOLVED",
+      "action": "SKIPPED_ALREADY_RESOLVED"
+    },
+    {
+      "universityId": "kaya-university-본교",
+      "universityName": "가야대학교(김해)",
+      "initialState": "IDENTITY_REVIEW",
+      "finalState": "MANUAL_REVIEW",
+      "action": "IDENTITY_NOT_AUTOMATICALLY_CONFIRMED",
+      "identity": null
+    },
+    {
+      "universityId": "catholic-kwandong-university-본교",
+      "universityName": "가톨릭관동대학교",
+      "initialState": "RESOLVED",
+      "finalState": "RESOLVED",
+      "action": "SKIPPED_ALREADY_RESOLVED"
+    },
+    {
+      "universityId": "the-catholic-university-of-korea-본교",
+      "universityName": "가톨릭대학교",
+      "initialState": "VALIDATE_ACTIVATION_CANDIDATE",
+      "finalState": "RESOLVED",
+      "action": "SKIPPED_ALREADY_ENABLED_SOURCE"
+    },
+    {
+      "universityId": "kangnam-university-본교",
+      "universityName": "강남대학교",
+      "initialState": "VALIDATE_ACTIVATION_CANDIDATE",
+      "finalState": "MANUAL_REVIEW",
+      "action": "PRESERVE_WITH_REASON",
+      "candidate": {
+        "text": "신·편입생 고고고 공지사항",
+        "url": "https://web.kangnam.ac.kr/menu/board/info/f19069e6134f8f8aa7f689a4a675e66f.do?encMenuSeq=c5dc4b1d7b4dd402e5e6a7a8471eb55c&encMenuBoardSeq=15cfe6bfb7c3fe681875758cfe18e3b3"
+      },
+      "validation": {
+        "pass": false,
+        "state": "MANUAL_REVIEW",
+        "finalUrl": "https://web.kangnam.ac.kr/menu/board/info/f19069e6134f8f8aa7f689a4a675e66f.do?encMenuSeq=c5dc4b1d7b4dd402e5e6a7a8471eb55c&encMenuBoardSeq=15cfe6bfb7c3fe681875758cfe18e3b3",
+        "collector": {
+          "extracted": 0,
+          "unique": 0,
+          "duplicateKeys": 0,
+          "dateCount": 22
+        },
+        "detailValidation": {
+          "tested": 0,
+          "pass": 0,
+          "details": []
+        },
+        "elapsedMs": 570,
+        "reasons": [
+          "COLLECTOR_OR_DETAIL_VALIDATION_FAILED"
+        ]
+      },
+      "proposedSource": null,
+      "activation": null
+    },
+    {
+      "universityId": "gangseo-university-본교",
+      "universityName": "강서대학교",
+      "initialState": "DEEP_DISCOVERY",
+      "finalState": "MANUAL_REVIEW",
+      "action": "SAFE_DEEP_DISCOVERY_NO_CANDIDATE",
+      "deepDiscoveryRequestLimit": 8
+    },
+    {
+      "universityId": "konyang-university-본교",
+      "universityName": "건양대학교",
+      "initialState": "VALIDATE_ACTIVATION_CANDIDATE",
+      "finalState": "RESOLVED",
+      "action": "SKIPPED_ALREADY_ENABLED_SOURCE"
+    },
+    {
+      "universityId": "kyungsung-university-본교",
+      "universityName": "경성대학교",
+      "initialState": "VALIDATE_ACTIVATION_CANDIDATE",
+      "finalState": "RESOLVED",
+      "action": "SKIPPED_ALREADY_ENABLED_SOURCE"
+    },
+    {
+      "universityId": "gyeongin-national-university-of-education-본교",
+      "universityName": "경인교육대학교",
+      "initialState": "VALIDATE_ACTIVATION_CANDIDATE",
+      "finalState": "RESOLVED",
+      "action": "SKIPPED_ALREADY_ENABLED_SOURCE"
+    },
+    {
+      "universityId": "kyungil-university-본교",
+      "universityName": "경일대학교",
+      "initialState": "DEEP_DISCOVERY",
+      "finalState": "MANUAL_REVIEW",
+      "action": "SAFE_DEEP_DISCOVERY_NO_CANDIDATE",
+      "deepDiscoveryRequestLimit": 8
+    }
+  ],
+  "nextAction": "REVIEW_MANUAL_REVIEW_AND_ENVIRONMENT_BLOCKED",
+  "refreshDiscovery": {
+    "requested": false,
+    "executed": false
+  },
+  "safety": {
+    "directVerifiedSourcePriority": true,
+    "sharedSourcePolicy": {
+      "collectOnce": true,
+      "duplicateStorage": false,
+      "canonicalOwnerOnly": true,
+      "visibleToCampuses": "preserved when a shared source is explicitly proposed"
+    },
+    "catalogModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "sourceModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false,
+    "automaticMutation": true,
+    "rollbackSupported": true
+  },
+  "inputFiles": {
+    "evaluation": "D:\\hhg(code)\\server\\agent\\data\\uni-pick-next-batch-candidate-evaluation.json",
+    "discovery": "D:\\hhg(code)\\server\\agent\\data\\uni-pick-next-batch-safe-discovery.json",
+    "catalog": "D:\\hhg(code)\\development\\university-news\\data\\university-news-sources.final.json"
+  },
+  "outputFile": "D:\\hhg(code)\\server\\agent\\data\\uni-pick-next-batch-auto-resolution.json"
+}

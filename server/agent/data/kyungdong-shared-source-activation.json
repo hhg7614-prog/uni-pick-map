@@ -1,0 +1,91 @@
+{
+  "status": "ACTIVATED_LOCAL",
+  "sourceAdded": true,
+  "legacySourcesRemoved": 4,
+  "ownerOnly": true,
+  "secondCampusSourceAdded": false,
+  "thirdCampusSourceAdded": false,
+  "fourthCampusSourceAdded": false,
+  "sharedSourcePolicy": {
+    "campusScope": "SHARED_SOURCE",
+    "canonicalOwner": "kyungdong-university-본교",
+    "visibleToCampuses": [
+      "kyungdong-university-본교",
+      "kyungdong-university-제2캠퍼",
+      "kyungdong-university-제3캠퍼",
+      "kyungdong-university-제4캠퍼"
+    ],
+    "collectOnce": true,
+    "duplicateStorage": false
+  },
+  "migration": {
+    "removedSources": [
+      {
+        "universityId": "kyungdong-university-본교",
+        "universityName": "경동대학교",
+        "sourceId": "kyungdong-main-general-notice",
+        "listUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+        "verified": true,
+        "enabled": false,
+        "status": "selector_required"
+      },
+      {
+        "universityId": "kyungdong-university-제2캠퍼",
+        "universityName": "경동대학교 제2캠퍼",
+        "sourceId": "kyungdong-campus2-general-notice",
+        "listUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+        "verified": true,
+        "enabled": false,
+        "status": "selector_required"
+      },
+      {
+        "universityId": "kyungdong-university-제3캠퍼",
+        "universityName": "경동대학교 제3캠퍼",
+        "sourceId": "kyungdong-campus3-general-notice",
+        "listUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+        "verified": true,
+        "enabled": false,
+        "status": "selector_required"
+      },
+      {
+        "universityId": "kyungdong-university-제4캠퍼",
+        "universityName": "경동대학교 제4캠퍼",
+        "sourceId": "kyungdong-campus4-general-notice",
+        "listUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+        "verified": true,
+        "enabled": false,
+        "status": "selector_required"
+      }
+    ],
+    "addedSource": {
+      "id": "kyungdong-shared-general-notice",
+      "name": "경동대학교 공통 일반공지",
+      "listUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+      "verified": true,
+      "enabled": true,
+      "status": "verified",
+      "healthStatus": "validated"
+    }
+  },
+  "postValidation": {
+    "ownerOnly": true,
+    "sourceCount": 1,
+    "legacyRemaining": 0,
+    "sameListUrlCount": 1,
+    "visibleCampusCount": 4
+  },
+  "tests": {
+    "exitCode": 0
+  },
+  "rollback": false,
+  "hashes": {
+    "catalogChanged": true,
+    "storeChanged": false,
+    "previewChanged": false
+  },
+  "backup": "D:\\hhg(code)\\server\\agent\\backups\\kyungdong-shared-source-activation\\20260824132229",
+  "outputFile": "D:\\hhg(code)\\server\\agent\\data\\kyungdong-shared-source-activation.json",
+  "gitTriggered": false,
+  "deploymentTriggered": false,
+  "error": null
+}

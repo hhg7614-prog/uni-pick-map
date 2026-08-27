@@ -1,0 +1,72 @@
+{
+  "decision": "ACTIVATION_READY",
+  "activationReady": true,
+  "reasons": [],
+  "collector": {
+    "decision": "COLLECTOR_READY",
+    "status": 200,
+    "rawRows": 16,
+    "extracted": 15,
+    "unique": 15,
+    "duplicateKeys": 0,
+    "distinctTitles": 15,
+    "distinctDates": 13
+  },
+  "detailValidation": {
+    "tested": 5,
+    "pass": 5,
+    "titlePass": 5,
+    "datePass": 5,
+    "validUrls": 5
+  },
+  "catalog": {
+    "found": true,
+    "sourceCount": 0,
+    "duplicateSourceId": false,
+    "duplicateListUrl": false,
+    "duplicateVerifiedEnabledListUrl": false
+  },
+  "proposedActivation": {
+    "universityId": "daeshin-university-본교",
+    "universityName": "대신대학교",
+    "source": {
+      "id": "daeshin-general-feed",
+      "name": "대신대학교 대신뉴스",
+      "category": "school_news",
+      "sourceType": "official",
+      "collectionType": "custom_html",
+      "listUrl": "https://www.daeshin.ac.kr/html/05_community/01_6.php",
+      "campusScope": "CAMPUS_SPECIFIC",
+      "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+      "parser": {
+        "itemStrategy": "TR_WITH_TITLE_AND_DATE",
+        "itemSelector": "tr",
+        "titleStrategy": "TD_TITLE_ANCHOR",
+        "titleSelector": "td.Title a",
+        "dateStrategy": "TD_DATE",
+        "dateSelector": "td.Date",
+        "detailStrategy": "AT_V_B_ID",
+        "detailIdParameter": "b_id",
+        "dedupeKey": "B_ID"
+      },
+      "verified": true,
+      "enabled": true,
+      "status": "awaiting_activation",
+      "healthStatus": "validated"
+    }
+  },
+  "nextAction": "ACTIVATE_DAESHIN_SOURCE_LOCAL",
+  "hashSafe": true,
+  "safety": {
+    "readOnly": true,
+    "automaticActivation": false,
+    "automaticSourceMutation": false,
+    "sourceModified": false,
+    "catalogModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

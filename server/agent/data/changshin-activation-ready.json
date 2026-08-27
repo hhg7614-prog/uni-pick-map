@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T07:55:56.705Z",
+  "universityId": "changshin-university-본교",
+  "universityName": "창신대학교",
+  "decision": "ACTIVATION_READY",
+  "activationReady": true,
+  "reasons": [],
+  "list": {
+    "status": 200,
+    "rows": 4,
+    "extracted": 3,
+    "unique": 3,
+    "duplicateUrls": 0,
+    "distinctTitles": 3
+  },
+  "selectorCorrection": {
+    "previous": "td.col",
+    "corrected": "td.col.col5",
+    "reason": "실제 날짜 셀 class가 'col col5'이므로 더 구체적인 selector를 사용합니다."
+  },
+  "detailValidation": {
+    "tested": 3,
+    "pass": 3,
+    "titlePass": 3,
+    "datePass": 3,
+    "checks": [
+      {
+        "title": "2025학년도 창신대학교 요람",
+        "sourceUrl": "https://www.cs.ac.kr/post/14111",
+        "detailKey": "URL:https://www.cs.ac.kr/post/14111",
+        "publishedAt": "2026-06-17",
+        "rawDate": "2026-06-17",
+        "dateSelector": "td.col.col5",
+        "status": 200,
+        "finalUrl": "https://www.cs.ac.kr/post/14111",
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true,
+        "reason": null
+      },
+      {
+        "title": "2024학년도 창신대학교 요람",
+        "sourceUrl": "https://www.cs.ac.kr/post/14110",
+        "detailKey": "URL:https://www.cs.ac.kr/post/14110",
+        "publishedAt": "2026-06-17",
+        "rawDate": "2026-06-17",
+        "dateSelector": "td.col.col5",
+        "status": 200,
+        "finalUrl": "https://www.cs.ac.kr/post/14110",
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true,
+        "reason": null
+      },
+      {
+        "title": "2023학년도 창신대학교 요람",
+        "sourceUrl": "https://www.cs.ac.kr/post/14109",
+        "detailKey": "URL:https://www.cs.ac.kr/post/14109",
+        "publishedAt": "2026-06-17",
+        "rawDate": "2026-06-17",
+        "dateSelector": "td.col.col5",
+        "status": 200,
+        "finalUrl": "https://www.cs.ac.kr/post/14109",
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true,
+        "reason": null
+      }
+    ]
+  },
+  "catalog": {
+    "found": true,
+    "sourceCount": 0,
+    "duplicateSourceId": false,
+    "duplicateListUrl": false,
+    "duplicateVerifiedEnabledListUrl": false
+  },
+  "proposedActivation": {
+    "universityId": "changshin-university-본교",
+    "universityName": "창신대학교",
+    "source": {
+      "id": "changshin-general-feed",
+      "name": "창신대학교 공식 소식",
+      "category": "school_news",
+      "sourceType": "official",
+      "collectionType": "html",
+      "listUrl": "https://www.cs.ac.kr/board/bulletin",
+      "campusScope": "CAMPUS_SPECIFIC",
+      "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+      "selectors": {
+        "item": "tbody tr",
+        "title": "a[href^='/post/'], a[href*='/post/']",
+        "link": "a[href^='/post/'], a[href*='/post/']",
+        "linkAttribute": "href",
+        "date": "td.col.col5"
+      },
+      "verified": true,
+      "enabled": true,
+      "status": "awaiting_activation",
+      "healthStatus": "validated"
+    }
+  },
+  "nextAction": "ACTIVATE_CHANGSHIN_SOURCE_LOCAL",
+  "requests": 4,
+  "operationalHashUnchanged": true,
+  "safety": {
+    "readOnly": true,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

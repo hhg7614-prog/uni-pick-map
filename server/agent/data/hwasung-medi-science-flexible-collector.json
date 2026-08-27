@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T07:41:48.396Z",
+  "universityId": "hwasung-medi-science-university-본교",
+  "universityName": "화성의과학대학교",
+  "listUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+  "list": {
+    "status": 200,
+    "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+    "rows": 18
+  },
+  "extracted": 17,
+  "unique": 1,
+  "distinctTitles": 1,
+  "distinctDates": 1,
+  "functionPattern": {
+    "stable": false,
+    "functionName": null,
+    "count": 0,
+    "functionCounts": {}
+  },
+  "samples": [
+    {
+      "title": "2024년 제8회 이사회 개최 알림(2024.12.27.)",
+      "publishedAt": "2024-12-27",
+      "href": "#none",
+      "staticUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+      "onclick": "fn_goView(",
+      "onclickParsed": {
+        "raw": "fn_goView(",
+        "functionName": null,
+        "args": [],
+        "numericArgs": []
+      },
+      "numericIds": [
+        "1587"
+      ],
+      "detailId": "1587",
+      "detailKey": "URL:https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+      "rowText": "3 2024년 제8회 이사회 개최 알림(2024.12.27.) 신경학원 2024-12-20 80"
+    }
+  ],
+  "detailRuleTests": [
+    {
+      "title": "2024년 제8회 이사회 개최 알림(2024.12.27.)",
+      "publishedAt": "2024-12-27",
+      "detailId": "1587",
+      "onclick": "fn_goView(",
+      "tested": [
+        {
+          "url": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+          "method": "STATIC_URL",
+          "confidence": 100,
+          "status": 200,
+          "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+          "officialDomain": true,
+          "sameAsList": true,
+          "titleMatch": true,
+          "bodyLength": 3012,
+          "pass": false,
+          "reason": "DETAIL_RULE_NOT_CONFIRMED"
+        },
+        {
+          "url": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx=1587",
+          "method": "SAME_PAGE:idx",
+          "confidence": 30,
+          "status": 200,
+          "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx=1587",
+          "officialDomain": true,
+          "sameAsList": false,
+          "titleMatch": true,
+          "bodyLength": 3012,
+          "pass": true,
+          "reason": null
+        }
+      ],
+      "successfulRule": {
+        "url": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx=1587",
+        "method": "SAME_PAGE:idx",
+        "confidence": 30,
+        "status": 200,
+        "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx=1587",
+        "officialDomain": true,
+        "sameAsList": false,
+        "titleMatch": true,
+        "bodyLength": 3012,
+        "pass": true,
+        "reason": null
+      }
+    }
+  ],
+  "ruleCounts": {
+    "SAME_PAGE:idx": 1
+  },
+  "topRule": {
+    "method": "SAME_PAGE:idx",
+    "count": 1
+  },
+  "detailRuleStable": false,
+  "decision": "REVIEW_REQUIRED",
+  "proposedCollector": null,
+  "nextAction": "INSPECT_ONCLICK_FUNCTION_BODY",
+  "requests": 3,
+  "operationalHashUnchanged": true,
+  "beforeHashes": {
+    "development\\university-news\\data\\university-news-sources.final.json": "3d53b00ec8911dea9cc234bfb8ad7b31007d80a5c99ac9da3cc7ddca2dc6616c",
+    "server\\agent\\data\\agent-news-store.json": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "data\\university-news-preview.json": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "afterHashes": {
+    "development\\university-news\\data\\university-news-sources.final.json": "3d53b00ec8911dea9cc234bfb8ad7b31007d80a5c99ac9da3cc7ddca2dc6616c",
+    "server\\agent\\data\\agent-news-store.json": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "data\\university-news-preview.json": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "safety": {
+    "readOnly": true,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false,
+    "tlsVerificationDisabled": false
+  }
+}

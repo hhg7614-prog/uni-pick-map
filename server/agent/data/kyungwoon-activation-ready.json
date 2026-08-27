@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-24T00:16:41.193Z",
+  "universityId": "kyungwoon-university-본교",
+  "universityName": "경운대학교",
+  "decision": "ACTIVATION_READY",
+  "activationReady": true,
+  "reasons": [],
+  "collector": {
+    "decision": "COLLECTOR_READY",
+    "status": 200,
+    "rawRows": 18,
+    "extracted": 18,
+    "unique": 15,
+    "duplicateKeys": 3,
+    "distinctTitles": 15,
+    "distinctDates": 13
+  },
+  "detailValidation": {
+    "tested": 5,
+    "pass": 5,
+    "titlePass": 5,
+    "datePass": 5,
+    "validUrls": 5
+  },
+  "catalog": {
+    "found": true,
+    "sourceCount": 0,
+    "duplicateSourceId": false,
+    "duplicateListUrl": false,
+    "duplicateVerifiedEnabledListUrl": false
+  },
+  "proposedActivation": {
+    "universityId": "kyungwoon-university-본교",
+    "universityName": "경운대학교",
+    "source": {
+      "id": "kyungwoon-admission-general-feed",
+      "name": "경운대학교 입학·모집 소식",
+      "category": "school_news",
+      "sourceType": "official",
+      "collectionType": "custom_html",
+      "listUrl": "https://www.ikw.ac.kr/ipsi/board/list.tc?mn=2415&mngNo=12&categoryNo=48&pageSeq=1608&protocol=http",
+      "campusScope": "CAMPUS_SPECIFIC",
+      "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+      "parser": {
+        "item": "tbody tr",
+        "titleStrategy": "A_TIT_TEXT",
+        "titleSelector": "a.tit",
+        "dateStrategy": "DIV_ADD_FIRST_SPAN",
+        "detailStrategy": "SELECT_BOARD_DETAIL",
+        "detailIdRegex": "selectBoardDetail\\s*\\(\\s*['\"](\\d+)['\"]\\s*\\)",
+        "detailUrlTemplate": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo={id}",
+        "dedupeKey": "BOARD_NO"
+      },
+      "verified": true,
+      "enabled": true,
+      "status": "awaiting_activation",
+      "healthStatus": "validated"
+    }
+  },
+  "nextAction": "ACTIVATE_KYUNGWOON_SOURCE_LOCAL",
+  "operationalHashUnchanged": true,
+  "safety": {
+    "readOnly": true,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

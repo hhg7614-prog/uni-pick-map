@@ -1,0 +1,269 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T06:16:44.583Z",
+  "sourcePilot": "uni-pick-safe-pilot-result.json",
+  "processed": 10,
+  "reachableCount": 1,
+  "tlsRelatedCount": 8,
+  "retryLaterCount": 0,
+  "groups": [
+    {
+      "subtype": "TLS_CHAIN_ERROR",
+      "nextClass": "TLS_ENVIRONMENT_REVIEW",
+      "autoRetry": false,
+      "count": 7,
+      "universityIds": [
+        "mokpo-national-university-본교",
+        "daeshin-university-본교",
+        "hwasung-medi-science-university-본교",
+        "changshin-university-본교",
+        "keimyung-university-본교",
+        "inje-university-본교",
+        "inje-university-제2캠퍼"
+      ]
+    },
+    {
+      "subtype": "REDIRECT_LOOP",
+      "nextClass": "CANONICAL_URL_RECHECK",
+      "autoRetry": false,
+      "count": 1,
+      "universityIds": [
+        "konkuk-university-seoul"
+      ]
+    },
+    {
+      "subtype": "HTTP_REACHABLE",
+      "nextClass": "DISCOVERY_DIAGNOSIS",
+      "autoRetry": false,
+      "count": 1,
+      "universityIds": [
+        "kyungwoon-university-본교"
+      ]
+    },
+    {
+      "subtype": "TLS_HOSTNAME_MISMATCH",
+      "nextClass": "CANONICAL_URL_RECHECK",
+      "autoRetry": false,
+      "count": 1,
+      "universityIds": [
+        "sangmyung-university-제2캠퍼"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "universityId": "konkuk-university-seoul",
+      "universityName": "건국대학교 서울캠퍼스",
+      "url": "https://www.konkuk.ac.kr/",
+      "ok": false,
+      "status": null,
+      "finalUrl": null,
+      "redirected": null,
+      "name": "TypeError",
+      "message": "fetch failed",
+      "code": null,
+      "causeCode": null,
+      "causeMessage": "redirect count exceeded",
+      "subtype": "REDIRECT_LOOP",
+      "nextClass": "CANONICAL_URL_RECHECK",
+      "autoRetry": false
+    },
+    {
+      "universityId": "kyungwoon-university-본교",
+      "universityName": "경운대학교",
+      "url": "https://www.ikw.ac.kr/",
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://www.ikw.ac.kr/",
+      "redirected": false,
+      "name": null,
+      "message": null,
+      "code": null,
+      "causeCode": null,
+      "causeMessage": null,
+      "subtype": "HTTP_REACHABLE",
+      "nextClass": "DISCOVERY_DIAGNOSIS",
+      "autoRetry": false
+    },
+    {
+      "universityId": "mokpo-national-university-본교",
+      "universityName": "국립목포대학교",
+      "url": "https://www.mokpo.ac.kr/",
+      "ok": false,
+      "status": "REVIEW",
+      "finalUrl": null,
+      "redirected": null,
+      "name": "TypeError",
+      "message": "fetch failed",
+      "code": null,
+      "causeCode": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+      "causeMessage": "unable to verify the first certificate",
+      "subtype": "TLS_CHAIN_ERROR",
+      "nextClass": "ENVIRONMENT_WAF_BLOCKED",
+      "autoRetry": false,
+      "networkSubtype": "ENVIRONMENT_WAF_BLOCKED",
+      "networkNextClass": "RETRY_IN_DIFFERENT_ENVIRONMENT",
+      "resolved": false,
+      "autoActivate": false,
+      "cooldown": true,
+      "retryable": true,
+      "retryScope": "DIFFERENT_NETWORK_OR_DEPLOYMENT_ENVIRONMENT",
+      "reason": "공식 게시판은 존재하지만 현재 로컬 환경에서 국립목포대학교 웹방화벽 정책에 의해 HTML 수집 요청이 차단됩니다.",
+      "evidence": {
+        "tlsCanonicalHost": "www.mokpo.ac.kr",
+        "certificateSubject": "CN=*.mokpo.ac.kr",
+        "certificateSan": [
+          "*.mokpo.ac.kr",
+          "mokpo.ac.kr"
+        ],
+        "httpsCanonicalReachable": true,
+        "httpRedirectsToHttps": true,
+        "wafBlocked": true,
+        "wafMessage": "웹 사이트 필터링 정책에 따라 웹방화벽의 보안정책에 위배되어 차단되었습니다.",
+        "verifiedOfficialBoardPaths": [
+          "/www/308/subview.do",
+          "/www/309/subview.do"
+        ]
+      },
+      "updatedAt": "2026-08-24T00:47:54.011Z",
+      "nextAction": "RETRY_IN_DIFFERENT_ENVIRONMENT",
+      "discoveryEligible": false,
+      "localDiscoveryBlocked": true
+    },
+    {
+      "universityId": "daeshin-university-본교",
+      "universityName": "대신대학교",
+      "url": "https://www.daeshin.ac.kr/",
+      "ok": false,
+      "status": null,
+      "finalUrl": null,
+      "redirected": null,
+      "name": "TypeError",
+      "message": "fetch failed",
+      "code": null,
+      "causeCode": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+      "causeMessage": "unable to verify the first certificate",
+      "subtype": "TLS_CHAIN_ERROR",
+      "nextClass": "TLS_ENVIRONMENT_REVIEW",
+      "autoRetry": false
+    },
+    {
+      "universityId": "sangmyung-university-제2캠퍼",
+      "universityName": "상명대학교 제2캠퍼",
+      "url": "https://www.smuc.ac.kr/",
+      "ok": false,
+      "status": null,
+      "finalUrl": null,
+      "redirected": null,
+      "name": "TypeError",
+      "message": "fetch failed",
+      "code": null,
+      "causeCode": "ERR_TLS_CERT_ALTNAME_INVALID",
+      "causeMessage": "Hostname/IP does not match certificate's altnames: Host: www.smuc.ac.kr. is not in the cert's altnames: DNS:*.smu.ac.kr, DNS:smu.ac.kr",
+      "subtype": "TLS_HOSTNAME_MISMATCH",
+      "nextClass": "CANONICAL_URL_RECHECK",
+      "autoRetry": false
+    },
+    {
+      "universityId": "hwasung-medi-science-university-본교",
+      "universityName": "화성의과학대학교",
+      "url": "https://www.hsmu.ac.kr/",
+      "ok": false,
+      "status": null,
+      "finalUrl": null,
+      "redirected": null,
+      "name": "TypeError",
+      "message": "fetch failed",
+      "code": null,
+      "causeCode": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+      "causeMessage": "unable to verify the first certificate",
+      "subtype": "TLS_CHAIN_ERROR",
+      "nextClass": "TLS_ENVIRONMENT_REVIEW",
+      "autoRetry": false
+    },
+    {
+      "universityId": "changshin-university-본교",
+      "universityName": "창신대학교",
+      "url": "https://www.cs.ac.kr/",
+      "ok": false,
+      "status": null,
+      "finalUrl": null,
+      "redirected": null,
+      "name": "TypeError",
+      "message": "fetch failed",
+      "code": null,
+      "causeCode": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+      "causeMessage": "unable to verify the first certificate",
+      "subtype": "TLS_CHAIN_ERROR",
+      "nextClass": "TLS_ENVIRONMENT_REVIEW",
+      "autoRetry": false
+    },
+    {
+      "universityId": "keimyung-university-본교",
+      "universityName": "계명대학교",
+      "url": "https://www.kmu.ac.kr/",
+      "ok": false,
+      "status": null,
+      "finalUrl": null,
+      "redirected": null,
+      "name": "TypeError",
+      "message": "fetch failed",
+      "code": null,
+      "causeCode": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+      "causeMessage": "unable to verify the first certificate",
+      "subtype": "TLS_CHAIN_ERROR",
+      "nextClass": "TLS_ENVIRONMENT_REVIEW",
+      "autoRetry": false
+    },
+    {
+      "universityId": "inje-university-본교",
+      "universityName": "인제대학교",
+      "url": "https://www.inje.ac.kr/",
+      "ok": false,
+      "status": null,
+      "finalUrl": null,
+      "redirected": null,
+      "name": "TypeError",
+      "message": "fetch failed",
+      "code": null,
+      "causeCode": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+      "causeMessage": "unable to verify the first certificate",
+      "subtype": "TLS_CHAIN_ERROR",
+      "nextClass": "TLS_ENVIRONMENT_REVIEW",
+      "autoRetry": false
+    },
+    {
+      "universityId": "inje-university-제2캠퍼",
+      "universityName": "인제대학교 제2캠퍼",
+      "url": "https://www.inje.ac.kr/",
+      "ok": false,
+      "status": null,
+      "finalUrl": null,
+      "redirected": null,
+      "name": "TypeError",
+      "message": "fetch failed",
+      "code": null,
+      "causeCode": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+      "causeMessage": "unable to verify the first certificate",
+      "subtype": "TLS_CHAIN_ERROR",
+      "nextClass": "TLS_ENVIRONMENT_REVIEW",
+      "autoRetry": false
+    }
+  ],
+  "decision": "INVESTIGATE_TLS_ENVIRONMENT",
+  "recommendedNextActions": [
+    "Node TLS/CA 환경 진단",
+    "각 대학 canonical HTTPS hostname 확인",
+    "TLS 검증 비활성화 금지",
+    "인증서 문제와 로컬 Node CA 문제 분리"
+  ],
+  "safety": {
+    "readOnly": true,
+    "maximumTargets": 10,
+    "operationalFilesModified": false,
+    "queueModified": false,
+    "tlsVerificationDisabled": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

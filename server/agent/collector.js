@@ -7,7 +7,7 @@
  * 홈페이지 목록 URL과 동일한 링크는 상세 링크로 인정하지 않고 제외합니다.
  */
 
-const { htmlListCollector, findBySelector, textOf } = require(
+const { htmlListCollector, findBySelector, textOf, cleanTitle } = require(
   "../../development/university-news/collectors/html-list-collector"
 );
 const { rssCollector } = require(
@@ -30,6 +30,10 @@ function normalizedText(value) {
     .replace(/&quot;/gi, '"')
     .replace(/&amp;/gi, "&")
     .replace(/<[^>]*>/g, " ")
+    // Some boards render an invisible character (zero-width space/joiner or a
+    // BOM) inside the detail-page title but not the list-page title, which
+    // would otherwise make an identical title compare as a mismatch.
+    .replace(/[\u200B\u200C\u200D\uFEFF\u00AD]/g, "")
     .replace(/\s+/g, " ")
     .trim()
     .toLowerCase();
@@ -47,7 +51,7 @@ function isExternalNewsUrl(value) {
 function officialDetailDate(html, item, source) {
   const selectors = source.detailSelectors || {};
   if (!selectors.title || !selectors.date) return null;
-  const detailTitle = textOf(findBySelector(html, selectors.title)[0]);
+  const detailTitle = cleanTitle(textOf(findBySelector(html, selectors.title)[0]), source.titleCleanupTokens);
   if (!detailTitle || normalizedText(detailTitle) !== normalizedText(item.title)) return null;
   for (const rawDate of findBySelector(html, selectors.date).map(textOf)) {
     const parsed = parseDate(rawDate, source.datePolicy || {});

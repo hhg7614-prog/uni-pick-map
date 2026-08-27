@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T06:54:28.294Z",
+  "startedAt": "2026-08-21T06:54:27.926Z",
+  "universityId": "sangmyung-university-제2캠퍼",
+  "universityName": "상명대학교 제2캠퍼",
+  "sourceScope": "CAMPUS_SPECIFIC",
+  "campusScope": "CHEONAN",
+  "listUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=list&srCampus=smuc",
+  "listPage": {
+    "status": 200,
+    "finalUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=list&srCampus=smuc",
+    "bytes": 81423,
+    "contentType": "text/html;charset=UTF-8",
+    "officialDomain": true
+  },
+  "candidateCount": 5,
+  "uniqueDetailUrls": 3,
+  "passCount": 0,
+  "warnCount": 2,
+  "failCount": 1,
+  "score": 65,
+  "grade": "C",
+  "selectorStable": false,
+  "selectorProposal": {
+    "selectorStable": false,
+    "selectors": {
+      "item": null,
+      "title": null,
+      "link": null,
+      "date": null
+    },
+    "detailSelectors": {
+      "title": null,
+      "date": null
+    }
+  },
+  "samples": [
+    {
+      "listTitle": "[국제언어문화교육원] 일본 대학생과의 교류회 참가 학생 모집 공고",
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&amp;articleNo=767883&amp;srCampus=smuc&amp;article.offset=0&amp;articleLimit=10",
+      "status": 200,
+      "detailTitle": "중국어권 지역학전공",
+      "titleMatch": false,
+      "publishedAt": "2025-03-14",
+      "dateMethod": "visible_date",
+      "officialDomain": true,
+      "decision": "WARN",
+      "reasons": [
+        "TITLE_MISMATCH"
+      ]
+    },
+    {
+      "listTitle": "국제언어문화교육원_일본_대학생과의_교류회_참가_학생_모집_공고문.hwpx",
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=download&amp;articleNo=767883&amp;attachNo=560900",
+      "status": 400,
+      "titleMatch": false,
+      "publishedAt": null,
+      "detailTitle": null,
+      "officialDomain": false,
+      "decision": "FAIL",
+      "reason": "DETAIL_PAGE_UNREACHABLE"
+    },
+    {
+      "listTitle": "[혁신IR센터] 2026년 학부교육실태조사 참여 사전 신청 안내",
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&amp;articleNo=767853&amp;srCampus=smuc&amp;article.offset=0&amp;articleLimit=10",
+      "status": 200,
+      "detailTitle": "중국어권 지역학전공",
+      "titleMatch": false,
+      "publishedAt": "2025-03-14",
+      "dateMethod": "visible_date",
+      "officialDomain": true,
+      "decision": "WARN",
+      "reasons": [
+        "TITLE_MISMATCH"
+      ]
+    }
+  ],
+  "decision": "REVIEW_REQUIRED",
+  "recommendedAction": "목록 구조 또는 상세 제목/날짜 selector를 추가 검토합니다.",
+  "proposedSource": null,
+  "safety": {
+    "readOnly": true,
+    "automaticActivation": false,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false,
+    "tlsVerificationDisabled": false
+  }
+}

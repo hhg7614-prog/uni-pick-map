@@ -1,0 +1,154 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T07:52:59.652Z",
+  "universityId": "changshin-university-본교",
+  "universityName": "창신대학교",
+  "listUrl": "https://www.cs.ac.kr/board/bulletin",
+  "policy": {
+    "exactNoticeRequired": false,
+    "similarOfficialUniversityUpdatesAllowed": true
+  },
+  "list": {
+    "status": 200,
+    "finalUrl": "https://www.cs.ac.kr/board/bulletin",
+    "bytes": 213792,
+    "containerCount": 165
+  },
+  "extracted": 3,
+  "unique": 3,
+  "duplicateUrls": 0,
+  "distinctTitles": 3,
+  "distinctDates": 1,
+  "structure": {
+    "stable": false,
+    "type": "TR",
+    "count": 3,
+    "counts": {
+      "TR": 3
+    }
+  },
+  "detailValidation": {
+    "tested": 3,
+    "pass": 3,
+    "titlePass": 3,
+    "datePass": 3,
+    "validUrls": 3,
+    "checks": [
+      {
+        "structure": "TR",
+        "title": "2025학년도 창신대학교 요람",
+        "publishedAt": "2026-06-17",
+        "sourceUrl": "https://www.cs.ac.kr/post/14111",
+        "detailKey": "URL:https://www.cs.ac.kr/post/14111",
+        "href": "https://www.cs.ac.kr/post/14111",
+        "sampleText": "3 2025학년도 창신대학교 요람 교무처 2026-06-17",
+        "status": 200,
+        "finalUrl": "https://www.cs.ac.kr/post/14111",
+        "officialDomain": true,
+        "titleMatch": true,
+        "dateMatch": true,
+        "bodyLength": 3011,
+        "pass": true,
+        "reason": null
+      },
+      {
+        "structure": "TR",
+        "title": "2024학년도 창신대학교 요람",
+        "publishedAt": "2026-06-17",
+        "sourceUrl": "https://www.cs.ac.kr/post/14110",
+        "detailKey": "URL:https://www.cs.ac.kr/post/14110",
+        "href": "https://www.cs.ac.kr/post/14110",
+        "sampleText": "2 2024학년도 창신대학교 요람 교무처 2026-06-17",
+        "status": 200,
+        "finalUrl": "https://www.cs.ac.kr/post/14110",
+        "officialDomain": true,
+        "titleMatch": true,
+        "dateMatch": true,
+        "bodyLength": 3015,
+        "pass": true,
+        "reason": null
+      },
+      {
+        "structure": "TR",
+        "title": "2023학년도 창신대학교 요람",
+        "publishedAt": "2026-06-17",
+        "sourceUrl": "https://www.cs.ac.kr/post/14109",
+        "detailKey": "URL:https://www.cs.ac.kr/post/14109",
+        "href": "https://www.cs.ac.kr/post/14109",
+        "sampleText": "1 2023학년도 창신대학교 요람 교무처 2026-06-17",
+        "status": 200,
+        "finalUrl": "https://www.cs.ac.kr/post/14109",
+        "officialDomain": true,
+        "titleMatch": true,
+        "dateMatch": true,
+        "bodyLength": 3011,
+        "pass": true,
+        "reason": null
+      }
+    ]
+  },
+  "score": 80,
+  "grade": "B",
+  "scoreReasons": [
+    "HTTP_200",
+    "OFFICIAL_DOMAIN",
+    "UNIQUE_3_PLUS",
+    "DETAIL_PASS_3_PLUS",
+    "NO_DUPLICATE_URLS"
+  ],
+  "selectors": {
+    "item": "tbody tr",
+    "title": "a",
+    "link": "a",
+    "linkAttribute": "href",
+    "date": "td",
+    "selectorStable": true
+  },
+  "decision": "FLEXIBLE_SOURCE_VALIDATED",
+  "proposedSource": {
+    "id": "changshin-general-feed",
+    "name": "창신대학교 공식 소식",
+    "category": "school_news",
+    "sourceType": "official",
+    "collectionType": "html",
+    "listUrl": "https://www.cs.ac.kr/board/bulletin",
+    "campusScope": "CAMPUS_SPECIFIC",
+    "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+    "selectors": {
+      "item": "tbody tr",
+      "title": "a",
+      "link": "a",
+      "linkAttribute": "href",
+      "date": "td",
+      "selectorStable": true
+    },
+    "verified": false,
+    "enabled": false,
+    "status": "validated_pending_collector_refinement",
+    "healthStatus": "validated",
+    "autoActivate": false
+  },
+  "nextAction": "REFINE_CHANGSHIN_SELECTORS",
+  "requests": 4,
+  "operationalHashUnchanged": true,
+  "beforeHashes": {
+    "development\\university-news\\data\\university-news-sources.final.json": "18936857b76a8df9828fa12ca5e90399d34cb1b1b0fc024d246ad6a9e2589760",
+    "server\\agent\\data\\agent-news-store.json": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "data\\university-news-preview.json": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "afterHashes": {
+    "development\\university-news\\data\\university-news-sources.final.json": "18936857b76a8df9828fa12ca5e90399d34cb1b1b0fc024d246ad6a9e2589760",
+    "server\\agent\\data\\agent-news-store.json": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "data\\university-news-preview.json": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "safety": {
+    "readOnly": true,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false,
+    "tlsVerificationDisabled": false
+  }
+}

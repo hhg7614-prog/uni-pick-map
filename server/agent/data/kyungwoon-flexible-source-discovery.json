@@ -1,0 +1,431 @@
+{
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-08-24T00:02:39.467Z",
+  "universityId": "kyungwoon-university-본교",
+  "universityName": "경운대학교",
+  "transport": {
+    "type": "curl.exe",
+    "tlsVerificationDisabled": false,
+    "reason": "Node fetch fails with UNABLE_TO_VERIFY_LEAF_SIGNATURE while Windows curl validates the site successfully."
+  },
+  "homepage": "https://www.ikw.ac.kr/",
+  "homepageStatus": 200,
+  "homepageFinalUrl": "https://www.ikw.ac.kr/",
+  "homepageBytes": 1020,
+  "homepageAnchors": 2,
+  "candidateCount": 1,
+  "testedCount": 1,
+  "testedCandidates": [
+    {
+      "label": "입학홈페이지로 이동",
+      "url": "https://www.ikw.ac.kr/ipsi/main.tc",
+      "initialScore": 22,
+      "reasons": [
+        "입학:22",
+        "HTTP_200:20",
+        "OFFICIAL_DOMAIN:20",
+        "DATES_3_PLUS:15",
+        "REPEATING_ITEMS:20",
+        "DETAIL_LINKS_3_PLUS:20"
+      ],
+      "finalScore": 117,
+      "httpStatus": 200,
+      "finalUrl": "https://www.ikw.ac.kr/ipsi/main.tc",
+      "bytes": 72625,
+      "contentType": "text/html;charset=UTF-8",
+      "curlExitCode": 0,
+      "dateLikeCount": 7,
+      "structures": [
+        {
+          "type": "TR",
+          "total": 0,
+          "useful": 0,
+          "withDate": 0,
+          "withOfficialLink": 0,
+          "withClickable": 0,
+          "samples": []
+        },
+        {
+          "type": "LI",
+          "total": 126,
+          "useful": 98,
+          "withDate": 0,
+          "withOfficialLink": 94,
+          "withClickable": 98,
+          "samples": [
+            {
+              "text": "경운대 홈페이지",
+              "dateCount": 0,
+              "anchors": [
+                {
+                  "label": "경운대 홈페이지",
+                  "title": "새창열기",
+                  "href": "/",
+                  "url": "https://www.ikw.ac.kr/",
+                  "onclick": null
+                }
+              ]
+            },
+            {
+              "text": "KW-CDP",
+              "dateCount": 0,
+              "anchors": [
+                {
+                  "label": "KW-CDP",
+                  "title": "새창열기",
+                  "href": "http://cdp.ikw.ac.kr/",
+                  "url": "http://cdp.ikw.ac.kr/",
+                  "onclick": null
+                }
+              ]
+            },
+            {
+              "text": "인터넷증명서발급",
+              "dateCount": 0,
+              "anchors": [
+                {
+                  "label": "인터넷증명서발급",
+                  "title": "새창열기",
+                  "href": "https://ikw.certpia.com/",
+                  "url": "https://ikw.certpia.com/",
+                  "onclick": null
+                }
+              ]
+            },
+            {
+              "text": "통합정보시스템",
+              "dateCount": 0,
+              "anchors": [
+                {
+                  "label": "통합정보시스템",
+                  "title": "새창열기",
+                  "href": "https://portal.ikw.ac.kr/",
+                  "url": "https://portal.ikw.ac.kr/",
+                  "onclick": null
+                }
+              ]
+            },
+            {
+              "text": "LMS교육시스템",
+              "dateCount": 0,
+              "anchors": [
+                {
+                  "label": "LMS교육시스템",
+                  "title": "새창열기",
+                  "href": "http://lms.ikw.ac.kr/",
+                  "url": "http://lms.ikw.ac.kr/",
+                  "onclick": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "ARTICLE",
+          "total": 0,
+          "useful": 0,
+          "withDate": 0,
+          "withOfficialLink": 0,
+          "withClickable": 0,
+          "samples": []
+        }
+      ],
+      "bestStructure": {
+        "type": "LI",
+        "total": 126,
+        "useful": 98,
+        "withDate": 0,
+        "withOfficialLink": 94,
+        "withClickable": 98,
+        "samples": [
+          {
+            "text": "경운대 홈페이지",
+            "dateCount": 0,
+            "anchors": [
+              {
+                "label": "경운대 홈페이지",
+                "title": "새창열기",
+                "href": "/",
+                "url": "https://www.ikw.ac.kr/",
+                "onclick": null
+              }
+            ]
+          },
+          {
+            "text": "KW-CDP",
+            "dateCount": 0,
+            "anchors": [
+              {
+                "label": "KW-CDP",
+                "title": "새창열기",
+                "href": "http://cdp.ikw.ac.kr/",
+                "url": "http://cdp.ikw.ac.kr/",
+                "onclick": null
+              }
+            ]
+          },
+          {
+            "text": "인터넷증명서발급",
+            "dateCount": 0,
+            "anchors": [
+              {
+                "label": "인터넷증명서발급",
+                "title": "새창열기",
+                "href": "https://ikw.certpia.com/",
+                "url": "https://ikw.certpia.com/",
+                "onclick": null
+              }
+            ]
+          },
+          {
+            "text": "통합정보시스템",
+            "dateCount": 0,
+            "anchors": [
+              {
+                "label": "통합정보시스템",
+                "title": "새창열기",
+                "href": "https://portal.ikw.ac.kr/",
+                "url": "https://portal.ikw.ac.kr/",
+                "onclick": null
+              }
+            ]
+          },
+          {
+            "text": "LMS교육시스템",
+            "dateCount": 0,
+            "anchors": [
+              {
+                "label": "LMS교육시스템",
+                "title": "새창열기",
+                "href": "http://lms.ikw.ac.kr/",
+                "url": "http://lms.ikw.ac.kr/",
+                "onclick": null
+              }
+            ]
+          }
+        ]
+      },
+      "error": null
+    }
+  ],
+  "bestCandidate": {
+    "label": "입학홈페이지로 이동",
+    "url": "https://www.ikw.ac.kr/ipsi/main.tc",
+    "initialScore": 22,
+    "reasons": [
+      "입학:22",
+      "HTTP_200:20",
+      "OFFICIAL_DOMAIN:20",
+      "DATES_3_PLUS:15",
+      "REPEATING_ITEMS:20",
+      "DETAIL_LINKS_3_PLUS:20"
+    ],
+    "finalScore": 117,
+    "httpStatus": 200,
+    "finalUrl": "https://www.ikw.ac.kr/ipsi/main.tc",
+    "bytes": 72625,
+    "contentType": "text/html;charset=UTF-8",
+    "curlExitCode": 0,
+    "dateLikeCount": 7,
+    "structures": [
+      {
+        "type": "TR",
+        "total": 0,
+        "useful": 0,
+        "withDate": 0,
+        "withOfficialLink": 0,
+        "withClickable": 0,
+        "samples": []
+      },
+      {
+        "type": "LI",
+        "total": 126,
+        "useful": 98,
+        "withDate": 0,
+        "withOfficialLink": 94,
+        "withClickable": 98,
+        "samples": [
+          {
+            "text": "경운대 홈페이지",
+            "dateCount": 0,
+            "anchors": [
+              {
+                "label": "경운대 홈페이지",
+                "title": "새창열기",
+                "href": "/",
+                "url": "https://www.ikw.ac.kr/",
+                "onclick": null
+              }
+            ]
+          },
+          {
+            "text": "KW-CDP",
+            "dateCount": 0,
+            "anchors": [
+              {
+                "label": "KW-CDP",
+                "title": "새창열기",
+                "href": "http://cdp.ikw.ac.kr/",
+                "url": "http://cdp.ikw.ac.kr/",
+                "onclick": null
+              }
+            ]
+          },
+          {
+            "text": "인터넷증명서발급",
+            "dateCount": 0,
+            "anchors": [
+              {
+                "label": "인터넷증명서발급",
+                "title": "새창열기",
+                "href": "https://ikw.certpia.com/",
+                "url": "https://ikw.certpia.com/",
+                "onclick": null
+              }
+            ]
+          },
+          {
+            "text": "통합정보시스템",
+            "dateCount": 0,
+            "anchors": [
+              {
+                "label": "통합정보시스템",
+                "title": "새창열기",
+                "href": "https://portal.ikw.ac.kr/",
+                "url": "https://portal.ikw.ac.kr/",
+                "onclick": null
+              }
+            ]
+          },
+          {
+            "text": "LMS교육시스템",
+            "dateCount": 0,
+            "anchors": [
+              {
+                "label": "LMS교육시스템",
+                "title": "새창열기",
+                "href": "http://lms.ikw.ac.kr/",
+                "url": "http://lms.ikw.ac.kr/",
+                "onclick": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "ARTICLE",
+        "total": 0,
+        "useful": 0,
+        "withDate": 0,
+        "withOfficialLink": 0,
+        "withClickable": 0,
+        "samples": []
+      }
+    ],
+    "bestStructure": {
+      "type": "LI",
+      "total": 126,
+      "useful": 98,
+      "withDate": 0,
+      "withOfficialLink": 94,
+      "withClickable": 98,
+      "samples": [
+        {
+          "text": "경운대 홈페이지",
+          "dateCount": 0,
+          "anchors": [
+            {
+              "label": "경운대 홈페이지",
+              "title": "새창열기",
+              "href": "/",
+              "url": "https://www.ikw.ac.kr/",
+              "onclick": null
+            }
+          ]
+        },
+        {
+          "text": "KW-CDP",
+          "dateCount": 0,
+          "anchors": [
+            {
+              "label": "KW-CDP",
+              "title": "새창열기",
+              "href": "http://cdp.ikw.ac.kr/",
+              "url": "http://cdp.ikw.ac.kr/",
+              "onclick": null
+            }
+          ]
+        },
+        {
+          "text": "인터넷증명서발급",
+          "dateCount": 0,
+          "anchors": [
+            {
+              "label": "인터넷증명서발급",
+              "title": "새창열기",
+              "href": "https://ikw.certpia.com/",
+              "url": "https://ikw.certpia.com/",
+              "onclick": null
+            }
+          ]
+        },
+        {
+          "text": "통합정보시스템",
+          "dateCount": 0,
+          "anchors": [
+            {
+              "label": "통합정보시스템",
+              "title": "새창열기",
+              "href": "https://portal.ikw.ac.kr/",
+              "url": "https://portal.ikw.ac.kr/",
+              "onclick": null
+            }
+          ]
+        },
+        {
+          "text": "LMS교육시스템",
+          "dateCount": 0,
+          "anchors": [
+            {
+              "label": "LMS교육시스템",
+              "title": "새창열기",
+              "href": "http://lms.ikw.ac.kr/",
+              "url": "http://lms.ikw.ac.kr/",
+              "onclick": null
+            }
+          ]
+        }
+      ]
+    },
+    "error": null
+  },
+  "decision": "REVIEW_CANDIDATE",
+  "proposedSource": {
+    "id": "kyungwoon-general-feed",
+    "name": "경운대학교 입학홈페이지로 이동",
+    "category": "school_news",
+    "sourceType": "official",
+    "collectionType": "html_or_custom",
+    "listUrl": "https://www.ikw.ac.kr/ipsi/main.tc",
+    "campusScope": "CAMPUS_SPECIFIC",
+    "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+    "preferredStructure": "LI",
+    "verified": false,
+    "enabled": false,
+    "status": "candidate_pending_validation",
+    "autoActivate": false
+  },
+  "nextAction": "INSPECT_KYUNGWOON_CANDIDATE_STRUCTURE",
+  "requests": 2,
+  "operationalHashUnchanged": true,
+  "safety": {
+    "readOnly": true,
+    "curlTlsBypass": false,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

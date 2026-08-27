@@ -1,0 +1,2011 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T07:32:06.605Z",
+  "universityId": "hwasung-medi-science-university-본교",
+  "universityName": "화성의과학대학교",
+  "listUrl": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+  "list": {
+    "status": 200,
+    "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+    "bytes": 54491,
+    "contentType": "text/html;charset=UTF-8"
+  },
+  "scriptDiscovery": {
+    "totalScriptTags": 12,
+    "officialScripts": 11,
+    "selectedScripts": 11,
+    "scripts": [
+      {
+        "src": "/cubersc/templete/hsmu/src/js/common.js",
+        "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/src/js/common.js",
+        "officialDomain": true,
+        "score": 5,
+        "reasons": [
+          "common:5"
+        ]
+      },
+      {
+        "src": "/cubersc/common/itg-js.js",
+        "url": "https://www.hsmu.ac.kr/cubersc/common/itg-js.js",
+        "officialDomain": true,
+        "score": 5,
+        "reasons": [
+          "common:5"
+        ]
+      },
+      {
+        "src": "/cubersc/common/plugins/validation/validator.js",
+        "url": "https://www.hsmu.ac.kr/cubersc/common/plugins/validation/validator.js",
+        "officialDomain": true,
+        "score": 5,
+        "reasons": [
+          "common:5"
+        ]
+      },
+      {
+        "src": "/cubersc/common/plugins/validation/accessability.js",
+        "url": "https://www.hsmu.ac.kr/cubersc/common/plugins/validation/accessability.js",
+        "officialDomain": true,
+        "score": 5,
+        "reasons": [
+          "common:5"
+        ]
+      },
+      {
+        "src": "/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+        "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+        "officialDomain": true,
+        "score": 0,
+        "reasons": []
+      },
+      {
+        "src": "/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+        "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+        "officialDomain": true,
+        "score": 0,
+        "reasons": []
+      },
+      {
+        "src": "/cubersc/templete/hsmu/lib/js/back2top.min.js",
+        "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/back2top.min.js",
+        "officialDomain": true,
+        "score": 0,
+        "reasons": []
+      },
+      {
+        "src": "/cubersc/templete/hsmu/lib/js/jquery.mtz.monthpicker.js",
+        "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.mtz.monthpicker.js",
+        "officialDomain": true,
+        "score": 0,
+        "reasons": []
+      },
+      {
+        "src": "/cubersc/templete/hsmu/src/js/sub.js",
+        "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/src/js/sub.js",
+        "officialDomain": true,
+        "score": 0,
+        "reasons": []
+      },
+      {
+        "src": "/cubersc/templete/hsmu/lib/js/slick.js",
+        "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/slick.js",
+        "officialDomain": true,
+        "score": -15,
+        "reasons": [
+          "vendor:-15"
+        ]
+      },
+      {
+        "src": "/cubersc/templete/hsmu/lib/js/aos.js",
+        "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/aos.js",
+        "officialDomain": true,
+        "score": -15,
+        "reasons": [
+          "vendor:-15"
+        ]
+      }
+    ]
+  },
+  "scriptReports": [
+    {
+      "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/src/js/common.js",
+      "score": 5,
+      "scoreReasons": [
+        "common:5"
+      ],
+      "status": 200,
+      "bytes": 3663,
+      "contentType": "text/javascript",
+      "endpoints": [],
+      "interestingFunctions": [],
+      "signals": {
+        "submitCount": 0,
+        "actionAssignmentCount": 0,
+        "locationCount": 0,
+        "ajaxCount": 0,
+        "fetchCount": 0,
+        "postCount": 0,
+        "getCount": 0
+      }
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/cubersc/common/itg-js.js",
+      "score": 5,
+      "scoreReasons": [
+        "common:5"
+      ],
+      "status": 200,
+      "bytes": 58092,
+      "contentType": "text/javascript",
+      "endpoints": [
+        {
+          "raw": "/comm/sessionKeep.do",
+          "url": "https://www.hsmu.ac.kr/comm/sessionKeep.do",
+          "type": "QUOTED_PATH",
+          "score": 30,
+          "reasons": [
+            "QUOTED_PATH"
+          ]
+        },
+        {
+          "raw": "/common/sendSatis.do",
+          "url": "https://www.hsmu.ac.kr/common/sendSatis.do",
+          "type": "QUOTED_PATH",
+          "score": 30,
+          "reasons": [
+            "QUOTED_PATH"
+          ]
+        },
+        {
+          "raw": "/_mngr_/stats/snsCount_comm_proc.do",
+          "url": "https://www.hsmu.ac.kr/_mngr_/stats/snsCount_comm_proc.do",
+          "type": "QUOTED_PATH",
+          "score": 30,
+          "reasons": [
+            "QUOTED_PATH"
+          ]
+        },
+        {
+          "raw": "/_mngr_/stats/popupCount_comm_proc.do",
+          "url": "https://www.hsmu.ac.kr/_mngr_/stats/popupCount_comm_proc.do",
+          "type": "QUOTED_PATH",
+          "score": 30,
+          "reasons": [
+            "QUOTED_PATH"
+          ]
+        },
+        {
+          "raw": "/_mngr_/main/login.do",
+          "url": "https://www.hsmu.ac.kr/_mngr_/main/login.do",
+          "type": "QUOTED_PATH",
+          "score": 30,
+          "reasons": [
+            "QUOTED_PATH"
+          ]
+        },
+        {
+          "raw": "/comm/sessionKeep.do",
+          "url": "https://www.hsmu.ac.kr/comm/sessionKeep.do",
+          "type": "AJAX_URL",
+          "score": 45,
+          "reasons": [
+            "AJAX_URL"
+          ]
+        },
+        {
+          "raw": "/common/sendSatis.do",
+          "url": "https://www.hsmu.ac.kr/common/sendSatis.do",
+          "type": "AJAX_URL",
+          "score": 45,
+          "reasons": [
+            "AJAX_URL"
+          ]
+        },
+        {
+          "raw": "/_mngr_/stats/snsCount_comm_proc.do",
+          "url": "https://www.hsmu.ac.kr/_mngr_/stats/snsCount_comm_proc.do",
+          "type": "AJAX_URL",
+          "score": 45,
+          "reasons": [
+            "AJAX_URL"
+          ]
+        },
+        {
+          "raw": "/_mngr_/stats/popupCount_comm_proc.do",
+          "url": "https://www.hsmu.ac.kr/_mngr_/stats/popupCount_comm_proc.do",
+          "type": "AJAX_URL",
+          "score": 45,
+          "reasons": [
+            "AJAX_URL"
+          ]
+        },
+        {
+          "raw": "/_mngr_/main/login.do",
+          "url": "https://www.hsmu.ac.kr/_mngr_/main/login.do",
+          "type": "LOCATION",
+          "score": 50,
+          "reasons": [
+            "LOCATION"
+          ]
+        },
+        {
+          "raw": "../contents/",
+          "url": "https://www.hsmu.ac.kr/cubersc/contents/",
+          "type": "ACTION",
+          "score": 50,
+          "reasons": [
+            "ACTION"
+          ]
+        }
+      ],
+      "interestingFunctions": [],
+      "signals": {
+        "submitCount": 2,
+        "actionAssignmentCount": 1,
+        "locationCount": 6,
+        "ajaxCount": 4,
+        "fetchCount": 0,
+        "postCount": 0,
+        "getCount": 0
+      }
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/cubersc/common/plugins/validation/validator.js",
+      "score": 5,
+      "scoreReasons": [
+        "common:5"
+      ],
+      "status": 200,
+      "bytes": 19233,
+      "contentType": "text/javascript",
+      "endpoints": [],
+      "interestingFunctions": [],
+      "signals": {
+        "submitCount": 1,
+        "actionAssignmentCount": 0,
+        "locationCount": 0,
+        "ajaxCount": 0,
+        "fetchCount": 0,
+        "postCount": 0,
+        "getCount": 0
+      }
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/cubersc/common/plugins/validation/accessability.js",
+      "score": 5,
+      "scoreReasons": [
+        "common:5"
+      ],
+      "status": 200,
+      "bytes": 3838,
+      "contentType": "text/javascript",
+      "endpoints": [],
+      "interestingFunctions": [],
+      "signals": {
+        "submitCount": 0,
+        "actionAssignmentCount": 0,
+        "locationCount": 0,
+        "ajaxCount": 0,
+        "fetchCount": 0,
+        "postCount": 0,
+        "getCount": 0
+      }
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "score": 0,
+      "scoreReasons": [],
+      "status": 200,
+      "bytes": 89501,
+      "contentType": "text/javascript",
+      "endpoints": [],
+      "interestingFunctions": [
+        {
+          "name": "B",
+          "params": [],
+          "score": 40,
+          "reasons": [
+            "DETAIL_FUNCTION"
+          ],
+          "body": "E.removeEventListener(\"DOMContentLoaded\",B),C.removeEventListener(\"load\",B),S.ready()"
+        },
+        {
+          "name": "l",
+          "params": [
+            "e",
+            "t",
+            "n",
+            "r"
+          ],
+          "score": 40,
+          "reasons": [
+            "DETAIL_FUNCTION"
+          ],
+          "body": "var i,o,a,s,u,l=t;h||(h=!0,d&&C.clearTimeout(d),c=void 0,p=r||\"\",T.readyState=0<e?4:0,i=200<=e&&e<300||304===e,n&&(s=function(e,t,n){var r,i,o,a,s=e.contents,u=e.dataTypes;while(\"*\"===u[0])u.shift(),void 0===r&&(r=e.mimeType||t.getResponseHeader(\"Content-Type\"));if(r)for(i in s)if(s[i]&&s[i].test(r)){u.unshift(i);break"
+        },
+        {
+          "name": "se",
+          "params": [
+            "t",
+            "e",
+            "n",
+            "r"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "var i,o,a,s,u,l,c,f=e&&e.ownerDocument,p=e?e.nodeType:9;if(n=n||[],\"string\"!=typeof t||!t||1!==p&&9!==p&&11!==p)return n;if(!r&&(T(e),e=e||C,E)){if(11!==p&&(u=Z.exec(t)))if(i=u[1]){if(9===p){if(!(a=e.getElementById(i)))return n;if(a.id===i)return n.push(a),n"
+        },
+        {
+          "name": "pe",
+          "params": [
+            "e",
+            "t"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "var n=t&&e,r=n&&1===e.nodeType&&1===t.nodeType&&e.sourceIndex-t.sourceIndex;if(r)return r;if(n)while(n=n.nextSibling)if(n===t)return-1;return e?1:-1"
+        },
+        {
+          "name": "de",
+          "params": [
+            "t"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "return function(e){return\"input\"===e.nodeName.toLowerCase()&&e.type===t"
+        },
+        {
+          "name": "he",
+          "params": [
+            "n"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "return function(e){var t=e.nodeName.toLowerCase();return(\"input\"===t||\"button\"===t)&&e.type===n"
+        },
+        {
+          "name": "be",
+          "params": [
+            "s",
+            "e",
+            "t"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "var u=e.dir,l=e.next,c=l||u,f=t&&\"parentNode\"===c,p=r++;return e.first?function(e,t,n){while(e=e[u])if(1===e.nodeType||f)return s(e,t,n);return!1"
+        },
+        {
+          "name": "A",
+          "params": [
+            "e",
+            "t"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "return e.nodeName&&e.nodeName.toLowerCase()===t.toLowerCase()"
+        },
+        {
+          "name": "O",
+          "params": [
+            "e",
+            "t"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "while((e=e[t])&&1!==e.nodeType);return e"
+        },
+        {
+          "name": "l",
+          "params": [
+            "i",
+            "o",
+            "a",
+            "s"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "return function(){var n=this,r=arguments,e=function(){var e,t;if(!(i<u)){if((e=a.apply(n,r))===o.promise())throw new TypeError(\"Thenable self-resolution\");t=e&&(\"object\"==typeof e||\"function\"==typeof e)&&e.then,m(t)?s?t.call(e,l(u,o,R,s),l(u,o,M,s)):(u++,t.call(e,l(u,o,R,s),l(u,o,M,s),l(u,o,R,o.notifyWith))):(a!==R&&(n=void 0,r=[e]),(s||o.resolveWith)(n,r))"
+        },
+        {
+          "name": "Z",
+          "params": [
+            "e",
+            "t",
+            "n"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "var r,i;if(void 0===n&&1===e.nodeType)if(r=\"data-\"+t.replace(K,\"-$&\").toLowerCase(),\"string\"==typeof(n=e.getAttribute(r))){try{n=\"true\"===(i=n)||\"false\"!==i&&(\"null\"===i?null:i===+i+\"\"?+i:J.test(i)?JSON.parse(i):i)"
+        },
+        {
+          "name": "le",
+          "params": [
+            "e",
+            "t"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "for(var n,r,i,o,a,s,u,l=[],c=0,f=e.length;c<f;c++)(r=e[c]).style&&(n=r.style.display,t?(\"none\"===n&&(l[c]=Y.get(r,\"display\")||null,l[c]||(r.style.display=\"\")),\"\"===r.style.display&&ae(r)&&(l[c]=(u=a=o=void 0,a=(i=r).ownerDocument,s=i.nodeName,(u=ue[s])||(o=a.body.appendChild(a.createElement(s)),u=S.css(o,\"display\"),o.parentNode.removeChild(o),\"none\"===u&&(u=\"block\"),ue[s]=u)))):\"none\"!==n&&(l[c]=\"none\",Y.set(r,\"display\",n)));for(c=0;c<f;c++)null!=l[c]&&(e[c].style.display=l[c]);return e"
+        },
+        {
+          "name": "xe",
+          "params": [
+            "e",
+            "t",
+            "n",
+            "r",
+            "i"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "for(var o,a,s,u,l,c,f=t.createDocumentFragment(),p=[],d=0,h=e.length;d<h;d++)if((o=e[d])||0===o)if(\"object\"===w(o))S.merge(p,o.nodeType?[o]:o);else if(me.test(o)){a=a||f.appendChild(t.createElement(\"div\")),s=(de.exec(o)||[\"\",\"\"])[1].toLowerCase(),u=ge[s]||ge._default,a.innerHTML=u[1]+S.htmlPrefilter(o)+u[2],c=u[0];while(c--)a=a.lastChild;S.merge(p,a.childNodes),(a=f.firstChild).textContent=\"\""
+        },
+        {
+          "name": "je",
+          "params": [
+            "e",
+            "t"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "return A(e,\"table\")&&A(11!==t.nodeType?t:t.firstChild,\"tr\")&&S(e).children(\"tbody\")[0]||e"
+        },
+        {
+          "name": "Le",
+          "params": [
+            "e",
+            "t"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "var n,r,i,o,a,s;if(1===t.nodeType){if(Y.hasData(e)&&(s=Y.get(e).events))for(i in Y.remove(t,\"handle events\"),s)for(n=0,r=s[i].length;n<r;n++)S.event.add(t,i,s[i][n]);Q.hasData(e)&&(o=Q.access(e),a=S.extend({"
+        },
+        {
+          "name": "Oe",
+          "params": [
+            "e",
+            "t",
+            "n"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "for(var r,i=t?S.filter(t,e):e,o=0;null!=(r=i[o]);o++)n||1!==r.nodeType||S.cleanData(ve(r)),r.parentNode&&(n&&ie(r)&&ye(ve(r,\"script\")),r.parentNode.removeChild(r));return e"
+        }
+      ],
+      "signals": {
+        "submitCount": 0,
+        "actionAssignmentCount": 0,
+        "locationCount": 0,
+        "ajaxCount": 0,
+        "fetchCount": 0,
+        "postCount": 0,
+        "getCount": 0
+      }
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "score": 0,
+      "scoreReasons": [],
+      "status": 200,
+      "bytes": 107693,
+      "contentType": "text/javascript",
+      "endpoints": [],
+      "interestingFunctions": [
+        {
+          "name": "resizeHandler",
+          "params": [],
+          "score": 85,
+          "reasons": [
+            "DETAIL_FUNCTION",
+            "BOARD_FUNCTION",
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          //checking if it needs to get responsive\r\n          responsive();\r\n\r\n          // rebuild immediately on touch devices\r\n          if (isTouchDevice) {\r\n              var activeElement = $(document.activeElement);\r\n\r\n              //if the keyboard is NOT visible\r\n              if (!activeElement.is('textarea') && !activeElement.is('input') && !activeElement.is('select')) {\r\n                  var currentHeight = $window.height();\r\n\r\n                  //making sure the change in the viewport size is enough to force a rebuild. (20 % of the window to avoid problems when hidding scroll bars)\r\n                  if( Math.abs(currentHeight - previousHeight) > (20 * Math.max(previousHeight, currentHeight) / 100) ){\r\n                      reBuild(true);\r\n                      previousHeight = currentHeight;\r\n                  "
+        },
+        {
+          "name": "MouseWheelHandler",
+          "params": [
+            "e"
+          ],
+          "score": 60,
+          "reasons": [
+            "DETAIL_FUNCTION",
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          var curTime = new Date().getTime();\r\n          var isNormalScroll = $(COMPLETELY_SEL).hasClass(NORMAL_SCROLL);\r\n\r\n          //autoscrolling and not zooming?\r\n          if(options.autoScrolling && !controlPressed && !isNormalScroll){\r\n              // cross-browser wheel delta\r\n              e = e || window.event;\r\n              var value = e.wheelDelta || -e.deltaY || -e.detail;\r\n              var delta = Math.max(-1, Math.min(1, value));\r\n\r\n              var horizontalDetection = typeof e.wheelDeltaX !== 'undefined' || typeof e.deltaX !== 'undefined';\r\n              var isScrollingVertically = (Math.abs(e.wheelDeltaX) < Math.abs(e.wheelDelta)) || (Math.abs(e.deltaX ) < Math.abs(e.deltaY) || !horizontalDetection);\r\n\r\n              //Limiting the array to 150 (lets not waste memory!)\r\n              if(scrollings.length > 149){\r\n                  scrollings.shift();\r\n              "
+        },
+        {
+          "name": "afterSectionLoads",
+          "params": [
+            "v"
+          ],
+          "score": 60,
+          "reasons": [
+            "DETAIL_FUNCTION",
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          continuousVerticalFixSectionOrder(v);\r\n\r\n          //callback (afterLoad) if the site is not just resizing and readjusting the slides\r\n          $.isFunction(options.afterLoad) && !v.localIsResizing && options.afterLoad.call(v.element, v.anchorLink, (v.sectionIndex + 1));\r\n\r\n          if(options.scrollOverflow){\r\n              options.scrollOverflowHandler.afterLoad();\r\n          "
+        },
+        {
+          "name": "afterSlideLoads",
+          "params": [
+            "v"
+          ],
+          "score": 60,
+          "reasons": [
+            "DETAIL_FUNCTION",
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          activeSlidesNavigation(v.slidesNav, v.slideIndex);\r\n\r\n          //if the site is not just resizing and readjusting the slides\r\n          if(!v.localIsResizing){\r\n              $.isFunction( options.afterSlideLoad ) && options.afterSlideLoad.call( v.destiny, v.anchorLink, (v.sectionIndex + 1), v.slideAnchor, v.slideIndex);\r\n\r\n              //needs to be inside the condition to prevent problems with continuousVertical and scrollHorizontally\r\n              //and to prevent double scroll right after a windows resize\r\n              canScroll = true;\r\n\r\n              playMedia(v.destiny);\r\n          "
+        },
+        {
+          "name": "destroy",
+          "params": [
+            "all"
+          ],
+          "score": 45,
+          "reasons": [
+            "BOARD_FUNCTION",
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          setAutoScrolling(false, 'internal');\r\n          setAllowScrolling(false);\r\n          setKeyboardScrolling(false);\r\n          container.addClass(DESTROYED);\r\n\r\n          clearTimeout(afterSlideLoadsId);\r\n          clearTimeout(afterSectionLoadsId);\r\n          clearTimeout(resizeId);\r\n          clearTimeout(scrollId);\r\n          clearTimeout(scrollId2);\r\n\r\n          $window\r\n              .off('scroll', scrollHandler)\r\n              .off('hashchange', hashChangeHandler)\r\n              .off('resize', resizeHandler);\r\n\r\n          $document\r\n              .off('keydown', keydownHandler)\r\n              .off('keyup', keyUpHandler)\r\n              .off('click touchstart', SECTION_NAV_SEL + ' a')\r\n              .off('mouseenter', SECTION_NAV_SEL + ' li')\r\n              .off('mouseleave', SECTION_NAV_SEL + ' li')\r\n              .off('click touchstart', SLIDES_NAV_LINK_SEL)\r\n              .off('mouseover', options.normalScrollElements)\r\n              .off('mouseout', options.normalScrollElements);\r\n\r\n          $(SECTION_SEL)\r\n              .off('click touchstart', SLIDES_ARROW_SEL);\r\n\r\n          clearTimeout(afterSlideLoadsId);\r\n          clearTimeout(afterSectionLoadsId);\r\n\r\n          //lets make a mess!\r\n          if(all){\r\n              destroyStructure();\r\n          "
+        },
+        {
+          "name": "scrollHandler",
+          "params": [],
+          "score": 40,
+          "reasons": [
+            "DETAIL_FUNCTION"
+          ],
+          "body": "\r\n          var currentSection;\r\n\r\n          if(!options.autoScrolling || options.scrollBar){\r\n              var currentScroll = $window.scrollTop();\r\n              var scrollDirection = getScrollDirection(currentScroll);\r\n              var visibleSectionIndex = 0;\r\n              var screen_mid = currentScroll + ($window.height() / 1.3);/* 모바일 스크롤 실행 위치 변경 */\r\n              var isAtBottom = $body.height() - $window.height() === currentScroll;\r\n              var sections =  document.querySelectorAll(SECTION_SEL);\r\n\r\n              //when using `auto-height` for a small last section it won't be centered in the viewport\r\n              if(isAtBottom){\r\n                  visibleSectionIndex = sections.length - 1;\r\n              "
+        },
+        {
+          "name": "fitToSection",
+          "params": [],
+          "score": 40,
+          "reasons": [
+            "DETAIL_FUNCTION"
+          ],
+          "body": "\r\n          //checking fitToSection again in case it was set to false before the timeout delay\r\n          if(canScroll){\r\n              //allows to scroll to an active section and\r\n              //if the section is already active, we prevent firing callbacks\r\n              isResizing = true;\r\n\r\n              scrollPage($(SECTION_ACTIVE_SEL));\r\n              isResizing = false;\r\n          "
+        },
+        {
+          "name": "isCompletelyInViewPort",
+          "params": [
+            "movement"
+          ],
+          "score": 40,
+          "reasons": [
+            "DETAIL_FUNCTION"
+          ],
+          "body": "\r\n          var top = $(SECTION_ACTIVE_SEL).position().top;\r\n          var bottom = top + $window.height();\r\n\r\n          if(movement == 'up'){\r\n              return bottom >= ($window.scrollTop() + $window.height());\r\n          "
+        },
+        {
+          "name": "getDestinationPosition",
+          "params": [
+            "element"
+          ],
+          "score": 40,
+          "reasons": [
+            "DETAIL_FUNCTION"
+          ],
+          "body": "\r\n          var elemPosition = element.position();\r\n\r\n          //top of the desination will be at the top of the viewport\r\n          var position = elemPosition.top;\r\n          var isScrollingDown =  elemPosition.top > previousDestTop;\r\n          var sectionBottom = position - windowsHeight + element.outerHeight();\r\n          var bigSectionsDestination = options.bigSectionsDestination;\r\n\r\n          //is the destination element bigger than the viewport?\r\n          if(element.outerHeight() > windowsHeight){\r\n              //scrolling up?\r\n              if(!isScrollingDown && !bigSectionsDestination || bigSectionsDestination === 'bottom' ){\r\n                  position = sectionBottom;\r\n              "
+        },
+        {
+          "name": "setKeyboardScrolling",
+          "params": [
+            "value",
+            "directions"
+          ],
+          "score": 25,
+          "reasons": [
+            "BOARD_FUNCTION"
+          ],
+          "body": "\r\n          if(typeof directions !== 'undefined'){\r\n              directions = directions.replace(/ /g,'').split(',');\r\n\r\n              $.each(directions, function (index, direction){\r\n                  setIsScrollAllowed(value, direction, 'k');\r\n              "
+        },
+        {
+          "name": "moveSectionUp",
+          "params": [],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          var prev = $(SECTION_ACTIVE_SEL).prev(SECTION_SEL);\r\n\r\n          //looping to the bottom if there's no more sections above\r\n          if (!prev.length && (options.loopTop || options.continuousVertical)) {\r\n              prev = $(SECTION_SEL).last();\r\n          "
+        },
+        {
+          "name": "moveSectionDown",
+          "params": [],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          var next = $(SECTION_ACTIVE_SEL).next(SECTION_SEL);\r\n\r\n          //looping to the top if there's no more sections below\r\n          if(!next.length &&\r\n              (options.loopBottom || options.continuousVertical)){\r\n              next = $(SECTION_SEL).first();\r\n          "
+        },
+        {
+          "name": "init",
+          "params": [],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          //if css3 is not supported, it will use jQuery animations\r\n          if(options.css3){\r\n              options.css3 = support3d();\r\n          "
+        },
+        {
+          "name": "bindEvents",
+          "params": [],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          $window\r\n              //when scrolling...\r\n              .on('scroll', scrollHandler)\r\n\r\n              //detecting any change on the URL to scroll to the given anchor link\r\n              //(a way to detect back history button as we play with the hashes on the URL)\r\n              .on('hashchange', hashChangeHandler)\r\n\r\n              //when opening a new tab (ctrl + t), `control` won't be pressed when coming back.\r\n              .blur(blurHandler)\r\n\r\n              //when resizing the site, we adjust the heights of the sections, slimScroll...\r\n              .resize(resizeHandler);\r\n\r\n          $document\r\n              //Sliding with arrow keys, both, vertical and horizontal\r\n              .keydown(keydownHandler)\r\n\r\n              //to prevent scrolling while zooming\r\n              .keyup(keyUpHandler)\r\n\r\n              //Scrolls to the section when clicking the navigation bullet\r\n              .on('click touchstart', SECTION_NAV_SEL + ' a', sectionBulletHandler)\r\n\r\n              //Scrolls the slider to the given slide destination for the given section\r\n              .on('click touchstart', SLIDES_NAV_LINK_SEL, slideBulletHandler)\r\n\r\n              .on('click', SECTION_NAV_TOOLTIP_SEL, tooltipTextHandler);\r\n\r\n          //Scrolling horizontally when clicking on the slider controls.\r\n          $(SECTION_SEL).on('click touchstart', SLIDES_ARROW_SEL, slideArrowHandler);\r\n\r\n          /**\r\n          * Applying normalScroll elements.\r\n          * Ignoring the scrolls over the specified selectors.\r\n          */\r\n          if(options.normalScrollElements){\r\n              $document.on('mouseenter touchstart', options.normalScrollElements, function () {\r\n                  setAllowScrolling(false);\r\n              "
+        },
+        {
+          "name": "setOptionsFromDOM",
+          "params": [],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          var sections = container.find(options.sectionSelector);\r\n\r\n          //no anchors option? Checking for them in the DOM attributes\r\n          if(!options.anchors.length){\r\n              options.anchors = sections.filter('[data-anchor]').map(function(){\r\n                  return $(this).data('anchor').toString();\r\n              "
+        },
+        {
+          "name": "styleSection",
+          "params": [
+            "section",
+            "index"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          //if no active section is defined, the 1st one will be the default one\r\n          if(!index && $(SECTION_ACTIVE_SEL).length === 0) {\r\n              section.addClass(ACTIVE);\r\n          "
+        },
+        {
+          "name": "touchMoveHandler",
+          "params": [
+            "event"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          var e = event.originalEvent;\r\n          var activeSection = $(e.target).closest(SECTION_SEL);\r\n\r\n          // additional: if one of the normalScrollElements isn't within options.normalScrollElementTouchThreshold hops up the DOM chain\r\n          if (isReallyTouch(e) ) {\r\n\r\n              if(options.autoScrolling){\r\n                  //preventing the easing on iOS devices\r\n                  event.preventDefault();\r\n              "
+        },
+        {
+          "name": "isReallyTouch",
+          "params": [
+            "e"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          //if is not IE   ||  IE is detecting `touch` or `pen`\r\n          return typeof e.pointerType === 'undefined' || e.pointerType != 'mouse';\r\n      "
+        },
+        {
+          "name": "getAverage",
+          "params": [
+            "elements",
+            "number"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          var sum = 0;\r\n\r\n          //taking `number` elements from the end to make the average, if there are not enought, 1\r\n          var lastElements = elements.slice(Math.max(elements.length - number, 1));\r\n\r\n          for(var i = 0; i < lastElements.length; i++){\r\n              sum = sum + lastElements[i];\r\n          "
+        },
+        {
+          "name": "moveSlide",
+          "params": [
+            "direction",
+            "section"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          var activeSection = typeof section === 'undefined' ? $(SECTION_ACTIVE_SEL) : section;\r\n          var slides = activeSection.find(SLIDES_WRAPPER_SEL);\r\n          var numSlides = slides.find(SLIDE_SEL).length;\r\n\r\n          // more than one slide needed and nothing should be sliding\r\n          if (!slides.length || slideMoving || numSlides < 2) {\r\n              return;\r\n          "
+        },
+        {
+          "name": "performMovement",
+          "params": [
+            "v"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          // using CSS3 translate functionality\r\n          if (options.css3 && options.autoScrolling && !options.scrollBar) {\r\n\r\n              // The first section can have a negative value in iOS 10. Not quite sure why: -0.0142822265625\r\n              // that's why we round it to 0.\r\n              var translate3d = 'translate3d(0px, -' + Math.round(v.dtop) + 'px, 0px)';\r\n              transformContainer(translate3d, true);\r\n\r\n              //even when the scrollingSpeed is 0 there's a little delay, which might cause the\r\n              //scrollingSpeed to change in case of using silentMoveTo();\r\n              if(options.scrollingSpeed){\r\n                  clearTimeout(afterSectionLoadsId);\r\n                  afterSectionLoadsId = setTimeout(function () {\r\n                      afterSectionLoads(v);\r\n                  "
+        },
+        {
+          "name": "getAnchorsURL",
+          "params": [],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          var section;\r\n          var slide;\r\n          var hash = window.location.hash;\r\n\r\n          if(hash.length){\r\n              //getting the anchor link in the URL and deleting the `#`\r\n              var anchorsParts =  hash.replace('#', '').split('../index.html');\r\n\r\n              //using / for visual reasons and not as a section/slide separator #2803\r\n              var isFunkyAnchor = hash.indexOf('#/') > -1;\r\n\r\n              section = isFunkyAnchor ? '/' + anchorsParts[1] : decodeURIComponent(anchorsParts[0]);\r\n\r\n              var slideAnchor = isFunkyAnchor ? anchorsParts[2] : anchorsParts[1];\r\n              if(slideAnchor && slideAnchor.length){\r\n                  slide = decodeURIComponent(slideAnchor);\r\n              "
+        },
+        {
+          "name": "onkeydown",
+          "params": [
+            "e"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          var shiftPressed = e.shiftKey;\r\n\r\n          //do nothing if we can not scroll or we are not using horizotnal key arrows.\r\n          if(!canScroll && [37,39].indexOf(e.which) < 0){\r\n              return;\r\n          "
+        },
+        {
+          "name": "onTab",
+          "params": [
+            "e"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          var isShiftPressed = e.shiftKey;\r\n          var activeElement = $(':focus');\r\n          var activeSection = $(SECTION_ACTIVE_SEL);\r\n          var activeSlide = activeSection.find(SLIDE_ACTIVE_SEL);\r\n          var focusableWrapper = activeSlide.length ? activeSlide : activeSection;\r\n          var focusableElements = focusableWrapper.find(focusableElementsString).not('[tabindex=\"-1\"]');\r\n\r\n          function preventAndFocusFirst(e){\r\n              //e.preventDefault();\r\n              //return focusableElements.first().focus();\r\n          "
+        },
+        {
+          "name": "addAnimation",
+          "params": [
+            "element"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          var transition = 'all ' + options.scrollingSpeed + 'ms ' + options.easingcss3;\r\n\r\n          element.removeClass(NO_TRANSITION);\r\n          return element.css({\r\n              '-webkit-transition': transition,\r\n              'transition': transition\r\n          "
+        },
+        {
+          "name": "removeAnimation",
+          "params": [
+            "element"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          return element.addClass(NO_TRANSITION);\r\n      "
+        },
+        {
+          "name": "getYmovement",
+          "params": [
+            "destiny"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          var fromIndex = $(SECTION_ACTIVE_SEL).index(SECTION_SEL);\r\n          var toIndex = destiny.index(SECTION_SEL);\r\n          if( fromIndex == toIndex){\r\n              return 'none';\r\n          "
+        },
+        {
+          "name": "getXmovement",
+          "params": [
+            "fromIndex",
+            "toIndex"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          if( fromIndex == toIndex){\r\n              return 'none';\r\n          "
+        },
+        {
+          "name": "scrollPageAndSlide",
+          "params": [
+            "sectionAnchor",
+            "slideAnchor"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          var section = getSectionByAnchor(sectionAnchor);\r\n\r\n          //do nothing if there's no section with the given anchor name\r\n          if(!section.length) return;\r\n\r\n          var slide = getSlideByAnchor(slideAnchor, section);\r\n\r\n          //we need to scroll to the section and then to the slide\r\n          if (sectionAnchor !== lastScrolledDestiny && !section.hasClass(ACTIVE)){\r\n              scrollPage(section, function(){\r\n                  scrollSlider(slide);\r\n              "
+        },
+        {
+          "name": "silentLandscapeScroll",
+          "params": [
+            "activeSlide",
+            "noCallbacks"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          setScrollingSpeed (0, 'internal');\r\n\r\n          if(typeof noCallbacks !== 'undefined'){\r\n              //preventing firing callbacks afterSlideLoad etc.\r\n              isResizing = true;\r\n          "
+        },
+        {
+          "name": "silentScroll",
+          "params": [
+            "top"
+          ],
+          "score": 20,
+          "reasons": [
+            "ID_VARIABLE"
+          ],
+          "body": "\r\n          // The first section can have a negative value in iOS 10. Not quite sure why: -0.0142822265625\r\n          // that's why we round it to 0.\r\n          var roundedTop = Math.round(top);\r\n\r\n          if (options.css3 && options.autoScrolling && !options.scrollBar){\r\n              var translate3d = 'translate3d(0px, -' + roundedTop + 'px, 0px)';\r\n              transformContainer(translate3d, false);\r\n          "
+        }
+      ],
+      "signals": {
+        "submitCount": 0,
+        "actionAssignmentCount": 0,
+        "locationCount": 0,
+        "ajaxCount": 0,
+        "fetchCount": 0,
+        "postCount": 0,
+        "getCount": 0
+      }
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/back2top.min.js",
+      "score": 0,
+      "scoreReasons": [],
+      "status": 200,
+      "bytes": 819,
+      "contentType": "text/javascript",
+      "endpoints": [],
+      "interestingFunctions": [],
+      "signals": {
+        "submitCount": 0,
+        "actionAssignmentCount": 0,
+        "locationCount": 0,
+        "ajaxCount": 0,
+        "fetchCount": 0,
+        "postCount": 0,
+        "getCount": 0
+      }
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.mtz.monthpicker.js",
+      "score": 0,
+      "scoreReasons": [],
+      "status": 200,
+      "bytes": 12663,
+      "contentType": "text/javascript",
+      "endpoints": [],
+      "interestingFunctions": [],
+      "signals": {
+        "submitCount": 0,
+        "actionAssignmentCount": 0,
+        "locationCount": 0,
+        "ajaxCount": 0,
+        "fetchCount": 0,
+        "postCount": 0,
+        "getCount": 0
+      }
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/src/js/sub.js",
+      "score": 0,
+      "scoreReasons": [],
+      "status": 200,
+      "bytes": 6080,
+      "contentType": "text/javascript",
+      "endpoints": [],
+      "interestingFunctions": [],
+      "signals": {
+        "submitCount": 0,
+        "actionAssignmentCount": 0,
+        "locationCount": 0,
+        "ajaxCount": 0,
+        "fetchCount": 0,
+        "postCount": 0,
+        "getCount": 0
+      }
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/slick.js",
+      "score": -15,
+      "scoreReasons": [
+        "vendor:-15"
+      ],
+      "status": 200,
+      "bytes": 92817,
+      "contentType": "text/javascript",
+      "endpoints": [],
+      "interestingFunctions": [],
+      "signals": {
+        "submitCount": 0,
+        "actionAssignmentCount": 0,
+        "locationCount": 0,
+        "ajaxCount": 0,
+        "fetchCount": 0,
+        "postCount": 0,
+        "getCount": 0
+      }
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/aos.js",
+      "score": -15,
+      "scoreReasons": [
+        "vendor:-15"
+      ],
+      "status": 200,
+      "bytes": 14243,
+      "contentType": "text/javascript",
+      "endpoints": [],
+      "interestingFunctions": [],
+      "signals": {
+        "submitCount": 0,
+        "actionAssignmentCount": 0,
+        "locationCount": 0,
+        "ajaxCount": 0,
+        "fetchCount": 0,
+        "postCount": 0,
+        "getCount": 0
+      }
+    }
+  ],
+  "htmlStructure": {
+    "formCount": 2,
+    "forms": [
+      {
+        "id": null,
+        "name": "totSearch",
+        "method": "POST",
+        "actionRaw": "",
+        "action": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+        "fields": [
+          {
+            "name": "searchCnd",
+            "value": "",
+            "type": "hidden"
+          },
+          {
+            "name": "siteCode",
+            "value": "web",
+            "type": "hidden"
+          },
+          {
+            "name": "csrfToken",
+            "value": "c8ad95a7-151b-4e20-86dc-135d5a1f01b1",
+            "type": "hidden"
+          },
+          {
+            "name": "schStr",
+            "value": "",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": null,
+        "name": "listForm",
+        "method": "POST",
+        "actionRaw": "",
+        "action": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+        "fields": [
+          {
+            "name": "schFld",
+            "value": "",
+            "type": ""
+          },
+          {
+            "name": "schStr",
+            "value": "",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "onclickContextCount": 40,
+    "onclickContexts": [
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "공지 2026학년도 1학기 자율형 기숙사 드림하우스 예비입주자 모집안내(수정) 드림하우스 담당자 2026-04-01 390",
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3336', 'HSMU30303003')\">\r\n\t\t                        2026학년도 1학기 자율형 기숙사 드림하우스 예비입주자 모집안내(수정)</a>\r\n\t\t                      </td>\r\n\t\t                      <td>드림하우스 담당자</td>\r\n\t\t                      <td>2026-04-01</td>\r\n\t\t                      <td>390</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "공지 교양 인사이트 MSP 수기 공모전-화제의 MSP, 나의 생각을 깨우다 교양교육중점센터 2026-06-16 175",
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3511', 'centerNoticeBoard5')\">\r\n\t\t                        교양 인사이트 MSP 수기 공모전-화제의 MSP, 나의 생각을 깨우다</a>\r\n\t\t                      </td>\r\n\t\t                      <td>교양교육중점센터</td>\r\n\t\t                      <td>2026-06-16</td>\r\n\t\t                      <td>175</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "공지 교양교과목 제안 공모전-AI와 의과학을 잇다 교양교육중점센터 2026-06-16 203",
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3512', 'centerNoticeBoard5')\">\r\n\t\t                        교양교과목 제안 공모전-AI와 의과학을 잇다</a>\r\n\t\t                      </td>\r\n\t\t                      <td>교양교육중점센터</td>\r\n\t\t                      <td>2026-06-16</td>\r\n\t\t                      <td>203</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "공지 2026학년도 드림하우스 예비입주자 추가 모집 안내(수정) 드림하우스 담당자 2026-07-09 7",
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3555', 'HSMU30301000')\">\r\n\t\t                        2026학년도 드림하우스 예비입주자 추가 모집 안내(수정)</a>\r\n\t\t                      </td>\r\n\t\t                      <td>드림하우스 담당자</td>\r\n\t\t                      <td>2026-07-09</td>\r\n\t\t                      <td>7</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "공지 2026학년도 2학기 등록금 납부 안내 행정지원처 2026-08-04 223",
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3602', 'HSMU40101000')\">\r\n\t\t                        2026학년도 2학기 등록금 납부 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>행정지원처</td>\r\n\t\t                      <td>2026-08-04</td>\r\n\t\t                      <td>223</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "공지 2026학년도 1학기 강의평가 및 성적 열람 안내 학사지원파트너 2026-06-16 131",
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3509', 'HSMU40101000')\">\r\n\t\t                        2026학년도 1학기 강의평가 및 성적 열람 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-06-16</td>\r\n\t\t                      <td>131</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "공지 2026학년도 2학기 휴학 및 복학 안내 학사지원파트너 2026-06-26 100",
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3520', 'HSMU40101000')\">\r\n\t\t                        2026학년도 2학기 휴학 및 복학 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-06-26</td>\r\n\t\t                      <td>100</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "공지 ★Medi-Science Park 이용 안내 ★ 입학홍보처 2023-06-22 685",
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('297', 'HSMU40101000')\">\r\n\t\t                        ★Medi-Science Park 이용 안내 ★</a>\r\n\t\t                      </td>\r\n\t\t                      <td>입학홍보처</td>\r\n\t\t                      <td>2023-06-22</td>\r\n\t\t                      <td>685</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "공지 [졸업인증제도] 2023학년도 이후 입학자 Liberal 101 안내(수정) 교무학생처 2023-09-01 719",
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('408', 'HSMU40101000')\">\r\n\t\t                        [졸업인증제도] 2023학년도 이후 입학자 Liberal 101 안내(수정)</a>\r\n\t\t                      </td>\r\n\t\t                      <td>교무학생처</td>\r\n\t\t                      <td>2023-09-01</td>\r\n\t\t                      <td>719</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "공지 [학사] 유고결석 신청 안내 학사지원파트너 2023-10-24 698",
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('636', 'HSMU40101000')\">\r\n\t\t                        [학사] 유고결석 신청 안내 </a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2023-10-24</td>\r\n\t\t                      <td>698</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "공지 2026학년도 1학기 K-MOOC 강좌 이수 및 학점인정 안내 학사지원파트너 2026-05-27 112",
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3468', 'HSMU40101000')\">\r\n\t\t                        2026학년도 1학기 K-MOOC 강좌 이수 및 학점인정 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-05-27</td>\r\n\t\t                      <td>112</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "공지 학적부 기재사항 변경 제출 안내 학사지원파트너 2026-06-19 27",
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3516', 'HSMU40101000')\">\r\n\t\t                        학적부 기재사항 변경 제출 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-06-19</td>\r\n\t\t                      <td>27</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "공지 2026학년도 2학기 수강신청안내서 학사지원파트너 2026-08-03 266",
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3600', 'HSMU40101000')\">\r\n\t\t                        2026학년도 2학기 수강신청안내서</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-08-03</td>\r\n\t\t                      <td>266</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "101 2026학년도 2학기 등록금 납부 안내 행정지원처 2026-08-04 223",
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">101</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3602')\">\r\n\t\t                        2026학년도 2학기 등록금 납부 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>행정지원처</td>\r\n\t\t                      <td>2026-08-04</td>\r\n\t\t                      <td>223</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "100 2026학년도 2학기 수강신청안내서 학사지원파트너 2026-08-03 266",
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">100</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3600')\">\r\n\t\t                        2026학년도 2학기 수강신청안내서</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-08-03</td>\r\n\t\t                      <td>266</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "99 2026학년도 2학기 휴학 및 복학 안내 학사지원파트너 2026-06-26 100",
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">99</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3520')\">\r\n\t\t                        2026학년도 2학기 휴학 및 복학 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-06-26</td>\r\n\t\t                      <td>100</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "98 학적부 기재사항 변경 제출 안내 학사지원파트너 2026-06-19 27",
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">98</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3516')\">\r\n\t\t                        학적부 기재사항 변경 제출 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-06-19</td>\r\n\t\t                      <td>27</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "97 2026학년도 1학기 강의평가 및 성적 열람 안내 학사지원파트너 2026-06-16 131",
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">97</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3509')\">\r\n\t\t                        2026학년도 1학기 강의평가 및 성적 열람 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-06-16</td>\r\n\t\t                      <td>131</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "96 2026학년도 1학기 &#039;사회봉사&#039; 및 &#039;나눔과 봉사&#039; 교과목 안내 사회봉사센터 2026-06-09 37",
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">96</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3491')\">\r\n\t\t                        2026학년도 1학기 &#039;사회봉사&#039; 및 &#039;나눔과 봉사&#039; 교과목 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>사회봉사센터</td>\r\n\t\t                      <td>2026-06-09</td>\r\n\t\t                      <td>37</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "95 2026-1학기 보강주 안내 학사지원파트너 2026-06-01 20",
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">95</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3477')\">\r\n\t\t                        2026-1학기 보강주 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-06-01</td>\r\n\t\t                      <td>20</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "94 2026학년도 1학기 K-MOOC 강좌 이수 및 학점인정 안내 학사지원파트너 2026-05-27 112",
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">94</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3468')\">\r\n\t\t                        2026학년도 1학기 K-MOOC 강좌 이수 및 학점인정 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-05-27</td>\r\n\t\t                      <td>112</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "93 &lt;2026학년도 1학기 수강취소(Drop) 기간 안내&gt; 학사지원파트너 2026-04-21 53",
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">93</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3380')\">\r\n\t\t                        &lt;2026학년도 1학기 수강취소(Drop) 기간 안내&gt;</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-04-21</td>\r\n\t\t                      <td>53</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "onclicks": [
+          "fn_goView("
+        ],
+        "text": "92 2026-1 마이크로디그리 과정 안내 학사지원파트너 2026-03-08 165",
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">92</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3261')\">\r\n\t\t                        2026-1 마이크로디그리 과정 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-03-08</td>\r\n\t\t                      <td>165</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "LI",
+        "onclicks": [
+          "fn_egov_link_page(1); return false;"
+        ],
+        "text": "",
+        "raw": "<li class=\"first circle btn prevAll\"><a href=\"#\" onclick=\"fn_egov_link_page(1); return false;\"></a></li>"
+      },
+      {
+        "type": "LI",
+        "onclicks": [
+          "fn_egov_link_page(1); return false;"
+        ],
+        "text": "",
+        "raw": "<li class=\"prev circle btn prev\"><a href=\"#\" onclick=\"fn_egov_link_page(1); return false;\"></a></li>"
+      },
+      {
+        "type": "LI",
+        "onclicks": [
+          "fn_egov_link_page(2); return false;"
+        ],
+        "text": "2",
+        "raw": "<li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(2); return false;\">2</a></li>"
+      },
+      {
+        "type": "LI",
+        "onclicks": [
+          "fn_egov_link_page(3); return false;"
+        ],
+        "text": "3",
+        "raw": "<li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(3); return false;\">3</a></li>"
+      },
+      {
+        "type": "LI",
+        "onclicks": [
+          "fn_egov_link_page(4); return false;"
+        ],
+        "text": "4",
+        "raw": "<li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(4); return false;\">4</a></li>"
+      },
+      {
+        "type": "LI",
+        "onclicks": [
+          "fn_egov_link_page(5); return false;"
+        ],
+        "text": "5",
+        "raw": "<li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(5); return false;\">5</a></li>"
+      },
+      {
+        "type": "LI",
+        "onclicks": [
+          "fn_egov_link_page(6); return false;"
+        ],
+        "text": "6",
+        "raw": "<li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(6); return false;\">6</a></li>"
+      },
+      {
+        "type": "LI",
+        "onclicks": [
+          "fn_egov_link_page(7); return false;"
+        ],
+        "text": "7",
+        "raw": "<li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(7); return false;\">7</a></li>"
+      },
+      {
+        "type": "LI",
+        "onclicks": [
+          "fn_egov_link_page(8); return false;"
+        ],
+        "text": "8",
+        "raw": "<li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(8); return false;\">8</a></li>"
+      },
+      {
+        "type": "LI",
+        "onclicks": [
+          "fn_egov_link_page(9); return false;"
+        ],
+        "text": "9",
+        "raw": "<li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(9); return false;\">9</a></li>"
+      },
+      {
+        "type": "LI",
+        "onclicks": [
+          "fn_egov_link_page(10); return false;"
+        ],
+        "text": "10",
+        "raw": "<li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(10); return false;\">10</a></li>"
+      },
+      {
+        "type": "LI",
+        "onclicks": [
+          "fn_egov_link_page(11); return false;"
+        ],
+        "text": "",
+        "raw": "<li class=\"next circle btn next\"><a href=\"#\" onclick=\"fn_egov_link_page(11); return false;\"></a></li>"
+      },
+      {
+        "type": "LI",
+        "onclicks": [
+          "fn_egov_link_page(11); return false;"
+        ],
+        "text": "",
+        "raw": "<li class=\"last circle btn nextAll\"><a href=\"#\" onclick=\"fn_egov_link_page(11); return false;\"></a></li>"
+      },
+      {
+        "type": "DIV",
+        "onclicks": [
+          "ItgJs.sendSns(",
+          "ItgJs.sendSns(",
+          "ItgJs.sendSns(",
+          "ItgJs.sendSns("
+        ],
+        "text": "공유하기 공유하기 닫기 페이스북 트위터 블로그 카카오톡",
+        "raw": "<div class=\"addon\">\r\n              \t\t<div class=\"share\">\r\n                \t\t<button type=\"button\" class=\"share_btn\">\r\n\t\t\t\t\t\t\t<i class=\"fa-solid fa-share-nodes\"></i>\r\n\t\t\t\t\t\t\t\t<span class=\"blind\">공유하기</span>\r\n\t\t\t\t\t\t</button>\r\n                \t\t<div class=\"sns\" style=\"display: none;\">\r\n                  \t\t\t<button type=\"button\" class=\"close\" aria-expanded=\"false\">\r\n                    \t\t\t<i class=\"fa-regular fa-xmark\"></i>\r\n                    \t\t\t<span class=\"blind\">공유하기 닫기</span>\r\n                    \t\t</button>\r\n                    \t\t<button type=\"button\" class=\"facebook\" onclick=\"ItgJs.sendSns('facebook', 'https://www.hsmu.ac.kr/web/contents/HSMU40101000.do', '[학사]')\"><span class=\"blind\">페이스북</span></button>\r\n                  \t\t\t<button type=\"button\" class=\"twitter\" onclick=\"ItgJs.sendSns('twitter', 'https://www.hsmu.ac.kr/web/contents/HSMU40101000.do', '[학사]')\"><span class=\"blind\">트위터</span></button>\r\n                    \t\t<button type=\"button\" class=\"n_blog\" onclick=\"ItgJs.sendSns('naverBlog', 'https://www.hsmu.ac.kr/web/contents/HSMU40101000.do', '[학사]')\"><span class=\"blind\">블로그</span></button>\r\n                  \t\t\t<button type=\"button\" class=\"kakao\" onclick=\"ItgJs.sendSns('kakaostoryW', 'https://www.hsmu.ac.kr/web/contents/HSMU40101000.do', '[학사]')\"><span class=\"blind\">카카오톡</span></button>\r\n                \t\t</div>"
+      },
+      {
+        "type": "DIV",
+        "onclicks": [
+          "window.print()"
+        ],
+        "text": "인쇄하기",
+        "raw": "<div class=\"print\">\r\n                \t\t<button type=\"button\" onclick=\"window.print()\"><span class=\"blind\">인쇄하기</span></button>\r\n              \t\t</div>"
+      },
+      {
+        "type": "DIV",
+        "onclicks": [
+          "fn_egov_link_page(1)",
+          "fn_egov_link_page(0)",
+          "fn_egov_link_page($("
+        ],
+        "text": "/ 총 페이지 11 이동",
+        "raw": "<div class=\"paginate type01 mobile\">\r\n\t\t\t\t  \t<a href=\"#none\" onclick=\"fn_egov_link_page(1)\" class=\"sp sp_first\" aria-label=\"맨 처음 페이지로\"></a><a href=\"#none\" onclick=\"fn_egov_link_page(0)\" class=\"sp sp_prev\" aria-label=\"이전 페이지로\"></a><div class=\"paginate_input_wrap\"><input type=\"text\" class=\"paginate_input\" name=\"moveToPageNum\" maxlength=\"4\" id=\"moveToPageNum\" onkeyup=\"return ItgJs.fn_numberOnly(event);\" onkeypress=\"return ItgJs.fn_numberOnly(event);\" onkeydown=\"if(event.keyCode === 13){fn_egov_link_page($('#moveToPageNum').val()); return false;}\"aria-label=\"현재 페이지\" value=\"1\" oninput=\"ItgJs.onlyNumber(this);\"><span>/</span><span class=\"blind\">총 페이지</span><span class=\"total_num\">11</span><a href=\"#none\" onclick=\"fn_egov_link_page($('#moveToPageNum').val())\"  class=\"btn bn blue btn_page_go\">이동</a></div>"
+      },
+      {
+        "type": "DIV",
+        "onclicks": [
+          "fn_egov_link_page(1); return false;",
+          "fn_egov_link_page(1); return false;",
+          "fn_egov_link_page(2); return false;",
+          "fn_egov_link_page(3); return false;",
+          "fn_egov_link_page(4); return false;",
+          "fn_egov_link_page(5); return false;",
+          "fn_egov_link_page(6); return false;",
+          "fn_egov_link_page(7); return false;",
+          "fn_egov_link_page(8); return false;",
+          "fn_egov_link_page(9); return false;",
+          "fn_egov_link_page(10); return false;",
+          "fn_egov_link_page(11); return false;",
+          "fn_egov_link_page(11); return false;"
+        ],
+        "text": "1 2 3 4 5 6 7 8 9 10",
+        "raw": "<div class=\"paginate type02 pc\">\r\n\t              \t<ul>\r\n\t\t\t\t\t\t<li class=\"first circle btn prevAll\"><a href=\"#\" onclick=\"fn_egov_link_page(1); return false;\"></a></li><li class=\"prev circle btn prev\"><a href=\"#\" onclick=\"fn_egov_link_page(1); return false;\"></a></li><li><a class=\"current\" href=\"#none\">1</a></li><li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(2); return false;\">2</a></li><li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(3); return false;\">3</a></li><li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(4); return false;\">4</a></li><li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(5); return false;\">5</a></li><li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(6); return false;\">6</a></li><li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(7); return false;\">7</a></li><li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(8); return false;\">8</a></li><li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(9); return false;\">9</a></li><li class=\"\"><a href=\"#\" onclick=\"fn_egov_link_page(10); return false;\">10</a></li><li class=\"next circle btn next\"><a href=\"#\" onclick=\"fn_egov_link_page(11); return false;\"></a></li><li class=\"last circle btn nextAll\"><a href=\"#\" onclick=\"fn_egov_link_page(11); return false;\"></a></li>\n</ul>\r\n\t\t\t\t </div>"
+      }
+    ]
+  },
+  "ruleCandidateCount": 50,
+  "strongRuleCount": 4,
+  "ruleCandidates": [
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "resizeHandler",
+      "params": [],
+      "score": 85,
+      "evidence": [
+        "DETAIL_FUNCTION",
+        "BOARD_FUNCTION",
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          //checking if it needs to get responsive\r\n          responsive();\r\n\r\n          // rebuild immediately on touch devices\r\n          if (isTouchDevice) {\r\n              var activeElement = $(document.activeElement);\r\n\r\n              //if the keyboard is NOT visible\r\n              if (!activeElement.is('textarea') && !activeElement.is('input') && !activeElement.is('select')) {\r\n                  var currentHeight = $window.height();\r\n\r\n                  //making sure the change in the viewport size is enough to force a rebuild. (20 % of the window to avoid problems when hidding scroll bars)\r\n                  if( Math.abs(currentHeight - previousHeight) > (20 * Math.max(previousHeight, currentHeight) / 100) ){\r\n                      reBuild(true);\r\n                      previousHeight = currentHeight;\r\n                  "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "MouseWheelHandler",
+      "params": [
+        "e"
+      ],
+      "score": 60,
+      "evidence": [
+        "DETAIL_FUNCTION",
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          var curTime = new Date().getTime();\r\n          var isNormalScroll = $(COMPLETELY_SEL).hasClass(NORMAL_SCROLL);\r\n\r\n          //autoscrolling and not zooming?\r\n          if(options.autoScrolling && !controlPressed && !isNormalScroll){\r\n              // cross-browser wheel delta\r\n              e = e || window.event;\r\n              var value = e.wheelDelta || -e.deltaY || -e.detail;\r\n              var delta = Math.max(-1, Math.min(1, value));\r\n\r\n              var horizontalDetection = typeof e.wheelDeltaX !== 'undefined' || typeof e.deltaX !== 'undefined';\r\n              var isScrollingVertically = (Math.abs(e.wheelDeltaX) < Math.abs(e.wheelDelta)) || (Math.abs(e.deltaX ) < Math.abs(e.deltaY) || !horizontalDetection);\r\n\r\n              //Limiting the array to 150 (lets not waste memory!)\r\n              if(scrollings.length > 149){\r\n                  scrollings.shift();\r\n              "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "afterSectionLoads",
+      "params": [
+        "v"
+      ],
+      "score": 60,
+      "evidence": [
+        "DETAIL_FUNCTION",
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          continuousVerticalFixSectionOrder(v);\r\n\r\n          //callback (afterLoad) if the site is not just resizing and readjusting the slides\r\n          $.isFunction(options.afterLoad) && !v.localIsResizing && options.afterLoad.call(v.element, v.anchorLink, (v.sectionIndex + 1));\r\n\r\n          if(options.scrollOverflow){\r\n              options.scrollOverflowHandler.afterLoad();\r\n          "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "afterSlideLoads",
+      "params": [
+        "v"
+      ],
+      "score": 60,
+      "evidence": [
+        "DETAIL_FUNCTION",
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          activeSlidesNavigation(v.slidesNav, v.slideIndex);\r\n\r\n          //if the site is not just resizing and readjusting the slides\r\n          if(!v.localIsResizing){\r\n              $.isFunction( options.afterSlideLoad ) && options.afterSlideLoad.call( v.destiny, v.anchorLink, (v.sectionIndex + 1), v.slideAnchor, v.slideIndex);\r\n\r\n              //needs to be inside the condition to prevent problems with continuousVertical and scrollHorizontally\r\n              //and to prevent double scroll right after a windows resize\r\n              canScroll = true;\r\n\r\n              playMedia(v.destiny);\r\n          "
+    },
+    {
+      "kind": "ENDPOINT",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/common/itg-js.js",
+      "url": "https://www.hsmu.ac.kr/_mngr_/main/login.do",
+      "score": 50,
+      "evidence": [
+        "LOCATION"
+      ]
+    },
+    {
+      "kind": "ENDPOINT",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/common/itg-js.js",
+      "url": "https://www.hsmu.ac.kr/cubersc/contents/",
+      "score": 50,
+      "evidence": [
+        "ACTION"
+      ]
+    },
+    {
+      "kind": "ENDPOINT",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/common/itg-js.js",
+      "url": "https://www.hsmu.ac.kr/comm/sessionKeep.do",
+      "score": 45,
+      "evidence": [
+        "AJAX_URL"
+      ]
+    },
+    {
+      "kind": "ENDPOINT",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/common/itg-js.js",
+      "url": "https://www.hsmu.ac.kr/common/sendSatis.do",
+      "score": 45,
+      "evidence": [
+        "AJAX_URL"
+      ]
+    },
+    {
+      "kind": "ENDPOINT",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/common/itg-js.js",
+      "url": "https://www.hsmu.ac.kr/_mngr_/stats/snsCount_comm_proc.do",
+      "score": 45,
+      "evidence": [
+        "AJAX_URL"
+      ]
+    },
+    {
+      "kind": "ENDPOINT",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/common/itg-js.js",
+      "url": "https://www.hsmu.ac.kr/_mngr_/stats/popupCount_comm_proc.do",
+      "score": 45,
+      "evidence": [
+        "AJAX_URL"
+      ]
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "destroy",
+      "params": [
+        "all"
+      ],
+      "score": 45,
+      "evidence": [
+        "BOARD_FUNCTION",
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          setAutoScrolling(false, 'internal');\r\n          setAllowScrolling(false);\r\n          setKeyboardScrolling(false);\r\n          container.addClass(DESTROYED);\r\n\r\n          clearTimeout(afterSlideLoadsId);\r\n          clearTimeout(afterSectionLoadsId);\r\n          clearTimeout(resizeId);\r\n          clearTimeout(scrollId);\r\n          clearTimeout(scrollId2);\r\n\r\n          $window\r\n              .off('scroll', scrollHandler)\r\n              .off('hashchange', hashChangeHandler)\r\n              .off('resize', resizeHandler);\r\n\r\n          $document\r\n              .off('keydown', keydownHandler)\r\n              .off('keyup', keyUpHandler)\r\n              .off('click touchstart', SECTION_NAV_SEL + ' a')\r\n              .off('mouseenter', SECTION_NAV_SEL + ' li')\r\n              .off('mouseleave', SECTION_NAV_SEL + ' li')\r\n              .off('click touchstart', SLIDES_NAV_LINK_SEL)\r\n              .off('mouseover', options.normalScrollElements)\r\n              .off('mouseout', options.normalScrollElements);\r\n\r\n          $(SECTION_SEL)\r\n              .off('click touchstart', SLIDES_ARROW_SEL);\r\n\r\n          clearTimeout(afterSlideLoadsId);\r\n          clearTimeout(afterSectionLoadsId);\r\n\r\n          //lets make a mess!\r\n          if(all){\r\n              destroyStructure();\r\n          "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "B",
+      "params": [],
+      "score": 40,
+      "evidence": [
+        "DETAIL_FUNCTION"
+      ],
+      "body": "E.removeEventListener(\"DOMContentLoaded\",B),C.removeEventListener(\"load\",B),S.ready()"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "l",
+      "params": [
+        "e",
+        "t",
+        "n",
+        "r"
+      ],
+      "score": 40,
+      "evidence": [
+        "DETAIL_FUNCTION"
+      ],
+      "body": "var i,o,a,s,u,l=t;h||(h=!0,d&&C.clearTimeout(d),c=void 0,p=r||\"\",T.readyState=0<e?4:0,i=200<=e&&e<300||304===e,n&&(s=function(e,t,n){var r,i,o,a,s=e.contents,u=e.dataTypes;while(\"*\"===u[0])u.shift(),void 0===r&&(r=e.mimeType||t.getResponseHeader(\"Content-Type\"));if(r)for(i in s)if(s[i]&&s[i].test(r)){u.unshift(i);break"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "scrollHandler",
+      "params": [],
+      "score": 40,
+      "evidence": [
+        "DETAIL_FUNCTION"
+      ],
+      "body": "\r\n          var currentSection;\r\n\r\n          if(!options.autoScrolling || options.scrollBar){\r\n              var currentScroll = $window.scrollTop();\r\n              var scrollDirection = getScrollDirection(currentScroll);\r\n              var visibleSectionIndex = 0;\r\n              var screen_mid = currentScroll + ($window.height() / 1.3);/* 모바일 스크롤 실행 위치 변경 */\r\n              var isAtBottom = $body.height() - $window.height() === currentScroll;\r\n              var sections =  document.querySelectorAll(SECTION_SEL);\r\n\r\n              //when using `auto-height` for a small last section it won't be centered in the viewport\r\n              if(isAtBottom){\r\n                  visibleSectionIndex = sections.length - 1;\r\n              "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "fitToSection",
+      "params": [],
+      "score": 40,
+      "evidence": [
+        "DETAIL_FUNCTION"
+      ],
+      "body": "\r\n          //checking fitToSection again in case it was set to false before the timeout delay\r\n          if(canScroll){\r\n              //allows to scroll to an active section and\r\n              //if the section is already active, we prevent firing callbacks\r\n              isResizing = true;\r\n\r\n              scrollPage($(SECTION_ACTIVE_SEL));\r\n              isResizing = false;\r\n          "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "isCompletelyInViewPort",
+      "params": [
+        "movement"
+      ],
+      "score": 40,
+      "evidence": [
+        "DETAIL_FUNCTION"
+      ],
+      "body": "\r\n          var top = $(SECTION_ACTIVE_SEL).position().top;\r\n          var bottom = top + $window.height();\r\n\r\n          if(movement == 'up'){\r\n              return bottom >= ($window.scrollTop() + $window.height());\r\n          "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "getDestinationPosition",
+      "params": [
+        "element"
+      ],
+      "score": 40,
+      "evidence": [
+        "DETAIL_FUNCTION"
+      ],
+      "body": "\r\n          var elemPosition = element.position();\r\n\r\n          //top of the desination will be at the top of the viewport\r\n          var position = elemPosition.top;\r\n          var isScrollingDown =  elemPosition.top > previousDestTop;\r\n          var sectionBottom = position - windowsHeight + element.outerHeight();\r\n          var bigSectionsDestination = options.bigSectionsDestination;\r\n\r\n          //is the destination element bigger than the viewport?\r\n          if(element.outerHeight() > windowsHeight){\r\n              //scrolling up?\r\n              if(!isScrollingDown && !bigSectionsDestination || bigSectionsDestination === 'bottom' ){\r\n                  position = sectionBottom;\r\n              "
+    },
+    {
+      "kind": "ENDPOINT",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/common/itg-js.js",
+      "url": "https://www.hsmu.ac.kr/comm/sessionKeep.do",
+      "score": 30,
+      "evidence": [
+        "QUOTED_PATH"
+      ]
+    },
+    {
+      "kind": "ENDPOINT",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/common/itg-js.js",
+      "url": "https://www.hsmu.ac.kr/common/sendSatis.do",
+      "score": 30,
+      "evidence": [
+        "QUOTED_PATH"
+      ]
+    },
+    {
+      "kind": "ENDPOINT",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/common/itg-js.js",
+      "url": "https://www.hsmu.ac.kr/_mngr_/stats/snsCount_comm_proc.do",
+      "score": 30,
+      "evidence": [
+        "QUOTED_PATH"
+      ]
+    },
+    {
+      "kind": "ENDPOINT",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/common/itg-js.js",
+      "url": "https://www.hsmu.ac.kr/_mngr_/stats/popupCount_comm_proc.do",
+      "score": 30,
+      "evidence": [
+        "QUOTED_PATH"
+      ]
+    },
+    {
+      "kind": "ENDPOINT",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/common/itg-js.js",
+      "url": "https://www.hsmu.ac.kr/_mngr_/main/login.do",
+      "score": 30,
+      "evidence": [
+        "QUOTED_PATH"
+      ]
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "setKeyboardScrolling",
+      "params": [
+        "value",
+        "directions"
+      ],
+      "score": 25,
+      "evidence": [
+        "BOARD_FUNCTION"
+      ],
+      "body": "\r\n          if(typeof directions !== 'undefined'){\r\n              directions = directions.replace(/ /g,'').split(',');\r\n\r\n              $.each(directions, function (index, direction){\r\n                  setIsScrollAllowed(value, direction, 'k');\r\n              "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "se",
+      "params": [
+        "t",
+        "e",
+        "n",
+        "r"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "var i,o,a,s,u,l,c,f=e&&e.ownerDocument,p=e?e.nodeType:9;if(n=n||[],\"string\"!=typeof t||!t||1!==p&&9!==p&&11!==p)return n;if(!r&&(T(e),e=e||C,E)){if(11!==p&&(u=Z.exec(t)))if(i=u[1]){if(9===p){if(!(a=e.getElementById(i)))return n;if(a.id===i)return n.push(a),n"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "pe",
+      "params": [
+        "e",
+        "t"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "var n=t&&e,r=n&&1===e.nodeType&&1===t.nodeType&&e.sourceIndex-t.sourceIndex;if(r)return r;if(n)while(n=n.nextSibling)if(n===t)return-1;return e?1:-1"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "de",
+      "params": [
+        "t"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "return function(e){return\"input\"===e.nodeName.toLowerCase()&&e.type===t"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "he",
+      "params": [
+        "n"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "return function(e){var t=e.nodeName.toLowerCase();return(\"input\"===t||\"button\"===t)&&e.type===n"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "be",
+      "params": [
+        "s",
+        "e",
+        "t"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "var u=e.dir,l=e.next,c=l||u,f=t&&\"parentNode\"===c,p=r++;return e.first?function(e,t,n){while(e=e[u])if(1===e.nodeType||f)return s(e,t,n);return!1"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "A",
+      "params": [
+        "e",
+        "t"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "return e.nodeName&&e.nodeName.toLowerCase()===t.toLowerCase()"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "O",
+      "params": [
+        "e",
+        "t"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "while((e=e[t])&&1!==e.nodeType);return e"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "l",
+      "params": [
+        "i",
+        "o",
+        "a",
+        "s"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "return function(){var n=this,r=arguments,e=function(){var e,t;if(!(i<u)){if((e=a.apply(n,r))===o.promise())throw new TypeError(\"Thenable self-resolution\");t=e&&(\"object\"==typeof e||\"function\"==typeof e)&&e.then,m(t)?s?t.call(e,l(u,o,R,s),l(u,o,M,s)):(u++,t.call(e,l(u,o,R,s),l(u,o,M,s),l(u,o,R,o.notifyWith))):(a!==R&&(n=void 0,r=[e]),(s||o.resolveWith)(n,r))"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "Z",
+      "params": [
+        "e",
+        "t",
+        "n"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "var r,i;if(void 0===n&&1===e.nodeType)if(r=\"data-\"+t.replace(K,\"-$&\").toLowerCase(),\"string\"==typeof(n=e.getAttribute(r))){try{n=\"true\"===(i=n)||\"false\"!==i&&(\"null\"===i?null:i===+i+\"\"?+i:J.test(i)?JSON.parse(i):i)"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "le",
+      "params": [
+        "e",
+        "t"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "for(var n,r,i,o,a,s,u,l=[],c=0,f=e.length;c<f;c++)(r=e[c]).style&&(n=r.style.display,t?(\"none\"===n&&(l[c]=Y.get(r,\"display\")||null,l[c]||(r.style.display=\"\")),\"\"===r.style.display&&ae(r)&&(l[c]=(u=a=o=void 0,a=(i=r).ownerDocument,s=i.nodeName,(u=ue[s])||(o=a.body.appendChild(a.createElement(s)),u=S.css(o,\"display\"),o.parentNode.removeChild(o),\"none\"===u&&(u=\"block\"),ue[s]=u)))):\"none\"!==n&&(l[c]=\"none\",Y.set(r,\"display\",n)));for(c=0;c<f;c++)null!=l[c]&&(e[c].style.display=l[c]);return e"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "xe",
+      "params": [
+        "e",
+        "t",
+        "n",
+        "r",
+        "i"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "for(var o,a,s,u,l,c,f=t.createDocumentFragment(),p=[],d=0,h=e.length;d<h;d++)if((o=e[d])||0===o)if(\"object\"===w(o))S.merge(p,o.nodeType?[o]:o);else if(me.test(o)){a=a||f.appendChild(t.createElement(\"div\")),s=(de.exec(o)||[\"\",\"\"])[1].toLowerCase(),u=ge[s]||ge._default,a.innerHTML=u[1]+S.htmlPrefilter(o)+u[2],c=u[0];while(c--)a=a.lastChild;S.merge(p,a.childNodes),(a=f.firstChild).textContent=\"\""
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "je",
+      "params": [
+        "e",
+        "t"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "return A(e,\"table\")&&A(11!==t.nodeType?t:t.firstChild,\"tr\")&&S(e).children(\"tbody\")[0]||e"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "Le",
+      "params": [
+        "e",
+        "t"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "var n,r,i,o,a,s;if(1===t.nodeType){if(Y.hasData(e)&&(s=Y.get(e).events))for(i in Y.remove(t,\"handle events\"),s)for(n=0,r=s[i].length;n<r;n++)S.event.add(t,i,s[i][n]);Q.hasData(e)&&(o=Q.access(e),a=S.extend({"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery-3.6.0.min.js",
+      "functionName": "Oe",
+      "params": [
+        "e",
+        "t",
+        "n"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "for(var r,i=t?S.filter(t,e):e,o=0;null!=(r=i[o]);o++)n||1!==r.nodeType||S.cleanData(ve(r)),r.parentNode&&(n&&ie(r)&&ye(ve(r,\"script\")),r.parentNode.removeChild(r));return e"
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "moveSectionUp",
+      "params": [],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          var prev = $(SECTION_ACTIVE_SEL).prev(SECTION_SEL);\r\n\r\n          //looping to the bottom if there's no more sections above\r\n          if (!prev.length && (options.loopTop || options.continuousVertical)) {\r\n              prev = $(SECTION_SEL).last();\r\n          "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "moveSectionDown",
+      "params": [],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          var next = $(SECTION_ACTIVE_SEL).next(SECTION_SEL);\r\n\r\n          //looping to the top if there's no more sections below\r\n          if(!next.length &&\r\n              (options.loopBottom || options.continuousVertical)){\r\n              next = $(SECTION_SEL).first();\r\n          "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "init",
+      "params": [],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          //if css3 is not supported, it will use jQuery animations\r\n          if(options.css3){\r\n              options.css3 = support3d();\r\n          "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "bindEvents",
+      "params": [],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          $window\r\n              //when scrolling...\r\n              .on('scroll', scrollHandler)\r\n\r\n              //detecting any change on the URL to scroll to the given anchor link\r\n              //(a way to detect back history button as we play with the hashes on the URL)\r\n              .on('hashchange', hashChangeHandler)\r\n\r\n              //when opening a new tab (ctrl + t), `control` won't be pressed when coming back.\r\n              .blur(blurHandler)\r\n\r\n              //when resizing the site, we adjust the heights of the sections, slimScroll...\r\n              .resize(resizeHandler);\r\n\r\n          $document\r\n              //Sliding with arrow keys, both, vertical and horizontal\r\n              .keydown(keydownHandler)\r\n\r\n              //to prevent scrolling while zooming\r\n              .keyup(keyUpHandler)\r\n\r\n              //Scrolls to the section when clicking the navigation bullet\r\n              .on('click touchstart', SECTION_NAV_SEL + ' a', sectionBulletHandler)\r\n\r\n              //Scrolls the slider to the given slide destination for the given section\r\n              .on('click touchstart', SLIDES_NAV_LINK_SEL, slideBulletHandler)\r\n\r\n              .on('click', SECTION_NAV_TOOLTIP_SEL, tooltipTextHandler);\r\n\r\n          //Scrolling horizontally when clicking on the slider controls.\r\n          $(SECTION_SEL).on('click touchstart', SLIDES_ARROW_SEL, slideArrowHandler);\r\n\r\n          /**\r\n          * Applying normalScroll elements.\r\n          * Ignoring the scrolls over the specified selectors.\r\n          */\r\n          if(options.normalScrollElements){\r\n              $document.on('mouseenter touchstart', options.normalScrollElements, function () {\r\n                  setAllowScrolling(false);\r\n              "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "setOptionsFromDOM",
+      "params": [],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          var sections = container.find(options.sectionSelector);\r\n\r\n          //no anchors option? Checking for them in the DOM attributes\r\n          if(!options.anchors.length){\r\n              options.anchors = sections.filter('[data-anchor]').map(function(){\r\n                  return $(this).data('anchor').toString();\r\n              "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "styleSection",
+      "params": [
+        "section",
+        "index"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          //if no active section is defined, the 1st one will be the default one\r\n          if(!index && $(SECTION_ACTIVE_SEL).length === 0) {\r\n              section.addClass(ACTIVE);\r\n          "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "touchMoveHandler",
+      "params": [
+        "event"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          var e = event.originalEvent;\r\n          var activeSection = $(e.target).closest(SECTION_SEL);\r\n\r\n          // additional: if one of the normalScrollElements isn't within options.normalScrollElementTouchThreshold hops up the DOM chain\r\n          if (isReallyTouch(e) ) {\r\n\r\n              if(options.autoScrolling){\r\n                  //preventing the easing on iOS devices\r\n                  event.preventDefault();\r\n              "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "isReallyTouch",
+      "params": [
+        "e"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          //if is not IE   ||  IE is detecting `touch` or `pen`\r\n          return typeof e.pointerType === 'undefined' || e.pointerType != 'mouse';\r\n      "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "getAverage",
+      "params": [
+        "elements",
+        "number"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          var sum = 0;\r\n\r\n          //taking `number` elements from the end to make the average, if there are not enought, 1\r\n          var lastElements = elements.slice(Math.max(elements.length - number, 1));\r\n\r\n          for(var i = 0; i < lastElements.length; i++){\r\n              sum = sum + lastElements[i];\r\n          "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "moveSlide",
+      "params": [
+        "direction",
+        "section"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          var activeSection = typeof section === 'undefined' ? $(SECTION_ACTIVE_SEL) : section;\r\n          var slides = activeSection.find(SLIDES_WRAPPER_SEL);\r\n          var numSlides = slides.find(SLIDE_SEL).length;\r\n\r\n          // more than one slide needed and nothing should be sliding\r\n          if (!slides.length || slideMoving || numSlides < 2) {\r\n              return;\r\n          "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "performMovement",
+      "params": [
+        "v"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          // using CSS3 translate functionality\r\n          if (options.css3 && options.autoScrolling && !options.scrollBar) {\r\n\r\n              // The first section can have a negative value in iOS 10. Not quite sure why: -0.0142822265625\r\n              // that's why we round it to 0.\r\n              var translate3d = 'translate3d(0px, -' + Math.round(v.dtop) + 'px, 0px)';\r\n              transformContainer(translate3d, true);\r\n\r\n              //even when the scrollingSpeed is 0 there's a little delay, which might cause the\r\n              //scrollingSpeed to change in case of using silentMoveTo();\r\n              if(options.scrollingSpeed){\r\n                  clearTimeout(afterSectionLoadsId);\r\n                  afterSectionLoadsId = setTimeout(function () {\r\n                      afterSectionLoads(v);\r\n                  "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "getAnchorsURL",
+      "params": [],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          var section;\r\n          var slide;\r\n          var hash = window.location.hash;\r\n\r\n          if(hash.length){\r\n              //getting the anchor link in the URL and deleting the `#`\r\n              var anchorsParts =  hash.replace('#', '').split('../index.html');\r\n\r\n              //using / for visual reasons and not as a section/slide separator #2803\r\n              var isFunkyAnchor = hash.indexOf('#/') > -1;\r\n\r\n              section = isFunkyAnchor ? '/' + anchorsParts[1] : decodeURIComponent(anchorsParts[0]);\r\n\r\n              var slideAnchor = isFunkyAnchor ? anchorsParts[2] : anchorsParts[1];\r\n              if(slideAnchor && slideAnchor.length){\r\n                  slide = decodeURIComponent(slideAnchor);\r\n              "
+    },
+    {
+      "kind": "FUNCTION",
+      "scriptUrl": "https://www.hsmu.ac.kr/cubersc/templete/hsmu/lib/js/jquery.fullPage.js",
+      "functionName": "onkeydown",
+      "params": [
+        "e"
+      ],
+      "score": 20,
+      "evidence": [
+        "ID_VARIABLE"
+      ],
+      "body": "\r\n          var shiftPressed = e.shiftKey;\r\n\r\n          //do nothing if we can not scroll or we are not using horizotnal key arrows.\r\n          if(!canScroll && [37,39].indexOf(e.which) < 0){\r\n              return;\r\n          "
+    }
+  ],
+  "decision": "ROUTING_EVIDENCE_FOUND",
+  "nextAction": "VALIDATE_EXTRACTED_ROUTING_RULE",
+  "requestCount": 12,
+  "operationalHashUnchanged": true,
+  "beforeHashes": {
+    "development\\university-news\\data\\university-news-sources.final.json": "3d53b00ec8911dea9cc234bfb8ad7b31007d80a5c99ac9da3cc7ddca2dc6616c",
+    "server\\agent\\data\\agent-news-store.json": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "data\\university-news-preview.json": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "afterHashes": {
+    "development\\university-news\\data\\university-news-sources.final.json": "3d53b00ec8911dea9cc234bfb8ad7b31007d80a5c99ac9da3cc7ddca2dc6616c",
+    "server\\agent\\data\\agent-news-store.json": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "data\\university-news-preview.json": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "safety": {
+    "readOnly": true,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false,
+    "tlsVerificationDisabled": false
+  }
+}

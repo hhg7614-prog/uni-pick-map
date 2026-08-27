@@ -1,0 +1,350 @@
+{
+  "schemaVersion": "1.1",
+  "generatedAt": "2026-08-24T04:24:42.459Z",
+  "planner": "UNI_PICK_AUTONOMOUS_NEXT_ACTION",
+  "counts": {
+    "RESOLVED": 9,
+    "ENVIRONMENT_WAF_BLOCKED": 1
+  },
+  "totalEvaluated": 10,
+  "actionableCount": 0,
+  "resolvedCount": 9,
+  "cooldownCount": 1,
+  "environmentBlockedCount": 1,
+  "retryLaterCount": 0,
+  "nextAction": null,
+  "queue": [],
+  "evaluatedItems": [
+    {
+      "universityId": "konkuk-university-seoul",
+      "universityName": "건국대학교 서울캠퍼스",
+      "previousEvaluatorClass": "RESOLVED_BY_EXISTING_VERIFIED_SOURCE",
+      "evaluatorResolved": true,
+      "sourceResolutionMode": "DIRECT_SOURCE",
+      "effectiveVerifiedEnabledSourceCount": 1,
+      "sharedVisibleVerifiedSourceCount": 0,
+      "latestDiscoveryStatus": null,
+      "transientState": null,
+      "state": "RESOLVED",
+      "priority": 100,
+      "actionable": false,
+      "reason": "이미 verified=true, enabled=true인 공식 source가 존재하므로 기존 검증 source를 사용합니다.",
+      "verifiedSources": [
+        {
+          "sourceId": "konkuk-general-notice",
+          "listUrl": "https://www.konkuk.ac.kr/kbs/10473/subview.do",
+          "category": "school_notice",
+          "status": "verified",
+          "campusScope": null,
+          "canonicalOwner": "konkuk-university-seoul",
+          "sourceAccess": "DIRECT",
+          "collectOnce": false,
+          "duplicateStorage": false,
+          "visibleToCampuses": []
+        }
+      ],
+      "action": "NONE",
+      "description": "이미 해결된 항목입니다."
+    },
+    {
+      "universityId": "kyungwoon-university-본교",
+      "universityName": "경운대학교",
+      "previousEvaluatorClass": "RESOLVED_BY_EXISTING_VERIFIED_SOURCE",
+      "evaluatorResolved": true,
+      "sourceResolutionMode": "DIRECT_SOURCE",
+      "effectiveVerifiedEnabledSourceCount": 1,
+      "sharedVisibleVerifiedSourceCount": 0,
+      "latestDiscoveryStatus": null,
+      "transientState": null,
+      "state": "RESOLVED",
+      "priority": 100,
+      "actionable": false,
+      "reason": "이미 verified=true, enabled=true인 공식 source가 존재하므로 기존 검증 source를 사용합니다.",
+      "verifiedSources": [
+        {
+          "sourceId": "kyungwoon-admission-general-feed",
+          "listUrl": "https://www.ikw.ac.kr/ipsi/board/list.tc?mn=2415&mngNo=12&categoryNo=48&pageSeq=1608&protocol=http",
+          "category": "school_news",
+          "status": "verified",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "canonicalOwner": "kyungwoon-university-본교",
+          "sourceAccess": "DIRECT",
+          "collectOnce": false,
+          "duplicateStorage": false,
+          "visibleToCampuses": []
+        }
+      ],
+      "action": "NONE",
+      "description": "이미 해결된 항목입니다."
+    },
+    {
+      "universityId": "mokpo-national-university-본교",
+      "universityName": "국립목포대학교",
+      "previousEvaluatorClass": "ENVIRONMENT_WAF_BLOCKED",
+      "evaluatorResolved": false,
+      "sourceResolutionMode": null,
+      "effectiveVerifiedEnabledSourceCount": 0,
+      "sharedVisibleVerifiedSourceCount": 0,
+      "latestDiscoveryStatus": "NO_CANDIDATE",
+      "transientState": null,
+      "state": "ENVIRONMENT_WAF_BLOCKED",
+      "priority": 90,
+      "actionable": false,
+      "cooldown": true,
+      "retryable": true,
+      "nextEnvironmentAction": "RETRY_IN_DIFFERENT_ENVIRONMENT",
+      "reason": "공식 게시판은 존재하지만 현재 로컬 환경에서 국립목포대학교 웹방화벽 정책에 의해 HTML 수집 요청이 차단됩니다.",
+      "action": "RETRY_IN_DIFFERENT_ENVIRONMENT",
+      "description": "현재 로컬 환경에서는 재요청하지 않고 다른 네트워크 또는 배포 환경에서 접근성을 재검증합니다."
+    },
+    {
+      "universityId": "daeshin-university-본교",
+      "universityName": "대신대학교",
+      "previousEvaluatorClass": "RESOLVED_BY_EXISTING_VERIFIED_SOURCE",
+      "evaluatorResolved": true,
+      "sourceResolutionMode": "DIRECT_SOURCE",
+      "effectiveVerifiedEnabledSourceCount": 1,
+      "sharedVisibleVerifiedSourceCount": 0,
+      "latestDiscoveryStatus": "NO_CANDIDATE",
+      "transientState": null,
+      "state": "RESOLVED",
+      "priority": 100,
+      "actionable": false,
+      "reason": "이미 verified=true, enabled=true인 공식 source가 존재하므로 기존 검증 source를 사용합니다.",
+      "verifiedSources": [
+        {
+          "sourceId": "daeshin-general-feed",
+          "listUrl": "https://www.daeshin.ac.kr/html/05_community/01_6.php",
+          "category": "school_news",
+          "status": "verified",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "canonicalOwner": "daeshin-university-본교",
+          "sourceAccess": "DIRECT",
+          "collectOnce": false,
+          "duplicateStorage": false,
+          "visibleToCampuses": []
+        }
+      ],
+      "action": "NONE",
+      "description": "이미 해결된 항목입니다."
+    },
+    {
+      "universityId": "sangmyung-university-제2캠퍼",
+      "universityName": "상명대학교 제2캠퍼",
+      "previousEvaluatorClass": "RESOLVED_BY_EXISTING_VERIFIED_SOURCE",
+      "evaluatorResolved": true,
+      "sourceResolutionMode": "DIRECT_SOURCE",
+      "effectiveVerifiedEnabledSourceCount": 1,
+      "sharedVisibleVerifiedSourceCount": 0,
+      "latestDiscoveryStatus": null,
+      "transientState": null,
+      "state": "RESOLVED",
+      "priority": 100,
+      "actionable": false,
+      "reason": "이미 verified=true, enabled=true인 공식 source가 존재하므로 기존 검증 source를 사용합니다.",
+      "verifiedSources": [
+        {
+          "sourceId": "sangmyung-cheonan-general-feed",
+          "listUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=list&srCampus=smuc",
+          "category": "school_news",
+          "status": "verified",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "canonicalOwner": "sangmyung-university-제2캠퍼",
+          "sourceAccess": "DIRECT",
+          "collectOnce": false,
+          "duplicateStorage": false,
+          "visibleToCampuses": []
+        }
+      ],
+      "action": "NONE",
+      "description": "이미 해결된 항목입니다."
+    },
+    {
+      "universityId": "hwasung-medi-science-university-본교",
+      "universityName": "화성의과학대학교",
+      "previousEvaluatorClass": "RESOLVED_BY_EXISTING_VERIFIED_SOURCE",
+      "evaluatorResolved": true,
+      "sourceResolutionMode": "DIRECT_SOURCE",
+      "effectiveVerifiedEnabledSourceCount": 1,
+      "sharedVisibleVerifiedSourceCount": 0,
+      "latestDiscoveryStatus": "REVIEW_CANDIDATE",
+      "transientState": null,
+      "state": "RESOLVED",
+      "priority": 100,
+      "actionable": false,
+      "reason": "이미 verified=true, enabled=true인 공식 source가 존재하므로 기존 검증 source를 사용합니다.",
+      "verifiedSources": [
+        {
+          "sourceId": "hwasung-medi-science-general-feed",
+          "listUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+          "category": "school_news",
+          "status": "verified",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "canonicalOwner": "hwasung-medi-science-university-본교",
+          "sourceAccess": "DIRECT",
+          "collectOnce": false,
+          "duplicateStorage": false,
+          "visibleToCampuses": []
+        }
+      ],
+      "action": "NONE",
+      "description": "이미 해결된 항목입니다."
+    },
+    {
+      "universityId": "changshin-university-본교",
+      "universityName": "창신대학교",
+      "previousEvaluatorClass": "RESOLVED_BY_EXISTING_VERIFIED_SOURCE",
+      "evaluatorResolved": true,
+      "sourceResolutionMode": "DIRECT_SOURCE",
+      "effectiveVerifiedEnabledSourceCount": 1,
+      "sharedVisibleVerifiedSourceCount": 0,
+      "latestDiscoveryStatus": null,
+      "transientState": null,
+      "state": "RESOLVED",
+      "priority": 100,
+      "actionable": false,
+      "reason": "이미 verified=true, enabled=true인 공식 source가 존재하므로 기존 검증 source를 사용합니다.",
+      "verifiedSources": [
+        {
+          "sourceId": "changshin-general-feed",
+          "listUrl": "https://www.cs.ac.kr/board/bulletin",
+          "category": "school_news",
+          "status": "verified",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "canonicalOwner": "changshin-university-본교",
+          "sourceAccess": "DIRECT",
+          "collectOnce": false,
+          "duplicateStorage": false,
+          "visibleToCampuses": []
+        }
+      ],
+      "action": "NONE",
+      "description": "이미 해결된 항목입니다."
+    },
+    {
+      "universityId": "keimyung-university-본교",
+      "universityName": "계명대학교",
+      "previousEvaluatorClass": "RESOLVED_BY_EXISTING_VERIFIED_SOURCE",
+      "evaluatorResolved": true,
+      "sourceResolutionMode": "DIRECT_SOURCE",
+      "effectiveVerifiedEnabledSourceCount": 1,
+      "sharedVisibleVerifiedSourceCount": 0,
+      "latestDiscoveryStatus": "CANDIDATE_DISCOVERED",
+      "transientState": null,
+      "state": "RESOLVED",
+      "priority": 100,
+      "actionable": false,
+      "reason": "이미 verified=true, enabled=true인 공식 source가 존재하므로 기존 검증 source를 사용합니다.",
+      "verifiedSources": [
+        {
+          "sourceId": "keimyung-academic-notice",
+          "listUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=144",
+          "category": "school_notice",
+          "status": "verified",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "canonicalOwner": "keimyung-university-본교",
+          "sourceAccess": "DIRECT",
+          "collectOnce": false,
+          "duplicateStorage": false,
+          "visibleToCampuses": []
+        }
+      ],
+      "action": "NONE",
+      "description": "이미 해결된 항목입니다."
+    },
+    {
+      "universityId": "inje-university-본교",
+      "universityName": "인제대학교",
+      "previousEvaluatorClass": "RESOLVED_BY_EXISTING_VERIFIED_SOURCE",
+      "evaluatorResolved": true,
+      "sourceResolutionMode": "DIRECT_SOURCE",
+      "effectiveVerifiedEnabledSourceCount": 1,
+      "sharedVisibleVerifiedSourceCount": 0,
+      "latestDiscoveryStatus": null,
+      "transientState": null,
+      "state": "RESOLVED",
+      "priority": 100,
+      "actionable": false,
+      "reason": "이미 verified=true, enabled=true인 공식 source가 존재하므로 기존 검증 source를 사용합니다.",
+      "verifiedSources": [
+        {
+          "sourceId": "inje-shared-general-feed",
+          "listUrl": "https://scsc.inje.ac.kr/scsc/community/news.do?mode=list",
+          "category": "school_news",
+          "status": "verified",
+          "campusScope": "SHARED_SOURCE",
+          "canonicalOwner": "inje-university-본교",
+          "sourceAccess": "DIRECT",
+          "collectOnce": true,
+          "duplicateStorage": false,
+          "visibleToCampuses": [
+            "inje-university-본교",
+            "inje-university-제2캠퍼"
+          ]
+        }
+      ],
+      "action": "NONE",
+      "description": "이미 해결된 항목입니다."
+    },
+    {
+      "universityId": "inje-university-제2캠퍼",
+      "universityName": "인제대학교 제2캠퍼",
+      "previousEvaluatorClass": "RESOLVED_BY_EXISTING_VERIFIED_SOURCE",
+      "evaluatorResolved": true,
+      "sourceResolutionMode": "SHARED_SOURCE_VISIBLE",
+      "effectiveVerifiedEnabledSourceCount": 1,
+      "sharedVisibleVerifiedSourceCount": 1,
+      "latestDiscoveryStatus": null,
+      "transientState": null,
+      "state": "RESOLVED",
+      "priority": 100,
+      "actionable": false,
+      "reason": "현재 대학은 canonical owner에 저장된 verified=true, enabled=true SHARED_SOURCE의 visibleToCampuses에 포함되어 기존 검증 source를 공동 사용합니다.",
+      "verifiedSources": [
+        {
+          "sourceId": "inje-shared-general-feed",
+          "listUrl": "https://scsc.inje.ac.kr/scsc/community/news.do?mode=list",
+          "category": "school_news",
+          "status": "verified",
+          "campusScope": "SHARED_SOURCE",
+          "canonicalOwner": "inje-university-본교",
+          "sourceAccess": "SHARED_VISIBLE",
+          "collectOnce": true,
+          "duplicateStorage": false,
+          "visibleToCampuses": [
+            "inje-university-본교",
+            "inje-university-제2캠퍼"
+          ]
+        }
+      ],
+      "action": "NONE",
+      "description": "이미 해결된 항목입니다."
+    }
+  ],
+  "plannerPolicy": {
+    "evaluatorResolvedWins": true,
+    "verifiedSourceWins": true,
+    "sharedVisibleVerifiedSourceWins": true,
+    "sharedSourceCollectOnce": true,
+    "sharedSourceDuplicateStorage": false,
+    "environmentWafBlockedNonActionable": true,
+    "environmentWafBlockedCooldown": true,
+    "environmentWafRequiresDifferentEnvironment": true,
+    "transientCooldownWins": true,
+    "staleDiscoveryCannotOverrideResolved": true,
+    "staleDiscoveryCannotOverrideWafBlocked": true,
+    "latestDiscoveryOverridesOnlyUnresolvedActionableState": true,
+    "oneTaskAtATime": true,
+    "automaticProductionMutation": false
+  },
+  "safety": {
+    "readOnly": true,
+    "networkRequests": 0,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

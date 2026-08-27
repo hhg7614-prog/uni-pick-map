@@ -1,6 +1,7 @@
 "use strict";
 
 const { normalizeCollectedItem } = require("./normalize-collected-item");
+const { parseSimpleFunctionCall, isSafeRawAttrValue, ALLOWED_DATA_ATTR_NAMES } = require("../utils/safe-onclick-call");
 
 function decodeHtml(text) {
   return String(text || "")
@@ -85,6 +86,63 @@ function detailLinkFromValue(value) {
   return locationMatch ? locationMatch[1] : text;
 }
 
+// Compares hostnames only (ignoring a leading "www."), the same host-match
+// convention already used across this codebase's URL-safety checks.
+function sameHost(urlString, source) {
+  try {
+    const target = new URL(urlString);
+    const official = new URL(source.baseUrl || source.listUrl || source.rssUrl);
+    return (
+      target.hostname.replace(/^www\./i, "").toLowerCase() ===
+      official.hostname.replace(/^www\./i, "").toLowerCase()
+    );
+  } catch {
+    return false;
+  }
+}
+
+// Replaces "{key}" placeholders in `template` with `values[key]`. Returns
+// null (instead of leaving a literal "{key}" in the URL) if any referenced
+// placeholder is missing from `values`, so an incomplete/misconfigured rule
+// never silently produces a broken URL.
+function interpolateTemplate(template, values) {
+  let missing = false;
+  const result = String(template).replace(/\{(\w+)\}/g, (_, key) => {
+    if (!Object.prototype.hasOwnProperty.call(values, key)) {
+      missing = true;
+      return "";
+    }
+    return values[key];
+  });
+  return missing ? null : result;
+}
+
+// Assembles a detail URL from a source's `jsDetailLinkRule` without ever
+// executing `rawValue` (no eval/new Function/vm) -- it only regex-matches a
+// simple function call or validates a raw data-* attribute value, then
+// interpolates the captured pieces into a human-authored `urlTemplate`.
+// Returns the built URL string on success, or "" if the rule does not apply
+// (matching failure, safety-check failure, or a cross-host result).
+function resolveJsDetailLink(rawValue, rule, source) {
+  if (!rule || rule.enabled !== true) return "";
+  const values = { ...(rule.fixedParams || {}) };
+  if (rule.pattern === "functionCall") {
+    const parsed = parseSimpleFunctionCall(rawValue);
+    if (!parsed || parsed.fnName !== rule.functionName || parsed.args.length !== rule.argCount) return "";
+    parsed.args.forEach((value, index) => {
+      values[`arg${index}`] = value;
+    });
+  } else if (rule.pattern === "dataAttribute") {
+    if (!ALLOWED_DATA_ATTR_NAMES.has(rule.dataAttribute) || !isSafeRawAttrValue(rawValue)) return "";
+    values.arg0 = rawValue;
+  } else {
+    return "";
+  }
+  const built = interpolateTemplate(rule.urlTemplate, values);
+  if (!built || !sameHost(built, source)) return "";
+  return built;
+}
+
 function cleanTitle(value, cleanupTokens = []) {
   let title = String(value || "").replace(/\s+/g, " ").trim();
   for (const token of cleanupTokens) {
@@ -116,9 +174,17 @@ async function htmlListCollector({ university, source, limit, fetchImpl = fetch,
   const warnings = [];
   for (const itemHtml of itemHtmlList) {
     const listDate = Number.isInteger(selectors.dateIndex) ? indexedValueFrom(itemHtml, selectors.date, selectors.dateIndex) : valueFrom(itemHtml, selectors.date);
+    const rawLinkValue = valueFrom(itemHtml, selectors.link, selectors.linkAttribute || (selectors.link === "@href" ? null : "href")) || valueFrom(itemHtml, selectors.link);
+    let link;
+    if (source.jsDetailLinkRule && source.jsDetailLinkRule.enabled === true) {
+      link = resolveJsDetailLink(rawLinkValue, source.jsDetailLinkRule, source);
+      if (!link) warnings.push(`jsDetailLinkRule 매칭/검증 실패로 항목 제외: ${rawLinkValue}`);
+    } else {
+      link = detailLinkFromValue(rawLinkValue);
+    }
     const normalized = normalizeCollectedItem({ university, source, rawItem: {
       title: cleanTitle(valueFrom(itemHtml, selectors.title), source.titleCleanupTokens),
-      link: detailLinkFromValue(valueFrom(itemHtml, selectors.link, selectors.linkAttribute || (selectors.link === "@href" ? null : "href")) || valueFrom(itemHtml, selectors.link)),
+      link,
       // A source can explicitly prefer a date verified from its own list row.
       // No current-time fallback is ever used by the collector.
       date: listDate,
@@ -144,4 +210,4 @@ async function htmlListCollector({ university, source, limit, fetchImpl = fetch,
   return { status: "success", items: items.slice(0, limit), warnings, finalUrl: response.url };
 }
 
-module.exports = { htmlListCollector, findBySelector, textOf, attribute, cleanTitle, detailLinkFromValue };
+module.exports = { htmlListCollector, findBySelector, textOf, attribute, cleanTitle, detailLinkFromValue, resolveJsDetailLink };

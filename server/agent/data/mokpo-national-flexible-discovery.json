@@ -1,0 +1,162 @@
+{
+  "schemaVersion": "1.1",
+  "generatedAt": "2026-08-24T00:42:17.571Z",
+  "universityId": "mokpo-national-university-본교",
+  "universityName": "국립목포대학교",
+  "transport": {
+    "type": "curl.exe",
+    "protocolPreference": "HTTP_CANONICAL_FOR_CURRENT_ENVIRONMENT",
+    "tlsVerificationDisabled": false,
+    "reason": "HTTPS www host fails Windows Schannel hostname validation; official HTTP www host returns 200."
+  },
+  "startResults": [
+    {
+      "url": "http://www.mnu.ac.kr/",
+      "status": 302,
+      "finalUrl": "https://www.mnu.ac.kr/",
+      "bytes": 0,
+      "ok": false,
+      "error": "curl: (60) schannel: SNI or certificate check failed: SEC_E_WRONG_PRINCIPAL (0x80090322) - ��� �� �̸��� ��Ȯ���� �ʽ��ϴ�.\r\nMore details here: https://curl.se/docs/sslcerts.html\r\n\r\ncurl failed to verify the legitimacy of the server and therefore could not\r\nestablish a secure connection to it. To learn more about this situation and\r\nhow to fix it, please visit the webpage mentioned above."
+    },
+    {
+      "url": "http://www.mnu.ac.kr/www/index.do",
+      "status": 302,
+      "finalUrl": "https://www.mnu.ac.kr/www/index.do",
+      "bytes": 0,
+      "ok": false,
+      "error": "curl: (60) schannel: SNI or certificate check failed: SEC_E_WRONG_PRINCIPAL (0x80090322) - ��� �� �̸��� ��Ȯ���� �ʽ��ϴ�.\r\nMore details here: https://curl.se/docs/sslcerts.html\r\n\r\ncurl failed to verify the legitimacy of the server and therefore could not\r\nestablish a secure connection to it. To learn more about this situation and\r\nhow to fix it, please visit the webpage mentioned above."
+    },
+    {
+      "url": "http://www.mnu.ac.kr/www/308/subview.do",
+      "status": 302,
+      "finalUrl": "https://www.mnu.ac.kr/www/308/subview.do",
+      "bytes": 0,
+      "ok": false,
+      "error": "curl: (60) schannel: SNI or certificate check failed: SEC_E_WRONG_PRINCIPAL (0x80090322) - ��� �� �̸��� ��Ȯ���� �ʽ��ϴ�.\r\nMore details here: https://curl.se/docs/sslcerts.html\r\n\r\ncurl failed to verify the legitimacy of the server and therefore could not\r\nestablish a secure connection to it. To learn more about this situation and\r\nhow to fix it, please visit the webpage mentioned above."
+    },
+    {
+      "url": "http://www.mnu.ac.kr/www/309/subview.do",
+      "status": 302,
+      "finalUrl": "https://www.mnu.ac.kr/www/309/subview.do",
+      "bytes": 0,
+      "ok": false,
+      "error": "curl: (60) schannel: SNI or certificate check failed: SEC_E_WRONG_PRINCIPAL (0x80090322) - ��� �� �̸��� ��Ȯ���� �ʽ��ϴ�.\r\nMore details here: https://curl.se/docs/sslcerts.html\r\n\r\ncurl failed to verify the legitimacy of the server and therefore could not\r\nestablish a secure connection to it. To learn more about this situation and\r\nhow to fix it, please visit the webpage mentioned above."
+    },
+    {
+      "url": "http://www.mnu.ac.kr/sites/ipsi/index.do",
+      "status": 302,
+      "finalUrl": "https://www.mnu.ac.kr/sites/ipsi/index.do",
+      "bytes": 0,
+      "ok": false,
+      "error": "curl: (60) schannel: SNI or certificate check failed: SEC_E_WRONG_PRINCIPAL (0x80090322) - ��� �� �̸��� ��Ȯ���� �ʽ��ϴ�.\r\nMore details here: https://curl.se/docs/sslcerts.html\r\n\r\ncurl failed to verify the legitimacy of the server and therefore could not\r\nestablish a secure connection to it. To learn more about this situation and\r\nhow to fix it, please visit the webpage mentioned above."
+    }
+  ],
+  "discovered": 3,
+  "tested": 3,
+  "best": {
+    "label": "학사공지",
+    "url": "http://www.mnu.ac.kr/www/309/subview.do",
+    "initialScore": 134,
+    "reasons": [
+      "STRONG:학사공지",
+      "MEDIUM:공지",
+      "MEDIUM:학사",
+      "SUBVIEW",
+      "OFFICIAL_DOMAIN",
+      "FORCED_OFFICIAL_SEED"
+    ],
+    "status": 302,
+    "finalUrl": "https://www.mnu.ac.kr/www/309/subview.do",
+    "bytes": 0,
+    "dates": 0,
+    "detailLinks": 0,
+    "distinctTitles": 0,
+    "structure": null,
+    "finalScore": 84,
+    "pass": false,
+    "error": "curl: (60) schannel: SNI or certificate check failed: SEC_E_WRONG_PRINCIPAL (0x80090322) - ��� �� �̸��� ��Ȯ���� �ʽ��ϴ�.\r\nMore details here: https://curl.se/docs/sslcerts.html\r\n\r\ncurl failed to verify the legitimacy of the server and therefore could not\r\nestablish a secure connection to it. To learn more about this situation and\r\nhow to fix it, please visit the webpage mentioned above."
+  },
+  "top5": [
+    {
+      "label": "학사공지",
+      "url": "http://www.mnu.ac.kr/www/309/subview.do",
+      "initialScore": 134,
+      "reasons": [
+        "STRONG:학사공지",
+        "MEDIUM:공지",
+        "MEDIUM:학사",
+        "SUBVIEW",
+        "OFFICIAL_DOMAIN",
+        "FORCED_OFFICIAL_SEED"
+      ],
+      "status": 302,
+      "finalUrl": "https://www.mnu.ac.kr/www/309/subview.do",
+      "bytes": 0,
+      "dates": 0,
+      "detailLinks": 0,
+      "distinctTitles": 0,
+      "structure": null,
+      "finalScore": 84,
+      "pass": false,
+      "error": "curl: (60) schannel: SNI or certificate check failed: SEC_E_WRONG_PRINCIPAL (0x80090322) - ��� �� �̸��� ��Ȯ���� �ʽ��ϴ�.\r\nMore details here: https://curl.se/docs/sslcerts.html\r\n\r\ncurl failed to verify the legitimacy of the server and therefore could not\r\nestablish a secure connection to it. To learn more about this situation and\r\nhow to fix it, please visit the webpage mentioned above."
+    },
+    {
+      "label": "일반공지",
+      "url": "http://www.mnu.ac.kr/www/308/subview.do",
+      "initialScore": 122,
+      "reasons": [
+        "STRONG:일반공지",
+        "MEDIUM:공지",
+        "SUBVIEW",
+        "OFFICIAL_DOMAIN",
+        "FORCED_OFFICIAL_SEED"
+      ],
+      "status": 302,
+      "finalUrl": "https://www.mnu.ac.kr/www/308/subview.do",
+      "bytes": 0,
+      "dates": 0,
+      "detailLinks": 0,
+      "distinctTitles": 0,
+      "structure": null,
+      "finalScore": 72,
+      "pass": false,
+      "error": "curl: (60) schannel: SNI or certificate check failed: SEC_E_WRONG_PRINCIPAL (0x80090322) - ��� �� �̸��� ��Ȯ���� �ʽ��ϴ�.\r\nMore details here: https://curl.se/docs/sslcerts.html\r\n\r\ncurl failed to verify the legitimacy of the server and therefore could not\r\nestablish a secure connection to it. To learn more about this situation and\r\nhow to fix it, please visit the webpage mentioned above."
+    },
+    {
+      "label": "입학공지",
+      "url": "http://www.mnu.ac.kr/sites/ipsi/index.do",
+      "initialScore": 119,
+      "reasons": [
+        "STRONG:입학공지",
+        "MEDIUM:공지",
+        "MEDIUM:입학",
+        "OFFICIAL_DOMAIN",
+        "FORCED_OFFICIAL_SEED"
+      ],
+      "status": 302,
+      "finalUrl": "https://www.mnu.ac.kr/sites/ipsi/index.do",
+      "bytes": 0,
+      "dates": 0,
+      "detailLinks": 0,
+      "distinctTitles": 0,
+      "structure": null,
+      "finalScore": 69,
+      "pass": false,
+      "error": "curl: (60) schannel: SNI or certificate check failed: SEC_E_WRONG_PRINCIPAL (0x80090322) - ��� �� �̸��� ��Ȯ���� �ʽ��ϴ�.\r\nMore details here: https://curl.se/docs/sslcerts.html\r\n\r\ncurl failed to verify the legitimacy of the server and therefore could not\r\nestablish a secure connection to it. To learn more about this situation and\r\nhow to fix it, please visit the webpage mentioned above."
+    }
+  ],
+  "proposedSource": null,
+  "decision": "NO_FLEXIBLE_SOURCE",
+  "nextAction": "REVIEW_MOKPO_DISCOVERY_FAILURE",
+  "requests": 8,
+  "safety": {
+    "readOnly": true,
+    "tlsBypass": false,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

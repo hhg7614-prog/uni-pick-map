@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T06:05:43.238Z",
+  "planner": {
+    "source": "source-247-state.json",
+    "autoRecoveryCandidateCount": 14,
+    "candidateIds": [
+      "konkuk-university-seoul",
+      "kyungwoon-university-본교",
+      "mokpo-national-university-본교",
+      "daeshin-university-본교",
+      "sangmyung-university-제2캠퍼",
+      "hwasung-medi-science-university-본교",
+      "changshin-university-본교",
+      "keimyung-university-본교",
+      "inje-university-본교",
+      "inje-university-제2캠퍼",
+      "woosong-university-본교",
+      "luther-university-본교",
+      "calvin-university-본교",
+      "jungwon-university-본교"
+    ]
+  },
+  "existingRetry10": {
+    "source": "university-feed-agent-v1-queue-state.json",
+    "selectedCount": 10,
+    "selectedIds": [
+      "dgist",
+      "dong-eui-university-본교",
+      "luther-university-본교",
+      "sangmyung-university-seoul-본교",
+      "sangmyung-university-제2캠퍼",
+      "sookmyung-womens-university-본교",
+      "yeungnam-university-gyeongsan",
+      "woosong-university-본교",
+      "u1-university-본교",
+      "inje-university-본교"
+    ]
+  },
+  "comparison": {
+    "overlapCount": 4,
+    "overlapPercent": 40,
+    "compatibilityStatus": "PARTIAL_MATCH",
+    "safeToExecuteExistingRetry": false,
+    "overlap": [
+      {
+        "universityId": "luther-university-본교",
+        "universityName": "루터대학교"
+      },
+      {
+        "universityId": "sangmyung-university-제2캠퍼",
+        "universityName": "상명대학교 제2캠퍼"
+      },
+      {
+        "universityId": "woosong-university-본교",
+        "universityName": "우송대학교"
+      },
+      {
+        "universityId": "inje-university-본교",
+        "universityName": "인제대학교"
+      }
+    ],
+    "retryOnly": [
+      {
+        "universityId": "dgist",
+        "universityName": "대구경북과학기술원",
+        "failureReason": "NETWORK",
+        "networkSubtype": "ECONNRESET"
+      },
+      {
+        "universityId": "dong-eui-university-본교",
+        "universityName": "동의대학교",
+        "failureReason": "NETWORK",
+        "networkSubtype": "HTTP_5XX"
+      },
+      {
+        "universityId": "sangmyung-university-seoul-본교",
+        "universityName": "상명대학교",
+        "failureReason": "NETWORK",
+        "networkSubtype": "FETCH_FAILED"
+      },
+      {
+        "universityId": "sookmyung-womens-university-본교",
+        "universityName": "숙명여자대학교",
+        "failureReason": "NETWORK",
+        "networkSubtype": "FETCH_FAILED"
+      },
+      {
+        "universityId": "yeungnam-university-gyeongsan",
+        "universityName": "영남대학교 경산캠퍼스",
+        "failureReason": "NETWORK",
+        "networkSubtype": "FETCH_FAILED"
+      },
+      {
+        "universityId": "u1-university-본교",
+        "universityName": "유원대학교",
+        "failureReason": "NETWORK",
+        "networkSubtype": "FETCH_FAILED"
+      }
+    ],
+    "plannerOnly": [
+      {
+        "universityId": "konkuk-university-seoul",
+        "universityName": "건국대학교 서울캠퍼스",
+        "reason": "fetch failed",
+        "failureType": "NETWORK_FETCH"
+      },
+      {
+        "universityId": "kyungwoon-university-본교",
+        "universityName": "경운대학교",
+        "reason": "fetch failed",
+        "failureType": "NETWORK_FETCH"
+      },
+      {
+        "universityId": "mokpo-national-university-본교",
+        "universityName": "국립목포대학교",
+        "reason": "fetch failed",
+        "failureType": "NETWORK_FETCH"
+      },
+      {
+        "universityId": "daeshin-university-본교",
+        "universityName": "대신대학교",
+        "reason": "fetch failed",
+        "failureType": "NETWORK_FETCH"
+      },
+      {
+        "universityId": "hwasung-medi-science-university-본교",
+        "universityName": "화성의과학대학교",
+        "reason": "fetch failed",
+        "failureType": "NETWORK_FETCH"
+      },
+      {
+        "universityId": "changshin-university-본교",
+        "universityName": "창신대학교",
+        "reason": "fetch failed",
+        "failureType": "NETWORK_FETCH"
+      },
+      {
+        "universityId": "keimyung-university-본교",
+        "universityName": "계명대학교",
+        "reason": "fetch failed",
+        "failureType": "NETWORK_FETCH"
+      },
+      {
+        "universityId": "inje-university-제2캠퍼",
+        "universityName": "인제대학교 제2캠퍼",
+        "reason": "fetch failed",
+        "failureType": "NETWORK_FETCH"
+      },
+      {
+        "universityId": "calvin-university-본교",
+        "universityName": "칼빈대학교",
+        "reason": "fetch failed",
+        "failureType": "NETWORK_FETCH"
+      },
+      {
+        "universityId": "jungwon-university-본교",
+        "universityName": "중원대학교",
+        "reason": "fetch failed",
+        "failureType": "NETWORK_FETCH"
+      }
+    ]
+  },
+  "decision": {
+    "executeRetry10Now": false,
+    "ifUnsafe": "기존 retry10을 바로 실행하지 말고 Planner 후보와 onboarding queue의 기준을 연결하는 전용 Safe Pilot Executor를 사용합니다."
+  },
+  "safety": {
+    "readOnly": true,
+    "networkRequests": 0,
+    "queueModified": false,
+    "retryExecuted": false
+  }
+}

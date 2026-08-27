@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-24T00:47:54.013Z",
+  "universityId": "mokpo-national-university-본교",
+  "universityName": "국립목포대학교",
+  "decision": "ENVIRONMENT_WAF_BLOCKED",
+  "previous": {
+    "networkSubtype": null,
+    "networkNextClass": null,
+    "reason": null
+  },
+  "current": {
+    "networkSubtype": "ENVIRONMENT_WAF_BLOCKED",
+    "networkNextClass": "RETRY_IN_DIFFERENT_ENVIRONMENT",
+    "nextAction": "RETRY_IN_DIFFERENT_ENVIRONMENT",
+    "cooldown": true,
+    "retryable": true,
+    "discoveryEligible": false,
+    "localDiscoveryBlocked": true,
+    "reason": "공식 게시판은 존재하지만 현재 로컬 환경에서 국립목포대학교 웹방화벽 정책에 의해 HTML 수집 요청이 차단됩니다."
+  },
+  "evidence": {
+    "tlsCanonicalHost": "www.mokpo.ac.kr",
+    "certificateSubject": "CN=*.mokpo.ac.kr",
+    "certificateSan": [
+      "*.mokpo.ac.kr",
+      "mokpo.ac.kr"
+    ],
+    "httpsCanonicalReachable": true,
+    "httpRedirectsToHttps": true,
+    "wafBlocked": true,
+    "wafMessage": "웹 사이트 필터링 정책에 따라 웹방화벽의 보안정책에 위배되어 차단되었습니다.",
+    "verifiedOfficialBoardPaths": [
+      "/www/308/subview.do",
+      "/www/309/subview.do"
+    ]
+  },
+  "backup": "D:\\hhg(code)\\server\\agent\\backups\\mokpo-national-waf-classification\\20260824004754",
+  "operationalHashesUnchanged": true,
+  "safety": {
+    "sourceModified": false,
+    "catalogModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "deploymentTriggered": false,
+    "gitTriggered": false
+  }
+}

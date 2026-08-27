@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T06:20:38.862Z",
+  "projectStatus": "CRITICAL",
+  "currentIssue": "SOURCE_VALIDATION_ERRORS",
+  "originalStrategy": "CLASSIFY_THEN_PILOT",
+  "latestDecision": "NODE_CA_COMPATIBILITY_DOMINANT",
+  "decisionHistory": [
+    {
+      "stage": "PROJECT_STATE",
+      "result": "CRITICAL"
+    },
+    {
+      "stage": "IMPROVEMENT_PLAN",
+      "result": "CLASSIFY_THEN_PILOT"
+    },
+    {
+      "stage": "SAFE_PILOT",
+      "result": "DO_NOT_EXPAND"
+    },
+    {
+      "stage": "NETWORK_SUBTYPE",
+      "result": "INVESTIGATE_TLS_ENVIRONMENT"
+    },
+    {
+      "stage": "TLS_ENVIRONMENT",
+      "result": "NODE_CA_COMPATIBILITY_DOMINANT"
+    }
+  ],
+  "evidence": {
+    "sourceErrors": 153,
+    "pilotProcessed": 10,
+    "pilotNetworkRecoveryRate": 10,
+    "tlsNodeCaCompatibility": 7,
+    "tlsHostnameMismatch": 1,
+    "networkGroups": [
+      {
+        "subtype": "TLS_CHAIN_ERROR",
+        "nextClass": "TLS_ENVIRONMENT_REVIEW",
+        "autoRetry": false,
+        "count": 7,
+        "universityIds": [
+          "mokpo-national-university-본교",
+          "daeshin-university-본교",
+          "hwasung-medi-science-university-본교",
+          "changshin-university-본교",
+          "keimyung-university-본교",
+          "inje-university-본교",
+          "inje-university-제2캠퍼"
+        ]
+      },
+      {
+        "subtype": "REDIRECT_LOOP",
+        "nextClass": "CANONICAL_URL_RECHECK",
+        "autoRetry": false,
+        "count": 1,
+        "universityIds": [
+          "konkuk-university-seoul"
+        ]
+      },
+      {
+        "subtype": "HTTP_REACHABLE",
+        "nextClass": "DISCOVERY_DIAGNOSIS",
+        "autoRetry": false,
+        "count": 1,
+        "universityIds": [
+          "kyungwoon-university-본교"
+        ]
+      },
+      {
+        "subtype": "TLS_HOSTNAME_MISMATCH",
+        "nextClass": "CANONICAL_URL_RECHECK",
+        "autoRetry": false,
+        "count": 1,
+        "universityIds": [
+          "sangmyung-university-제2캠퍼"
+        ]
+      }
+    ]
+  },
+  "revisedStrategy": {
+    "name": "CAUSE_SPECIFIC_RECOVERY",
+    "summary": "NETWORK_FETCH를 하나의 오류로 처리하지 않고 Node CA, hostname, redirect, discovery 문제로 분리해 각각 다른 복구 전략을 적용한다.",
+    "bulkRetryAllowed": false,
+    "tlsBypassAllowed": false
+  },
+  "nextActions": [
+    {
+      "priority": 1,
+      "code": "NODE_CA_COMPATIBILITY",
+      "status": "OPEN",
+      "targetCount": 7,
+      "autoFixAllowed": false,
+      "requiresHumanReview": true,
+      "recommendedAction": "Node/OpenSSL이 Windows에서 정상 신뢰되는 인증서 체인을 검증하지 못하는 원인을 해결한다. TLS 검증 비활성화는 금지한다.",
+      "successCriteria": [
+        "NODE_TLS_REJECT_UNAUTHORIZED 우회 없이 정상 접속",
+        "Windows/curl과 Node 검증 결과 일치",
+        "기존 TLS_CHAIN_ERROR 대상 재진단 성공"
+      ]
+    },
+    {
+      "priority": 2,
+      "code": "CANONICAL_HOSTNAME_FIX",
+      "status": "OPEN",
+      "targetCount": 1,
+      "autoFixAllowed": false,
+      "requiresHumanReview": true,
+      "recommendedAction": "TLS SAN과 일치하는 공식 canonical hostname을 확인하고 공식 URL 후보를 갱신한다.",
+      "successCriteria": [
+        "TLS_HOSTNAME_MISMATCH 0",
+        "공식 대학 도메인 확인",
+        "리다이렉트 및 공지 탐색 정상"
+      ]
+    },
+    {
+      "priority": 3,
+      "code": "REDIRECT_CANONICAL_URL_RECHECK",
+      "status": "OPEN",
+      "targetCount": 1,
+      "universityIds": [
+        "konkuk-university-seoul"
+      ],
+      "autoFixAllowed": false,
+      "requiresHumanReview": true,
+      "recommendedAction": "redirect loop가 발생하는 공식 홈페이지의 canonical URL 또는 HTTPS/호스트 변형을 확인한다.",
+      "successCriteria": [
+        "redirect loop 제거",
+        "HTTP 정상 응답",
+        "공식 도메인 유지"
+      ]
+    },
+    {
+      "priority": 4,
+      "code": "DISCOVERY_DIAGNOSIS",
+      "status": "OPEN",
+      "targetCount": 1,
+      "universityIds": [
+        "kyungwoon-university-본교"
+      ],
+      "autoFixAllowed": false,
+      "requiresHumanReview": false,
+      "recommendedAction": "네트워크 문제에서 복구된 대학은 NETWORK_FETCH에서 제외하고 공지 후보 탐색 단계로 이동한다.",
+      "successCriteria": [
+        "NETWORK_FETCH 분류 제거",
+        "NO_CANDIDATE 또는 후보 발견으로 재분류",
+        "중복 source 생성 없음"
+      ]
+    },
+    {
+      "priority": 5,
+      "code": "BULK_NETWORK_RETRY_GUARD",
+      "status": "ACTIVE",
+      "autoFixAllowed": false,
+      "requiresHumanReview": false,
+      "recommendedAction": "현재 NETWORK_FETCH 전체 일괄 재시도는 차단한다.",
+      "reason": "Safe Pilot networkRecoveryRate=10%",
+      "successCriteria": [
+        "원인별 복구 전략 수립 전 bulk retry 실행 안 함"
+      ]
+    }
+  ],
+  "autonomousState": {
+    "observed": true,
+    "prioritized": true,
+    "planned": true,
+    "safePilotExecuted": true,
+    "evaluated": true,
+    "strategyRevised": true,
+    "automaticProductionMutation": false
+  },
+  "safety": {
+    "readOnly": true,
+    "tlsVerificationDisabled": false,
+    "bulkRetryBlocked": true,
+    "deploymentTriggered": false
+  }
+}

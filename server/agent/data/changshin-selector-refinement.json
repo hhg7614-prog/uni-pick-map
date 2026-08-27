@@ -1,0 +1,320 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T07:54:29.333Z",
+  "universityId": "changshin-university-본교",
+  "universityName": "창신대학교",
+  "listUrl": "https://www.cs.ac.kr/board/bulletin",
+  "list": {
+    "status": 200,
+    "finalUrl": "https://www.cs.ac.kr/board/bulletin",
+    "rawRows": 4,
+    "postRows": 3
+  },
+  "dateCellPattern": {
+    "byIndex": {
+      "3": 3
+    },
+    "byClass": {
+      "col col5": 3
+    },
+    "bestIndex": {
+      "index": 3,
+      "count": 3
+    },
+    "bestClass": {
+      "className": "col col5",
+      "count": 3
+    }
+  },
+  "rowDiagnostics": [
+    {
+      "title": "2025학년도 창신대학교 요람",
+      "sourceUrl": "https://www.cs.ac.kr/post/14111",
+      "detailKey": "URL:https://www.cs.ac.kr/post/14111",
+      "cells": [
+        {
+          "index": 0,
+          "className": "col col2",
+          "id": null,
+          "text": "3",
+          "date": null
+        },
+        {
+          "index": 1,
+          "className": "col col3",
+          "id": null,
+          "text": "2025학년도 창신대학교 요람",
+          "date": null
+        },
+        {
+          "index": 2,
+          "className": "col col4",
+          "id": null,
+          "text": "교무처",
+          "date": null
+        },
+        {
+          "index": 3,
+          "className": "col col5",
+          "id": null,
+          "text": "2026-06-17",
+          "date": "2026-06-17"
+        }
+      ],
+      "dateCells": [
+        {
+          "index": 3,
+          "className": "col col5",
+          "id": null,
+          "raw": "2026-06-17",
+          "publishedAt": "2026-06-17"
+        }
+      ]
+    },
+    {
+      "title": "2024학년도 창신대학교 요람",
+      "sourceUrl": "https://www.cs.ac.kr/post/14110",
+      "detailKey": "URL:https://www.cs.ac.kr/post/14110",
+      "cells": [
+        {
+          "index": 0,
+          "className": "col col2",
+          "id": null,
+          "text": "2",
+          "date": null
+        },
+        {
+          "index": 1,
+          "className": "col col3",
+          "id": null,
+          "text": "2024학년도 창신대학교 요람",
+          "date": null
+        },
+        {
+          "index": 2,
+          "className": "col col4",
+          "id": null,
+          "text": "교무처",
+          "date": null
+        },
+        {
+          "index": 3,
+          "className": "col col5",
+          "id": null,
+          "text": "2026-06-17",
+          "date": "2026-06-17"
+        }
+      ],
+      "dateCells": [
+        {
+          "index": 3,
+          "className": "col col5",
+          "id": null,
+          "raw": "2026-06-17",
+          "publishedAt": "2026-06-17"
+        }
+      ]
+    },
+    {
+      "title": "2023학년도 창신대학교 요람",
+      "sourceUrl": "https://www.cs.ac.kr/post/14109",
+      "detailKey": "URL:https://www.cs.ac.kr/post/14109",
+      "cells": [
+        {
+          "index": 0,
+          "className": "col col2",
+          "id": null,
+          "text": "1",
+          "date": null
+        },
+        {
+          "index": 1,
+          "className": "col col3",
+          "id": null,
+          "text": "2023학년도 창신대학교 요람",
+          "date": null
+        },
+        {
+          "index": 2,
+          "className": "col col4",
+          "id": null,
+          "text": "교무처",
+          "date": null
+        },
+        {
+          "index": 3,
+          "className": "col col5",
+          "id": null,
+          "text": "2026-06-17",
+          "date": "2026-06-17"
+        }
+      ],
+      "dateCells": [
+        {
+          "index": 3,
+          "className": "col col5",
+          "id": null,
+          "raw": "2026-06-17",
+          "publishedAt": "2026-06-17"
+        }
+      ]
+    }
+  ],
+  "prepared": [
+    {
+      "title": "2025학년도 창신대학교 요람",
+      "sourceUrl": "https://www.cs.ac.kr/post/14111",
+      "detailKey": "URL:https://www.cs.ac.kr/post/14111",
+      "publishedAt": "2026-06-17",
+      "rawDate": "2026-06-17",
+      "dateMethod": "TD_CLASS:col col5",
+      "dateCellIndex": 3
+    },
+    {
+      "title": "2024학년도 창신대학교 요람",
+      "sourceUrl": "https://www.cs.ac.kr/post/14110",
+      "detailKey": "URL:https://www.cs.ac.kr/post/14110",
+      "publishedAt": "2026-06-17",
+      "rawDate": "2026-06-17",
+      "dateMethod": "TD_CLASS:col col5",
+      "dateCellIndex": 3
+    },
+    {
+      "title": "2023학년도 창신대학교 요람",
+      "sourceUrl": "https://www.cs.ac.kr/post/14109",
+      "detailKey": "URL:https://www.cs.ac.kr/post/14109",
+      "publishedAt": "2026-06-17",
+      "rawDate": "2026-06-17",
+      "dateMethod": "TD_CLASS:col col5",
+      "dateCellIndex": 3
+    }
+  ],
+  "extracted": 3,
+  "distinctTitles": 3,
+  "distinctDates": 1,
+  "duplicateUrls": 0,
+  "detailValidation": {
+    "tested": 3,
+    "pass": 3,
+    "titlePass": 3,
+    "datePass": 3,
+    "checks": [
+      {
+        "title": "2025학년도 창신대학교 요람",
+        "sourceUrl": "https://www.cs.ac.kr/post/14111",
+        "detailKey": "URL:https://www.cs.ac.kr/post/14111",
+        "publishedAt": "2026-06-17",
+        "rawDate": "2026-06-17",
+        "dateMethod": "TD_CLASS:col col5",
+        "dateCellIndex": 3,
+        "status": 200,
+        "finalUrl": "https://www.cs.ac.kr/post/14111",
+        "titleMatch": true,
+        "detailDate": {
+          "raw": null,
+          "publishedAt": null,
+          "method": "UNLABELED_DATES",
+          "candidates": [
+            "2026-06-17"
+          ]
+        },
+        "dateMatch": true,
+        "bodyLength": 3011,
+        "pass": true,
+        "reason": null
+      },
+      {
+        "title": "2024학년도 창신대학교 요람",
+        "sourceUrl": "https://www.cs.ac.kr/post/14110",
+        "detailKey": "URL:https://www.cs.ac.kr/post/14110",
+        "publishedAt": "2026-06-17",
+        "rawDate": "2026-06-17",
+        "dateMethod": "TD_CLASS:col col5",
+        "dateCellIndex": 3,
+        "status": 200,
+        "finalUrl": "https://www.cs.ac.kr/post/14110",
+        "titleMatch": true,
+        "detailDate": {
+          "raw": null,
+          "publishedAt": null,
+          "method": "UNLABELED_DATES",
+          "candidates": [
+            "2026-06-17"
+          ]
+        },
+        "dateMatch": true,
+        "bodyLength": 3015,
+        "pass": true,
+        "reason": null
+      },
+      {
+        "title": "2023학년도 창신대학교 요람",
+        "sourceUrl": "https://www.cs.ac.kr/post/14109",
+        "detailKey": "URL:https://www.cs.ac.kr/post/14109",
+        "publishedAt": "2026-06-17",
+        "rawDate": "2026-06-17",
+        "dateMethod": "TD_CLASS:col col5",
+        "dateCellIndex": 3,
+        "status": 200,
+        "finalUrl": "https://www.cs.ac.kr/post/14109",
+        "titleMatch": true,
+        "detailDate": {
+          "raw": null,
+          "publishedAt": null,
+          "method": "UNLABELED_DATES",
+          "candidates": [
+            "2026-06-17"
+          ]
+        },
+        "dateMatch": true,
+        "bodyLength": 3011,
+        "pass": true,
+        "reason": null
+      }
+    ]
+  },
+  "selectors": {
+    "item": "tbody tr",
+    "title": "a[href^='/post/'], a[href*='/post/']",
+    "link": "a[href^='/post/'], a[href*='/post/']",
+    "linkAttribute": "href",
+    "date": "td.col",
+    "selectorStable": true
+  },
+  "decision": "COLLECTOR_READY",
+  "proposedSource": {
+    "id": "changshin-general-feed",
+    "name": "창신대학교 공식 소식",
+    "category": "school_news",
+    "sourceType": "official",
+    "collectionType": "html",
+    "listUrl": "https://www.cs.ac.kr/board/bulletin",
+    "campusScope": "CAMPUS_SPECIFIC",
+    "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+    "selectors": {
+      "item": "tbody tr",
+      "title": "a[href^='/post/'], a[href*='/post/']",
+      "link": "a[href^='/post/'], a[href*='/post/']",
+      "linkAttribute": "href",
+      "date": "td.col",
+      "selectorStable": true
+    },
+    "verified": false,
+    "enabled": false,
+    "status": "collector_ready_pending_activation",
+    "healthStatus": "validated",
+    "autoActivate": false
+  },
+  "nextAction": "VERIFY_CHANGSHIN_ACTIVATION_READY",
+  "requests": 4,
+  "operationalHashUnchanged": true,
+  "safety": {
+    "readOnly": true,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

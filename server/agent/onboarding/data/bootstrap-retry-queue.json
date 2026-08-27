@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-08-10T08:42:15.225Z",
+  "reason": "batch_006_no_candidate_requires_bootstrap",
+  "items": [
+    {
+      "universityId": "gachon-university-medical",
+      "universityName": "가천대학교 메디컬캠퍼스",
+      "retryRequired": true,
+      "bootstrapHomepage": "https://www.gachon.ac.kr/",
+      "priorFinalDecision": "BOOTSTRAP_DISCOVERY_FAILED"
+    },
+    {
+      "universityId": "catholic-kwandong-university-본교",
+      "universityName": "가톨릭관동대학교",
+      "retryRequired": true,
+      "bootstrapHomepage": "https://www.cku.ac.kr/",
+      "priorFinalDecision": "BOOTSTRAP_DISCOVERY_FAILED"
+    },
+    {
+      "universityId": "methodist-theological-university-본교",
+      "universityName": "감리교신학대학교",
+      "retryRequired": true,
+      "bootstrapHomepage": "https://www.mtu.ac.kr/",
+      "priorFinalDecision": "BOOTSTRAP_DISCOVERY_FAILED"
+    },
+    {
+      "universityId": "gangseo-university-본교",
+      "universityName": "강서대학교",
+      "retryRequired": true,
+      "bootstrapHomepage": "https://gangseo.ac.kr/",
+      "priorFinalDecision": "BOOTSTRAP_DISCOVERY_FAILED"
+    },
+    {
+      "universityId": "kangwon-national-university-dogye",
+      "universityName": "강원대학교 도계캠퍼스",
+      "retryRequired": true,
+      "bootstrapHomepage": "https://www.kangwon.ac.kr/",
+      "priorFinalDecision": "BOOTSTRAP_DISCOVERY_FAILED"
+    },
+    {
+      "universityId": "kangwon-national-university-samcheok",
+      "universityName": "강원대학교 삼척캠퍼스",
+      "retryRequired": true,
+      "bootstrapHomepage": "https://www.kangwon.ac.kr/",
+      "priorFinalDecision": "BOOTSTRAP_DISCOVERY_FAILED"
+    },
+    {
+      "universityId": "kyonggi-university-suwon",
+      "universityName": "경기대학교 수원캠퍼스",
+      "retryRequired": true,
+      "bootstrapHomepage": "https://www.kyonggi.ac.kr/",
+      "priorFinalDecision": "BOOTSTRAP_DISCOVERY_FAILED"
+    },
+    {
+      "universityId": "kyonggi-university-제2캠퍼",
+      "universityName": "경기대학교 제2캠퍼",
+      "retryRequired": true,
+      "bootstrapHomepage": "https://www.kyonggi.ac.kr/",
+      "priorFinalDecision": "BOOTSTRAP_DISCOVERY_FAILED"
+    },
+    {
+      "universityId": "gyeongsang-national-university-chilam",
+      "universityName": "경상국립대학교 칠암캠퍼스",
+      "retryRequired": true,
+      "bootstrapHomepage": "https://www.gnu.ac.kr/",
+      "priorFinalDecision": "BOOTSTRAP_DISCOVERY_FAILED"
+    },
+    {
+      "universityId": "gyeongsang-national-university-tongyeong",
+      "universityName": "경상국립대학교 통영캠퍼스",
+      "retryRequired": true,
+      "bootstrapHomepage": "https://www.gnu.ac.kr/",
+      "priorFinalDecision": "BOOTSTRAP_DISCOVERY_FAILED"
+    }
+  ]
+}

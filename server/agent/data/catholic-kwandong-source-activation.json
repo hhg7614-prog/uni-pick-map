@@ -1,0 +1,35 @@
+{
+  "status": "ACTIVATED_LOCAL",
+  "sourceAdded": true,
+  "universityId": "catholic-kwandong-university-본교",
+  "universityName": "가톨릭관동대학교",
+  "source": {
+    "id": "catholic-kwandong-general-feed",
+    "name": "가톨릭관동대학교 공지사항",
+    "listUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/artclList.do",
+    "category": "school_notice",
+    "verified": true,
+    "enabled": true,
+    "status": "verified",
+    "healthStatus": "validated",
+    "campusScope": "CAMPUS_SPECIFIC"
+  },
+  "tests": {
+    "activationReady": true,
+    "collectorUnique": 21,
+    "detailTested": 5,
+    "detailPass": 5,
+    "canonicalListValidated": true
+  },
+  "rollback": false,
+  "hashes": {
+    "catalogChanged": true,
+    "beforeCatalogHash": "ca5efab98aa46d801dbfd01626060813135e488beb4a2f8e177dfdda218121bf",
+    "afterCatalogHash": "1d15412a3f7692fb4520ff81b147969a233a897ef6ba9481de88d76f3a00dc2d"
+  },
+  "backup": "D:\\hhg(code)\\server\\agent\\backups\\catholic-kwandong-source-activation\\20260824133650",
+  "outputFile": "D:\\hhg(code)\\server\\agent\\data\\catholic-kwandong-source-activation.json",
+  "gitTriggered": false,
+  "deploymentTriggered": false,
+  "error": null
+}

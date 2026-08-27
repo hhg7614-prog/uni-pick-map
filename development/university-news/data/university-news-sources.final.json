@@ -392,12 +392,42 @@
           "category": "school_news",
           "sourceType": "official",
           "collectionType": "html",
-          "listUrl": "https://www.khu.ac.kr/",
-          "selectors": {},
-          "verified": false,
-          "enabled": false,
-          "status": "selector_required",
-          "healthStatus": "unknown"
+          "listUrl": "https://www.khu.ac.kr/kor/user/bbs/BMSR00044/list.do?menuNo=200265",
+          "baseUrl": "https://www.khu.ac.kr",
+          "selectors": {
+            "item": "ul.list05.widthImg li.clearfix",
+            "title": "strong.listTit",
+            "link": "a.btn02",
+            "date": "span.date"
+          },
+          "detailSelectors": {
+            "title": "h4.tit02",
+            "date": "span.date"
+          },
+          "officialNames": ["경희대학교"],
+          "jsDetailLinkRule": {
+            "enabled": true,
+            "pattern": "functionCall",
+            "functionName": "view",
+            "argCount": 1,
+            "fixedParams": { "bbsId": "BMSR00044", "menuNo": "200265" },
+            "urlTemplate": "https://www.khu.ac.kr/kor/user/bbs/{bbsId}/view.do?boardId={arg0}&menuNo={menuNo}",
+            "verification": {
+              "method": "manual-curl-get-equivalence",
+              "verifiedAt": "2026-08-27",
+              "sampleRequests": [
+                "https://www.khu.ac.kr/kor/user/bbs/BMSR00044/view.do?boardId=322857&menuNo=200265",
+                "https://www.khu.ac.kr/kor/user/bbs/BMSR00044/view.do?boardId=322793&menuNo=200265",
+                "https://www.khu.ac.kr/kor/user/bbs/BMSR00044/view.do?boardId=322741&menuNo=200265"
+              ],
+              "notes": "e-News 목록(list.do?menuNo=200265) 최신 3건(322857/322793/322741)의 목록 제목·날짜와 상세 페이지(view.do) 제목(h4.tit02)·날짜(span.date)가 모두 일치함을 확인. 이전(신간안내 탭, menuNo=200261) 검증값(argCount=4)은 홈페이지 4-슬롯 위젯 전용 값으로 실제 게시판 목록(1-인자 view(boardId))과 맞지 않아 이번에 1-인자+fixedParams 구조로 교체함."
+            }
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "unknown",
+          "notes": "selectors/jsDetailLinkRule(1-인자+fixedParams)/officialNames 확정, e-News 목록(menuNo=200265) 3건 교차검증(제목·날짜·대학명) 통과. --diagnose 3/3 통과 후 활성화."
         }
       ],
       "searchKeywords": [
@@ -431,10 +461,20 @@
           "collectionType": "html",
           "rssUrl": "",
           "listUrl": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN095",
-          "baseUrl": "https://www.pusan.ac.kr",
-          "selectors": {},
+          "baseUrl": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN095",
+          "selectors": {
+            "item": "table.board-list-table tbody tr",
+            "title": "p.stitle a",
+            "link": "p.stitle a",
+            "date": "td.date"
+          },
+          "detailSelectors": {
+            "title": "h4.vtitle",
+            "date": "span.txt"
+          },
+          "allowTruncatedListTitle": true,
           "verified": true,
-          "enabled": false,
+          "enabled": true,
           "status": "selector_required",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T05:20:00.000Z",
@@ -449,10 +489,19 @@
           "collectionType": "html",
           "rssUrl": "",
           "listUrl": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN114",
-          "baseUrl": "https://www.pusan.ac.kr",
-          "selectors": {},
+          "baseUrl": "https://www.pusan.ac.kr/kor/CMS/Board/Board.do?mCode=MN114",
+          "selectors": {
+            "item": "table.board-list-table tbody tr",
+            "title": "p.stitle a",
+            "link": "p.stitle a",
+            "date": "td.date"
+          },
+          "detailSelectors": {
+            "title": "h4.vtitle",
+            "date": "span.txt"
+          },
           "verified": true,
-          "enabled": false,
+          "enabled": true,
           "status": "selector_required",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T05:20:00.000Z",
@@ -570,9 +619,18 @@
           "rssUrl": "",
           "listUrl": "https://www.knu.ac.kr/wbbs/wbbs/bbs/btin/list.action?bbs_cde=28&menu_idx=202",
           "baseUrl": "https://www.knu.ac.kr",
-          "selectors": {},
+          "selectors": {
+            "item": ".gallery_list li",
+            "title": "dt a",
+            "link": "dt a",
+            "date": "dd.gallery_day_view"
+          },
+          "detailSelectors": {
+            "title": "div.board_view h2",
+            "date": "dd.date"
+          },
           "verified": true,
-          "enabled": false,
+          "enabled": true,
           "status": "selector_required",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T05:32:00.000Z",
@@ -629,13 +687,42 @@
           "rssUrl": "",
           "listUrl": "https://www.jbnu.ac.kr/web/news/plaza/sub01.do",
           "baseUrl": "https://www.jbnu.ac.kr",
-          "selectors": {},
+          "selectors": {
+            "item": "ul.com-brd-list-05 li",
+            "title": "p.title",
+            "link": "a",
+            "linkAttribute": "onclick",
+            "date": "ul.etc-list li",
+            "dateIndex": 1
+          },
+          "detailSelectors": {
+            "title": "h2.title",
+            "date": "ul.etc-list li"
+          },
+          "jsDetailLinkRule": {
+            "enabled": true,
+            "pattern": "functionCall",
+            "functionName": "pf_DetailMove",
+            "argCount": 1,
+            "fixedParams": { "menu": "2382" },
+            "urlTemplate": "https://www.jbnu.ac.kr/web/Board/{arg0}/detailView.do?pageIndex=1&menu={menu}",
+            "verification": {
+              "method": "manual-curl-get-equivalence",
+              "verifiedAt": "2026-08-27",
+              "sampleRequests": [
+                "https://www.jbnu.ac.kr/web/Board/216639/detailView.do?pageIndex=1&menu=2382",
+                "https://www.jbnu.ac.kr/web/Board/216634/detailView.do?pageIndex=1&menu=2382",
+                "https://www.jbnu.ac.kr/web/Board/216605/detailView.do?pageIndex=1&menu=2382"
+              ],
+              "notes": "목록의 onclick=\"pf_DetailMove(id)\" 함수 정의를 역산(action='/web/Board/'+id+'/detailView.do'+pf_getParams('1'), pf_getParams가 menu=2382를 고정 부여)해 GET으로 검증. 3건 목록↔상세 제목·날짜(ul.etc-list li[1]) 일치, '전북대학교' 다수 언급 확인."
+            }
+          },
           "verified": true,
-          "enabled": false,
-          "status": "selector_required",
+          "enabled": true,
+          "status": "verified",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T05:38:00.000Z",
-          "notes": "공식 JBNU News 목록과 개별 상세 페이지 링크 구조를 확인했습니다. HTML 선택자 분석 전에는 수집하지 않습니다."
+          "notes": "selectors/jsDetailLinkRule(pf_DetailMove, 1-인자+fixedParams menu=2382) 확정, 3건 교차검증(제목·날짜·대학명) 통과. officialNames 불필요(본문에 '전북대학교' 그대로 등장)."
         }
       ],
       "searchKeywords": [
@@ -851,10 +938,19 @@
           "collectionType": "html",
           "rssUrl": "",
           "listUrl": "https://www.chungbuk.ac.kr/www/selectBbsNttList.do?bbsNo=14&key=548",
-          "baseUrl": "https://www.chungbuk.ac.kr",
-          "selectors": {},
+          "baseUrl": "https://www.chungbuk.ac.kr/www/selectBbsNttList.do?bbsNo=14&key=548",
+          "selectors": {
+            "item": "li.p-media",
+            "title": "em.p-media__heading-text",
+            "link": "a.p-media__link",
+            "date": "time"
+          },
+          "detailSelectors": {
+            "title": "div.subjectbox"
+          },
+          "allowListDateFallback": true,
           "verified": true,
-          "enabled": false,
+          "enabled": true,
           "status": "selector_required",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T05:51:00.000Z",
@@ -988,17 +1084,20 @@
           "category": "school_news",
           "categoryLabel": "학교 소식",
           "sourceType": "official",
-          "collectionType": "html",
-          "rssUrl": "",
-          "listUrl": "https://www.gnu.ac.kr/main/na/ntt/selectNttList.do?mi=1070",
+          "collectionType": "rss",
+          "rssUrl": "https://www.gnu.ac.kr/main/na/ntt/selectRssFeed.do?mi=1070&bbsId=1021",
+          "listUrl": "https://www.gnu.ac.kr/main/na/ntt/selectNttList.do?mi=1070&bbsId=1021",
           "baseUrl": "https://www.gnu.ac.kr",
-          "selectors": {},
+          "detailSelectors": {
+            "title": "th.title",
+            "date": "table td"
+          },
           "verified": true,
-          "enabled": false,
-          "status": "selector_required",
+          "enabled": true,
+          "status": "verified",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T06:02:00.000Z",
-          "notes": "공식 GNU 뉴스의 보도자료 목록과 개별 상세 페이지 링크 구조를 확인했습니다. HTML 선택자 분석 전에는 수집하지 않습니다."
+          "notes": "기존 listUrl에 bbsId 누락으로 '유효하지 않은 요청' 오류 확인, bbsId=1021로 보정. 정상 동작하는 RSS 피드(selectRssFeed.do) 발견해 collectionType을 rss로 전환 — JS 링크 엔진 불필요. 3건 교차검증(제목·날짜·대학명) 통과. officialNames 불필요(본문에 '경상국립대학교' 그대로 등장)."
         }
       ],
       "searchKeywords": [
@@ -1157,7 +1256,7 @@
             "dateIndex": 3
           },
           "verified": true,
-          "enabled": true,
+          "enabled": false,
           "status": "verified",
           "healthStatus": "unknown",
           "verifiedAt": "2026-08-18T06:28:51.801Z"
@@ -1195,9 +1294,19 @@
           "rssUrl": "",
           "listUrl": "https://www.koreatech.ac.kr/board.es?bid=0036&cg_code=0600000000&mid=a40601000000",
           "baseUrl": "https://www.koreatech.ac.kr",
-          "selectors": {},
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.txt_left a",
+            "link": "td.txt_left a",
+            "date": "td",
+            "dateIndex": 4
+          },
+          "detailSelectors": {
+            "title": "h2.title",
+            "date": "li.date span"
+          },
           "verified": true,
-          "enabled": false,
+          "enabled": true,
           "status": "selector_required",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T06:14:00.000Z",
@@ -1596,9 +1705,18 @@
           "rssUrl": "",
           "listUrl": "https://www.kookmin.ac.kr/user/kmuNews/notice/index.do",
           "baseUrl": "https://www.kookmin.ac.kr",
-          "selectors": {},
+          "selectors": {
+            "item": "div.board_list li",
+            "title": "p.title",
+            "link": "a",
+            "date": "div.board_etc span"
+          },
+          "detailSelectors": {
+            "title": "p.view_tit",
+            "date": "div.board_etc span"
+          },
           "verified": true,
-          "enabled": false,
+          "enabled": true,
           "status": "selector_required",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T07:55:00.000Z",
@@ -1637,9 +1755,19 @@
           "rssUrl": "",
           "listUrl": "https://scatch.ssu.ac.kr/%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/",
           "baseUrl": "https://scatch.ssu.ac.kr",
-          "selectors": {},
+          "selectors": {
+            "item": "ul.notice-lists div.align-items-center",
+            "title": "div.notice_col3 span.m-pt-5",
+            "link": "div.notice_col3 a",
+            "date": "div.notice_col1 div.h2"
+          },
+          "detailSelectors": {
+            "title": "h1.font-weight-light",
+            "date": "div.float-left.mr-4"
+          },
+          "allowListDateFallback": true,
           "verified": true,
-          "enabled": false,
+          "enabled": true,
           "status": "selector_required",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T07:55:00.000Z",
@@ -1796,9 +1924,20 @@
           "rssUrl": "",
           "listUrl": "https://www.gachon.ac.kr/pr/1443/subview.do",
           "baseUrl": "https://www.gachon.ac.kr",
-          "selectors": {},
+          "selectors": {
+            "item": "tr.thumb",
+            "title": "td.td-subject strong",
+            "link": "td.td-subject a",
+            "date": "td.td-date"
+          },
+          "detailSelectors": {
+            "title": "h2.view-title",
+            "date": "dl.modify dd"
+          },
+          "titleCleanupTokens": ["[공통]"],
+          "officialNames": ["가천대학교", "가천대"],
           "verified": true,
-          "enabled": false,
+          "enabled": true,
           "status": "selector_required",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T06:40:00.000Z",
@@ -1837,13 +1976,42 @@
           "rssUrl": "",
           "listUrl": "https://www.dankook.ac.kr/web/kor/-550",
           "baseUrl": "https://www.dankook.ac.kr",
-          "selectors": {},
+          "selectors": {
+            "item": "div.dku-list-body-item",
+            "title": "h4 a",
+            "link": "h4 a",
+            "linkAttribute": "onclick",
+            "date": "p span",
+            "dateIndex": 1
+          },
+          "detailSelectors": {
+            "title": "table.dku-bbs-view_message-inner th",
+            "date": "table.dku-bbs-view_message-inner td"
+          },
+          "officialNames": ["단국대학교"],
+          "jsDetailLinkRule": {
+            "enabled": true,
+            "pattern": "functionCall",
+            "functionName": "_dku_bbs_web_BbsPortlet_viewMessage",
+            "argCount": 3,
+            "urlTemplate": "https://www.dankook.ac.kr/web/kor/-550?p_p_id=dku_bbs_web_BbsPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_dku_bbs_web_BbsPortlet_cur=1&_dku_bbs_web_BbsPortlet_action=view_message&_dku_bbs_web_BbsPortlet_orderBy=createDate&_dku_bbs_web_BbsPortlet_bbsMessageId={arg0}",
+            "verification": {
+              "method": "manual-curl-get-equivalence",
+              "verifiedAt": "2026-08-27",
+              "sampleRequests": [
+                "https://www.dankook.ac.kr/web/kor/-550?p_p_id=dku_bbs_web_BbsPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_dku_bbs_web_BbsPortlet_cur=1&_dku_bbs_web_BbsPortlet_action=view_message&_dku_bbs_web_BbsPortlet_orderBy=createDate&_dku_bbs_web_BbsPortlet_bbsMessageId=181013",
+                "https://www.dankook.ac.kr/web/kor/-550?p_p_id=dku_bbs_web_BbsPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_dku_bbs_web_BbsPortlet_cur=1&_dku_bbs_web_BbsPortlet_action=view_message&_dku_bbs_web_BbsPortlet_orderBy=createDate&_dku_bbs_web_BbsPortlet_bbsMessageId=181012",
+                "https://www.dankook.ac.kr/web/kor/-550?p_p_id=dku_bbs_web_BbsPortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_dku_bbs_web_BbsPortlet_cur=1&_dku_bbs_web_BbsPortlet_action=view_message&_dku_bbs_web_BbsPortlet_orderBy=createDate&_dku_bbs_web_BbsPortlet_bbsMessageId=181119"
+              ],
+              "notes": "onclick 함수 본문이 실제로는 location.href= 대입문(POST 아님)이라 URL 패턴을 완전히 역산해 GET 검증. 비고정(일반) 3건 제목·날짜·'단국대학교' 일치. 주의: 상단 고정('공지' 배지) 게시물은 상세 테이블에 '공지 게시기간' 행이 하나 더 있어 date 선택자가 드물게 그 시작일을 집어올 수 있음(수집 실패는 아니며 경미한 날짜 오차 가능성, 관찰 사례에서는 실제 날짜와 동일)."
+            }
+          },
           "verified": true,
-          "enabled": false,
-          "status": "selector_required",
+          "enabled": true,
+          "status": "verified",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T07:02:00.000Z",
-          "notes": "대학 본부 공식 뉴스 목록입니다. 양 캠퍼스 공통 소식이 포함될 수 있으며, HTML 선택자 분석 전에는 수집하지 않습니다."
+          "notes": "selectors/jsDetailLinkRule/officialNames 확정, 일반(비고정) 3건 교차검증 통과. 고정 공지글 날짜 추출에 경미한 위험 있음(위 jsDetailLinkRule.verification.notes 참고)."
         },
         {
           "id": "dankook-university-general-notice",
@@ -1917,14 +2085,26 @@
           "collectionType": "html",
           "rssUrl": "",
           "listUrl": "https://www.kaist.ac.kr/news/html/news/",
-          "baseUrl": "https://www.kaist.ac.kr",
-          "selectors": {},
+          "baseUrl": "https://www.kaist.ac.kr/news/html/news/",
+          "selectors": {
+            "item": "div.board.col_3 li",
+            "title": "strong.tis",
+            "link": "a.lay",
+            "date": "div.date_box span.date"
+          },
+          "detailSelectors": {
+            "title": "div.prog_tit strong",
+            "date": "div.prog_stit span.date"
+          },
+          "titleCleanupTokens": [
+            "​"
+          ],
           "verified": true,
-          "enabled": false,
-          "status": "selector_required",
+          "enabled": true,
+          "status": "verified",
           "healthStatus": "unknown",
-          "lastCheckedAt": "2026-08-05T07:31:00.000Z",
-          "notes": "KAIST 공식 뉴스 목록에서 게시물 제목과 실제 상세 링크 구조를 확인했습니다. HTML 선택자 분석 전에는 수집하지 않습니다."
+          "lastCheckedAt": "2026-08-25T00:08:14.227Z",
+          "notes": "KAIST 공식 뉴스 목록/상세 HTML 선택자를 읽기 전용으로 검증했습니다(목록 12건 전체 추출 + 상세 기사 3건 제목·날짜 교차 일치 확인). 상세 제목(div.prog_tit strong) 끝에 붙는 zero-width space(U+200B)는 titleCleanupTokens로 제거합니다. baseUrl을 listUrl 경로로 수정하고 run-single-school-trial.js의 상세 제목 비교에 zero-width 정규화를 적용해 --diagnose 3/3 accepted를 확인한 뒤 소스 레벨 enabled=true로 최초 활성화했습니다."
         }
       ],
       "searchKeywords": [
@@ -1958,14 +2138,24 @@
           "collectionType": "html",
           "rssUrl": "",
           "listUrl": "https://www.postech.ac.kr/kor/newscenter/university-news.do?mode=list",
-          "baseUrl": "https://www.postech.ac.kr",
-          "selectors": {},
+          "baseUrl": "https://www.postech.ac.kr/kor/newscenter/university-news.do?mode=list",
+          "selectors": {
+            "item": "div.list_view_wrap li",
+            "title": "p.title",
+            "link": "a",
+            "date": "div.board_status span.date"
+          },
+          "detailSelectors": {
+            "title": "div.head h4",
+            "date": "div.board_status span.date"
+          },
+          "officialNames": ["POSTECH"],
           "verified": true,
-          "enabled": false,
-          "status": "selector_required",
+          "enabled": true,
+          "status": "verified",
           "healthStatus": "unknown",
-          "lastCheckedAt": "2026-08-05T07:27:00.000Z",
-          "notes": "POSTECH 공식 뉴스센터의 실제 보도자료 상세 URL 구조(articleNo, mode=view)를 확인했습니다. 목록 페이지는 이후 HTML 선택자 분석 및 접속 상태 재확인 후에만 수집합니다."
+          "lastCheckedAt": "2026-08-25T01:32:34.880Z",
+          "notes": "POSTECH 공식 뉴스센터 목록/상세 HTML 선택자를 읽기 전용으로 검증했습니다(목록 10건 전체 추출 + 상세 기사 3건 제목·날짜 교차 일치 확인, zero-width 아티팩트 없음). baseUrl을 listUrl과 동일한 경로로 수정해 쿼리 전용 상대링크(?mode=view&articleNo=...)가 올바르게 해석되도록 했습니다. 수집은 enabled=false로 아직 비활성 상태입니다."
         }
       ],
       "searchKeywords": [
@@ -1999,10 +2189,20 @@
           "collectionType": "html",
           "rssUrl": "",
           "listUrl": "https://www.unist.ac.kr/unist/center/news.do",
-          "baseUrl": "https://www.unist.ac.kr",
-          "selectors": {},
+          "baseUrl": "https://www.unist.ac.kr/unist/center/news.do",
+          "selectors": {
+            "item": "div.bn-list-research01 li",
+            "title": "div.b-title-box",
+            "link": "a",
+            "date": "li.b-date"
+          },
+          "detailSelectors": {
+            "title": "p.b-title",
+            "date": "li.b-date-box span"
+          },
+          "officialNames": ["UNIST"],
           "verified": true,
-          "enabled": false,
+          "enabled": true,
           "status": "selector_required",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T07:25:00.000Z",
@@ -2062,10 +2262,20 @@
           "collectionType": "html",
           "rssUrl": "",
           "listUrl": "https://www.pknu.ac.kr/main/53",
-          "baseUrl": "https://www.pknu.ac.kr",
-          "selectors": {},
+          "baseUrl": "https://www.pknu.ac.kr/main/53",
+          "selectors": {
+            "item": "table.brdList tbody tr",
+            "title": "td.bdlTitle a",
+            "link": "td.bdlTitle a",
+            "date": "td.bdlDate"
+          },
+          "detailSelectors": {
+            "title": "td.title_b",
+            "date": "td.text_l"
+          },
+          "officialNames": ["국립부경대학교", "부경대학교"],
           "verified": true,
-          "enabled": false,
+          "enabled": true,
           "status": "selector_required",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T08:10:00.000Z",
@@ -2168,9 +2378,18 @@
           "rssUrl": "",
           "listUrl": "https://www3.chosun.ac.kr/chosun/2607/subview.do",
           "baseUrl": "https://www3.chosun.ac.kr",
-          "selectors": {},
+          "selectors": {
+            "item": "div.type-news.list div.row",
+            "title": "p.subject a",
+            "link": "p.subject a",
+            "date": "p.date"
+          },
+          "detailSelectors": {
+            "title": "p.subject.space strong",
+            "date": "div.info p"
+          },
           "verified": true,
-          "enabled": false,
+          "enabled": true,
           "status": "selector_required",
           "healthStatus": "unknown",
           "lastCheckedAt": "2026-08-05T08:25:00.000Z",
@@ -2198,26 +2417,7 @@
       "enabled": false,
       "verificationStatus": "verified_source_pending_collection",
       "healthStatus": "unknown",
-      "sources": [
-        {
-          "id": "kyungdong-campus4-general-notice",
-          "name": "경동대학교 공식 공통 공지",
-          "category": "school_notice",
-          "categoryLabel": "학교 공지사항",
-          "sourceType": "official",
-          "collectionType": "html",
-          "rssUrl": "",
-          "listUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
-          "baseUrl": "https://www.kduniv.ac.kr",
-          "selectors": {},
-          "verified": true,
-          "enabled": false,
-          "status": "selector_required",
-          "healthStatus": "unknown",
-          "lastCheckedAt": "2026-08-05T08:40:00.000Z",
-          "notes": "경동대학교 공식 공통 공지 목록입니다. 캠퍼스별 독립 출처가 아니라 대학 공통 공지이므로 선택자 분석 전에는 수집하지 않습니다."
-        }
-      ],
+      "sources": [],
       "searchKeywords": [
         "경동대학교 제4캠퍼",
         "경동대학교"
@@ -2239,26 +2439,7 @@
       "enabled": false,
       "verificationStatus": "verified_source_pending_collection",
       "healthStatus": "unknown",
-      "sources": [
-        {
-          "id": "kyungdong-campus3-general-notice",
-          "name": "경동대학교 공식 공통 공지",
-          "category": "school_notice",
-          "categoryLabel": "학교 공지사항",
-          "sourceType": "official",
-          "collectionType": "html",
-          "rssUrl": "",
-          "listUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
-          "baseUrl": "https://www.kduniv.ac.kr",
-          "selectors": {},
-          "verified": true,
-          "enabled": false,
-          "status": "selector_required",
-          "healthStatus": "unknown",
-          "lastCheckedAt": "2026-08-05T08:40:00.000Z",
-          "notes": "경동대학교 공식 공통 공지 목록입니다. 캠퍼스별 독립 출처가 아니라 대학 공통 공지이므로 선택자 분석 전에는 수집하지 않습니다."
-        }
-      ],
+      "sources": [],
       "searchKeywords": [
         "경동대학교 제3캠퍼",
         "경동대학교"
@@ -2280,26 +2461,7 @@
       "enabled": false,
       "verificationStatus": "verified_source_pending_collection",
       "healthStatus": "unknown",
-      "sources": [
-        {
-          "id": "kyungdong-campus2-general-notice",
-          "name": "경동대학교 공식 공통 공지",
-          "category": "school_notice",
-          "categoryLabel": "학교 공지사항",
-          "sourceType": "official",
-          "collectionType": "html",
-          "rssUrl": "",
-          "listUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
-          "baseUrl": "https://www.kduniv.ac.kr",
-          "selectors": {},
-          "verified": true,
-          "enabled": false,
-          "status": "selector_required",
-          "healthStatus": "unknown",
-          "lastCheckedAt": "2026-08-05T08:40:00.000Z",
-          "notes": "경동대학교 공식 공통 공지 목록입니다. 캠퍼스별 독립 출처가 아니라 대학 공통 공지이므로 선택자 분석 전에는 수집하지 않습니다."
-        }
-      ],
+      "sources": [],
       "searchKeywords": [
         "경동대학교 제2캠퍼",
         "경동대학교"
@@ -2323,22 +2485,36 @@
       "healthStatus": "unknown",
       "sources": [
         {
-          "id": "kyungdong-main-general-notice",
-          "name": "경동대학교 공식 공통 공지",
+          "id": "kyungdong-shared-general-notice",
+          "name": "경동대학교 공통 일반공지",
           "category": "school_notice",
-          "categoryLabel": "학교 공지사항",
           "sourceType": "official",
-          "collectionType": "html",
-          "rssUrl": "",
+          "collectionType": "custom_html",
           "listUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
-          "baseUrl": "https://www.kduniv.ac.kr",
-          "selectors": {},
+          "campusScope": "SHARED_SOURCE",
+          "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+          "canonicalOwner": "kyungdong-university-본교",
+          "visibleToCampuses": [
+            "kyungdong-university-본교",
+            "kyungdong-university-제2캠퍼",
+            "kyungdong-university-제3캠퍼",
+            "kyungdong-university-제4캠퍼"
+          ],
+          "duplicateStorage": false,
+          "collectOnce": true,
+          "parser": {
+            "itemStrategy": "CMS_BOARD_TR_WITH_DATE_AND_DETAIL",
+            "itemSelector": "tr",
+            "titleStrategy": "DETAIL_ANCHOR_TITLE",
+            "dateStrategy": "ROW_SINGLE_DATE",
+            "detailStrategy": "CMS_BOARD_DETAIL_ID",
+            "detailIdParameter": "board_seq",
+            "dedupeKey": "BOARD_SEQ"
+          },
           "verified": true,
-          "enabled": false,
-          "status": "selector_required",
-          "healthStatus": "unknown",
-          "lastCheckedAt": "2026-08-05T08:40:00.000Z",
-          "notes": "경동대학교 공식 공통 공지 목록입니다. 캠퍼스별 독립 출처가 아니라 대학 공통 공지이므로 선택자 분석 전에는 수집하지 않습니다."
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "validated"
         }
       ],
       "searchKeywords": [
@@ -2455,7 +2631,37 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "konyang-university-direct-verified-notice",
+          "name": "건양대학교 공지사항",
+          "category": "school_notice",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.konyang.ac.kr/cop/bbs/BBSMSTR_000000000585/selectBoardList.do",
+          "baseUrl": "https://www.konyang.ac.kr",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.left .list_subject a",
+            "link": "td.left .list_subject a",
+            "linkAttribute": "href",
+            "date": "td.date"
+          },
+          "officialNames": [
+            "건양대학교"
+          ],
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "validated",
+          "verifiedAt": "2026-08-24T04:53:17.012Z",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "canonicalOwner": "konyang-university-본교",
+          "collectOnce": false,
+          "duplicateStorage": false,
+          "notes": "UNI PICK 통합 자동 검증: 공식 도메인, 목록/상세 링크, 날짜, 중복 키를 확인한 direct verified source입니다."
+        }
+      ],
       "searchKeywords": [
         "건양대학교",
         "건양대학교"
@@ -2656,7 +2862,37 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "the-catholic-university-of-korea-direct-verified-notice",
+          "name": "가톨릭대학교 공지사항",
+          "category": "school_notice",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.catholic.ac.kr/ko/campuslife/notice.do?mode=list&srCategoryId=21",
+          "baseUrl": "https://www.catholic.ac.kr",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.b-td-title a.b-title",
+            "link": "td.b-td-title a.b-title",
+            "linkAttribute": "href",
+            "date": "td.b-td-title .b-date"
+          },
+          "officialNames": [
+            "가톨릭대학교"
+          ],
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "validated",
+          "verifiedAt": "2026-08-24T04:53:12.894Z",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "canonicalOwner": "the-catholic-university-of-korea-본교",
+          "collectOnce": false,
+          "duplicateStorage": false,
+          "notes": "UNI PICK 통합 자동 검증: 공식 도메인, 목록/상세 링크, 날짜, 중복 키를 확인한 direct verified source입니다."
+        }
+      ],
       "searchKeywords": [
         "가톨릭대학교",
         "가톨릭대학교"
@@ -2678,7 +2914,34 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "catholic-kwandong-general-feed",
+          "name": "가톨릭관동대학교 공지사항",
+          "category": "school_notice",
+          "sourceType": "official",
+          "collectionType": "custom_html",
+          "listUrl": "https://www.cku.ac.kr/bbs/cku_kr/1202/artclList.do",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+          "canonicalOwner": "catholic-kwandong-university-본교",
+          "duplicateStorage": false,
+          "collectOnce": false,
+          "parser": {
+            "itemStrategy": "CKU_BOARD_TR_WITH_ARTICLE_DETAIL",
+            "itemSelector": "tr",
+            "titleStrategy": "ARTCL_VIEW_ANCHOR",
+            "dateStrategy": "ROW_DATE",
+            "detailStrategy": "CKU_ARTCL_VIEW",
+            "detailIdParameter": "ARTICLE_ID",
+            "dedupeKey": "ARTICLE_ID"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "validated"
+        }
+      ],
       "searchKeywords": [
         "가톨릭관동대학교",
         "가톨릭관동대학교"
@@ -3133,7 +3396,29 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "keimyung-academic-notice",
+          "name": "계명대학교 학사공지",
+          "category": "school_notice",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=144",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.subject a[href*='cmd=2'][href*='parm_bod_uid='][href*='mnu_uid=144']",
+            "link": "td.subject a[href*='cmd=2'][href*='parm_bod_uid='][href*='mnu_uid=144']",
+            "linkAttribute": "href",
+            "date": "td.date"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "validated",
+          "verifiedAt": "2026-08-21T07:22:10.363Z",
+          "campusScope": "CAMPUS_SPECIFIC"
+        }
+      ],
       "searchKeywords": [
         "계명대학교",
         "계명대학교"
@@ -3199,7 +3484,37 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "gyeongin-national-university-of-education-direct-verified-news",
+          "name": "경인교육대학교 대학소식",
+          "category": "school_news",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.ginue.ac.kr/kor/CMS/Board/Board.do?mCode=MN124",
+          "baseUrl": "https://www.ginue.ac.kr",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.subject a",
+            "link": "td.subject a",
+            "linkAttribute": "href",
+            "date": "td.date"
+          },
+          "officialNames": [
+            "경인교육대학교"
+          ],
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "validated",
+          "verifiedAt": "2026-08-24T04:53:18.134Z",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "canonicalOwner": "gyeongin-national-university-of-education-본교",
+          "collectOnce": false,
+          "duplicateStorage": false,
+          "notes": "UNI PICK 통합 자동 검증: 공식 도메인, 목록/상세 링크, 날짜, 중복 키를 확인한 direct verified source입니다."
+        }
+      ],
       "searchKeywords": [
         "경인교육대학교",
         "경인교육대학교"
@@ -3221,7 +3536,33 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "kyungwoon-admission-general-feed",
+          "name": "경운대학교 입학·모집 소식",
+          "category": "school_news",
+          "sourceType": "official",
+          "collectionType": "custom_html",
+          "listUrl": "https://www.ikw.ac.kr/ipsi/board/list.tc?mn=2415&mngNo=12&categoryNo=48&pageSeq=1608&protocol=http",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+          "parser": {
+            "item": "tbody tr",
+            "titleStrategy": "A_TIT_TEXT",
+            "titleSelector": "a.tit",
+            "dateStrategy": "DIV_ADD_FIRST_SPAN",
+            "detailStrategy": "SELECT_BOARD_DETAIL",
+            "detailIdRegex": "selectBoardDetail\\s*\\(\\s*['\"](\\d+)['\"]\\s*\\)",
+            "detailUrlTemplate": "https://www.ikw.ac.kr/ipsi/board/detail.tc?mn=2415&mngNo=12&pageSeq=1608&boardNo={id}",
+            "dedupeKey": "BOARD_NO"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "validated",
+          "verifiedAt": "2026-08-24T00:17:56.984Z"
+        }
+      ],
       "searchKeywords": [
         "경운대학교",
         "경운대학교"
@@ -3243,7 +3584,37 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "kyungsung-university-direct-verified-news",
+          "name": "경성대학교 대학소식",
+          "category": "school_news",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://kscms.ks.ac.kr/welcome/CMS/Board/Board.do?mCode=MN027",
+          "baseUrl": "https://kscms.ks.ac.kr",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.subject a",
+            "link": "td.subject a",
+            "linkAttribute": "href",
+            "date": "td.date"
+          },
+          "officialNames": [
+            "경성대학교"
+          ],
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "validated",
+          "verifiedAt": "2026-08-25T01:02:26.527Z",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "canonicalOwner": "kyungsung-university-본교",
+          "collectOnce": false,
+          "duplicateStorage": false,
+          "notes": "UNI PICK 통합 자동 검증: 공식 도메인, 목록/상세 링크, 날짜, 중복 키를 확인한 direct verified source입니다."
+        }
+      ],
       "searchKeywords": [
         "경성대학교",
         "경성대학교"
@@ -4252,7 +4623,34 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "daeshin-general-feed",
+          "name": "대신대학교 대신뉴스",
+          "category": "school_news",
+          "sourceType": "official",
+          "collectionType": "custom_html",
+          "listUrl": "https://www.daeshin.ac.kr/html/05_community/01_6.php",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+          "parser": {
+            "itemStrategy": "TR_WITH_TITLE_AND_DATE",
+            "itemSelector": "tr",
+            "titleStrategy": "TD_TITLE_ANCHOR",
+            "titleSelector": "td.Title a",
+            "dateStrategy": "TD_DATE",
+            "dateSelector": "td.Date",
+            "detailStrategy": "AT_V_B_ID",
+            "detailIdParameter": "b_id",
+            "dedupeKey": "B_ID"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "validated",
+          "verifiedAt": "2026-08-24T01:40:41.509Z"
+        }
+      ],
       "searchKeywords": [
         "대신대학교",
         "대신대학교"
@@ -4625,7 +5023,35 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "sangmyung-cheonan-general-feed",
+          "name": "상명대학교 천안캠퍼스 공식 소식",
+          "category": "school_news",
+          "sourceType": "official",
+          "collectionType": "custom_html",
+          "listUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=list&srCampus=smuc",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+          "campusFilter": {
+            "parameter": "srCampus",
+            "value": "smuc"
+          },
+          "parser": {
+            "itemStrategy": "DL_BOARD_THUMB_CONTENT_WRAP",
+            "itemSelector": "dl.board-thumb-content-wrap",
+            "titleStrategy": "LONGEST_NON_CATEGORY_VIEW_ANCHOR",
+            "detailStrategy": "MODE_VIEW_ARTICLE_NO",
+            "dateStrategy": "UNIQUE_VISIBLE_DATE_IN_DL",
+            "dedupeKey": "ARTICLE_NO"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "validated",
+          "verifiedAt": "2026-08-24T00:28:58.671Z"
+        }
+      ],
       "searchKeywords": [
         "상명대학교 제2캠퍼",
         "상명대학교"
@@ -5355,7 +5781,42 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "inje-shared-general-feed",
+          "name": "인제대학교 공통 소식",
+          "category": "school_news",
+          "sourceType": "official",
+          "collectionType": "custom_html",
+          "listUrl": "https://scsc.inje.ac.kr/scsc/community/news.do?mode=list",
+          "campusScope": "SHARED_SOURCE",
+          "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+          "canonicalOwner": "inje-university-본교",
+          "visibleToCampuses": [
+            "inje-university-본교",
+            "inje-university-제2캠퍼"
+          ],
+          "duplicateStorage": false,
+          "collectOnce": true,
+          "parser": {
+            "itemStrategy": "BOARD_TABLE_TR_WITH_ARTICLE_NO",
+            "itemSelector": "table.board-table tbody tr",
+            "titleStrategy": "B_TD_TITLE_ANCHOR",
+            "titleSelector": "td.b-td-title a",
+            "dateStrategy": "ROW_DATE_CELL_WITH_MOBILE_FALLBACK",
+            "dateSelector": "td:nth-of-type(4)",
+            "mobileDateSelector": "span.b-date",
+            "detailStrategy": "MODE_VIEW_ARTICLE_NO",
+            "detailIdParameter": "articleNo",
+            "dedupeKey": "ARTICLE_NO"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "validated",
+          "verifiedAt": "2026-08-24T02:10:03.346Z"
+        }
+      ],
       "searchKeywords": [
         "인제대학교",
         "인제대학교"
@@ -5891,7 +6352,30 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "changshin-general-feed",
+          "name": "창신대학교 공식 소식",
+          "category": "school_news",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.cs.ac.kr/board/bulletin",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "a[href^='/post/'], a[href*='/post/']",
+            "link": "a[href^='/post/'], a[href*='/post/']",
+            "linkAttribute": "href",
+            "date": "td.col.col5"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "validated",
+          "verifiedAt": "2026-08-21T07:58:03.601Z"
+        }
+      ],
       "searchKeywords": [
         "창신대학교",
         "창신대학교"
@@ -6415,7 +6899,33 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "hwasung-medi-science-general-feed",
+          "name": "화성의과학대학교 공식 소식",
+          "category": "school_news",
+          "sourceType": "official",
+          "collectionType": "custom_html",
+          "listUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+          "campusScope": "CAMPUS_SPECIFIC",
+          "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+          "parser": {
+            "item": "tbody tr",
+            "structure": "TR",
+            "titleStrategy": "TITLE_ATTRIBUTE_OR_LONGEST_ANCHOR_TEXT",
+            "dateStrategy": "VISIBLE_DATE_IN_ROW",
+            "detailStrategy": "FN_GOVIEW_ID_TO_QUERY",
+            "detailFunction": "fn_goView",
+            "detailIdRegex": "fn_goView\\s*\\(\\s*[\"']?(\\d{2,})[\"']?",
+            "detailUrlTemplate": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do?idx={id}"
+          },
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
+          "healthStatus": "validated",
+          "verifiedAt": "2026-08-21T07:49:41.161Z"
+        }
+      ],
       "searchKeywords": [
         "화성의과학대학교",
         "화성의과학대학교"

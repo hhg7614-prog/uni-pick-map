@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "0.1",
+  "updatedAt": "2026-08-26T02:33:23.175Z",
+  "agent": {
+    "name": "UNI PICK Autonomous Agent",
+    "mode": "THINK_ONLY",
+    "autonomyLevel": 1,
+    "status": "IDLE"
+  },
+  "currentTask": null,
+  "observations": [],
+  "facts": [],
+  "assumptions": [],
+  "blockers": [],
+  "completedActions": [],
+  "pendingActions": [],
+  "safety": {
+    "allowFileRead": true,
+    "allowFileWrite": false,
+    "allowNetwork": false,
+    "allowGit": false,
+    "allowDeploy": false,
+    "allowProductionMutation": false
+  }
+}

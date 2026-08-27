@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-24T02:39:55.898Z",
+  "status": "NEXT_BATCH_READY",
+  "previousPilot": {
+    "status": "PILOT_COMPLETE",
+    "processed": 10,
+    "resolved": 9,
+    "environmentBlocked": 1
+  },
+  "batchSizeRequested": 10,
+  "batchSizeSelected": 10,
+  "totalCatalogUniversities": 247,
+  "totalEligibleCandidates": 214,
+  "skippedCounts": {
+    "directVerified": 31,
+    "sharedVisible": 1,
+    "environmentBlocked": 1,
+    "invalidUniversity": 0
+  },
+  "batch": [
+    {
+      "order": 1,
+      "universityId": "kyungdong-university-본교",
+      "universityName": "경동대학교",
+      "homepage": null,
+      "existingSourceCount": 1,
+      "unverifiedSourceCount": 1,
+      "score": 25,
+      "previousPilotState": null,
+      "initialAction": "RUN_SAFE_DISCOVERY"
+    },
+    {
+      "order": 2,
+      "universityId": "kaya-university-본교",
+      "universityName": "가야대학교(김해)",
+      "homepage": null,
+      "existingSourceCount": 0,
+      "unverifiedSourceCount": 0,
+      "score": 20,
+      "previousPilotState": null,
+      "initialAction": "RUN_SAFE_DISCOVERY"
+    },
+    {
+      "order": 3,
+      "universityId": "catholic-kwandong-university-본교",
+      "universityName": "가톨릭관동대학교",
+      "homepage": null,
+      "existingSourceCount": 0,
+      "unverifiedSourceCount": 0,
+      "score": 20,
+      "previousPilotState": null,
+      "initialAction": "RUN_SAFE_DISCOVERY"
+    },
+    {
+      "order": 4,
+      "universityId": "the-catholic-university-of-korea-본교",
+      "universityName": "가톨릭대학교",
+      "homepage": null,
+      "existingSourceCount": 0,
+      "unverifiedSourceCount": 0,
+      "score": 20,
+      "previousPilotState": null,
+      "initialAction": "RUN_SAFE_DISCOVERY"
+    },
+    {
+      "order": 5,
+      "universityId": "kangnam-university-본교",
+      "universityName": "강남대학교",
+      "homepage": null,
+      "existingSourceCount": 0,
+      "unverifiedSourceCount": 0,
+      "score": 20,
+      "previousPilotState": null,
+      "initialAction": "RUN_SAFE_DISCOVERY"
+    },
+    {
+      "order": 6,
+      "universityId": "gangseo-university-본교",
+      "universityName": "강서대학교",
+      "homepage": null,
+      "existingSourceCount": 0,
+      "unverifiedSourceCount": 0,
+      "score": 20,
+      "previousPilotState": null,
+      "initialAction": "RUN_SAFE_DISCOVERY"
+    },
+    {
+      "order": 7,
+      "universityId": "konyang-university-본교",
+      "universityName": "건양대학교",
+      "homepage": null,
+      "existingSourceCount": 0,
+      "unverifiedSourceCount": 0,
+      "score": 20,
+      "previousPilotState": null,
+      "initialAction": "RUN_SAFE_DISCOVERY"
+    },
+    {
+      "order": 8,
+      "universityId": "kyungsung-university-본교",
+      "universityName": "경성대학교",
+      "homepage": null,
+      "existingSourceCount": 0,
+      "unverifiedSourceCount": 0,
+      "score": 20,
+      "previousPilotState": null,
+      "initialAction": "RUN_SAFE_DISCOVERY"
+    },
+    {
+      "order": 9,
+      "universityId": "gyeongin-national-university-of-education-본교",
+      "universityName": "경인교육대학교",
+      "homepage": null,
+      "existingSourceCount": 0,
+      "unverifiedSourceCount": 0,
+      "score": 20,
+      "previousPilotState": null,
+      "initialAction": "RUN_SAFE_DISCOVERY"
+    },
+    {
+      "order": 10,
+      "universityId": "kyungil-university-본교",
+      "universityName": "경일대학교",
+      "homepage": null,
+      "existingSourceCount": 0,
+      "unverifiedSourceCount": 0,
+      "score": 20,
+      "previousPilotState": null,
+      "initialAction": "RUN_SAFE_DISCOVERY"
+    }
+  ],
+  "deferredEnvironmentBlocked": [
+    {
+      "universityId": "mokpo-national-university-본교",
+      "universityName": "국립목포대학교",
+      "reason": "공식 게시판은 존재하지만 현재 로컬 환경에서 국립목포대학교 웹방화벽 정책에 의해 HTML 수집 요청이 차단됩니다.",
+      "networkSubtype": "ENVIRONMENT_WAF_BLOCKED",
+      "nextAction": "RETRY_IN_DIFFERENT_ENVIRONMENT"
+    }
+  ],
+  "nextAction": "RUN_NEXT_BATCH_SAFE_DISCOVERY",
+  "selectionPolicy": {
+    "verifiedEnabledExcluded": true,
+    "sharedVisibleExcluded": true,
+    "environmentWafBlockedDeferred": true,
+    "batchSize": 10,
+    "productionMutation": false
+  },
+  "safety": {
+    "readOnly": true,
+    "networkRequests": 0,
+    "sourceModified": false,
+    "catalogModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

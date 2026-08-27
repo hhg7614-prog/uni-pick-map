@@ -1,0 +1,462 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T07:40:26.440Z",
+  "universityId": "hwasung-medi-science-university-본교",
+  "universityName": "화성의과학대학교",
+  "policy": {
+    "exactNoticeCategoryRequired": false,
+    "similarOfficialUniversityUpdateAllowed": true,
+    "minimumUsablePosts": 3,
+    "titleDateSameContainerRequired": true,
+    "detailUrlOrIdRequired": true
+  },
+  "candidateCount": 8,
+  "testedCount": 1,
+  "validations": [
+    {
+      "label": "이사회 회의공지",
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+      "status": 200,
+      "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+      "bytes": 50259,
+      "decision": "PASS",
+      "score": 130,
+      "reasons": [
+        "HTTP_200",
+        "OFFICIAL_DOMAIN",
+        "POSTS_3_PLUS",
+        "POSTS_5_PLUS",
+        "DATE_VARIETY",
+        "TITLE_VARIETY",
+        "STABLE_STRUCTURE:TR",
+        "NO_DUPLICATE_KEYS"
+      ],
+      "totalContainers": 149,
+      "postCount": 10,
+      "uniquePostCount": 10,
+      "usablePostCount": 10,
+      "duplicateKeys": 0,
+      "distinctDateCount": 10,
+      "distinctTitleCount": 10,
+      "bestStructure": {
+        "type": "TR",
+        "count": 10
+      },
+      "samples": [
+        {
+          "structure": "TR",
+          "title": "2026년 제2회 이사회 개최 알림(2026.5.22.)",
+          "date": {
+            "raw": "2026.5.22",
+            "publishedAt": "2026-05-22"
+          },
+          "dateCount": 2,
+          "detailUrl": null,
+          "detailMethod": "ONCLICK_OR_DATA_ID",
+          "detailKey": "ID:3441",
+          "numericIds": [
+            "3441"
+          ],
+          "clickableCount": 1,
+          "sampleText": "12 2026년 제2회 이사회 개최 알림(2026.5.22.) 신경학원 2026-05-14 18"
+        },
+        {
+          "structure": "TR",
+          "title": "2026년 제1회 이사회 개최 알림(2026.2.12.)",
+          "date": {
+            "raw": "2026.2.12",
+            "publishedAt": "2026-02-12"
+          },
+          "dateCount": 2,
+          "detailUrl": null,
+          "detailMethod": "ONCLICK_OR_DATA_ID",
+          "detailKey": "ID:3181",
+          "numericIds": [
+            "3181"
+          ],
+          "clickableCount": 1,
+          "sampleText": "11 2026년 제1회 이사회 개최 알림(2026.2.12.) 신경학원 2026-02-04 56"
+        },
+        {
+          "structure": "TR",
+          "title": "2025년 제7회 이사회 개최 알림(2025.10.30.)",
+          "date": {
+            "raw": "2025.10.30",
+            "publishedAt": "2025-10-30"
+          },
+          "dateCount": 2,
+          "detailUrl": null,
+          "detailMethod": "ONCLICK_OR_DATA_ID",
+          "detailKey": "ID:2853",
+          "numericIds": [
+            "2853"
+          ],
+          "clickableCount": 1,
+          "sampleText": "10 2025년 제7회 이사회 개최 알림(2025.10.30.) 신경학원 2025-10-22 80"
+        },
+        {
+          "structure": "TR",
+          "title": "2025년 제6회 이사회 개최 알림(2025.8.25.)",
+          "date": {
+            "raw": "2025.8.25",
+            "publishedAt": "2025-08-25"
+          },
+          "dateCount": 2,
+          "detailUrl": null,
+          "detailMethod": "ONCLICK_OR_DATA_ID",
+          "detailKey": "ID:2630",
+          "numericIds": [
+            "2630"
+          ],
+          "clickableCount": 1,
+          "sampleText": "9 2025년 제6회 이사회 개최 알림(2025.8.25.) 신경학원 2025-08-14 84"
+        },
+        {
+          "structure": "TR",
+          "title": "2025년 제5회 이사회 개최 알림(2025.6.26.)",
+          "date": {
+            "raw": "2025.6.26",
+            "publishedAt": "2025-06-26"
+          },
+          "dateCount": 2,
+          "detailUrl": null,
+          "detailMethod": "ONCLICK_OR_DATA_ID",
+          "detailKey": "ID:2379",
+          "numericIds": [
+            "2379"
+          ],
+          "clickableCount": 1,
+          "sampleText": "8 2025년 제5회 이사회 개최 알림(2025.6.26.) 신경학원 2025-06-18 83"
+        },
+        {
+          "structure": "TR",
+          "title": "2025년 제4회 이사회 개최 알림(2025.5.29.)",
+          "date": {
+            "raw": "2025.5.29",
+            "publishedAt": "2025-05-29"
+          },
+          "dateCount": 2,
+          "detailUrl": null,
+          "detailMethod": "ONCLICK_OR_DATA_ID",
+          "detailKey": "ID:2226",
+          "numericIds": [
+            "2226"
+          ],
+          "clickableCount": 1,
+          "sampleText": "7 2025년 제4회 이사회 개최 알림(2025.5.29.) 신경학원 2025-05-21 74"
+        },
+        {
+          "structure": "TR",
+          "title": "2025년 제3회 이사회 개최 알림(2025.5.2.)",
+          "date": {
+            "raw": "2025.5.2",
+            "publishedAt": "2025-05-02"
+          },
+          "dateCount": 2,
+          "detailUrl": null,
+          "detailMethod": "ONCLICK_OR_DATA_ID",
+          "detailKey": "ID:2107",
+          "numericIds": [
+            "2107"
+          ],
+          "clickableCount": 1,
+          "sampleText": "6 2025년 제3회 이사회 개최 알림(2025.5.2.) 신경학원 2025-04-24 79"
+        },
+        {
+          "structure": "TR",
+          "title": "2025년 제2회 이사회 개최 알림(2025.3.18.)",
+          "date": {
+            "raw": "2025.3.18",
+            "publishedAt": "2025-03-18"
+          },
+          "dateCount": 2,
+          "detailUrl": null,
+          "detailMethod": "ONCLICK_OR_DATA_ID",
+          "detailKey": "ID:1924",
+          "numericIds": [
+            "1924"
+          ],
+          "clickableCount": 1,
+          "sampleText": "5 2025년 제2회 이사회 개최 알림(2025.3.18.) 신경학원 2025-03-10 91"
+        },
+        {
+          "structure": "TR",
+          "title": "2025년 제1회 이사회 개최 알림(2025.2.19.)",
+          "date": {
+            "raw": "2025.2.19",
+            "publishedAt": "2025-02-19"
+          },
+          "dateCount": 2,
+          "detailUrl": null,
+          "detailMethod": "ONCLICK_OR_DATA_ID",
+          "detailKey": "ID:1815",
+          "numericIds": [
+            "1815"
+          ],
+          "clickableCount": 1,
+          "sampleText": "4 2025년 제1회 이사회 개최 알림(2025.2.19.) 신경학원 2025-02-11 92"
+        },
+        {
+          "structure": "TR",
+          "title": "2024년 제8회 이사회 개최 알림(2024.12.27.)",
+          "date": {
+            "raw": "2024.12.27",
+            "publishedAt": "2024-12-27"
+          },
+          "dateCount": 2,
+          "detailUrl": null,
+          "detailMethod": "ONCLICK_OR_DATA_ID",
+          "detailKey": "ID:1587",
+          "numericIds": [
+            "1587"
+          ],
+          "clickableCount": 1,
+          "sampleText": "3 2024년 제8회 이사회 개최 알림(2024.12.27.) 신경학원 2024-12-20 80"
+        }
+      ]
+    }
+  ],
+  "bestCandidate": {
+    "label": "이사회 회의공지",
+    "url": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+    "status": 200,
+    "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+    "bytes": 50259,
+    "decision": "PASS",
+    "score": 130,
+    "reasons": [
+      "HTTP_200",
+      "OFFICIAL_DOMAIN",
+      "POSTS_3_PLUS",
+      "POSTS_5_PLUS",
+      "DATE_VARIETY",
+      "TITLE_VARIETY",
+      "STABLE_STRUCTURE:TR",
+      "NO_DUPLICATE_KEYS"
+    ],
+    "totalContainers": 149,
+    "postCount": 10,
+    "uniquePostCount": 10,
+    "usablePostCount": 10,
+    "duplicateKeys": 0,
+    "distinctDateCount": 10,
+    "distinctTitleCount": 10,
+    "bestStructure": {
+      "type": "TR",
+      "count": 10
+    },
+    "samples": [
+      {
+        "structure": "TR",
+        "title": "2026년 제2회 이사회 개최 알림(2026.5.22.)",
+        "date": {
+          "raw": "2026.5.22",
+          "publishedAt": "2026-05-22"
+        },
+        "dateCount": 2,
+        "detailUrl": null,
+        "detailMethod": "ONCLICK_OR_DATA_ID",
+        "detailKey": "ID:3441",
+        "numericIds": [
+          "3441"
+        ],
+        "clickableCount": 1,
+        "sampleText": "12 2026년 제2회 이사회 개최 알림(2026.5.22.) 신경학원 2026-05-14 18"
+      },
+      {
+        "structure": "TR",
+        "title": "2026년 제1회 이사회 개최 알림(2026.2.12.)",
+        "date": {
+          "raw": "2026.2.12",
+          "publishedAt": "2026-02-12"
+        },
+        "dateCount": 2,
+        "detailUrl": null,
+        "detailMethod": "ONCLICK_OR_DATA_ID",
+        "detailKey": "ID:3181",
+        "numericIds": [
+          "3181"
+        ],
+        "clickableCount": 1,
+        "sampleText": "11 2026년 제1회 이사회 개최 알림(2026.2.12.) 신경학원 2026-02-04 56"
+      },
+      {
+        "structure": "TR",
+        "title": "2025년 제7회 이사회 개최 알림(2025.10.30.)",
+        "date": {
+          "raw": "2025.10.30",
+          "publishedAt": "2025-10-30"
+        },
+        "dateCount": 2,
+        "detailUrl": null,
+        "detailMethod": "ONCLICK_OR_DATA_ID",
+        "detailKey": "ID:2853",
+        "numericIds": [
+          "2853"
+        ],
+        "clickableCount": 1,
+        "sampleText": "10 2025년 제7회 이사회 개최 알림(2025.10.30.) 신경학원 2025-10-22 80"
+      },
+      {
+        "structure": "TR",
+        "title": "2025년 제6회 이사회 개최 알림(2025.8.25.)",
+        "date": {
+          "raw": "2025.8.25",
+          "publishedAt": "2025-08-25"
+        },
+        "dateCount": 2,
+        "detailUrl": null,
+        "detailMethod": "ONCLICK_OR_DATA_ID",
+        "detailKey": "ID:2630",
+        "numericIds": [
+          "2630"
+        ],
+        "clickableCount": 1,
+        "sampleText": "9 2025년 제6회 이사회 개최 알림(2025.8.25.) 신경학원 2025-08-14 84"
+      },
+      {
+        "structure": "TR",
+        "title": "2025년 제5회 이사회 개최 알림(2025.6.26.)",
+        "date": {
+          "raw": "2025.6.26",
+          "publishedAt": "2025-06-26"
+        },
+        "dateCount": 2,
+        "detailUrl": null,
+        "detailMethod": "ONCLICK_OR_DATA_ID",
+        "detailKey": "ID:2379",
+        "numericIds": [
+          "2379"
+        ],
+        "clickableCount": 1,
+        "sampleText": "8 2025년 제5회 이사회 개최 알림(2025.6.26.) 신경학원 2025-06-18 83"
+      },
+      {
+        "structure": "TR",
+        "title": "2025년 제4회 이사회 개최 알림(2025.5.29.)",
+        "date": {
+          "raw": "2025.5.29",
+          "publishedAt": "2025-05-29"
+        },
+        "dateCount": 2,
+        "detailUrl": null,
+        "detailMethod": "ONCLICK_OR_DATA_ID",
+        "detailKey": "ID:2226",
+        "numericIds": [
+          "2226"
+        ],
+        "clickableCount": 1,
+        "sampleText": "7 2025년 제4회 이사회 개최 알림(2025.5.29.) 신경학원 2025-05-21 74"
+      },
+      {
+        "structure": "TR",
+        "title": "2025년 제3회 이사회 개최 알림(2025.5.2.)",
+        "date": {
+          "raw": "2025.5.2",
+          "publishedAt": "2025-05-02"
+        },
+        "dateCount": 2,
+        "detailUrl": null,
+        "detailMethod": "ONCLICK_OR_DATA_ID",
+        "detailKey": "ID:2107",
+        "numericIds": [
+          "2107"
+        ],
+        "clickableCount": 1,
+        "sampleText": "6 2025년 제3회 이사회 개최 알림(2025.5.2.) 신경학원 2025-04-24 79"
+      },
+      {
+        "structure": "TR",
+        "title": "2025년 제2회 이사회 개최 알림(2025.3.18.)",
+        "date": {
+          "raw": "2025.3.18",
+          "publishedAt": "2025-03-18"
+        },
+        "dateCount": 2,
+        "detailUrl": null,
+        "detailMethod": "ONCLICK_OR_DATA_ID",
+        "detailKey": "ID:1924",
+        "numericIds": [
+          "1924"
+        ],
+        "clickableCount": 1,
+        "sampleText": "5 2025년 제2회 이사회 개최 알림(2025.3.18.) 신경학원 2025-03-10 91"
+      },
+      {
+        "structure": "TR",
+        "title": "2025년 제1회 이사회 개최 알림(2025.2.19.)",
+        "date": {
+          "raw": "2025.2.19",
+          "publishedAt": "2025-02-19"
+        },
+        "dateCount": 2,
+        "detailUrl": null,
+        "detailMethod": "ONCLICK_OR_DATA_ID",
+        "detailKey": "ID:1815",
+        "numericIds": [
+          "1815"
+        ],
+        "clickableCount": 1,
+        "sampleText": "4 2025년 제1회 이사회 개최 알림(2025.2.19.) 신경학원 2025-02-11 92"
+      },
+      {
+        "structure": "TR",
+        "title": "2024년 제8회 이사회 개최 알림(2024.12.27.)",
+        "date": {
+          "raw": "2024.12.27",
+          "publishedAt": "2024-12-27"
+        },
+        "dateCount": 2,
+        "detailUrl": null,
+        "detailMethod": "ONCLICK_OR_DATA_ID",
+        "detailKey": "ID:1587",
+        "numericIds": [
+          "1587"
+        ],
+        "clickableCount": 1,
+        "sampleText": "3 2024년 제8회 이사회 개최 알림(2024.12.27.) 신경학원 2024-12-20 80"
+      }
+    ]
+  },
+  "decision": "FLEXIBLE_SOURCE_VALIDATED",
+  "proposedSource": {
+    "id": "hwasung-medi-science-general-feed",
+    "name": "화성의과학대학교 이사회 회의공지",
+    "category": "school_news",
+    "sourceType": "official",
+    "collectionType": "custom_html",
+    "listUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+    "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+    "matchedLabel": "이사회 회의공지",
+    "preferredStructure": "TR",
+    "detailMethod": "ONCLICK_OR_DATA_ID",
+    "sampleDetailKey": "ID:3441",
+    "verified": false,
+    "enabled": false,
+    "status": "flexible_source_validated_pending_collector",
+    "autoActivate": false
+  },
+  "nextAction": "BUILD_FLEXIBLE_COLLECTOR",
+  "requests": 1,
+  "operationalHashUnchanged": true,
+  "beforeHashes": {
+    "development\\university-news\\data\\university-news-sources.final.json": "3d53b00ec8911dea9cc234bfb8ad7b31007d80a5c99ac9da3cc7ddca2dc6616c",
+    "server\\agent\\data\\agent-news-store.json": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "data\\university-news-preview.json": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "afterHashes": {
+    "development\\university-news\\data\\university-news-sources.final.json": "3d53b00ec8911dea9cc234bfb8ad7b31007d80a5c99ac9da3cc7ddca2dc6616c",
+    "server\\agent\\data\\agent-news-store.json": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "data\\university-news-preview.json": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "safety": {
+    "readOnly": true,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false,
+    "tlsVerificationDisabled": false
+  }
+}

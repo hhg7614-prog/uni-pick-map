@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T07:00:21.144Z",
+  "items": [
+    {
+      "universityId": "sangmyung-university-제2캠퍼",
+      "universityName": "상명대학교 제2캠퍼",
+      "currentClass": "SERVER_CONNECT_TIMEOUT",
+      "previousClass": "CANONICAL_SOURCE_DISCOVERY",
+      "sourceCandidate": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=list&srCampus=smuc",
+      "evidence": {
+        "canonicalCandidateFound": true,
+        "listPagePreviouslyReached": true,
+        "previousListStatus": 200,
+        "previousCandidateCount": 5,
+        "previousUniqueDetailUrls": 3,
+        "nodeTimeout": "UND_ERR_CONNECT_TIMEOUT",
+        "curlTimeout": true
+      },
+      "retryDisposition": "RETRY_LATER",
+      "retryAfter": "2026-08-22T07:00:21.144Z",
+      "autoRetryAllowed": true,
+      "automaticActivation": false,
+      "recommendedAction": "24시간 이후 동일 canonical source 후보에 대해 상세 selector 검증만 재개합니다.",
+      "preserveFindings": [
+        "smu.ac.kr 공식 도메인 확인",
+        "srCampus=smuc 천안캠퍼스 후보 확인",
+        "목록 HTTP 200 확인 이력",
+        "상세 후보 3건 확인 이력"
+      ]
+    }
+  ],
+  "safety": {
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

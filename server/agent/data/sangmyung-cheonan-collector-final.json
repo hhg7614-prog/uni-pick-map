@@ -1,0 +1,236 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-24T00:26:45.395Z",
+  "universityId": "sangmyung-university-제2캠퍼",
+  "universityName": "상명대학교 제2캠퍼",
+  "status": 200,
+  "finalUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=list&srCampus=smuc",
+  "rawItems": 18,
+  "extracted": 18,
+  "unique": 18,
+  "duplicateKeys": 0,
+  "withDates": 18,
+  "distinctTitles": 17,
+  "distinctDates": 13,
+  "itemSamples": [
+    {
+      "articleNo": "767883",
+      "title": "[국제언어문화교육원] 일본 대학생과의 교류회 참가 학생 모집 공고",
+      "publishedAt": "2026-08-19",
+      "dateCandidates": [
+        "2026-08-19"
+      ],
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767883&srCampus=smuc&article.offset=0&articleLimit=10",
+      "detailKey": "ARTICLE:767883",
+      "text": "상명 [글로벌] [국제언어문화교육원] 일본 대학생과의 교류회 참가 학생 모집 공고 No. 767883 작성자 이주현 작성일 2026-08-19 조회수 98327"
+    },
+    {
+      "articleNo": "767853",
+      "title": "[혁신IR센터] 2026년 학부교육실태조사 참여 사전 신청 안내",
+      "publishedAt": "2026-08-18",
+      "dateCandidates": [
+        "2026-08-18"
+      ],
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767853&srCampus=smuc&article.offset=0&articleLimit=10",
+      "detailKey": "ARTICLE:767853",
+      "text": "상명 [일반] [혁신IR센터] 2026년 학부교육실태조사 참여 사전 신청 안내 No. 767853 작성자 정현주 작성일 2026-08-18 조회수 98234"
+    },
+    {
+      "articleNo": "767851",
+      "title": "[인문사회 융합인재양성사업단] HUSS 공통 비교과 프로그램 '탐험하락: 읽고·듣고·보고 AI로 다시 만나는 백제' 안내",
+      "publishedAt": "2026-08-18",
+      "dateCandidates": [
+        "2026-08-18"
+      ],
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767851&srCampus=smuc&article.offset=0&articleLimit=10",
+      "detailKey": "ARTICLE:767851",
+      "text": "상명 [비교과] [인문사회 융합인재양성사업단] HUSS 공통 비교과 프로그램 '탐험하락: 읽고·듣고·보고 AI로 다시 만나는 백제' 안내 No. 767851 작성자 박정주 작성일 2026-08-18 조회수 97543"
+    },
+    {
+      "articleNo": "767850",
+      "title": "[인문사회 융합인재양성사업단] HUSS 공통 비교과 프로그램 '사회구조 변동을 쓰다' 안내",
+      "publishedAt": "2026-08-18",
+      "dateCandidates": [
+        "2026-08-18"
+      ],
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767850&srCampus=smuc&article.offset=0&articleLimit=10",
+      "detailKey": "ARTICLE:767850",
+      "text": "상명 [비교과] [인문사회 융합인재양성사업단] HUSS 공통 비교과 프로그램 '사회구조 변동을 쓰다' 안내 No. 767850 작성자 박정주 작성일 2026-08-18 조회수 95203"
+    },
+    {
+      "articleNo": "767798",
+      "title": "상명대학교 2025학년도 후기 학위수여식 안내",
+      "publishedAt": "2026-08-14",
+      "dateCandidates": [
+        "2026-08-14"
+      ],
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767798&srCampus=smuc&article.offset=0&articleLimit=10",
+      "detailKey": "ARTICLE:767798",
+      "text": "상명 [학사] 상명대학교 2025학년도 후기 학위수여식 안내 No. 767798 작성자 윤주상 작성일 2026-08-14 조회수 180596"
+    },
+    {
+      "articleNo": "767797",
+      "title": "2026년 상명대학교-단국대학교-해외대학교 학부생 온라인 언어문화교류회 모집 요강",
+      "publishedAt": "2026-08-14",
+      "dateCandidates": [
+        "2026-08-14"
+      ],
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767797&srCampus=smuc&article.offset=0&articleLimit=10",
+      "detailKey": "ARTICLE:767797",
+      "text": "상명 [글로벌] 2026년 상명대학교-단국대학교-해외대학교 학부생 온라인 언어문화교류회 모집 요강 No. 767797 작성자 이희영 작성일 2026-08-14 조회수 176878"
+    },
+    {
+      "articleNo": "767525",
+      "title": "2026학년도 2학기 학부 및 대학원 재학생 등록 안내",
+      "publishedAt": "2026-08-04",
+      "dateCandidates": [
+        "2026-08-04"
+      ],
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767525&srCampus=smuc&article.offset=0&articleLimit=10",
+      "detailKey": "ARTICLE:767525",
+      "text": "상명 [등록/장학] 2026학년도 2학기 학부 및 대학원 재학생 등록 안내 No. 767525 작성자 길종근 작성일 2026-08-04 조회수 339026"
+    },
+    {
+      "articleNo": "766942",
+      "title": "[교무처] 수강신청 학점이월제 시행 안내",
+      "publishedAt": "2026-07-07",
+      "dateCandidates": [
+        "2026-07-07"
+      ],
+      "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=766942&srCampus=smuc&article.offset=0&articleLimit=10",
+      "detailKey": "ARTICLE:766942",
+      "text": "상명 [학사] [교무처] 수강신청 학점이월제 시행 안내 No. 766942 작성자 노혜지 작성일 2026-07-07 조회수 693563"
+    }
+  ],
+  "detailValidation": {
+    "tested": 5,
+    "pass": 5,
+    "titlePass": 5,
+    "dateTested": 5,
+    "datePass": 5,
+    "validUrls": 5,
+    "checks": [
+      {
+        "articleNo": "767883",
+        "title": "[국제언어문화교육원] 일본 대학생과의 교류회 참가 학생 모집 공고",
+        "publishedAt": "2026-08-19",
+        "dateCandidates": [
+          "2026-08-19"
+        ],
+        "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767883&srCampus=smuc&article.offset=0&articleLimit=10",
+        "detailKey": "ARTICLE:767883",
+        "text": "상명 [글로벌] [국제언어문화교육원] 일본 대학생과의 교류회 참가 학생 모집 공고 No. 767883 작성자 이주현 작성일 2026-08-19 조회수 98327",
+        "status": 200,
+        "finalUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767883&srCampus=smuc&article.offset=0&articleLimit=10",
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true
+      },
+      {
+        "articleNo": "767853",
+        "title": "[혁신IR센터] 2026년 학부교육실태조사 참여 사전 신청 안내",
+        "publishedAt": "2026-08-18",
+        "dateCandidates": [
+          "2026-08-18"
+        ],
+        "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767853&srCampus=smuc&article.offset=0&articleLimit=10",
+        "detailKey": "ARTICLE:767853",
+        "text": "상명 [일반] [혁신IR센터] 2026년 학부교육실태조사 참여 사전 신청 안내 No. 767853 작성자 정현주 작성일 2026-08-18 조회수 98234",
+        "status": 200,
+        "finalUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767853&srCampus=smuc&article.offset=0&articleLimit=10",
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true
+      },
+      {
+        "articleNo": "767851",
+        "title": "[인문사회 융합인재양성사업단] HUSS 공통 비교과 프로그램 '탐험하락: 읽고·듣고·보고 AI로 다시 만나는 백제' 안내",
+        "publishedAt": "2026-08-18",
+        "dateCandidates": [
+          "2026-08-18"
+        ],
+        "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767851&srCampus=smuc&article.offset=0&articleLimit=10",
+        "detailKey": "ARTICLE:767851",
+        "text": "상명 [비교과] [인문사회 융합인재양성사업단] HUSS 공통 비교과 프로그램 '탐험하락: 읽고·듣고·보고 AI로 다시 만나는 백제' 안내 No. 767851 작성자 박정주 작성일 2026-08-18 조회수 97543",
+        "status": 200,
+        "finalUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767851&srCampus=smuc&article.offset=0&articleLimit=10",
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true
+      },
+      {
+        "articleNo": "767850",
+        "title": "[인문사회 융합인재양성사업단] HUSS 공통 비교과 프로그램 '사회구조 변동을 쓰다' 안내",
+        "publishedAt": "2026-08-18",
+        "dateCandidates": [
+          "2026-08-18"
+        ],
+        "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767850&srCampus=smuc&article.offset=0&articleLimit=10",
+        "detailKey": "ARTICLE:767850",
+        "text": "상명 [비교과] [인문사회 융합인재양성사업단] HUSS 공통 비교과 프로그램 '사회구조 변동을 쓰다' 안내 No. 767850 작성자 박정주 작성일 2026-08-18 조회수 95203",
+        "status": 200,
+        "finalUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767850&srCampus=smuc&article.offset=0&articleLimit=10",
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true
+      },
+      {
+        "articleNo": "767798",
+        "title": "상명대학교 2025학년도 후기 학위수여식 안내",
+        "publishedAt": "2026-08-14",
+        "dateCandidates": [
+          "2026-08-14"
+        ],
+        "detailUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767798&srCampus=smuc&article.offset=0&articleLimit=10",
+        "detailKey": "ARTICLE:767798",
+        "text": "상명 [학사] 상명대학교 2025학년도 후기 학위수여식 안내 No. 767798 작성자 윤주상 작성일 2026-08-14 조회수 180596",
+        "status": 200,
+        "finalUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=view&articleNo=767798&srCampus=smuc&article.offset=0&articleLimit=10",
+        "titleMatch": true,
+        "dateMatch": true,
+        "pass": true
+      }
+    ]
+  },
+  "decision": "COLLECTOR_READY",
+  "proposedCollector": {
+    "id": "sangmyung-cheonan-general-feed",
+    "name": "상명대학교 천안캠퍼스 공식 소식",
+    "category": "school_news",
+    "sourceType": "official",
+    "collectionType": "custom_html",
+    "listUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=list&srCampus=smuc",
+    "campusScope": "CAMPUS_SPECIFIC",
+    "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+    "campusFilter": {
+      "parameter": "srCampus",
+      "value": "smuc"
+    },
+    "parser": {
+      "itemStrategy": "DL_BOARD_THUMB_CONTENT_WRAP",
+      "itemSelector": "dl.board-thumb-content-wrap",
+      "titleStrategy": "LONGEST_NON_CATEGORY_VIEW_ANCHOR",
+      "detailStrategy": "MODE_VIEW_ARTICLE_NO",
+      "dateStrategy": "UNIQUE_VISIBLE_DATE_IN_DL",
+      "dedupeKey": "ARTICLE_NO"
+    },
+    "verified": false,
+    "enabled": false,
+    "status": "collector_ready_pending_activation",
+    "healthStatus": "validated",
+    "autoActivate": false
+  },
+  "nextAction": "VERIFY_SANGMYUNG_CHEONAN_ACTIVATION_READY",
+  "requests": 6,
+  "operationalHashUnchanged": true,
+  "safety": {
+    "readOnly": true,
+    "curlTlsBypass": false,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

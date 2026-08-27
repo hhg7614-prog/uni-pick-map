@@ -25,7 +25,7 @@ function campusScope(item, shared) {
   if (shared) return { campusScope: "UNKNOWN", evidence: "same source is shared, but report has no all-campus evidence" };
   return { campusScope: "SPECIFIC_CAMPUS", evidence: "single-university candidate with no shared-source conflict" };
 }
-function allowedScope(scope) { return ["UNIVERSITY_NEWS", "UNIVERSITY_NOTICE", "PRESS_RELEASE"].includes(scope); }
+function allowedScope(scope) { return ["UNIVERSITY_NEWS", "UNIVERSITY_NOTICE", "PRESS_RELEASE", "GENERAL_UNIVERSITY_FEED"].includes(scope); }
 function validateSourceQuality({ university, recoveryResult, sourceCandidate, sharedSource, discoverySourceScope }) {
   const item = { universityId: university.universityId, universityName: university.universityName, recovery: recoveryResult };
   const technical = recoveryResult.decision === "AUTO_APPROVED_RECOVERED";

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-24T00:28:03.317Z",
+  "universityId": "sangmyung-university-제2캠퍼",
+  "universityName": "상명대학교 제2캠퍼",
+  "decision": "ACTIVATION_READY",
+  "activationReady": true,
+  "reasons": [],
+  "collector": {
+    "decision": "COLLECTOR_READY",
+    "status": 200,
+    "rawItems": 18,
+    "extracted": 18,
+    "unique": 18,
+    "duplicateKeys": 0,
+    "withDates": 18,
+    "distinctTitles": 17,
+    "distinctDates": 13
+  },
+  "detailValidation": {
+    "tested": 5,
+    "pass": 5,
+    "titlePass": 5,
+    "dateTested": 5,
+    "datePass": 5,
+    "validUrls": 5
+  },
+  "catalog": {
+    "found": true,
+    "sourceCount": 0,
+    "duplicateSourceId": false,
+    "duplicateListUrl": false,
+    "duplicateVerifiedEnabledListUrl": false
+  },
+  "proposedActivation": {
+    "universityId": "sangmyung-university-제2캠퍼",
+    "universityName": "상명대학교 제2캠퍼",
+    "source": {
+      "id": "sangmyung-cheonan-general-feed",
+      "name": "상명대학교 천안캠퍼스 공식 소식",
+      "category": "school_news",
+      "sourceType": "official",
+      "collectionType": "custom_html",
+      "listUrl": "https://www.smu.ac.kr/smuchina/community/sm_notice.do?mode=list&srCampus=smuc",
+      "campusScope": "CAMPUS_SPECIFIC",
+      "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+      "campusFilter": {
+        "parameter": "srCampus",
+        "value": "smuc"
+      },
+      "parser": {
+        "itemStrategy": "DL_BOARD_THUMB_CONTENT_WRAP",
+        "itemSelector": "dl.board-thumb-content-wrap",
+        "titleStrategy": "LONGEST_NON_CATEGORY_VIEW_ANCHOR",
+        "detailStrategy": "MODE_VIEW_ARTICLE_NO",
+        "dateStrategy": "UNIQUE_VISIBLE_DATE_IN_DL",
+        "dedupeKey": "ARTICLE_NO"
+      },
+      "verified": true,
+      "enabled": true,
+      "status": "awaiting_activation",
+      "healthStatus": "validated"
+    }
+  },
+  "nextAction": "ACTIVATE_SANGMYUNG_CHEONAN_SOURCE_LOCAL",
+  "operationalHashUnchanged": true,
+  "safety": {
+    "readOnly": true,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

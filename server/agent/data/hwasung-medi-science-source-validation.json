@@ -1,0 +1,722 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T07:26:42.574Z",
+  "universityId": "hwasung-medi-science-university-본교",
+  "universityName": "화성의과학대학교",
+  "listUrl": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+  "list": {
+    "status": 200,
+    "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+    "bytes": 54491,
+    "contentType": "text/html;charset=UTF-8",
+    "officialDomain": true
+  },
+  "deepAnalysis": {
+    "anchorCount": 265,
+    "staticOfficialLinks": 257,
+    "jsCallCount": 19,
+    "jsCallSamples": [
+      "ItgJs.sendSns(",
+      "window.print()",
+      "fn_goView(",
+      "fn_egov_link_page(1)",
+      "fn_egov_link_page(0)",
+      "fn_egov_link_page($(",
+      "fn_egov_link_page(2)",
+      "fn_egov_link_page(11)",
+      "fn_egov_link_page(1); return false;",
+      "fn_egov_link_page(2); return false;",
+      "fn_egov_link_page(3); return false;",
+      "fn_egov_link_page(4); return false;",
+      "fn_egov_link_page(5); return false;",
+      "fn_egov_link_page(6); return false;",
+      "fn_egov_link_page(7); return false;",
+      "fn_egov_link_page(8); return false;",
+      "fn_egov_link_page(9); return false;",
+      "fn_egov_link_page(10); return false;",
+      "fn_egov_link_page(11); return false;"
+    ],
+    "dataAttributeCount": 0,
+    "dataAttributeSamples": [],
+    "formCount": 2,
+    "forms": [
+      {
+        "action": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+        "method": "POST",
+        "hidden": {
+          "searchCnd": "",
+          "siteCode": "web",
+          "csrfToken": "274ccf45-4fc0-4633-afdd-5de1a2c35e84"
+        }
+      },
+      {
+        "action": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+        "method": "POST",
+        "hidden": {}
+      }
+    ],
+    "endpointHintCount": 0,
+    "endpointHints": [],
+    "numericIdCount": 19,
+    "numericIds": [
+      "3336",
+      "3511",
+      "3512",
+      "3555",
+      "3602",
+      "3509",
+      "3520",
+      "297",
+      "408",
+      "636",
+      "3468",
+      "3516",
+      "3600",
+      "3491",
+      "3477",
+      "3380",
+      "3261",
+      "11",
+      "10"
+    ],
+    "containerCount": 151,
+    "interestingContainerCount": 23,
+    "interestingContainers": [
+      {
+        "type": "TR",
+        "text": "공지 2026학년도 1학기 자율형 기숙사 드림하우스 예비입주자 모집안내(수정) 드림하우스 담당자 2026-04-01 390",
+        "date": "2026-04-01",
+        "anchors": [
+          {
+            "label": "2026학년도 1학기 자율형 기숙사 드림하우스 예비입주자 모집안내(수정)",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3336', 'HSMU30303003')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3336', 'HSMU30303003')\">\r\n\t\t                        2026학년도 1학기 자율형 기숙사 드림하우스 예비입주자 모집안내(수정)</a>\r\n\t\t                      </td>\r\n\t\t                      <td>드림하우스 담당자</td>\r\n\t\t                      <td>2026-04-01</td>\r\n\t\t                      <td>390</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "공지 교양 인사이트 MSP 수기 공모전-화제의 MSP, 나의 생각을 깨우다 교양교육중점센터 2026-06-16 175",
+        "date": "2026-06-16",
+        "anchors": [
+          {
+            "label": "교양 인사이트 MSP 수기 공모전-화제의 MSP, 나의 생각을 깨우다",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3511', 'centerNoticeBoard5')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3511', 'centerNoticeBoard5')\">\r\n\t\t                        교양 인사이트 MSP 수기 공모전-화제의 MSP, 나의 생각을 깨우다</a>\r\n\t\t                      </td>\r\n\t\t                      <td>교양교육중점센터</td>\r\n\t\t                      <td>2026-06-16</td>\r\n\t\t                      <td>175</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "공지 교양교과목 제안 공모전-AI와 의과학을 잇다 교양교육중점센터 2026-06-16 203",
+        "date": "2026-06-16",
+        "anchors": [
+          {
+            "label": "교양교과목 제안 공모전-AI와 의과학을 잇다",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3512', 'centerNoticeBoard5')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3512', 'centerNoticeBoard5')\">\r\n\t\t                        교양교과목 제안 공모전-AI와 의과학을 잇다</a>\r\n\t\t                      </td>\r\n\t\t                      <td>교양교육중점센터</td>\r\n\t\t                      <td>2026-06-16</td>\r\n\t\t                      <td>203</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "공지 2026학년도 드림하우스 예비입주자 추가 모집 안내(수정) 드림하우스 담당자 2026-07-09 7",
+        "date": "2026-07-09",
+        "anchors": [
+          {
+            "label": "2026학년도 드림하우스 예비입주자 추가 모집 안내(수정)",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3555', 'HSMU30301000')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3555', 'HSMU30301000')\">\r\n\t\t                        2026학년도 드림하우스 예비입주자 추가 모집 안내(수정)</a>\r\n\t\t                      </td>\r\n\t\t                      <td>드림하우스 담당자</td>\r\n\t\t                      <td>2026-07-09</td>\r\n\t\t                      <td>7</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "공지 2026학년도 2학기 등록금 납부 안내 행정지원처 2026-08-04 223",
+        "date": "2026-08-04",
+        "anchors": [
+          {
+            "label": "2026학년도 2학기 등록금 납부 안내",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3602', 'HSMU40101000')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3602', 'HSMU40101000')\">\r\n\t\t                        2026학년도 2학기 등록금 납부 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>행정지원처</td>\r\n\t\t                      <td>2026-08-04</td>\r\n\t\t                      <td>223</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "공지 2026학년도 1학기 강의평가 및 성적 열람 안내 학사지원파트너 2026-06-16 131",
+        "date": "2026-06-16",
+        "anchors": [
+          {
+            "label": "2026학년도 1학기 강의평가 및 성적 열람 안내",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3509', 'HSMU40101000')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3509', 'HSMU40101000')\">\r\n\t\t                        2026학년도 1학기 강의평가 및 성적 열람 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-06-16</td>\r\n\t\t                      <td>131</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "공지 2026학년도 2학기 휴학 및 복학 안내 학사지원파트너 2026-06-26 100",
+        "date": "2026-06-26",
+        "anchors": [
+          {
+            "label": "2026학년도 2학기 휴학 및 복학 안내",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3520', 'HSMU40101000')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3520', 'HSMU40101000')\">\r\n\t\t                        2026학년도 2학기 휴학 및 복학 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-06-26</td>\r\n\t\t                      <td>100</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "공지 ★Medi-Science Park 이용 안내 ★ 입학홍보처 2023-06-22 685",
+        "date": "2023-06-22",
+        "anchors": [
+          {
+            "label": "★Medi-Science Park 이용 안내 ★",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('297', 'HSMU40101000')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('297', 'HSMU40101000')\">\r\n\t\t                        ★Medi-Science Park 이용 안내 ★</a>\r\n\t\t                      </td>\r\n\t\t                      <td>입학홍보처</td>\r\n\t\t                      <td>2023-06-22</td>\r\n\t\t                      <td>685</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "공지 [졸업인증제도] 2023학년도 이후 입학자 Liberal 101 안내(수정) 교무학생처 2023-09-01 719",
+        "date": "2023-09-01",
+        "anchors": [
+          {
+            "label": "[졸업인증제도] 2023학년도 이후 입학자 Liberal 101 안내(수정)",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('408', 'HSMU40101000')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('408', 'HSMU40101000')\">\r\n\t\t                        [졸업인증제도] 2023학년도 이후 입학자 Liberal 101 안내(수정)</a>\r\n\t\t                      </td>\r\n\t\t                      <td>교무학생처</td>\r\n\t\t                      <td>2023-09-01</td>\r\n\t\t                      <td>719</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "공지 [학사] 유고결석 신청 안내 학사지원파트너 2023-10-24 698",
+        "date": "2023-10-24",
+        "anchors": [
+          {
+            "label": "[학사] 유고결석 신청 안내",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('636', 'HSMU40101000')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('636', 'HSMU40101000')\">\r\n\t\t                        [학사] 유고결석 신청 안내 </a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2023-10-24</td>\r\n\t\t                      <td>698</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "공지 2026학년도 1학기 K-MOOC 강좌 이수 및 학점인정 안내 학사지원파트너 2026-05-27 112",
+        "date": "2026-05-27",
+        "anchors": [
+          {
+            "label": "2026학년도 1학기 K-MOOC 강좌 이수 및 학점인정 안내",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3468', 'HSMU40101000')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3468', 'HSMU40101000')\">\r\n\t\t                        2026학년도 1학기 K-MOOC 강좌 이수 및 학점인정 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-05-27</td>\r\n\t\t                      <td>112</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "공지 학적부 기재사항 변경 제출 안내 학사지원파트너 2026-06-19 27",
+        "date": "2026-06-19",
+        "anchors": [
+          {
+            "label": "학적부 기재사항 변경 제출 안내",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3516', 'HSMU40101000')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3516', 'HSMU40101000')\">\r\n\t\t                        학적부 기재사항 변경 제출 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-06-19</td>\r\n\t\t                      <td>27</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "공지 2026학년도 2학기 수강신청안내서 학사지원파트너 2026-08-03 266",
+        "date": "2026-08-03",
+        "anchors": [
+          {
+            "label": "2026학년도 2학기 수강신청안내서",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3600', 'HSMU40101000')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"notice_txt\">공지</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3600', 'HSMU40101000')\">\r\n\t\t                        2026학년도 2학기 수강신청안내서</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-08-03</td>\r\n\t\t                      <td>266</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "101 2026학년도 2학기 등록금 납부 안내 행정지원처 2026-08-04 223",
+        "date": "2026-08-04",
+        "anchors": [
+          {
+            "label": "2026학년도 2학기 등록금 납부 안내",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3602')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">101</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3602')\">\r\n\t\t                        2026학년도 2학기 등록금 납부 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>행정지원처</td>\r\n\t\t                      <td>2026-08-04</td>\r\n\t\t                      <td>223</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "100 2026학년도 2학기 수강신청안내서 학사지원파트너 2026-08-03 266",
+        "date": "2026-08-03",
+        "anchors": [
+          {
+            "label": "2026학년도 2학기 수강신청안내서",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3600')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">100</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3600')\">\r\n\t\t                        2026학년도 2학기 수강신청안내서</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-08-03</td>\r\n\t\t                      <td>266</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "99 2026학년도 2학기 휴학 및 복학 안내 학사지원파트너 2026-06-26 100",
+        "date": "2026-06-26",
+        "anchors": [
+          {
+            "label": "2026학년도 2학기 휴학 및 복학 안내",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3520')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">99</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3520')\">\r\n\t\t                        2026학년도 2학기 휴학 및 복학 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-06-26</td>\r\n\t\t                      <td>100</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "98 학적부 기재사항 변경 제출 안내 학사지원파트너 2026-06-19 27",
+        "date": "2026-06-19",
+        "anchors": [
+          {
+            "label": "학적부 기재사항 변경 제출 안내",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3516')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">98</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3516')\">\r\n\t\t                        학적부 기재사항 변경 제출 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-06-19</td>\r\n\t\t                      <td>27</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "97 2026학년도 1학기 강의평가 및 성적 열람 안내 학사지원파트너 2026-06-16 131",
+        "date": "2026-06-16",
+        "anchors": [
+          {
+            "label": "2026학년도 1학기 강의평가 및 성적 열람 안내",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3509')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">97</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3509')\">\r\n\t\t                        2026학년도 1학기 강의평가 및 성적 열람 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-06-16</td>\r\n\t\t                      <td>131</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "96 2026학년도 1학기 &#039;사회봉사&#039; 및 &#039;나눔과 봉사&#039; 교과목 안내 사회봉사센터 2026-06-09 37",
+        "date": "2026-06-09",
+        "anchors": [
+          {
+            "label": "2026학년도 1학기 &#039;사회봉사&#039; 및 &#039;나눔과 봉사&#039; 교과목 안내",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3491')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">96</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3491')\">\r\n\t\t                        2026학년도 1학기 &#039;사회봉사&#039; 및 &#039;나눔과 봉사&#039; 교과목 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>사회봉사센터</td>\r\n\t\t                      <td>2026-06-09</td>\r\n\t\t                      <td>37</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "95 2026-1학기 보강주 안내 학사지원파트너 2026-06-01 20",
+        "date": "2026-06-01",
+        "anchors": [
+          {
+            "label": "2026-1학기 보강주 안내",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3477')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">95</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3477')\">\r\n\t\t                        2026-1학기 보강주 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-06-01</td>\r\n\t\t                      <td>20</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "94 2026학년도 1학기 K-MOOC 강좌 이수 및 학점인정 안내 학사지원파트너 2026-05-27 112",
+        "date": "2026-05-27",
+        "anchors": [
+          {
+            "label": "2026학년도 1학기 K-MOOC 강좌 이수 및 학점인정 안내",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3468')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">94</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3468')\">\r\n\t\t                        2026학년도 1학기 K-MOOC 강좌 이수 및 학점인정 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-05-27</td>\r\n\t\t                      <td>112</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "93 &lt;2026학년도 1학기 수강취소(Drop) 기간 안내&gt; 학사지원파트너 2026-04-21 53",
+        "date": "2026-04-21",
+        "anchors": [
+          {
+            "label": "&lt;2026학년도 1학기 수강취소(Drop) 기간 안내&gt;",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3380')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">93</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3380')\">\r\n\t\t                        &lt;2026학년도 1학기 수강취소(Drop) 기간 안내&gt;</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-04-21</td>\r\n\t\t                      <td>53</td>\r\n\t\t                    </tr>"
+      },
+      {
+        "type": "TR",
+        "text": "92 2026-1 마이크로디그리 과정 안내 학사지원파트너 2026-03-08 165",
+        "date": "2026-03-08",
+        "anchors": [
+          {
+            "label": "2026-1 마이크로디그리 과정 안내",
+            "href": "#none",
+            "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+            "onclick": "fn_goView(",
+            "attrs": " href=\"#none\" onclick=\"fn_goView('3261')\""
+          }
+        ],
+        "jsCalls": [
+          "fn_goView("
+        ],
+        "raw": "<tr>\r\n\t\t                      <td class=\"m_hide\">92</td>\r\n\t\t                      <td class=\"board_tit\">\r\n\t\t                        <a href=\"#none\" onclick=\"fn_goView('3261')\">\r\n\t\t                        2026-1 마이크로디그리 과정 안내</a>\r\n\t\t                      </td>\r\n\t\t                      <td>학사지원파트너</td>\r\n\t\t                      <td>2026-03-08</td>\r\n\t\t                      <td>165</td>\r\n\t\t                    </tr>"
+      }
+    ]
+  },
+  "generatedDetailCandidateCount": 30,
+  "generatedDetailCandidates": [
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?idx=3336",
+      "title": null,
+      "method": "FORM_GUESS:idx",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?seq=3336",
+      "title": null,
+      "method": "FORM_GUESS:seq",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?no=3336",
+      "title": null,
+      "method": "FORM_GUESS:no",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?boardNo=3336",
+      "title": null,
+      "method": "FORM_GUESS:boardNo",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?bbsNo=3336",
+      "title": null,
+      "method": "FORM_GUESS:bbsNo",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?articleNo=3336",
+      "title": null,
+      "method": "FORM_GUESS:articleNo",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?nttId=3336",
+      "title": null,
+      "method": "FORM_GUESS:nttId",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?idx=3511",
+      "title": null,
+      "method": "FORM_GUESS:idx",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?seq=3511",
+      "title": null,
+      "method": "FORM_GUESS:seq",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?no=3511",
+      "title": null,
+      "method": "FORM_GUESS:no",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?boardNo=3511",
+      "title": null,
+      "method": "FORM_GUESS:boardNo",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?bbsNo=3511",
+      "title": null,
+      "method": "FORM_GUESS:bbsNo",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?articleNo=3511",
+      "title": null,
+      "method": "FORM_GUESS:articleNo",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?nttId=3511",
+      "title": null,
+      "method": "FORM_GUESS:nttId",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?idx=3512",
+      "title": null,
+      "method": "FORM_GUESS:idx",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?seq=3512",
+      "title": null,
+      "method": "FORM_GUESS:seq",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?no=3512",
+      "title": null,
+      "method": "FORM_GUESS:no",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?boardNo=3512",
+      "title": null,
+      "method": "FORM_GUESS:boardNo",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?bbsNo=3512",
+      "title": null,
+      "method": "FORM_GUESS:bbsNo",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?articleNo=3512",
+      "title": null,
+      "method": "FORM_GUESS:articleNo",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?nttId=3512",
+      "title": null,
+      "method": "FORM_GUESS:nttId",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?idx=3555",
+      "title": null,
+      "method": "FORM_GUESS:idx",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?seq=3555",
+      "title": null,
+      "method": "FORM_GUESS:seq",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?no=3555",
+      "title": null,
+      "method": "FORM_GUESS:no",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?boardNo=3555",
+      "title": null,
+      "method": "FORM_GUESS:boardNo",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?bbsNo=3555",
+      "title": null,
+      "method": "FORM_GUESS:bbsNo",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?articleNo=3555",
+      "title": null,
+      "method": "FORM_GUESS:articleNo",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?nttId=3555",
+      "title": null,
+      "method": "FORM_GUESS:nttId",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?idx=3602",
+      "title": null,
+      "method": "FORM_GUESS:idx",
+      "confidence": 20
+    },
+    {
+      "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do?seq=3602",
+      "title": null,
+      "method": "FORM_GUESS:seq",
+      "confidence": 20
+    }
+  ],
+  "testedDetailCount": 0,
+  "pass": 0,
+  "warn": 0,
+  "fail": 0,
+  "validatedDetails": [],
+  "urlConstructionStable": false,
+  "stablePattern": {
+    "stable": false,
+    "usefulCount": 0,
+    "stableMethod": null,
+    "stablePath": null,
+    "methodCounts": {}
+  },
+  "decision": "DEEP_DISCOVERY_REQUIRED",
+  "proposedSource": null,
+  "nextAction": "ANALYZE_JS_API_STRUCTURE",
+  "requestCount": 1,
+  "operationalHashUnchanged": true,
+  "beforeHashes": {
+    "development\\university-news\\data\\university-news-sources.final.json": "3d53b00ec8911dea9cc234bfb8ad7b31007d80a5c99ac9da3cc7ddca2dc6616c",
+    "server\\agent\\data\\agent-news-store.json": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "data\\university-news-preview.json": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "afterHashes": {
+    "development\\university-news\\data\\university-news-sources.final.json": "3d53b00ec8911dea9cc234bfb8ad7b31007d80a5c99ac9da3cc7ddca2dc6616c",
+    "server\\agent\\data\\agent-news-store.json": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "data\\university-news-preview.json": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "safety": {
+    "readOnly": true,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false,
+    "tlsVerificationDisabled": false
+  }
+}

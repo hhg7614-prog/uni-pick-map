@@ -1,0 +1,340 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-21T06:02:48.057Z",
+  "sourceStateFile": "source-247-state.json",
+  "totalErrorRows": 153,
+  "failureTypeCount": 5,
+  "failureGroups": [
+    {
+      "failureType": "NO_CANDIDATE",
+      "recoveryClass": "DIAGNOSE_FIRST",
+      "description": "적절한 공식 공지 후보 URL 탐색 실패",
+      "count": 95,
+      "percentage": 62.09,
+      "autoRetryRecommended": false,
+      "sampleUniversityIds": [
+        "dgist",
+        "donga-university-seunghak",
+        "gangseo-university-본교",
+        "methodist-theological-university-본교",
+        "catholic-kwandong-university-본교",
+        "kaya-university-본교",
+        "kaya-university-제2캠퍼",
+        "kumoh-national-institute-of-technology-본교",
+        "kunsan-national-university-본교",
+        "gyeongguk-national-university-본교"
+      ],
+      "sampleReasons": [
+        "No official news candidate found"
+      ]
+    },
+    {
+      "failureType": "ROBOTS_BLOCKED",
+      "recoveryClass": "HUMAN_REVIEW",
+      "description": "robots.txt 또는 사이트 정책으로 진단 요청이 차단됨",
+      "count": 17,
+      "percentage": 11.11,
+      "autoRetryRecommended": false,
+      "sampleUniversityIds": [
+        "kyonggi-university-suwon",
+        "kyungnam-university-본교",
+        "kyonggi-university-제2캠퍼",
+        "gwangju-institute-of-science-and-technology-본교",
+        "gongju-national-university-of-education-본교",
+        "kyungil-university-본교",
+        "korea-nazarene-university-본교",
+        "dong-eui-university-본교",
+        "seoul-hanyoung-university-본교",
+        "soonchunhyang-university-본교"
+      ],
+      "sampleReasons": [
+        "robots.txt blocks diagnostic requests"
+      ]
+    },
+    {
+      "failureType": "NETWORK_FETCH",
+      "recoveryClass": "AUTO_RECOVERY_CANDIDATE",
+      "description": "네트워크 또는 일시적 fetch 실패 가능성",
+      "count": 14,
+      "percentage": 9.15,
+      "autoRetryRecommended": true,
+      "sampleUniversityIds": [
+        "konkuk-university-seoul",
+        "mokpo-national-university-본교",
+        "keimyung-university-본교",
+        "kyungwoon-university-본교",
+        "luther-university-본교",
+        "daeshin-university-본교",
+        "sangmyung-university-제2캠퍼",
+        "inje-university-제2캠퍼",
+        "inje-university-본교",
+        "woosong-university-본교"
+      ],
+      "sampleReasons": [
+        "fetch failed"
+      ]
+    },
+    {
+      "failureType": "UNKNOWN",
+      "recoveryClass": "DIAGNOSE_FIRST",
+      "description": "현재 규칙으로 자동 분류되지 않은 실패",
+      "count": 14,
+      "percentage": 9.15,
+      "autoRetryRecommended": false,
+      "sampleUniversityIds": [
+        "pai-chai-university-본교",
+        "mokpo-catholic-university-본교",
+        "dongduk-womens-university-본교",
+        "daejeon-theological-university-본교",
+        "daejeoncatholicuniversity-본교",
+        "jesus-university-본교",
+        "suwon-catholic-university-본교",
+        "cheongju-university-본교",
+        "joongbu-university-본교",
+        "jejuinternationaluniversity-본교"
+      ],
+      "sampleReasons": [
+        "login required",
+        "official homepage HTTP 500"
+      ]
+    },
+    {
+      "failureType": "HTTP_404",
+      "recoveryClass": "DIAGNOSE_FIRST",
+      "description": "기존 후보 URL이 더 이상 존재하지 않거나 경로가 변경됨",
+      "count": 13,
+      "percentage": 8.5,
+      "autoRetryRecommended": false,
+      "sampleUniversityIds": [
+        "skku-university-insa",
+        "yeungnam-university-gyeongsan",
+        "the-catholic-university-of-korea-제3캠퍼",
+        "the-catholic-university-of-korea-제2캠퍼",
+        "the-catholic-university-of-korea-본교",
+        "tongmyong-university-본교",
+        "sangmyung-university-seoul-본교",
+        "sookmyung-womens-university-본교",
+        "jeonju-university-본교",
+        "u1-university-본교"
+      ],
+      "sampleReasons": [
+        "HTTP 404",
+        "official homepage HTTP 404"
+      ]
+    }
+  ],
+  "recoverySummary": {
+    "AUTO_RECOVERY_CANDIDATE": 14,
+    "DIAGNOSE_FIRST": 122,
+    "HUMAN_REVIEW": 17
+  },
+  "pilotCandidates": [
+    {
+      "universityId": "konkuk-university-seoul",
+      "universityName": "건국대학교 서울캠퍼스",
+      "reason": "fetch failed",
+      "completedAt": "2026-08-10T01:07:04.191Z",
+      "durationMs": 3136,
+      "candidateCount": 1,
+      "detailedVerificationCount": 0,
+      "failureType": "NETWORK_FETCH",
+      "recoveryClass": "AUTO_RECOVERY_CANDIDATE",
+      "autoRetryRecommended": true,
+      "failureDescription": "네트워크 또는 일시적 fetch 실패 가능성"
+    },
+    {
+      "universityId": "kyungwoon-university-본교",
+      "universityName": "경운대학교",
+      "reason": "fetch failed",
+      "completedAt": "2026-08-10T01:08:05.151Z",
+      "durationMs": 1111,
+      "candidateCount": 0,
+      "detailedVerificationCount": 0,
+      "failureType": "NETWORK_FETCH",
+      "recoveryClass": "AUTO_RECOVERY_CANDIDATE",
+      "autoRetryRecommended": true,
+      "failureDescription": "네트워크 또는 일시적 fetch 실패 가능성"
+    },
+    {
+      "universityId": "mokpo-national-university-본교",
+      "universityName": "국립목포대학교",
+      "reason": "fetch failed",
+      "completedAt": "2026-08-10T01:07:40.756Z",
+      "durationMs": 1118,
+      "candidateCount": 0,
+      "detailedVerificationCount": 0,
+      "failureType": "NETWORK_FETCH",
+      "recoveryClass": "AUTO_RECOVERY_CANDIDATE",
+      "autoRetryRecommended": true,
+      "failureDescription": "네트워크 또는 일시적 fetch 실패 가능성"
+    },
+    {
+      "universityId": "daeshin-university-본교",
+      "universityName": "대신대학교",
+      "reason": "fetch failed",
+      "completedAt": "2026-08-10T01:13:15.068Z",
+      "durationMs": 1123,
+      "candidateCount": 0,
+      "detailedVerificationCount": 0,
+      "failureType": "NETWORK_FETCH",
+      "recoveryClass": "AUTO_RECOVERY_CANDIDATE",
+      "autoRetryRecommended": true,
+      "failureDescription": "네트워크 또는 일시적 fetch 실패 가능성"
+    },
+    {
+      "universityId": "sangmyung-university-제2캠퍼",
+      "universityName": "상명대학교 제2캠퍼",
+      "reason": "fetch failed",
+      "completedAt": "2026-08-10T01:13:49.152Z",
+      "durationMs": 1124,
+      "candidateCount": 0,
+      "detailedVerificationCount": 0,
+      "failureType": "NETWORK_FETCH",
+      "recoveryClass": "AUTO_RECOVERY_CANDIDATE",
+      "autoRetryRecommended": true,
+      "failureDescription": "네트워크 또는 일시적 fetch 실패 가능성"
+    },
+    {
+      "universityId": "hwasung-medi-science-university-본교",
+      "universityName": "화성의과학대학교",
+      "reason": "fetch failed",
+      "completedAt": "2026-08-10T01:23:55.148Z",
+      "durationMs": 1143,
+      "candidateCount": 0,
+      "detailedVerificationCount": 0,
+      "failureType": "NETWORK_FETCH",
+      "recoveryClass": "AUTO_RECOVERY_CANDIDATE",
+      "autoRetryRecommended": true,
+      "failureDescription": "네트워크 또는 일시적 fetch 실패 가능성"
+    },
+    {
+      "universityId": "changshin-university-본교",
+      "universityName": "창신대학교",
+      "reason": "fetch failed",
+      "completedAt": "2026-08-10T01:22:46.083Z",
+      "durationMs": 1145,
+      "candidateCount": 0,
+      "detailedVerificationCount": 0,
+      "failureType": "NETWORK_FETCH",
+      "recoveryClass": "AUTO_RECOVERY_CANDIDATE",
+      "autoRetryRecommended": true,
+      "failureDescription": "네트워크 또는 일시적 fetch 실패 가능성"
+    },
+    {
+      "universityId": "keimyung-university-본교",
+      "universityName": "계명대학교",
+      "reason": "fetch failed",
+      "completedAt": "2026-08-10T01:08:03.795Z",
+      "durationMs": 1167,
+      "candidateCount": 0,
+      "detailedVerificationCount": 0,
+      "failureType": "NETWORK_FETCH",
+      "recoveryClass": "AUTO_RECOVERY_CANDIDATE",
+      "autoRetryRecommended": true,
+      "failureDescription": "네트워크 또는 일시적 fetch 실패 가능성"
+    },
+    {
+      "universityId": "inje-university-본교",
+      "universityName": "인제대학교",
+      "reason": "fetch failed",
+      "completedAt": "2026-08-10T01:20:56.838Z",
+      "durationMs": 1258,
+      "candidateCount": 0,
+      "detailedVerificationCount": 0,
+      "failureType": "NETWORK_FETCH",
+      "recoveryClass": "AUTO_RECOVERY_CANDIDATE",
+      "autoRetryRecommended": true,
+      "failureDescription": "네트워크 또는 일시적 fetch 실패 가능성"
+    },
+    {
+      "universityId": "inje-university-제2캠퍼",
+      "universityName": "인제대학교 제2캠퍼",
+      "reason": "fetch failed",
+      "completedAt": "2026-08-10T01:20:55.574Z",
+      "durationMs": 1278,
+      "candidateCount": 0,
+      "detailedVerificationCount": 0,
+      "failureType": "NETWORK_FETCH",
+      "recoveryClass": "AUTO_RECOVERY_CANDIDATE",
+      "autoRetryRecommended": true,
+      "failureDescription": "네트워크 또는 일시적 fetch 실패 가능성"
+    }
+  ],
+  "plan": {
+    "targetIssue": {
+      "code": "SOURCE_VALIDATION_ERRORS",
+      "title": "대학 공식 출처 검증 오류 해결",
+      "priorityScore": 200
+    },
+    "objective": "153개 source validation ERROR를 실패 유형별로 분류하고 저위험 자동 복구 후보부터 소규모 파일럿으로 검증한다.",
+    "strategy": "CLASSIFY_THEN_PILOT",
+    "steps": [
+      {
+        "step": 1,
+        "name": "ERROR 원인 분류",
+        "action": "source-247-state.json의 ERROR 결과를 reason 기준으로 분류",
+        "status": "COMPLETED",
+        "output": "5개 실패 유형"
+      },
+      {
+        "step": 2,
+        "name": "자동 복구 가능성 분리",
+        "action": "AUTO_RECOVERY_CANDIDATE / DIAGNOSE_FIRST / HUMAN_REVIEW로 분리",
+        "status": "COMPLETED",
+        "output": {
+          "AUTO_RECOVERY_CANDIDATE": 14,
+          "DIAGNOSE_FIRST": 122,
+          "HUMAN_REVIEW": 17
+        }
+      },
+      {
+        "step": 3,
+        "name": "저위험 파일럿 대상 선정",
+        "action": "네트워크/timeout/rate-limit 계열 중 최대 10개 대학을 파일럿 후보로 선정",
+        "status": "COMPLETED",
+        "outputCount": 10
+      },
+      {
+        "step": 4,
+        "name": "파일럿 재진단",
+        "action": "선정된 후보만 기존 retry/diagnostic 도구로 재실행하고 성공률 측정",
+        "status": "NOT_EXECUTED",
+        "requiresWriteOrNetwork": true,
+        "requiresHumanApproval": true
+      },
+      {
+        "step": 5,
+        "name": "파일럿 결과 평가",
+        "action": "성공/실패/새 오류를 비교하고 자동 확대 가능 여부 판단",
+        "status": "PENDING"
+      },
+      {
+        "step": 6,
+        "name": "복구 전략 확대",
+        "action": "파일럿 성공률이 기준 이상이면 같은 failureType 전체로 확대",
+        "status": "PENDING"
+      }
+    ],
+    "executionPolicy": {
+      "currentMode": "READ_ONLY_PLANNING",
+      "automaticRetry": false,
+      "automaticCodeChange": false,
+      "automaticDeployment": false,
+      "nextActionRequiresApproval": true,
+      "proposedNextAction": "AUTO_RECOVERY_CANDIDATE 파일럿 최대 10건 재진단"
+    },
+    "successCriteria": {
+      "classificationCoveragePercent": 100,
+      "pilotTargetMaximum": 10,
+      "pilotMinimumSuccessRateForExpansion": 70,
+      "regressionTolerance": 0,
+      "newDuplicateTolerance": 0
+    }
+  },
+  "safety": {
+    "readOnly": true,
+    "retriesExecuted": false,
+    "filesModified": false,
+    "deploymentTriggered": false
+  }
+}

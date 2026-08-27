@@ -13,7 +13,7 @@ function getAgentConfig() {
     enabled: process.env.NEWS_AGENT_ENABLED === "true",
 
     // 크론 표현식: 오전 09:30 과 오후 17:30
-    cronExpression: process.env.NEWS_AGENT_CRON || "30 9,17 * * *",
+    cronExpression: process.env.NEWS_AGENT_CRON || "30 9,16 * * *",
 
     // 시간대
     timezone: process.env.NEWS_AGENT_TIMEZONE || "Asia/Seoul",
@@ -47,7 +47,7 @@ function getAgentConfig() {
  */
 function nextScheduledAt(now, cronExpression, timezone) {
   // 분과 시간 부분만 파싱 (일/월/요일은 매일로 가정)
-  const parts = String(cronExpression || "30 9,17 * * *").split(/\s+/);
+  const parts = String(cronExpression || "30 9,16 * * *").split(/\s+/);
   const minute = parseInt(parts[0], 10);
   const hours = String(parts[1])
     .split(",")

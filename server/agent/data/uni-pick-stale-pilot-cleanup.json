@@ -1,0 +1,44 @@
+{
+  "status": "STALE_STATE_CLEANED",
+  "evaluationSchemaVersion": "2.2",
+  "resolvedCount": 9,
+  "environmentBlockedCount": 1,
+  "transientBefore": 1,
+  "transientAfter": 0,
+  "removedCount": 1,
+  "preservedCount": 0,
+  "removed": [
+    {
+      "universityId": "sangmyung-university-제2캠퍼",
+      "universityName": "상명대학교 제2캠퍼",
+      "previousClass": "SERVER_CONNECT_TIMEOUT",
+      "reason": "VERIFIED_SOURCE_NOW_RESOLVES_UNIVERSITY"
+    }
+  ],
+  "blockedPreserved": [
+    {
+      "universityId": "mokpo-national-university-본교",
+      "universityName": "국립목포대학교",
+      "nextClass": "ENVIRONMENT_WAF_BLOCKED",
+      "networkSubtype": "ENVIRONMENT_WAF_BLOCKED",
+      "cooldown": true,
+      "retryable": true,
+      "nextAction": "RETRY_IN_DIFFERENT_ENVIRONMENT"
+    }
+  ],
+  "backup": "D:\\hhg(code)\\server\\agent\\backups\\uni-pick-stale-pilot-cleanup\\20260824023722",
+  "beforeHashes": {
+    "catalog": "ab4a9e0f93d512321f22f1bd25cf5f73d7776943d34b5e7c1149c82ed1f95afb",
+    "store": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "preview": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d",
+    "transient": "a2a6b2fdc9602c4c82ca0708d065c301c0615b8a6300ba4fae6c66ae7ebda062"
+  },
+  "afterHashes": {
+    "catalog": "ab4a9e0f93d512321f22f1bd25cf5f73d7776943d34b5e7c1149c82ed1f95afb",
+    "store": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "preview": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d",
+    "transient": "4117635098c596a7eeddc07e5149a28b35f503e69de0961c07033728a57158e0"
+  },
+  "rollback": false,
+  "error": null
+}

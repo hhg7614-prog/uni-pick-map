@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-24T04:11:25.940Z",
+  "decision": "COLLECTOR_READY",
+  "universityId": "kyungdong-university-본교",
+  "universityName": "경동대학교",
+  "sourceCandidate": {
+    "sourceId": "kyungdong-general-notice",
+    "listUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245"
+  },
+  "upstream": {
+    "state": "VALIDATE_ACTIVATION_CANDIDATE",
+    "action": "VERIFY_CANDIDATE_COLLECTOR",
+    "validationScore": 215
+  },
+  "list": {
+    "status": 200,
+    "finalUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+    "bytes": 258025,
+    "officialDomain": true
+  },
+  "collector": {
+    "containers": 11,
+    "extracted": 10,
+    "unique": 10,
+    "duplicateKeys": 0,
+    "distinctTitles": 10,
+    "distinctDates": 8,
+    "containerTypeCounts": {
+      "TR": 10
+    },
+    "detailIdParameterCounts": {
+      "board_seq": 10
+    }
+  },
+  "samples": [
+    {
+      "containerType": "TR",
+      "title": "[경동] 경동대학교 안전보건 경영방침",
+      "publishedAt": "2026-01-12",
+      "detailUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=69820",
+      "detailIdParameter": "board_seq",
+      "detailId": "69820",
+      "detailKey": "BOARD_SEQ:69820"
+    },
+    {
+      "containerType": "TR",
+      "title": "[경동] KDU 앵커사업 2026년 지역특성화 늘봄 프로그램 개발 공모",
+      "publishedAt": "2026-08-20",
+      "detailUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=72454",
+      "detailIdParameter": "board_seq",
+      "detailId": "72454",
+      "detailKey": "BOARD_SEQ:72454"
+    },
+    {
+      "containerType": "TR",
+      "title": "[전체] 2026년도 제15차 교원인사위원회 개최 알림",
+      "publishedAt": "2026-08-20",
+      "detailUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=72448",
+      "detailIdParameter": "board_seq",
+      "detailId": "72448",
+      "detailKey": "BOARD_SEQ:72448"
+    },
+    {
+      "containerType": "TR",
+      "title": "[전체] 2026년도 제4차 학교법인경동대학교 이사회 개최 알림",
+      "publishedAt": "2026-08-13",
+      "detailUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=72395",
+      "detailIdParameter": "board_seq",
+      "detailId": "72395",
+      "detailKey": "BOARD_SEQ:72395"
+    },
+    {
+      "containerType": "TR",
+      "title": "[경동] [개인정보보호] 개인정보 제도혁신 국민 정책제안 접수 안내 및 홍보",
+      "publishedAt": "2026-08-11",
+      "detailUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=72370",
+      "detailIdParameter": "board_seq",
+      "detailId": "72370",
+      "detailKey": "BOARD_SEQ:72370"
+    }
+  ],
+  "detailValidation": {
+    "tested": 5,
+    "pass": 5,
+    "titlePass": 5,
+    "datePass": 5,
+    "validUrls": 5
+  },
+  "detailSamples": [
+    {
+      "detailKey": "BOARD_SEQ:69820",
+      "title": "[경동] 경동대학교 안전보건 경영방침",
+      "publishedAt": "2026-01-12",
+      "url": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=69820",
+      "status": 200,
+      "finalUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=69820",
+      "validUrl": true,
+      "titleMatch": true,
+      "dateMatch": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "detailKey": "BOARD_SEQ:72454",
+      "title": "[경동] KDU 앵커사업 2026년 지역특성화 늘봄 프로그램 개발 공모",
+      "publishedAt": "2026-08-20",
+      "url": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=72454",
+      "status": 200,
+      "finalUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=72454",
+      "validUrl": true,
+      "titleMatch": true,
+      "dateMatch": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "detailKey": "BOARD_SEQ:72448",
+      "title": "[전체] 2026년도 제15차 교원인사위원회 개최 알림",
+      "publishedAt": "2026-08-20",
+      "url": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=72448",
+      "status": 200,
+      "finalUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=72448",
+      "validUrl": true,
+      "titleMatch": true,
+      "dateMatch": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "detailKey": "BOARD_SEQ:72395",
+      "title": "[전체] 2026년도 제4차 학교법인경동대학교 이사회 개최 알림",
+      "publishedAt": "2026-08-13",
+      "url": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=72395",
+      "status": 200,
+      "finalUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=72395",
+      "validUrl": true,
+      "titleMatch": true,
+      "dateMatch": true,
+      "pass": true,
+      "error": null
+    },
+    {
+      "detailKey": "BOARD_SEQ:72370",
+      "title": "[경동] [개인정보보호] 개인정보 제도혁신 국민 정책제안 접수 안내 및 홍보",
+      "publishedAt": "2026-08-11",
+      "url": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=72370",
+      "status": 200,
+      "finalUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245&mode=view&mgr_seq=325&board_seq=72370",
+      "validUrl": true,
+      "titleMatch": true,
+      "dateMatch": true,
+      "pass": true,
+      "error": null
+    }
+  ],
+  "proposedCollector": {
+    "id": "kyungdong-general-notice",
+    "name": "경동대학교 일반공지",
+    "category": "school_notice",
+    "sourceType": "official",
+    "collectionType": "custom_html",
+    "listUrl": "https://www.kduniv.ac.kr/kor/CMS/Board/Board.do?mCode=MN245",
+    "campusScope": "CAMPUS_SPECIFIC",
+    "contentScope": "GENERAL_UNIVERSITY_UPDATES",
+    "parser": {
+      "itemStrategy": "CMS_BOARD_TR_WITH_DATE_AND_DETAIL",
+      "itemSelector": "tr",
+      "titleStrategy": "DETAIL_ANCHOR_TITLE",
+      "dateStrategy": "ROW_SINGLE_DATE",
+      "detailStrategy": "CMS_BOARD_DETAIL_ID",
+      "detailIdParameter": "board_seq",
+      "dedupeKey": "BOARD_SEQ"
+    },
+    "verified": false,
+    "enabled": false,
+    "status": "collector_ready_pending_activation",
+    "healthStatus": "validated",
+    "autoActivate": false
+  },
+  "nextAction": "VERIFY_KYUNGDONG_ACTIVATION_READY",
+  "requests": 6,
+  "hashSafe": true,
+  "safety": {
+    "readOnly": true,
+    "automaticActivation": false,
+    "automaticSourceMutation": false,
+    "sourceModified": false,
+    "catalogModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}

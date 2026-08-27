@@ -1,0 +1,941 @@
+{
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-08-21T07:06:15.813Z",
+  "startedAt": "2026-08-21T07:05:59.360Z",
+  "phase": "NO_CANDIDATE_DISCOVERY_PILOT",
+  "targetCount": 4,
+  "processed": 4,
+  "totalRequests": 40,
+  "candidateDiscovered": 1,
+  "reviewCandidate": 1,
+  "transientNetwork": 0,
+  "unresolved": 2,
+  "counts": {
+    "NO_CANDIDATE": 2,
+    "REVIEW_CANDIDATE": 1,
+    "CANDIDATE_DISCOVERED": 1
+  },
+  "results": [
+    {
+      "universityId": "mokpo-national-university-본교",
+      "universityName": "국립목포대학교",
+      "previousClass": "NO_CANDIDATE",
+      "homepage": "https://www.mokpo.ac.kr/",
+      "homepageStatus": 200,
+      "homepageFinalUrl": "https://www.mokpo.ac.kr/",
+      "homepageBytes": 543,
+      "totalOfficialHomeLinks": 0,
+      "scoredCandidateCount": 0,
+      "testedCandidateCount": 0,
+      "requestCount": 1,
+      "candidateCount": 0,
+      "bestCandidate": null,
+      "candidates": [],
+      "finalStatus": "NO_CANDIDATE"
+    },
+    {
+      "universityId": "daeshin-university-본교",
+      "universityName": "대신대학교",
+      "previousClass": "NO_CANDIDATE",
+      "homepage": "https://www.daeshin.ac.kr/",
+      "homepageStatus": 200,
+      "homepageFinalUrl": "https://www.daeshin.ac.kr/html/intro/",
+      "homepageBytes": 29491,
+      "totalOfficialHomeLinks": 24,
+      "scoredCandidateCount": 12,
+      "testedCandidateCount": 12,
+      "requestCount": 13,
+      "candidateCount": 12,
+      "bestCandidate": {
+        "url": "https://www.daeshin.ac.kr/html/02_admission/01_1.php",
+        "label": "2027학년도 신입생 수시모집 원서접수 : 2026. 09. 07(월) ~ 2026. 09. 11(금) 입학전형일 : 2026. 10. 19(월) 13시30분",
+        "initialScore": 8,
+        "finalScore": 38,
+        "homepageOfficialDomain": true,
+        "httpStatus": 200,
+        "finalUrl": "https://www.daeshin.ac.kr/html/02_admission/01_1.php",
+        "bytes": 27578,
+        "detailLinkCount": 0,
+        "uniqueDetailLinkCount": 0,
+        "dateLikeCount": 7,
+        "listLikely": false,
+        "sampleDetailUrls": [],
+        "reasons": [
+          "MEDIUM:모집"
+        ],
+        "error": null
+      },
+      "candidates": [
+        {
+          "url": "https://www.daeshin.ac.kr/html/02_admission/01_1.php",
+          "label": "2027학년도 신입생 수시모집 원서접수 : 2026. 09. 07(월) ~ 2026. 09. 11(금) 입학전형일 : 2026. 10. 19(월) 13시30분",
+          "initialScore": 8,
+          "finalScore": 38,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.daeshin.ac.kr/html/02_admission/01_1.php",
+          "bytes": 27578,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 7,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:모집"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.daeshin.ac.kr/html/02_admission/02_1.php",
+          "label": "2027학년도(전기) 대학원 신입생모집 원서접수 : 2026. 11. 10(화) ~ 2026. 11. 12(목) 입학전형일 : 2026. 11. 23(월) 14:00",
+          "initialScore": 8,
+          "finalScore": 38,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.daeshin.ac.kr/html/02_admission/02_1.php",
+          "bytes": 29286,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 7,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:모집"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.daeshin.ac.kr/html/02_admission/02_2.php",
+          "label": "2027학년도(전기) 신학대학원 신입생모집 원서접수 : 2026. 11. 10(화) ~ 2026. 11. 12(목) 입학전형일 : 2026. 11. 23(월) 14:00",
+          "initialScore": 8,
+          "finalScore": 38,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.daeshin.ac.kr/html/02_admission/02_2.php",
+          "bytes": 27046,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 8,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:모집"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.daeshin.ac.kr/html/02_admission/02_6.php",
+          "label": "2027학년도(전기) 특수 대학원 신입생모집 원서접수 : 2026. 11. 10(화) ~ 2026. 11. 12(목) 입학전형일 : 2026. 11. 23(월) 14:00",
+          "initialScore": 8,
+          "finalScore": 38,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.daeshin.ac.kr/html/02_admission/02_6.php",
+          "bytes": 29233,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 6,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:모집"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.daeshin.ac.kr/html/02_admission/02_1.php",
+          "label": "2025학년도 대학원 및 신학대학원 신입생 추가모집 원서접수 : 2025. 02. 03(월) ~ 2025. 02. 05(수) 입학전형일 : 2025. 02. 12(월) 일반대학원 14시 2025. 02. 12(수) 신학대학원 14시",
+          "initialScore": 8,
+          "finalScore": 38,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.daeshin.ac.kr/html/02_admission/02_1.php",
+          "bytes": 29286,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 7,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:모집"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.daeshin.ac.kr/html/02_admission/02_1.php",
+          "label": "2025학년도 대학원 신입생 후기모집 원서접수 : 2025. 06. 23(월) ~ 2025. 06. 25(수) 입학전형일 : 2025. 07. 08(화) 14:00",
+          "initialScore": 8,
+          "finalScore": 38,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.daeshin.ac.kr/html/02_admission/02_1.php",
+          "bytes": 29286,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 7,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:모집"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.daeshin.ac.kr/html/02_admission/02_6.php",
+          "label": "2025학년도 휴먼케어영상콘텐츠 대학원 신입생 후기모집 원서접수 : 2025. 06. 23(월) ~ 2025. 06. 25(수) 입학전형일 : 2025. 07. 08(화) 14:00",
+          "initialScore": 8,
+          "finalScore": 38,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.daeshin.ac.kr/html/02_admission/02_6.php",
+          "bytes": 29233,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 6,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:모집"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.daeshin.ac.kr/html/02_admission/02_1.php",
+          "label": "2024학년도 대학원(신학대학원) 신입생모집 원서접수 : 2023. 12. 13(수) ~ 12. 15(금) 입학전형일 : 2023. 12. 27(수)",
+          "initialScore": 8,
+          "finalScore": 38,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.daeshin.ac.kr/html/02_admission/02_1.php",
+          "bytes": 29286,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 7,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:모집"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.daeshin.ac.kr/html/02_admission/01_7.php",
+          "label": "2026학년도 추가 모집 신입생 모집요강 원서접수 : 2026. 02. 20(금) ~ 02. 23(월) 입학전형일 : 2026. 02. 24(화) 10시",
+          "initialScore": 8,
+          "finalScore": 23,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.daeshin.ac.kr/html/02_admission/01_7.php",
+          "bytes": 22270,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 0,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:모집"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.daeshin.ac.kr/html/02_admission/01_2.php",
+          "label": "2026학년도 정시\"다\"군 신입생모집 원서접수 : 2025. 12. 29(월) ~ 2025. 12. 31(수) 입학전형일 : 2026. 01. 21(수) 14시",
+          "initialScore": 8,
+          "finalScore": 23,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.daeshin.ac.kr/html/02_admission/01_2.php",
+          "bytes": 22281,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 0,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:모집"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.daeshin.ac.kr/html/02_admission/01_4.php",
+          "label": "2026학년도 편입생 모집요강 원서접수 : 2025. 12. 15(월) ~ 12. 17(수) 입학전형일 : 2025. 12. 29(월) 14시",
+          "initialScore": 8,
+          "finalScore": 23,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.daeshin.ac.kr/html/02_admission/01_4.php",
+          "bytes": 22260,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 0,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:모집"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.daeshin.ac.kr/html/02_admission/01_4.php",
+          "label": "2025학년도 편입생 추가 모집요강 원서접수 : 2025. 02. 03(월) ~ 02. 05(수) 입학전형일 : 2025. 02. 12(수) 10시",
+          "initialScore": 8,
+          "finalScore": 23,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.daeshin.ac.kr/html/02_admission/01_4.php",
+          "bytes": 22260,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 0,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:모집"
+          ],
+          "error": null
+        }
+      ],
+      "finalStatus": "NO_CANDIDATE"
+    },
+    {
+      "universityId": "hwasung-medi-science-university-본교",
+      "universityName": "화성의과학대학교",
+      "previousClass": "NO_CANDIDATE",
+      "homepage": "https://www.hsmu.ac.kr/",
+      "homepageStatus": 200,
+      "homepageFinalUrl": "https://www.hsmu.ac.kr/web/main/index.do",
+      "homepageBytes": 68272,
+      "totalOfficialHomeLinks": 119,
+      "scoredCandidateCount": 12,
+      "testedCandidateCount": 12,
+      "requestCount": 13,
+      "candidateCount": 12,
+      "bestCandidate": {
+        "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+        "label": "공지사항",
+        "initialScore": 40,
+        "finalScore": 70,
+        "homepageOfficialDomain": true,
+        "httpStatus": 200,
+        "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+        "bytes": 54491,
+        "detailLinkCount": 0,
+        "uniqueDetailLinkCount": 0,
+        "dateLikeCount": 15,
+        "listLikely": false,
+        "sampleDetailUrls": [],
+        "reasons": [
+          "STRONG:공지",
+          "STRONG:공지사항"
+        ],
+        "error": null
+      },
+      "candidates": [
+        {
+          "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+          "label": "공지사항",
+          "initialScore": 40,
+          "finalScore": 70,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+          "bytes": 54491,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 15,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "STRONG:공지",
+            "STRONG:공지사항"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+          "label": "이사회 회의공지",
+          "initialScore": 20,
+          "finalScore": 50,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU10102000.do",
+          "bytes": 50259,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 20,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "STRONG:공지"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.hsmu.ac.kr/web/contents/HSMU30202010.do",
+          "label": "학생상담센터",
+          "initialScore": 8,
+          "finalScore": 38,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU30202010.do",
+          "bytes": 78411,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 14,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:학생"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.hsmu.ac.kr/web/contents/HSMU30203010.do",
+          "label": "장애학생지원센터",
+          "initialScore": 8,
+          "finalScore": 38,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU30203010.do",
+          "bytes": 55109,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 9,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:학생"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+          "label": "학사",
+          "initialScore": 8,
+          "finalScore": 38,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU40101000.do",
+          "bytes": 54491,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 15,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:학사"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.hsmu.ac.kr/web/contents/HSMU40102000.do",
+          "label": "장학",
+          "initialScore": 8,
+          "finalScore": 38,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU40102000.do",
+          "bytes": 51746,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 13,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:장학"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.hsmu.ac.kr/web/contents/HSMU20301000.do",
+          "label": "학사",
+          "initialScore": 8,
+          "finalScore": 23,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU20301000.do",
+          "bytes": 381493,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 0,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:학사"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.hsmu.ac.kr/web/contents/HSMU20301000.do",
+          "label": "학사일정",
+          "initialScore": 8,
+          "finalScore": 23,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU20301000.do",
+          "bytes": 381493,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 0,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:학사"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.hsmu.ac.kr/web/contents/HSMU20501000.do",
+          "label": "학생",
+          "initialScore": 8,
+          "finalScore": 23,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU20501000.do",
+          "bytes": 67711,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 0,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:학생"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.hsmu.ac.kr/web/contents/HSMU20503000.do",
+          "label": "장학FAQ",
+          "initialScore": 8,
+          "finalScore": 23,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU20503000.do",
+          "bytes": 38717,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 0,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:장학"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.hsmu.ac.kr/web/contents/HSMU20501000.do",
+          "label": "장학금안내",
+          "initialScore": 8,
+          "finalScore": 23,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU20501000.do",
+          "bytes": 67711,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 0,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:장학"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.hsmu.ac.kr/web/contents/HSMU30204000.do",
+          "label": "학생증 발급",
+          "initialScore": 8,
+          "finalScore": 23,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.hsmu.ac.kr/web/contents/HSMU30204000.do",
+          "bytes": 39788,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 0,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:학생"
+          ],
+          "error": null
+        }
+      ],
+      "finalStatus": "REVIEW_CANDIDATE"
+    },
+    {
+      "universityId": "keimyung-university-본교",
+      "universityName": "계명대학교",
+      "previousClass": "NO_CANDIDATE",
+      "homepage": "https://www.kmu.ac.kr/",
+      "homepageStatus": 200,
+      "homepageFinalUrl": "https://www.kmu.ac.kr/",
+      "homepageBytes": 95867,
+      "totalOfficialHomeLinks": 346,
+      "scoredCandidateCount": 12,
+      "testedCandidateCount": 12,
+      "requestCount": 13,
+      "candidateCount": 12,
+      "bestCandidate": {
+        "url": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=144&amp;",
+        "label": "학사공지",
+        "initialScore": 48,
+        "finalScore": 133,
+        "homepageOfficialDomain": true,
+        "httpStatus": 200,
+        "finalUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=144&amp;",
+        "bytes": 91806,
+        "detailLinkCount": 43,
+        "uniqueDetailLinkCount": 43,
+        "dateLikeCount": 20,
+        "listLikely": true,
+        "sampleDetailUrls": [
+          "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269791&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=144&amp;",
+          "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269511&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=144&amp;",
+          "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269473&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=144&amp;",
+          "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269403&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=144&amp;",
+          "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269217&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=144&amp;"
+        ],
+        "reasons": [
+          "STRONG:공지",
+          "STRONG:학사공지",
+          "MEDIUM:학사"
+        ],
+        "error": null
+      },
+      "candidates": [
+        {
+          "url": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=144&amp;",
+          "label": "학사공지",
+          "initialScore": 48,
+          "finalScore": 133,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=144&amp;",
+          "bytes": 91806,
+          "detailLinkCount": 43,
+          "uniqueDetailLinkCount": 43,
+          "dateLikeCount": 20,
+          "listLikely": true,
+          "sampleDetailUrls": [
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269791&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=144&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269511&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=144&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269473&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=144&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269403&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=144&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269217&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=144&amp;"
+          ],
+          "reasons": [
+            "STRONG:공지",
+            "STRONG:학사공지",
+            "MEDIUM:학사"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=4630&amp;",
+          "label": "공지사항",
+          "initialScore": 40,
+          "finalScore": 125,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=4630&amp;",
+          "bytes": 69990,
+          "detailLinkCount": 7,
+          "uniqueDetailLinkCount": 7,
+          "dateLikeCount": 20,
+          "listLikely": true,
+          "sampleDetailUrls": [
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=268280&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=268280&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=4646&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=268280&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=265393&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=4646&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=268280&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=262671&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=4646&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=268280&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=261420&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=4646&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=268280&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=260752&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=4646&amp;"
+          ],
+          "reasons": [
+            "STRONG:공지",
+            "STRONG:공지사항"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=145&amp;cmd=2&amp;parm_bod_uid=269978",
+          "label": "[교외] 2026학년도 세종이도인재장학금 장학생 모집 장학복지팀",
+          "initialScore": 24,
+          "finalScore": 109,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=145&amp;cmd=2&amp;parm_bod_uid=269978",
+          "bytes": 86481,
+          "detailLinkCount": 36,
+          "uniqueDetailLinkCount": 36,
+          "dateLikeCount": 20,
+          "listLikely": true,
+          "sampleDetailUrls": [
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=268471&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=252803&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=236648&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=202070&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=196503&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;"
+          ],
+          "reasons": [
+            "MEDIUM:학생",
+            "MEDIUM:모집",
+            "MEDIUM:장학"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=147&amp;cmd=2&amp;parm_bod_uid=269976",
+          "label": "[선교지원팀] 2026학년도 2학기 채플 장학생 추가 모집 선교지원팀",
+          "initialScore": 24,
+          "finalScore": 109,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=147&amp;cmd=2&amp;parm_bod_uid=269976",
+          "bytes": 80392,
+          "detailLinkCount": 23,
+          "uniqueDetailLinkCount": 23,
+          "dateLikeCount": 20,
+          "listLikely": true,
+          "sampleDetailUrls": [
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269906&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=147&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269905&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=147&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=269984&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269984&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=147&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=269984&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269976&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=147&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=269984&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269975&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=147&amp;"
+          ],
+          "reasons": [
+            "MEDIUM:학생",
+            "MEDIUM:모집",
+            "MEDIUM:장학"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=141&amp;",
+          "label": "교외알림판",
+          "initialScore": 20,
+          "finalScore": 105,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=141&amp;",
+          "bytes": 74299,
+          "detailLinkCount": 21,
+          "uniqueDetailLinkCount": 21,
+          "dateLikeCount": 20,
+          "listLikely": true,
+          "sampleDetailUrls": [
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=269980&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269980&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=141&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=269980&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269979&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=141&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=269980&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269958&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=141&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=269980&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269957&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=141&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=269980&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269956&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=141&amp;"
+          ],
+          "reasons": [
+            "STRONG:알림"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=145&amp;cmd=2&amp;parm_bod_uid=269988",
+          "label": "26.08 21 [교외]2026년도 2학기 주거안정장학금 우리 대학 업무처리 및 지급 기준안내 1. 개요: 국고 예산으로 지급하는 원거리 대학 진학으로 주거 부담이 있는 저소득 대학생의 ...",
+          "initialScore": 16,
+          "finalScore": 101,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=145&amp;cmd=2&amp;parm_bod_uid=269988",
+          "bytes": 86481,
+          "detailLinkCount": 36,
+          "uniqueDetailLinkCount": 36,
+          "dateLikeCount": 20,
+          "listLikely": true,
+          "sampleDetailUrls": [
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=268471&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=252803&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=236648&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=202070&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=196503&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;"
+          ],
+          "reasons": [
+            "MEDIUM:학생",
+            "MEDIUM:장학"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=145&amp;cmd=2&amp;parm_bod_uid=269943",
+          "label": "[국가근로] 2026학년도 2학기 전공 근로장학생 신청 안내 장학복지팀",
+          "initialScore": 16,
+          "finalScore": 101,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=145&amp;cmd=2&amp;parm_bod_uid=269943",
+          "bytes": 86481,
+          "detailLinkCount": 36,
+          "uniqueDetailLinkCount": 36,
+          "dateLikeCount": 20,
+          "listLikely": true,
+          "sampleDetailUrls": [
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=268471&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=252803&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=236648&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=202070&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=196503&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;"
+          ],
+          "reasons": [
+            "MEDIUM:학생",
+            "MEDIUM:장학"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=145&amp;cmd=2&amp;parm_bod_uid=269918",
+          "label": "[교외] 2026년 손태희장학재단 장학생 선발 안내 장학복지팀",
+          "initialScore": 16,
+          "finalScore": 101,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=145&amp;cmd=2&amp;parm_bod_uid=269918",
+          "bytes": 86481,
+          "detailLinkCount": 36,
+          "uniqueDetailLinkCount": 36,
+          "dateLikeCount": 20,
+          "listLikely": true,
+          "sampleDetailUrls": [
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=268471&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=252803&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=236648&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=202070&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=196503&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=145&amp;"
+          ],
+          "reasons": [
+            "MEDIUM:학생",
+            "MEDIUM:장학"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=3445&amp;cmd=2&amp;parm_bod_uid=269872",
+          "label": "[법무법인 대련] 대구 지역 대학생 서포터즈 『로로 앰버서더 1기』 모집 진로취업지원팀",
+          "initialScore": 16,
+          "finalScore": 101,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=3445&amp;cmd=2&amp;parm_bod_uid=269872",
+          "bytes": 108840,
+          "detailLinkCount": 66,
+          "uniqueDetailLinkCount": 66,
+          "dateLikeCount": 20,
+          "listLikely": true,
+          "sampleDetailUrls": [
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269941&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=3445&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269874&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=3445&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269860&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=3445&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269812&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=3445&amp;",
+            "https://www.kmu.ac.kr/uni/main/page.jsp?pageNo=1&amp;pagePrvNxt=1&amp;pageRef=0&amp;pageOrder=0&amp;cmd=2&amp;parm_bod_uid=269631&amp;srchVoteType=-1&amp;srchEnable=1&amp;srchBgpUid=-1&amp;srchKeyword=&amp;srchSDate=&amp;srchColumn=&amp;srchEDate=&amp;mnu_uid=3445&amp;"
+          ],
+          "reasons": [
+            "MEDIUM:학생",
+            "MEDIUM:모집"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.kmu.ac.kr/",
+          "label": "공지사항",
+          "initialScore": 40,
+          "finalScore": 70,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.kmu.ac.kr/",
+          "bytes": 95867,
+          "detailLinkCount": 1,
+          "uniqueDetailLinkCount": 1,
+          "dateLikeCount": 20,
+          "listLikely": false,
+          "sampleDetailUrls": [
+            "https://www.kmu.ac.kr/uni/main/page.jsp?cmd=2&hasToken=1&srchEnable=-1&srchKeyword=&srchSDate=&srchColumn=&srchVoteType=-1&pageOrder=0&pageNo=1&parm_bod_uid=237590&srchBgpUid=-1&pagePrvNxt=1&pageRef=0&srchEDate=&mnu_uid=143&"
+          ],
+          "reasons": [
+            "STRONG:공지",
+            "STRONG:공지사항"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=3316&amp;",
+          "label": "계명소식지",
+          "initialScore": 8,
+          "finalScore": 38,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=3316&amp;",
+          "bytes": 62209,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 20,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:소식"
+          ],
+          "error": null
+        },
+        {
+          "url": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=3216&amp;",
+          "label": "대학생활",
+          "initialScore": 8,
+          "finalScore": 38,
+          "homepageOfficialDomain": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.kmu.ac.kr/uni/main/page.jsp?mnu_uid=3216&amp;",
+          "bytes": 71059,
+          "detailLinkCount": 0,
+          "uniqueDetailLinkCount": 0,
+          "dateLikeCount": 20,
+          "listLikely": false,
+          "sampleDetailUrls": [],
+          "reasons": [
+            "MEDIUM:학생"
+          ],
+          "error": null
+        }
+      ],
+      "finalStatus": "CANDIDATE_DISCOVERED"
+    }
+  ],
+  "decision": "VALIDATE_DISCOVERED_CANDIDATES",
+  "discoveryPolicy": {
+    "scoreAllHomepageLinksBeforeLimit": true,
+    "maximumFetchedCandidatesPerUniversity": 12,
+    "officialDomainOnly": true,
+    "downloadLinksExcluded": true,
+    "uniqueDetailUrlRequired": true,
+    "excessiveDateCountCapped": true,
+    "automaticActivation": false
+  },
+  "operationalHashUnchanged": true,
+  "beforeHashes": {
+    "development\\university-news\\data\\university-news-sources.final.json": "21b1f5c5284d8deffcf411dc22c2cdd0b27302234f1c848fbbf7396dfea7badd",
+    "server\\agent\\data\\agent-news-store.json": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "data\\university-news-preview.json": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "afterHashes": {
+    "development\\university-news\\data\\university-news-sources.final.json": "21b1f5c5284d8deffcf411dc22c2cdd0b27302234f1c848fbbf7396dfea7badd",
+    "server\\agent\\data\\agent-news-store.json": "ca1b90c1560f8b8f48fb7b80b048f70e3db1a219c8943d01fedcdfdc25274556",
+    "data\\university-news-preview.json": "960c84e83e42d6491fc66cf01c5d21a9efe3b23dcc80fb8d3bf90a36fdc65e9d"
+  },
+  "safety": {
+    "readOnly": true,
+    "maximumTargets": 4,
+    "automaticActivation": false,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false,
+    "tlsVerificationDisabled": false,
+    "operationalHashVerified": true
+  }
+}

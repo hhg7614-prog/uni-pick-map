@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-24T00:05:57.173Z",
+  "universityId": "kyungwoon-university-본교",
+  "universityName": "경운대학교",
+  "listUrl": "https://www.ikw.ac.kr/ipsi/page/link.tc?mn=2415&pageSeq=1608",
+  "status": 200,
+  "rawRows": 18,
+  "extracted": 0,
+  "unique": 0,
+  "duplicateUrls": 0,
+  "distinctTitles": 0,
+  "distinctDates": 0,
+  "dateColumn": {
+    "byIndex": {},
+    "bestIndex": null
+  },
+  "detailValidation": {
+    "tested": 0,
+    "pass": 0,
+    "titlePass": 0,
+    "datePass": 0,
+    "checks": []
+  },
+  "selectors": {
+    "item": "tbody tr",
+    "title": "a[href*='/ipsi/board/detail.tc'][href*='boardNo=']",
+    "link": "a[href*='/ipsi/board/detail.tc'][href*='boardNo=']",
+    "linkAttribute": "href",
+    "date": null
+  },
+  "decision": "SELECTOR_REVIEW_REQUIRED",
+  "proposedSource": null,
+  "nextAction": "INSPECT_KYUNGWOON_TITLE_CELL",
+  "requests": 1,
+  "operationalHashUnchanged": true,
+  "safety": {
+    "readOnly": true,
+    "curlTlsBypass": false,
+    "sourceModified": false,
+    "storeModified": false,
+    "previewModified": false,
+    "queueModified": false,
+    "gitTriggered": false,
+    "deploymentTriggered": false
+  }
+}
