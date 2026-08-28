@@ -59,4 +59,24 @@ function buildUniversitySummaryLines(breakdown) {
   return lines;
 }
 
-module.exports = { classifyUniversityResults, buildUniversitySummaryLines };
+/**
+ * messageKo 꼬리 줄(저장 누적·배포 커밋·다음 실행 시각).
+ * 성공 분기는 storeAfter/commitHash 둘 다, catch 분기는 둘 다 없이 호출된다.
+ * @param {{storeAfter?:number, commitHash?:string|null}} payload
+ * @param {Date} now - 다음 실행 시각 판정용(오전 실행이면 다음은 16:30, 아니면 09:30)
+ * @returns {string[]}
+ */
+function buildTailLines(payload = {}, now = new Date()) {
+  const stored = Number(payload && payload.storeAfter);
+  const hash = payload && payload.commitHash ? String(payload.commitHash).slice(0, 7) : null;
+  const lines = [];
+  if (Number.isFinite(stored)) {
+    lines.push(hash ? `전체 ${stored}건 저장 · 커밋 ${hash} 배포` : `전체 ${stored}건 저장 · 배포 안 함`);
+  } else if (hash) {
+    lines.push(`커밋 ${hash} 배포`);
+  }
+  lines.push(`다음 실행: ${now.getHours() < 12 ? "16:30" : "09:30"}`);
+  return lines;
+}
+
+module.exports = { classifyUniversityResults, buildUniversitySummaryLines, buildTailLines };

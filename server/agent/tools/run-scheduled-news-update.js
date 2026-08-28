@@ -9,7 +9,7 @@ const { runOnce } = require("../runner");
 const { STORE_PATH, PREVIEW_PATH, getAllItems } = require("../store");
 const { acquireRuntimeLock, releaseRuntimeLock } = require("../runtime-lock");
 const { writeHtmlReport } = require("../report-html");
-const { classifyUniversityResults, buildUniversitySummaryLines } = require("../university-update-summary");
+const { classifyUniversityResults, buildUniversitySummaryLines, buildTailLines } = require("../university-update-summary");
 
 const ROOT = path.resolve(__dirname, "../../..");
 const REPORT_PATH = path.join(ROOT, "server/agent/news/reports/ui/latest-news-update-report.html");
@@ -78,9 +78,10 @@ async function asyncMain() {
     payload.totalTargets = breakdown.totalTargets;
     payload.messageKo = [
       payload.messageKo,
+      "",
       ...buildUniversitySummaryLines(breakdown),
-      `대표 이미지: ${payload.imageStats.withImage}건`,
-      `이미지 보완: ${payload.imageStats.backfilledImages}건`,
+      "",
+      ...buildTailLines(payload),
     ].join("\n");
     writeResult(payload);
     writeHtmlReport(REPORT_PATH, "UNI PICK News Update Report", payload); console.log(JSON.stringify(payload, null, 2));
@@ -94,7 +95,7 @@ async function asyncMain() {
     if (run && Array.isArray(run.universityResults)) {
       const breakdown = classifyUniversityResults(run.universityResults);
       payload.universityBreakdown = { updated: breakdown.updated, noNewItems: breakdown.noNewItems, failed: breakdown.failed };
-      payload.messageKo = [payload.messageKo, ...buildUniversitySummaryLines(breakdown)].join("\n");
+      payload.messageKo = [payload.messageKo, "", ...buildUniversitySummaryLines(breakdown), "", ...buildTailLines(payload)].join("\n");
     }
     writeResult(payload);
     writeHtmlReport(REPORT_PATH, "UNI PICK News Update Report", payload); console.error(JSON.stringify(payload,null,2)); process.exitCode=1;

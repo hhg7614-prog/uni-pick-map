@@ -5,6 +5,7 @@ const test = require("node:test");
 const {
   classifyUniversityResults,
   buildUniversitySummaryLines,
+  buildTailLines,
 } = require("./university-update-summary");
 
 // 기존 payload 술어(회귀 안전용) — run-scheduled-news-update.js 와 동일한 식.
@@ -167,7 +168,7 @@ test("buildUniversitySummaryLines 는 카운트가 0이어도 3줄을 항상 낸
   ]);
 });
 
-test("messageKo 시연: base 와 이미지 통계 줄 사이에 요약 4번 줄이 삽입된다", () => {
+test("messageKo 시연: base / 요약 / 꼬리 줄이 빈 줄로 구분되어 조립된다", () => {
   // run-scheduled-news-update.js 성공 분기의 messageKo 조립을 그대로 재현.
   const universityResults = [
     { universityName: "가대", newCount: 3 },
@@ -179,22 +180,46 @@ test("messageKo 시연: base 와 이미지 통계 줄 사이에 요약 4번 줄�
   ];
   const breakdown = classifyUniversityResults(universityResults);
   const base = "뉴스 업데이트와 배포 요청이 완료되었습니다.";
-  const imageStats = { withImage: 34, backfilledImages: 3 };
+  const payload = { storeAfter: 758, commitHash: "abc1234def5678" };
   const messageKo = [
     base,
+    "",
     ...buildUniversitySummaryLines(breakdown),
-    `대표 이미지: ${imageStats.withImage}건`,
-    `이미지 보완: ${imageStats.backfilledImages}건`,
+    "",
+    ...buildTailLines(payload, new Date("2026-08-28T09:31:00")),
   ].join("\n");
   assert.equal(
     messageKo,
     "뉴스 업데이트와 배포 요청이 완료되었습니다.\n" +
+      "\n" +
       "업데이트 완료: 2개교 (신규 7건)\n" +
       "변경 없음: 3개교\n" +
       "수집 실패: 1개교\n" +
       "- 목포대학교: WAF 차단\n" +
-      "대표 이미지: 34건\n" +
-      "이미지 보완: 3건"
+      "\n" +
+      "전체 758건 저장 · 커밋 abc1234 배포\n" +
+      "다음 실행: 16:30"
+  );
+});
+
+test("buildTailLines: 배포된 성공 분기 payload", () => {
+  assert.deepEqual(
+    buildTailLines({ storeAfter: 758, commitHash: "abc1234def" }, new Date("2026-08-28T09:00:00")),
+    ["전체 758건 저장 · 커밋 abc1234 배포", "다음 실행: 16:30"]
+  );
+});
+
+test("buildTailLines: NO_CHANGES(커밋 없음) 는 '배포 안 함'", () => {
+  assert.deepEqual(
+    buildTailLines({ storeAfter: 758, commitHash: null }, new Date("2026-08-28T16:45:00")),
+    ["전체 758건 저장 · 배포 안 함", "다음 실행: 09:30"]
+  );
+});
+
+test("buildTailLines: catch 분기(storeAfter/commitHash 없음) 는 다음 실행 줄만", () => {
+  assert.deepEqual(
+    buildTailLines({}, new Date("2026-08-28T09:00:00")),
+    ["다음 실행: 16:30"]
   );
 });
 
