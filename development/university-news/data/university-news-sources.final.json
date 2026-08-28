@@ -6902,7 +6902,34 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "knsu-press-release",
+          "name": "한국체육대학교 보도자료",
+          "category": "school_news",
+          "categoryLabel": "학교 소식",
+          "sourceType": "official",
+          "collectionType": "html",
+          "listUrl": "https://www.knsu.ac.kr/knsu/info/press-release.do",
+          "selectors": {
+            "item": "tbody tr",
+            "title": "td.b-td-title a",
+            "link": "td.b-td-title a",
+            "date": "span.b-date"
+          },
+          "detailSelectors": {
+            "title": "p.b-title-box span",
+            "date": "li.b-date-box span"
+          },
+          "datePolicy": {
+            "allowTwoDigitYear": true
+          },
+          "verified": false,
+          "enabled": false,
+          "status": "selector_required",
+          "healthStatus": "unknown"
+        }
+      ],
       "searchKeywords": [
         "한국체육대학교",
         "한국체육대학교"
