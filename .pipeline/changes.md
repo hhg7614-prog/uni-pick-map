@@ -1,242 +1,229 @@
 # 변경된 파일
 
-## 신규 (제품 코드 + 테스트) — 8개
+## 신규
+- `D:\hhg(code)\server\agent\university-update-summary.js` (순수 모듈)
+- `D:\hhg(code)\server\agent\university-update-summary.test.js` (단위 테스트)
+- `D:\hhg(code)\server\agent\report-html.test.js` (HTML 리포트 렌더/회귀 테스트)
 
-- `D:\hhg(code)\server\agent\onboarding\tools\prepare-catalog-source-block.js` (B1)
-- `D:\hhg(code)\server\agent\onboarding\tools\prepare-catalog-source-block.test.js` (B1 테스트)
-- `D:\hhg(code)\server\agent\onboarding\tools\build-review-packet-from-diagnose.js` (B2)
-- `D:\hhg(code)\server\agent\onboarding\tools\build-review-packet-from-diagnose.test.js` (B2 테스트, B1→B2 시연 포함)
-- `D:\hhg(code)\server\agent\gate\brain-batch-approve.js` (B3, Brain 전용·비배선)
-- `D:\hhg(code)\server\agent\gate\brain-batch-approve.test.js` (B3 테스트, 비배선 검증 포함)
-- `D:\hhg(code)\server\agent\gate\apply-approved-activations.js` (B4)
-- `D:\hhg(code)\server\agent\gate\apply-approved-activations.test.js` (B4 테스트, --apply 시연·안전성 포함)
+## 수정
+- `D:\hhg(code)\server\agent\report-html.js`
+- `D:\hhg(code)\server\agent\tools\run-scheduled-news-update.js`
 
-## 수정 (제품 코드) — 최소 diff
+그 외 파일(`runner.js` / `collector.js` / `dedup.js` / `store.js` / `report.js` / `*.ps1` /
+`package.json` / `collection-report.js`)은 수정하지 않았습니다.
 
-- `D:\hhg(code)\server\agent\tools\run-single-school-trial.js`
-- `D:\hhg(code)\package.json`
-
-## 자동 생성 데이터 (테스트에서는 임시 fixture만 사용, 이번 세션에서 실제 생성/커밋 없음)
-
-- `server/agent/onboarding/data/catalog-prepare-log.json` — B1 감사 로그(최초 실행 시 생성)
-- `server/agent/gate/data/apply-batch-reports/<runId>.json` — B4 실행 리포트(최초 실행 시 생성)
-- `development/university-news/data/university-news-sources.final.json.prepare-backup.<stamp>` — B1 사전 백업
-
-# 각 파일의 "여는 명령" (AGENTS.md 4절)
-
-```powershell
-Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\onboarding\tools\prepare-catalog-source-block.js"
-Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\onboarding\tools\prepare-catalog-source-block.test.js"
-Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\onboarding\tools\build-review-packet-from-diagnose.js"
-Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\onboarding\tools\build-review-packet-from-diagnose.test.js"
-Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\gate\brain-batch-approve.js"
-Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\gate\brain-batch-approve.test.js"
-Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\gate\apply-approved-activations.js"
-Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\gate\apply-approved-activations.test.js"
-Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\tools\run-single-school-trial.js"
-Get-Content -Raw -LiteralPath "D:\hhg(code)\package.json"
-```
+---
 
 # 변경 내용
 
-## B1 — prepare-catalog-source-block.js (신규)
+## `server/agent/university-update-summary.js` (신규)
+spec "# 구현 계획 > 1" 코드 블록을 그대로 구현. 부수효과·I/O·시간·난수 없음.
+- `classifyUniversityResults(universityResults = [])` → `{ updated[], noNewItems[], failed[],
+  updatedCount, noNewItemsCount, failedCount, totalTargets }`.
+  - 우선순위: `failed`(`r.error` truthy 또는 `errors.filter(Boolean).length > 0`) → `updated`
+    (`newCount > 0`) → `noNewItems`.
+  - 실패 사유: `r.error` truthy면 `String(r.error)`, 아니면 `errors.filter(Boolean).join("; ")`.
+  - `noNewItems.reason` = `` `신규 게시물 없음 (중복 ${duplicateCount ?? 0}건)` ``.
+  - 배열이 아닌 입력/`undefined`는 빈 배열로 처리(카운트 전부 0).
+  - 이름 누락 시 `"(이름 없음)"`.
+- `buildUniversitySummaryLines(breakdown)` → `string[]`. 3줄 고정
+  (`업데이트 완료: N개교 (신규 K건)` / `변경 없음: N개교` / `수집 실패: N개교`) +
+  `failed[]` 전부 `- 이름: 사유`. `breakdown` 없으면 빈 분류로 폴백.
 
-- `normalizeCandidateSourceBlock(candidate)` — 후보의 `source` 블록을 카탈로그 관례로 정규화.
-  확정 결정 A안대로 `verified:false, enabled:false, status:"selector_required", healthStatus:"unknown"` 강제.
-- `insertSourceBlock(catalog, {universityId, sourceId}, sourceBlock)` — 순수 함수.
-  대학 블록이 없으면 throw(대학 블록 생성 안 함). 같은 sourceId 존재 시 throw(이미 `enabled:true`면 별도 메시지).
-  `university.sources` 배열에만 push, 원본 객체 불변(deep clone 반환).
-- `prepareCatalogSourceBlock({...})` — 후보 파일 조회 → `finalDecision === "COLLECTOR_CONFIG_READY"` 검증 →
-  `insertSourceBlock` → (`--dry-run`이면 요약만) → 사전 백업(`<catalog>.prepare-backup.<stamp>`) →
-  tmp 쓰기 → `JSON.parse` 검증 → `rename` → `catalog-prepare-log.json` 에 append(`{preparedAt, universityId, sourceId, catalogBackupPath, checksumBefore, checksumAfter}`).
-  결과 JSON 에 `mutation` 전부 false 선언.
-- 시간/경로/`fs.*`는 전부 주입 가능(`now`, `readFileImpl`, `writeFileImpl`, `renameImpl`, `copyFileImpl`, `existsImpl`, `mkdirImpl`).
-- 체크섬 계산은 `server/agent/gate/checksum-utils.js` 의 `sha256Hex` 재사용.
+## `server/agent/tools/run-scheduled-news-update.js` (수정, 3곳)
+1. 상단 require 추가:
+   `const { classifyUniversityResults, buildUniversitySummaryLines } = require("../university-update-summary");`
+2. `asyncMain()` 성공 분기 — `payload.cleanupStats` 세팅 직후:
+   - `breakdown` 계산 → `payload.universityBreakdown = { updated, noNewItems, failed }`,
+     `payload.updatedCount / noNewItemsCount / failedCount / totalTargets` 세팅.
+   - 기존 `payload.messageKo = ...\n대표 이미지...\n이미지 보완...` 한 줄을 배열 `.join("\n")`
+     조립으로 교체. 순서: `base` → 요약 4번 줄 → `대표 이미지` 줄 → `이미지 보완` 줄.
+     (base 문구/이미지 통계 문구·순서는 불변, 요약 줄만 사이에 삽입.)
+3. `catch` 분기 — `writeResult(payload)` 직전:
+   - `run && Array.isArray(run.universityResults)` 이면 `payload.universityBreakdown`(배열 3종)
+     세팅 + `payload.messageKo = [payload.messageKo, ...요약줄].join("\n")`
+     (이미지 통계 줄은 catch payload에 없으므로 미포함).
+   - **스칼라 카운트 4종은 catch 분기에서 세팅하지 않음** (후속 보완 #2 참조).
+   - `run` 이 undefined(runOnce 이전 throw)면 아무것도 안 함 → 기존 동작 유지.
 
-## run-single-school-trial.js (수정, 최소 diff)
+기존 `payload` 필드/타입/`status` 분기(SUCCESS/NO_CHANGES/WARNING/FAILED)는 전부 유지, 새 키만 추가.
 
-- `parseOptions()`: 반환 객체에 `allowUnverifiedForDiagnose: argv.includes("--allow-unverified-diagnose")` 추가.
-- `selectSource(university, sourceId, { allowUnverifiedForDiagnose = false } = {})`: 세 번째 인자(옵션) 추가.
-  `allowUnverifiedForDiagnose && sourceId && entry.id === sourceId` 인 소스에 한해 `verified !== true` 여도 후보 인정.
-  기존 2-인자 호출은 기본값으로 동작 불변.
-- `main()`: `selectSource(university, options.sourceId, { allowUnverifiedForDiagnose: options.diagnose && options.allowUnverifiedForDiagnose })`.
-  플래그는 `--diagnose` 일 때만 효력(읽기 전용). `assertSourceEnabledForSave`/저장/`backupBeforeSave`/export 목록 전부 불변.
+## `server/agent/report-html.js` (수정)
+- `renderBreakdownCell(v)` 함수 추가: `updated / noNewItems / failed` 3개 소표(`<table class="ubk">`)
+  + 요약 `<p><strong>...</strong></p>`. 빈 목록은 `<p class="ubk-empty">없음</p>`.
+  값은 전부 기존 `esc()` 로 이스케이프.
+- `writeHtmlReport` 의 rows 생성부: `key === "universityBreakdown"` 이고 값이 (배열 아닌) 객체이면
+  `<pre>` 대신 `renderBreakdownCell` 결과를 `<td>` 에 렌더, `<th>` 는 `학교별 업데이트 내역`.
+  그 외 모든 키는 기존 `<pre>` 방식 그대로.
+- `<style>` 에 `.ubk{width:auto;margin:4px 0 12px}.ubk th{width:auto;background:#fff}h4{margin:12px 0 4px}`
+  추가(전역 `th{width:260px}` 가 중첩 표에 먹지 않도록). 기존 CSS 규칙은 불변.
 
-## B2 — build-review-packet-from-diagnose.js (신규)
+## 테스트 파일 2종 (신규)
+- `university-update-summary.test.js` (16 테스트): 혼합 분류, updated 형태, noNewItems reason,
+  빈/undefined 입력, 불변식 `updatedCount+noNewItemsCount+failedCount===totalTargets`,
+  실패 사유 원본 전달 4종(`SCHEDULER_WAF_BLOCK` / `"main-notice: 403; press: timeout"` /
+  `"a; b"` / `newCount:5+errors` → failed), 기존 payload 술어 불변식(`failedCount===payload.failed`
+  등), `buildUniversitySummaryLines` 3줄 고정 + 실패 상세, messageKo 최종 블록 정확 일치 시연.
+- `report-html.test.js` (5 테스트): `universityBreakdown` 3소표 렌더/헤더/학교명/신규수/사유,
+  `<`·`&` 이스케이프, 빈 목록 `없음` 3회, `universityBreakdown` 없는 payload 회귀(`<pre>` 유지),
+  신규 카운트 키는 여전히 `<pre>`. 임시 디렉터리(`fs.mkdtempSync`)만 사용, 프로덕션 경로 미접근.
 
-- `parseJsonObjectsFromStdout(text)` — 문자열/이스케이프 상태를 추적하는 중괄호 스캐너로
-  `run-single-school-trial.js` stdout 의 pretty-print JSON 2개를 분리. 마지막 객체를 결과로 사용.
-- `runDiagnose({universityId, sourceId, limit, runnerImpl})` — 기본 runner 는 `execFileSync` 로
-  `run-single-school-trial.js --diagnose --allow-unverified-diagnose` 실행. 테스트는 `runnerImpl` 주입.
-- `collectRobotsEvidence(source, {fetchImpl, timeoutMs})` — `<origin>/robots.txt` 조회 후
-  `screen-selector-required-sources.js` 의 `classifyRobotsFetchResult` 결과 그대로 사용(+`robotsUrl`).
-- `evaluateDiagnose(diagnoseResult, source, robotsEvidence, {minAccepted=2})` — 순수 통과 판정:
-  `foundCount>0` && `acceptedCount>=minAccepted` && `published_at_not_found` 없음 &&
-  `detail_title_or_university_mismatch` 없음 && robots `checked===true && !unavailable && policy.blocked!==true` &&
-  `jsDetailLinkRule.enabled!==true`.
-- `collectRegressionEvidence({npmTestImpl, now})` / `extractNpmTestSummary(raw)` — `npm test` 출력에서
-  `fail N` 형태를 뽑아 `regressionEvidence` 생성. (review-packet.js 가 `/fail\s+(\d+)/i` 로 재검증.)
-- `reconstructAcceptedNewItems(diagnoseResult, {university, source})` — 확정 결정 3: diagnose 결과의
-  `diagnostics[]` 중 `storable===true` 항목에서 `{title, sourceUrl, publishedAt, universityId, universityGroupId, category, sourceId}` 재구성.
-- `buildReviewPacketFromDiagnose({...})` — 위를 조립. **미통과면 패킷을 만들지 않고** `{status:"DIAGNOSE_FAILED"}` 반환(CLI exit 1).
-  통과 시에만 `createAndWriteReviewPacket()` 호출(`findSourceInCatalog` 로 `sourceSnapshot`/`universityGroupId` 확보).
-  `--skip-npm-test` 는 호출자가 `regressionEvidence` 를 명시 주입해야 하고 미주입 시 throw.
-- `review-decision-writer.js` 를 require 하지 않음.
-
-## B3 — brain-batch-approve.js (신규, Brain 전용·비배선)
-
-- gate 모듈 중 `review-decision-writer.js` 만 require. 서명 키 환경변수 이름(`UNIPICK_GATE_SIGNING_KEY`)은
-  `signing-utils.js` 를 require 하지 않기 위해 파일에 독립 선언(apply-source-activation.js 의
-  BLOCKED_REVIEWER_NAMES 재정의 선례와 동일).
-- `listPendingReviews({dataDir,...})` — 패킷은 있으나 판정 파일이 없는 reviewId + 패킷 요약(scope/diagnostics 카운트/robots 요약/regression 요약).
-  확정 결정 6: 소스별(`universityId+sourceId`) 최신 패킷 1개만(`createdAt` 기준).
-- `approveOne(reviewId, {...})` — `writeReviewDecision` 래퍼. 서명 키 없으면 `SIGNING_KEY_UNAVAILABLE` 로 throw(파일 미생성).
-- `batchApprove(reviewIds, {...})` — 시작 시 서명 키 1회 사전 검사(없으면 파일 0개 + throw).
-  이미 판정 파일이 있는 reviewId 는 `skipped[]` 기록. 한 건 실패해도 나머지 진행(`failed[]`).
-  `checkedItems` 위반 플래그 + APPROVE 는 `writeReviewDecision` 이 거부 → `failed[]`.
-- CLI: `--list` / `--approve --review-ids=` / `--approve --all-pending` (+ `--reviewed-by` / `--reason` / `--checked-items-file` / `--verdict`).
-- `package.json` 및 어떤 온보딩/tools/스케줄러/runner 코드에서도 require 되지 않음(테스트로 grep 검증).
-
-## B4 — apply-approved-activations.js (신규)
-
-- `apply-source-activation.js` 의 `runAllGuards` / `performActivationAndSave` / `writeJsonOnce` 재사용.
-- `listApprovedUnapplied({dataDir,...})` — `verdict==="APPROVE"` && `<reviewId>.applied.json` 없는 판정 순회.
-  확정 결정 6: 패킷 scope+createdAt 으로 소스별 최신 1개만.
-- `applyApprovedActivations({apply, stopOnFirstApplied, ...})`:
-  - 확정 결정 7: `runtime-lock.js` 의 `acquireRuntimeLock("news-update-agent")` 획득. 실패 시 `RUNTIME_LOCK_UNAVAILABLE` throw(아무것도 적용 안 함). 테스트에서 lock impl 주입.
-  - `getTargetUniversities().length` 를 before/after 로 기록(`countTargetsImpl` 주입 가능 —
-    테스트는 `countTargetUniversitiesInCatalogFile(fixtureCatalog)` 로 프로덕션 카탈로그 미접근).
-  - 각 건: `runAllGuards` 실패 → `skipped[]`(`STALE_REVIEW_PACKET_INVALIDATED` / `SIGNATURE_MISSING` 등 코드+사유 기록, 예외 없음).
-    통과 + `!apply` → `skipped[]` `VALIDATED_NOT_APPLIED`.
-    통과 + `apply` → `performActivationAndSave` → 성공 `applied[]`(+`stopOnFirstApplied` 면 이후 `SKIPPED_AFTER_STOP`).
-    `GateApplyFailure` → `failed[]`(code/rollback/backupDir). `ROLLBACK_FAILED_MANUAL_INTERVENTION_REQUIRED` 만 즉시 중단.
-  - `apply-batch-reports/<runId>.json` 에 `writeJsonOnce` 로 리포트 저장.
-- STALE 연쇄(첫 apply 성공 후 카탈로그 바이트 변경 → 나머지 STALE)는 정상 흐름으로 `skipped[]` 기록.
-- CLI: 기본 검증만, `--apply`, `--apply --stop-on-first-applied`. `failed` 또는 수동개입 필요 시 exit 1.
-- `review-decision-writer.js` 를 require 하지 않음.
-
-## package.json (수정)
-
-`scripts` 에 3개만 추가(B3 스크립트 없음):
-
-```
-"news:onboard:prepare-source": "node server/agent/onboarding/tools/prepare-catalog-source-block.js"
-"news:onboard:review-packet": "node server/agent/onboarding/tools/build-review-packet-from-diagnose.js"
-"gate:apply-approved": "node server/agent/gate/apply-approved-activations.js"
-```
+---
 
 # 변경 이유
 
-- `.pipeline/spec.md` "# 확정된 설계 결정 (2026-08-28, 사용자 승인)" 및 "# 완료 기준 1~12" 를 그대로 구현.
-- 온보딩 검증 통과 후보 → (B1) 카탈로그 비활성 삽입 → (B2) diagnose 통과 시 review-packet 생성 →
-  (B3, Brain 수동) 일괄 APPROVE 서명 → (B4) `--apply` 배치 활성화 로 이어지는 4개 "다리"를
-  기존 gate 모듈/스케줄러 락/store 원자적 쓰기 경로만 재사용해 배선.
-- 신규 npm 의존성 없음(Node 내장 `fs`/`path`/`crypto`/`child_process`만).
-- run-single-school-trial.js 수정은 확정 결정 1 A안(플래그 최소 추가)에 따른 것이며,
-  `--diagnose` 읽기 전용성과 기존 export/저장 로직을 보존.
+`runOnce()` 가 이미 반환하는 학교별 세부(`run.universityResults[]`)를
+`run-scheduled-news-update.js` 가 집계 수치만 남기고 버리고 있었음. spec 요구대로
+학교별 결과를 3분류(업데이트 완료 / 변경 없음 / 수집 실패)로 정리해
+(1) 재사용 순수 함수, (2) `payload` 새 필드, (3) `payload.messageKo` 요약 줄,
+(4) HTML 리포트 표에 반영. PS1 팝업은 `messageKo` 를 그대로 출력하므로 자동 반영(미변경).
+수집/중복 로직(`runner.js`/`collector.js`)은 건드리지 않고 집계·표현 계층만 수정.
+
+순수 함수를 별도 모듈로 분리한 이유: `run-scheduled-news-update.js` 는 파일 끝에서
+`asyncMain()` 을 무조건 실행(`require.main` 가드 없음)하므로 `require` 로 테스트 불가.
+spec 질문사항 4건은 전부 기본값(계획대로)으로 확정: (1) 에러 보유 시 무조건 failed,
+(2) 배열 3종은 `payload.universityBreakdown` 중첩, (3) catch 분기에도 `run` 있으면 요약 추가,
+(4) `require.main` 가드 미추가.
+
+---
+
+# AGENTS.md 4절 — 각 파일 "여는 명령"
+
+```powershell
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\university-update-summary.js"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\university-update-summary.test.js"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\report-html.js"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\report-html.test.js"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\tools\run-scheduled-news-update.js"
+```
+
+편집 전 5개 파일 모두 전체 내용을 읽고 최소 diff로 수정함.
+
+---
 
 # 검증 결과
 
-## node --check (신규/수정 .js 전부)
+## `node --check` (AGENTS.md 5절)
 
 ```
-OK server/agent/onboarding/tools/prepare-catalog-source-block.js
-OK server/agent/onboarding/tools/prepare-catalog-source-block.test.js
-OK server/agent/onboarding/tools/build-review-packet-from-diagnose.js
-OK server/agent/onboarding/tools/build-review-packet-from-diagnose.test.js
-OK server/agent/gate/brain-batch-approve.js
-OK server/agent/gate/brain-batch-approve.test.js
-OK server/agent/gate/apply-approved-activations.js
-OK server/agent/gate/apply-approved-activations.test.js
-OK server/agent/tools/run-single-school-trial.js
+node --check "D:\hhg(code)\server\agent\university-update-summary.js"          → OK
+node --check "D:\hhg(code)\server\agent\report-html.js"                        → OK
+node --check "D:\hhg(code)\server\agent\tools\run-scheduled-news-update.js"    → OK
+node --check "D:\hhg(code)\server\agent\university-update-summary.test.js"     → OK
+node --check "D:\hhg(code)\server\agent\report-html.test.js"                   → OK
+(출력: "ALL CHECKS OK")
 ```
 
-## package.json JSON 파싱
+## 신규 테스트 개별 (`node --test`)
 
 ```
-node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'));console.log('package.json JSON OK')"
-=> package.json JSON OK
+node --test server/agent/university-update-summary.test.js   → tests 16, pass 16, fail 0
+node --test server/agent/report-html.test.js                 → tests 5,  pass 5,  fail 0
 ```
 
-## 신규 테스트 파일 개별 실행 (node --test)
+## 전체 `npm test` 3회 연속
 
-- `prepare-catalog-source-block.test.js` — tests 11, pass 11, fail 0
-- `build-review-packet-from-diagnose.test.js` — tests 13, pass 13, fail 0
-- `brain-batch-approve.test.js` — tests 8, pass 8, fail 0
-- `apply-approved-activations.test.js` — tests 9, pass 9, fail 0
-- (회귀) `run-single-school-trial.test.js` — tests 16, pass 16, fail 0 (파일 무수정)
-- (회귀) `server/agent/gate/*.test.js` — 기존 66 테스트 전부 pass
+| 회차 | tests | pass | fail |
+|---|---|---|---|
+| baseline (변경 전) | 274 | 274 | 0 |
+| 1 | 295 | 295 | 0 |
+| 2 | 295 | 295 | 0 |
+| 3 | 295 | 295 | 0 |
 
-## 전체 npm test 3회 연속
+증가분: +21 (university-update-summary.test.js 16 + report-html.test.js 5). 회귀 0, 결정적 통과.
 
-| 실행 | tests | pass | fail | cancelled |
-|---|---|---|---|---|
-| 1회 | 274 | 274 | 0 | 0 |
-| 2회 | 274 | 274 | 0 | 0 |
-| 3회 | 274 | 274 | 0 | 0 |
+---
 
-- 변경 전 baseline: tests 233 / pass 233 / fail 0.
-- 신규 +41 테스트(B1 11 + B2 13 + B3 8 + B4 9). 3회 모두 동일 결과 → 결정적(flaky 0).
-- 시간/난수/타임스탬프/락/`fs.*`/`fetch`/`npm test`/diagnose runner 는 전부 주입으로 고정,
-  테스트는 임시 fixture 디렉터리만 사용(프로덕션 카탈로그/store/preview/네트워크 미접근).
+# 시연 출력 발췌
 
-# 미구현 항목 / 보류
+## messageKo (성공 분기, fixture: 완료 2 / 변경없음 3 / 실패 1)
 
-- 없음. spec "# 파일" 표의 신규 8개 파일 + 명시된 최소 수정(run-single-school-trial.js A안 플래그,
-  package.json 스크립트 3개)만 구현.
-- Code Agent 는 APPROVE 판정 파일 생성/서명/`--apply` 자동 실행을 하지 않음(B3 은 Brain 수동 단계).
-- 실제 44번째 대학 활성화(프로덕션 카탈로그 쓰기)는 사용자 승인 후 별도 — 이번엔 fixture 시연만.
-- `.gitignore` 는 spec 허용 파일 목록 밖이라 수정하지 않음(아래 참고사항 참조).
-- B5(스케줄러 워크트리 자동 동기화)는 이번 범위 아님.
+```
+뉴스 업데이트와 배포 요청이 완료되었습니다.
+업데이트 완료: 2개교 (신규 7건)
+변경 없음: 3개교
+수집 실패: 1개교
+- 목포대학교: WAF 차단
+대표 이미지: 34건
+이미지 보완: 3건
+```
 
-# 참고사항 (Tester가 알아야 할 내용)
+## HTML 리포트 `universityBreakdown` 셀
 
-- `npm test` 는 Windows PowerShell / Git Bash 어느 쪽에서도 `npm test` 로 실행(`node --test` 내장 러너).
-- 신규 테스트는 전부 `os.tmpdir()` 아래 `fs.mkdtempSync` fixture + 의존성 주입만 사용.
-  실제 `development/university-news/data/university-news-sources.final.json`,
-  `server/agent/data/agent-news-store.json`, `data/university-news-preview.json`, 네트워크를 건드리지 않음.
-- 결정적 재현용 고정값: `FIXED_NOW = new Date("2026-08-28T09:15:00.000Z")`,
-  `randomBytesImpl = () => Buffer.from("a1b2c3","hex")`, 더미 서명 키
-  `"test-only-dummy-signing-key-do-not-use-in-production"`.
-- B2 통과 시 결정적 reviewId 예: `rp-test-university-test-press-20260828181500-a1b2c3`
-  (타임스탬프는 로컬시간 기준 압축 — gate `review-packet.js` 의 `formatCompactTimestamp` 사용).
-- B3 `brain-batch-approve.js` 는 `node server/agent/gate/brain-batch-approve.js` 로 직접 실행만 가능하고
-  `npm run` 스크립트가 없음(의도). 실제 서명은 `UNIPICK_GATE_SIGNING_KEY` 가 설정된 Brain 컨텍스트에서만 동작.
-- B4 CLI 를 실제로 돌리면(`npm run gate:apply-approved`) `runtime-lock.js` 의
-  `server/agent/runtime/news-update-agent.lock` 를 스케줄러와 공유하므로, 스케줄러 실행 중에는 즉시 exit 1.
-- 자동 생성물(`server/agent/onboarding/data/catalog-prepare-log.json`,
-  `server/agent/gate/data/apply-batch-reports/*.json`,
-  `server/agent/gate/data/review-packets/*.json`, `review-decisions/*.json`,
-  `*.prepare-backup.*`)은 커밋 대상이 아님. 현재 `.gitignore` 에 명시 규칙이 없으므로
-  (기존 `server/agent/gate/data/` 는 `.gitkeep` 만 추적) 운영자가 `git add` 시 제외해야 함.
-- git add/commit/push/배포 미실행. `server/agent/gate/data/` 커밋 미실행.
-- 사용자가 직접 확인할 것:
-  1) `.gitignore` 에 위 자동 생성물 경로를 추가할지 여부(이번 세션 범위 밖으로 남김).
-  2) 실제 후보(`collector-config-candidates.json`)로 B1→B2→(B3 서명)→B4 를 프로덕션에 적용할지 승인.
-  3) `UNIPICK_GATE_SIGNING_KEY` 운영 값 관리(코드/로그에 절대 미포함).
+```html
+<tr><th>학교별 업데이트 내역</th><td><p><strong>업데이트 완료 2개교 (신규 7건) / 변경 없음 3개교 / 수집 실패 1개교</strong></p><h4>업데이트 완료</h4><table class="ubk"><thead><tr><th>학교</th><th>신규</th></tr></thead><tbody><tr><td>가대</td><td>3</td></tr><tr><td>나대</td><td>4</td></tr></tbody></table><h4>변경 없음</h4><table class="ubk"><thead><tr><th>학교</th><th>사유</th></tr></thead><tbody><tr><td>다대</td><td>신규 게시물 없음 (중복 2건)</td></tr><tr><td>라대</td><td>신규 게시물 없음 (중복 0건)</td></tr><tr><td>마대</td><td>신규 게시물 없음 (중복 0건)</td></tr></tbody></table><h4>수집 실패</h4><table class="ubk"><thead><tr><th>학교</th><th>사유</th></tr></thead><tbody><tr><td>목포대학교</td><td>WAF 차단</td></tr></tbody></table></td></tr>
+```
 
-# P1 보완 (Reviewer 지적)
+특수문자 이스케이프 확인: `reason: "타임아웃 & <error>"` → `타임아웃 &amp; &lt;error&gt;` 로 렌더됨.
 
-## 결함
+---
 
-`server/agent/onboarding/tools/build-review-packet-from-diagnose.test.js` 의
-`FIXED_NOW = new Date("2026-08-28T09:15:00.000Z")` + 하드코딩 reviewId 단언
-`"...-20260828181500-a1b2c3"`. `181500` 은 gate `formatCompactTimestamp` 의
-로컬 `getHours()` 압축이라 UTC 문자열을 쓰면 UTC+9 이외 환경에서 결정적으로
-어긋남 → spec 공통 제약 4번(시간 필드 고정) 위반.
+# 불변식 (테스트로 고정)
 
-## 수정
+- `payload.failedCount === payload.failed` (동일 술어 `x.error || (x.errors||[]).length` 재사용)
+- `payload.totalTargets === payload.processed` (`(run.universityResults||[]).length`)
+- `payload.updatedCount + payload.noNewItemsCount === payload.success`
+- `updatedCount + noNewItemsCount + failedCount === totalTargets`
 
-- `FIXED_NOW` 를 로컬 시간 성분 생성자 `new Date(2026, 7, 28, 9, 15, 0)` 로 교체
-  (`server/agent/gate/review-packet.test.js:151` 의 타임존 무관 패턴과 동일).
-  이 값의 압축 스탬프는 어느 타임존에서든 `20260828091500`.
-- reviewId 단언을 `"rp-test-university-test-press-20260828091500-a1b2c3"` 로 교정하고,
-  타임존 무관 정규식 `/^rp-test-university-test-press-\d{14}-a1b2c3$/` 단언을 추가.
-  reviewId 결정성은 유지.
-- 그 외 파일은 건드리지 않음.
+---
 
-## 재검증
+# 미구현 / 보류 항목
 
-- `node --check server/agent/onboarding/tools/build-review-packet-from-diagnose.test.js` — 통과.
-- `node --test .../build-review-packet-from-diagnose.test.js` — tests 13, pass 13, fail 0.
-- 전체 `npm test` 1회 — tests 274, pass 274, fail 0 (카운트 불변).
+- `run-scheduled-news-update.js` 에 `require.main === module` 가드 및 `module.exports` 미추가
+  (spec 질문사항 4 기본값). 따라서 `asyncMain()` 자체의 스모크 테스트는 없음.
+  성공/catch 분기의 payload 조립 로직은 순수 함수 조합이라 `university-update-summary.test.js`
+  의 "messageKo 시연" 테스트에서 동일 조립을 재현해 간접 검증함.
+- `run-scheduled-news-update.js` 는 네트워크/git push/실제 배포를 수행하므로 실환경 실행 검증은
+  하지 않음(범위 밖, 그리고 git/배포 금지 규칙). 순수 함수 + HTML 렌더 + `node --check` +
+  전체 `npm test` 로 검증.
+
+---
+
+# Tester가 알아야 할 내용
+
+- baseline 테스트 수 274 → 295 (+21). `npm test` 는 `node --test` 자동 탐색이라 별도 스크립트 없음.
+- 신규 테스트는 네트워크/프로덕션 store/preview/카탈로그를 건드리지 않음.
+  `report-html.test.js` 는 `os.tmpdir()` 하위 임시 디렉터리에만 파일을 쓰고 정리함.
+- `run-scheduled-news-update.js` 는 `require` 시 `asyncMain()` 이 즉시 실행되므로
+  테스트에서 직접 require하지 말 것. payload 조립 검증은 순수 함수로.
+- 새 `payload` 키: `universityBreakdown`(객체 `{updated,noNewItems,failed}` 배열 3종),
+  `updatedCount`, `noNewItemsCount`, `failedCount`, `totalTargets`. 기존 키/타입 전부 유지.
+- HTML 회귀 확인 포인트: `universityBreakdown` 없는 payload는 모든 키가 기존처럼
+  `<tr><th>key</th><td><pre>...</pre></td></tr>` 로 렌더됨.
+- 직접 확인 권장: `server/agent/news/reports/ui/latest-news-update-report.html` 을 브라우저로 열어
+  중첩 표 레이아웃(전역 `th{width:260px}` 미적용, `.ubk th{width:auto}` 적용) 육안 확인.
+
+---
+
+## 후속 보완 (Reviewer 권고 #2 — catch 분기 payload 수치 디커플링)
+
+### 문제
+catch(WARNING/FAILED) 분기 payload 는 `processed:0, success:0, failed:1` 을 하드코딩한다.
+초기 구현은 이 분기에서도 `run` 존재 시 스칼라 카운트 4종
+(`updatedCount / noNewItemsCount / failedCount / totalTargets`)을 breakdown 값으로 세팅했다
+→ 같은 payload 안에서 `payload.failed(1) !== payload.failedCount(예:3)` 모순.
+
+### 수정 (`server/agent/tools/run-scheduled-news-update.js`, catch 분기만)
+- `payload.universityBreakdown = { updated, noNewItems, failed }` (배열 3종): **유지**
+- `payload.messageKo` 요약 줄 삽입: **유지**
+- 스칼라 카운트 4종(`updatedCount / noNewItemsCount / failedCount / totalTargets`):
+  **catch 분기에서 세팅하지 않음** — 성공 분기(SUCCESS/NO_CHANGES) 전용으로 남김.
+- 성공 분기는 변경 없음(4종 카운트 + breakdown + 요약 전부 유지).
+- catch 분기 삽입부에 의도 설명 주석 4줄 추가.
+
+### 주석 (`server/agent/university-update-summary.js` 상단)
+소비처(성공 분기 = 배열+카운트4종+요약 / catch 분기 = 배열+요약만)를 명시하는 주석 6줄 추가.
+
+### 효과
+완료 기준 5의 불변식(`payload.failedCount === payload.failed` 등)은
+"해당 키가 존재하는 경로 = 성공 분기"에서만 평가되므로 항상 성립.
+기존 catch 분기 카운트 4종을 단언하는 테스트는 없음(신규 테스트는 순수 함수/HTML 렌더 대상) → 수정 불필요.
+
+### 재검증
+```
+node --check "server/agent/tools/run-scheduled-news-update.js"   → OK
+node --check "server/agent/university-update-summary.js"          → OK
+node --test university-update-summary.test.js report-html.test.js → tests 21, pass 21, fail 0
+npm test (1회)                                                    → tests 295, pass 295, fail 0
+```
+테스트 수 변동 없음(295 유지). 회귀 0.

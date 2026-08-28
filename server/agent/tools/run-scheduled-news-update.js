@@ -9,6 +9,7 @@ const { runOnce } = require("../runner");
 const { STORE_PATH, PREVIEW_PATH, getAllItems } = require("../store");
 const { acquireRuntimeLock, releaseRuntimeLock } = require("../runtime-lock");
 const { writeHtmlReport } = require("../report-html");
+const { classifyUniversityResults, buildUniversitySummaryLines } = require("../university-update-summary");
 
 const ROOT = path.resolve(__dirname, "../../..");
 const REPORT_PATH = path.join(ROOT, "server/agent/news/reports/ui/latest-news-update-report.html");
@@ -69,12 +70,32 @@ async function asyncMain() {
     const payload = { agent:"news-update", runId:`news-${startedAt.replace(/[-:.TZ]/g,"")}`, status: status === "DEPLOY_TRIGGERED" ? "SUCCESS" : "NO_CHANGES", startedAt, finishedAt:completedAt, processed:(run.universityResults||[]).length, success:(run.universityResults||[]).filter(x=>!x.error && !(x.errors||[]).length).length, failed:(run.universityResults||[]).filter(x=>x.error || (x.errors||[]).length).length, activeSources: before.activeSources, successfulSources: (run.universityResults||[]).filter(x=>!x.error && !(x.errors||[]).length).length, failedSources: (run.universityResults||[]).filter(x=>x.error || (x.errors||[]).length).length, newItems: run.newCount||0, duplicates: run.duplicateCount||0, publishedAtNull: 0, preExistingPublishedAtNull: before.preExistingPublishedAtNull, storeBefore: before.store, storeAfter: getAllItems().length, previewBefore: before.preview, previewAfter: countPreview(), commitHash: status === "DEPLOY_TRIGGERED" ? git(["rev-parse","HEAD"]) : null, pushStatus: status === "DEPLOY_TRIGGERED" ? "배포 요청 완료" : "실행하지 않음", renderStatus: status === "DEPLOY_TRIGGERED" ? "deploy_triggered" : "not_required", nextRun: "09:30 / 16:30", messageKo: status === "DEPLOY_TRIGGERED" ? "뉴스 업데이트와 배포 요청이 완료되었습니다." : "새로운 뉴스가 없습니다.", reportOpen: "REPORT_OPEN_SKIPPED" };
     payload.imageStats = run.imageStats || { itemsProcessed: 0, withImage: 0, withoutImage: 0, newImages: 0, backfilledImages: 0, imageErrors: 0 };
     payload.cleanupStats = { cleanupPerformed: false, before: null, verifiedKept: null, removed: 0, manualReview: 0, after: null, previewCount: countPreview(), orphans: 0 };
-    payload.messageKo = `${payload.messageKo}\n대표 이미지: ${payload.imageStats.withImage}건\n이미지 보완: ${payload.imageStats.backfilledImages}건`;
+    const breakdown = classifyUniversityResults(run.universityResults || []);
+    payload.universityBreakdown = { updated: breakdown.updated, noNewItems: breakdown.noNewItems, failed: breakdown.failed };
+    payload.updatedCount = breakdown.updatedCount;
+    payload.noNewItemsCount = breakdown.noNewItemsCount;
+    payload.failedCount = breakdown.failedCount;
+    payload.totalTargets = breakdown.totalTargets;
+    payload.messageKo = [
+      payload.messageKo,
+      ...buildUniversitySummaryLines(breakdown),
+      `대표 이미지: ${payload.imageStats.withImage}건`,
+      `이미지 보완: ${payload.imageStats.backfilledImages}건`,
+    ].join("\n");
     writeResult(payload);
     writeHtmlReport(REPORT_PATH, "UNI PICK News Update Report", payload); console.log(JSON.stringify(payload, null, 2));
   } catch (error) {
     const warning = /^PUBLISHED_AT_NULL:/.test(error.message);
     const payload = { agent:"news-update", runId:`news-${startedAt.replace(/[-:.TZ]/g,"")}`, status: warning ? "WARNING" : "FAILED", startedAt, finishedAt:new Date().toISOString(), processed:0, success:0, failed:1, newItems:0, duplicates:0, error:error.message, messageKo: warning ? "수집은 완료되었지만 게시일이 없는 항목이 있어 자동 배포를 중단했습니다." : "뉴스 자동 업데이트 중 오류가 발생했습니다.", pushStatus:"실행하지 않음", renderStatus:"not_required", reportOpen:"REPORT_OPEN_SKIPPED" };
+    // catch(WARNING/FAILED) 분기는 breakdown 배열 3종 + messageKo 요약만 제공한다.
+    // 스칼라 카운트 4종(updatedCount/noNewItemsCount/failedCount/totalTargets)은
+    // 성공 분기(SUCCESS/NO_CHANGES) 전용 — 이 분기의 processed/success/failed 는
+    // 하드코딩값이라 카운트를 함께 두면 스칼라와 모순(payload.failed !== payload.failedCount)이 됨.
+    if (run && Array.isArray(run.universityResults)) {
+      const breakdown = classifyUniversityResults(run.universityResults);
+      payload.universityBreakdown = { updated: breakdown.updated, noNewItems: breakdown.noNewItems, failed: breakdown.failed };
+      payload.messageKo = [payload.messageKo, ...buildUniversitySummaryLines(breakdown)].join("\n");
+    }
     writeResult(payload);
     writeHtmlReport(REPORT_PATH, "UNI PICK News Update Report", payload); console.error(JSON.stringify(payload,null,2)); process.exitCode=1;
   } finally { releaseRuntimeLock(lock); }
