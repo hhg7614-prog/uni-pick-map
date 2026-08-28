@@ -1288,7 +1288,7 @@
             "dateIndex": 3
           },
           "verified": true,
-          "enabled": false,
+          "enabled": true,
           "status": "verified",
           "healthStatus": "unknown",
           "verifiedAt": "2026-08-18T06:28:51.801Z"
