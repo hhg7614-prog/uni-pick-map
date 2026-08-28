@@ -1,111 +1,138 @@
 # 검토 요약
 
-카탈로그 포맷 정규화(Option A) 작업. `feat/onboarding-gate-bridges` 위에 3커밋:
+`development/university-news/collectors/rss-collector.js` 의 `tagValue()` 가
+`<![CDATA[...]]>` 로 감싼 `<title>` / `<link>` 를 통째로 삼켜 한국 대학 CMS RSS(uos 등)
+항목이 전량 탈락하던 버그 수정 건을 종합 검토했다.
 
-- `b20d55e` chore(catalog): 정규화 (카탈로그 1파일, 41 insert / 12 delete, 순수 reflow)
-- `fe69441` test(catalog): `.gitattributes` 신규 + `.gitignore` 2줄 + 회귀 테스트 2종 (4파일, 156 insert)
-- `5ed7eaf` feat(catalog): `knsu-press-release` 비활성 삽입 (카탈로그 1파일, 28 insert / 1 delete)
-
-Reviewer 가 직접 재현·교차 확인한 항목:
-
-- 정규화 무손실: `JSON.stringify(JSON.parse(before)) === JSON.stringify(JSON.parse(after))` → true, 대학 247=247, 소스 91=91, **부모 커밋을 동일 정규화기에 통과시킨 결과가 커밋 A 와 바이트 단위 완전 일치** → true.
-- 커밋 A diff 12개 하이라이트 전부 `officialNames` / `fixedParams` / `titleCleanupTokens` 인라인 압축 구조의 다중 라인 reflow. 값·키·배열순서 토큰 변경 0.
-- 제품 writer 코드 4파일(`prepare-catalog-source-block.js`, `apply-source-activation.js`, `store.js`, `targets.js`) `git diff 3e602ed..HEAD` → 출력 없음(diff 0).
-- 커밋 C diff: `"sources": [],` → `"sources": [` 컨테이너 라인 1줄 + knsu 블록 27줄 연속 삽입. 타 대학·소스 라인 변경 0. `정규화본 + knsu === HEAD` 의미 동일.
-- `knsu-press-release` 최종 상태: `verified:false / enabled:false / status:"selector_required" / healthStatus:"unknown"`. `getTargetUniversities().length` = 43 (정규화 전후 동일).
-- `npm test` → tests 300 / pass 300 / fail 0. 대상 2파일 `node --test` → 34/34 pass (신규 케이스 2개 pass 확인).
-- `.gitattributes`: 카탈로그 + `server/agent/gate/data/**` → `text: set / eol: lf` (`git check-attr` 확인). 전역 `*.json` 규칙 없음.
-- `.gitignore`: `*.prepare-backup.*` + `catalog-prepare-log.json` 2줄 추가, `git check-ignore` 로 두 산출물 매칭 확인.
-- 브랜치 `feat/onboarding-gate-bridges`. `git branch -r --contains b20d55e` → 없음(push 흔적 없음). `main` 커밋 없음. `stash@{0}` 미접촉.
-- 커밋 메시지에 `Co-Authored-By: Claude Sonnet 5` + `Claude-Session` 트레일러 포함(저장소 관례 부합).
+- 코드 변경: `tagValue()` 내부 `if (match)` 분기 1곳 (1줄 → 7줄). CDATA 언랩 →
+  잔여 태그 제거 → `decodeXml` 순으로 순서 교체.
+- 신규 테스트: `rss-collector.test.js` 5개 (a/b/c/d 픽스처 + 반환 계약).
+- `npm test` 3회 연속 305/305/0, baseline 300 대비 정확히 +5.
+- 변경 범위: 대상 2개 파일 + 파이프라인 문서(`.pipeline/*.md`)만. 제품 코드 타 파일,
+  게이트/robots/활성화/프로덕션 데이터 무변경. 커밋/푸시 미실행.
+- 현재 브랜치 `feat/onboarding-gate-bridges` (HEAD `a2d3cf1`) — spec 지정 대상 브랜치와 일치.
+  세션 시작 스냅샷의 `main` 표기는 낡은 정보이며 spec 질문사항 1은 사실상 해소됨.
 
 # 요구사항 확인
 
-| spec 완료 기준 | 상태 | 근거 |
-|---|---|---|
-| 1. 정규화 커밋 A (카탈로그 1파일, 값 무변경, JSON OK, 무손실/카운트 로그) | 충족 (문구 1건 예외) | 카탈로그 단독 커밋. deep re-serialize 동일 + 카운트 동일 + 바이트 재현 일치. `git diff -w` "비어 있음"은 물리적으로 불가능(아래 문제점 1). |
-| 2. B1 회귀 테스트 (삭제 0줄 / 타 대학·소스 라인 변경 0 / 삽입 블록 필드 단언) | 충족 (문구 1건 예외) | 테스트 존재·pass. `assertSingleContiguousInsertion` 이 `"sources": []` 컨테이너 라인 1줄만 예외 허용, 그 외 삭제/치환 전부 실패 처리. "삭제 0줄"은 empty→nonempty 배열에서 불가능(아래 문제점 2). |
-| 3. 게이트 회귀 테스트 (`enabled`/`status` 2줄만 변경, 라인 수 불변, 무관 소스 불변) | 충족 | 테스트 존재·pass. `assertOnlyLinesChanged` 자동 단언. |
-| 4. 한국체육대 `knsu-press-release` 삽입 + 커밋 + 타깃 수 불변 | 충족 | `korea-national-sport-university-본교` 블록에 지정 4필드로 존재, 커밋 `5ed7eaf`. `getTargetUniversities().length` 43 불변. |
-| 5. `.gitattributes` + `.gitignore` | 충족 | 스코프 규칙 2줄. `.gitignore` 2줄. `git status` 에 백업/로그 미노출. |
-| 6. `npm test` 전/후 통과 + 커밋 3개 순서 + main/push/배포 없음 | 충족 | 298 → 300. 커밋 순서·브랜치·push 정책 준수. |
-| 7. `node --check` 2파일 통과 + 제품 코드 diff 0 | 충족 | 제품 4파일 diff 0 재확인. |
-| 8. `.pipeline/changes.md` 기록 | 충족 | 사전 측정·커밋 해시·검증 로그·`git diff -w` 편차까지 기록. |
+## 최초 요구사항 (CDATA 파싱 버그 수정)
+충족. `tagValue()` 가 CDATA 를 먼저 벗기므로 `>` 없는 CDATA 블록이 태그로 오인되어
+삭제되던 문제가 해결된다. bare text 소스 회귀 없음.
 
-최초 요구사항(카탈로그를 writer 직렬화 형식으로 1회 정규화 + 최소 diff 회귀 테스트 고정 + Option A writer 미수정 + knsu 1건 비활성 삽입)은 모두 달성.
+## spec 필수 요구사항 1~8
+- 1 (CDATA 먼저 → 잔여 태그 → decodeXml 순서 교체): 충족. 코드 12-18행.
+- 2 (CDATA 감싼 title/link 값 보존): 충족. 테스트 (a) green, 직접 분석 확인.
+- 3 (bare text 회귀 없음): 충족. 언랩 정규식 미매칭 → 기존 경로 동일. 테스트 (b) green.
+- 4 (Atom `<link href>` 는 `linkValue()` 에서 선처리): 충족. `linkValue()` 무변경,
+  속성 분기가 `tagValue()` 진입 전. 테스트 (c) green.
+- 5 (description CDATA 내부 HTML 제거 유지): 충족. 언랩 후 `<[^>]*>` 제거가 그대로 동작.
+  테스트 (a) summary, (d) green.
+- 6 (`rssCollector()` export/반환 계약 불변): 충족. `module.exports` 무변경,
+  반환 `{status, items, warnings, finalUrl}` 유지. 반환 계약 테스트 green.
+- 7 (신규 테스트 파일, 네트워크 없이 fetchImpl 주입): 충족. spec 은 4개 픽스처를 요구했고
+  구현은 5개(4 픽스처 + 반환 계약). 초과분은 계약 확인용으로 범위 내.
+- 8 (`node --check` + `npm test` 통과): 충족. Coder/Tester 양측 확인.
+
+## spec 하지 말 것
+위반 없음. `decodeXml` 시그니처/동작 불변, 타 제품 코드 무수정, 배포/푸시 없음,
+범위 밖 기능 추가 없음.
+
+# 완료 기준
+
+| # | 기준 | 판정 | 근거 |
+|---|------|------|------|
+| 1 | 변경이 `tagValue()` 1곳, diff 최소, `node --check` 통과 | 충족 | `git diff` 상 `tagValue()` 블록만 변경. 나머지 함수/exports 무변경 |
+| 2 | (a)(b)(c)(d) 픽스처 + 기대 단언이 명세와 일치 | 충족 | 테스트 파일 48-184행, 각 단언이 spec 130-210 과 일치 |
+| 3 | `node --test rss-collector.test.js` 전부 green | 충족 | 5/5 pass |
+| 4 | `npm test` 전체 green, 회귀 없음 | 충족 | 3회 연속 305/305/0, baseline 300 → +5 |
+| 5 | (a) 가 "수정 전 0 / 수정 후 1" 증명 | 충족(경미) | 42-45행 회귀 방지 주석 존재(spec 이 주석 허용). 수정 되돌리면 (a) 실패 → 회귀 가드 유효. 단 구 로직 대조 단언은 없음 |
+| 6 | (b)/gnu 형태 수정 후 정상 추출 증명 | 충족 | 테스트 (b) green, gnu 실제 rssUrl/baseUrl 스텁 사용 |
+| 7 | 네트워크 실측 회복 확인 (차단 시 명시) | 충족 | 실측 미실행, changes/test-results 에 "픽스처로 대체" 명시. spec 확정사항 3 및 완료 기준 7이 허용 |
+| 8 | 반환 형태·export 불변, `collector.js`/`collector-factory.js` 무수정 | 충족 | `git status` 상 `server/agent/collector.js` 무변경. `collector-factory.js` 는 저장소에 부재(spec 명칭 오류) |
+| 9 | 프로덕션 데이터·게이트·robots 무변경, push/배포 미실행 | 충족 | `git status` 로 확인. 변경은 대상 2파일 + `.pipeline/*.md` 뿐 |
 
 # 테스트 결과
 
-- `npm test`: tests 300 / pass 300 / fail 0 (Reviewer 재실행으로 확인). baseline 298 → +2 신규.
-- 대상 2파일 `node --test`: 34 / 34 pass. 신규 케이스 2개 모두 pass.
-- Tester 종합 판정 "합격(조건부), 차단 요소 없음" — Reviewer 교차 확인 결과 타당.
-- 조건부 사유 2건은 구현 결함이 아니라 spec 완료 기준 문구의 실현 불가능성에서 기인.
+- 타깃: `node --test rss-collector.test.js` → 5 tests / 5 pass / 0 fail.
+- 전체: `npm test` → 305 / 305 / 0, 3회 연속 결정적 통과. baseline 300 대비 신규 5개.
+- `node --check` : 수정 파일 + 신규 테스트 파일 모두 OK.
+- 수정의 정확성 (Reviewer 코드 재분석):
+  - (a) CDATA title `<![CDATA[...]]>` → 언랩 → 잔여 태그 없음 → `decodeXml` trim → 값 보존. OK.
+  - (a) CDATA link 절대 URL → `resolveUrl` 통과. OK.
+  - (b) bare text + `&amp;` → 언랩 미매칭 → `decodeXml` 이 `&amp;`→`&`. 회귀 없음. OK.
+  - (c) Atom `<link href>` → `linkValue()` 속성 정규식이 선처리, `tagValue()` 미도달. OK.
+  - (d) description CDATA 내부 `<p style>`/`<a href>` → 언랩 후 `<[^>]*>` 제거 → 평문. OK.
+  - 엣지: CDATA 내부 `>` 포함(`<b>강조</b>`) → non-greedy `[\s\S]*?` 가 `]]>` 까지 매칭 후
+    내부 태그는 다음 단계에서 제거됨. 안전.
+  - 엣지: 닫는 `]]>` 없는 깨진 CDATA → 언랩 정규식 미매칭 → 기존 `<[^>]*>` 폴백.
+    해당 항목만 탈락, 소스 전체 실패 아님. 기존 동작과 동급.
+  - 다중 CDATA: `/g` 플래그로 각각 처리. 중첩 CDATA 는 XML 상 불가.
 
 # 문제점
 
-## 문제점 1 — spec 완료 기준 1.2 "`git diff -w` 결과가 비어 있음" 은 실현 불가능 (심각도: 낮음, spec 결함)
+경미 사항만 존재하며 배포 차단 요소는 없음.
 
-`git diff -w`(`--ignore-all-space`)는 라인 내부 공백만 무시하고 인라인 배열/객체를
-여러 줄로 펼칠 때 추가되는 개행은 변경으로 남긴다. spec 의 "조사로 확인된 현재 상태"
-표 자체가 "-12줄 / +40~55줄 reflow" 를 예측하므로, 같은 spec 안에서 1.2 와 내부 모순이다.
-어떤 JSON pretty-print 정규화로도 문자 그대로 만족 불가.
-
-- 판정: **(b) 승인 + spec 개정 권고**. Coder 가 중단하지 않고 진행한 판단은 타당하다.
-  값 무변경 증거는 (a) deep re-serialize 동일 (b) 대학/소스 수 동일
-  (c) **커밋 A 부모를 동일 정규화기에 통과 → 커밋 A 와 바이트 단위 완전 일치**
-  3중으로 대체되었고, (c)는 `git diff -w` 보다 강한 증거다. Reviewer 가 직접 재현해 확인했다.
-- 향후 조치: spec 완료 기준을 "`git diff -w` 비어 있음" 대신
-  "`JSON.stringify(JSON.parse(before)) === JSON.stringify(JSON.parse(after))` + 대학/소스 수 동일
-  + 부모 재직렬화 바이트 일치" 로 개정 권고.
-
-## 문제점 2 — B1 회귀 테스트가 "삭제 0줄" 을 컨테이너 라인 1줄 예외로 우회 (심각도: 낮음, 타당)
-
-병합 스텁이 남긴 빈 `"sources": []` 에 원소를 append 하면 `JSON.stringify` 규칙상
-`"sources": [` 로 그 여는 라인이 반드시 재작성된다. 헬퍼는 `/^\s*"sources": \[\],?$/`
-정규식으로 이 1줄만 허용하고 그 외 삭제/치환은 전부 실패로 처리한다.
-
-- 판정: **타당(승인)**. "삭제 0줄" 은 empty→nonempty 배열에서 물리적으로 불가능하며,
-  대안은 (제품 코드 수정 = Option A 위반) 또는 (B1 미사용 = 요구사항 위반)뿐이다.
-  완료 기준의 실제 의도("타 대학·소스 라인 변경 0")는 그대로 강제된다.
-  Reviewer 가 커밋 C 실제 diff 로 확인: 컨테이너 라인 1줄 외 삭제/치환 0.
-- 향후 조치: spec 완료 기준 2를 "삭제 0줄" 대신 "타 대학·소스 라인 변경 0줄" 로 개정 권고.
-
-## 문제점 3 — 요청하지 않은 변경 없음 (확인 완료)
-
-3커밋이 건드린 파일은 카탈로그(A/C), `.gitattributes`·`.gitignore`·테스트 2파일(B)뿐.
-제품 코드·무관 파일 혼입 0. `stash@{0}`(CAU rss) 미접촉. 전역 `*.json` 규칙 미적용,
-`apply-batch-reports/` 미추가 — 모두 spec 의 미회신 기본값대로.
-
-# 잔여 위험 (이번 라운드 범위 밖, 후속 필요)
-
-1. **`origin/main` 카탈로그 분기 (`.pipeline/merge-analysis.md`)** — 로컬이 33개 소스에서
-   앞서고 원격이 1개(`knue-general-notice`)에서 앞섬. 이 feat 브랜치가 나중에
-   `main`/`origin/main` 과 병합될 때 정규화 reflow + `korea-national-sport-university-본교`
-   블록이 대규모 텍스트 충돌을 낼 수 있다. 병합 담당자는 필드 단위 수동 병합 +
-   병합 후 정규화 직렬화 1회 재적용 필요. Brain/사용자 승인 후 별도 라운드에서 처리.
-2. **`core.autocrlf=true` + 신규 `.gitattributes`** — 다른 워킹트리에서 `.gitattributes`
-   반영 전 카탈로그를 수정하면 CRLF 로 저장돼 전체 파일 diff 가 재발할 수 있다.
-   `.gitattributes` 병합 시 `git add --renormalize` 동반 권장.
-3. **`.pipeline/spec.md` / `changes.md` / `test-results.md` 워킹트리 미커밋, `merge-analysis.md` untracked**
-   — 파이프라인 산출물이며 이 작업 커밋이 만든 것이 아니다. 커밋 대상 아님(정상).
-   프로젝트 관례에 따라 별도 처리.
-4. **B1 회귀 테스트가 실제 카탈로그·후보 파일에 의존** — `korea-national-sport-university-본교`
-   블록 또는 knsu 후보의 `finalDecision` 이 바뀌면 테스트가 깨진다(설계된 동작이나 리팩터 시 취약).
+1. (경미, 정보성) 테스트 (a) 는 수정 후 동작만 단언하고, 구 로직을 복제한 대조 단언은
+   없다. spec 완료 기준 5의 문구("주석 또는 별도 단언")는 주석으로 충족하며, 수정을
+   되돌리면 (a) 가 실패하므로 회귀 가드로서 유효하다. 보완 필요 수준 아님. 향후 강화 여지.
+2. (경미) 네트워크 실측(uos `allBoard.do` 0→회복, gnu RSS 2개 정상 유지) 미실행.
+   spec 확정사항 3 및 완료 기준 7이 명시적으로 허용한 결정이므로 sign-off 차단 아님.
+   다만 이 소스들을 실제 수집 활성화하기 전 네트워크 가능 환경에서 spec 3단계 4번
+   스모크 명령으로 1회 확인 권장.
+3. (경미, 문서) spec 이 `server/agent/collector-factory.js` 를 불변 대상으로 명시하나
+   해당 파일은 저장소에 없다. 실제 호출부는 `server/agent/collector.js` 뿐이며 무변경.
+   제품에 영향 없음.
+4. (경미, 문서) 실제 uos RSS 의 CDATA `<title>` 에 개행/HTML 이 섞인 변형은 픽스처가
+   대표형(순수 텍스트 CDATA)만 커버. CDATA-내부-`>` 케이스는 Tester 수동 확인으로 통과.
+5. (절차) `.pipeline/spec.md` / `changes.md` / `test-results.md` 가 함께 수정됨.
+   제품 코드와 무관한 파이프라인 산출물이므로 커밋에 포함 가능. `.pipeline/merge-analysis.md`
+   는 이번 작업과 무관하므로 스테이징에서 제외해야 함.
 
 # 최종 판정
 승인
 
 # 판정 이유
 
-- spec 완료 기준 1~8 이 모두 충족되었고, Reviewer 가 정규화 무손실성(deep re-serialize
-  동일 + 대학/소스 수 동일 + 부모 재직렬화 바이트 일치)·Option A 준수(제품 4파일 diff 0)·
-  커밋 위생(카탈로그 단독 A 커밋, 3커밋 순서, main 미커밋, push/배포 없음, 트레일러 부합)·
-  knsu 삽입 상태·`npm test` 300/300 을 직접 재현해 확인했다.
-- 문자 그대로 불충족한 완료 기준 문구 2건(1.2 "`git diff -w` 비어 있음", 2 "삭제 0줄")은
-  **spec 자체의 실현 불가능한 조건**이며 구현 결함이 아니다. 두 경우 모두 완료 기준의
-  실제 의도(값 무변경 / 타 대학·소스 라인 변경 0)는 더 강한 증거로 충족되었고,
-  Coder 의 두 확인필요 판단과 Tester 의 수용은 타당하다.
-- 잔여 위험(원격 병합 분기, autocrlf)은 모두 이번 라운드 범위 밖이며 문서화되어 있어
-  배포 게이트가 아니다. 요청하지 않은 변경, 명백한 오류, 안전 문제 없음.
-- 조건: Planner 는 향후 spec 작성 시 완료 기준 1.2 / 2 문구를 위 "향후 조치" 대로 개정하고,
-  병합 담당자는 잔여 위험 1을 인지할 것.
+수정의 방향과 구현이 정확하다. `tagValue()` 에서 CDATA 를 먼저 언랩한 뒤 잔여 태그를
+제거하고 `decodeXml` 을 적용하는 순서 교체는 버그의 근본 원인(`>` 없는 CDATA 블록이
+`/<[^>]*>/` 에 통째로 매칭)을 정확히 해소하며, 코드 재분석 결과 (a) CDATA title/link 보존,
+(b) bare text 무회귀, (c) Atom `<link href>` 무영향, (d) description 내부 HTML 제거 유지가
+모두 성립한다. non-greedy CDATA 언랩과 깨진 `]]>` 폴백 등 엣지 케이스도 안전하다.
+
+변경 범위가 `tagValue()` 1곳으로 엄격히 한정되고 `decodeXml`/`linkValue`/`extractEntries`/
+`rssCollector` 및 타 제품 코드가 불변이며, 반환 계약 `{status, items, warnings, finalUrl}`
+과 export 시그니처가 유지된다. 게이트/robots/활성화/프로덕션 데이터 변경이 없고
+push/배포도 실행되지 않았다.
+
+`npm test` 305/305 가 3회 연속 결정적으로 통과하고 신규 5개 테스트가 명세 단언과
+일치한다. 발견된 5건은 모두 경미(테스트 강화 여지, 네트워크 실측 보류, spec 문서상
+파일명 오류, 픽스처 대표성, 커밋 스테이징 주의)하며 spec 이 명시적으로 허용했거나
+구현 결함이 아니다. 완료 기준 9개 전부 충족.
+
+## 커밋 권고
+
+커밋해도 된다. 단 CLAUDE.md/AGENTS.md 원칙상 실제 커밋은 사용자의 명시적 지시가 있을
+때만 진행한다.
+
+- 대상 브랜치: 현재 체크아웃된 `feat/onboarding-gate-bridges` (spec 지정과 일치, 신규
+  브랜치 생성 불필요).
+- 커밋 수/타입: `fix` 타입 1커밋 적절.
+- 스테이징: `development/university-news/collectors/rss-collector.js`,
+  `development/university-news/collectors/rss-collector.test.js`,
+  `.pipeline/spec.md`, `.pipeline/changes.md`, `.pipeline/test-results.md`, `.pipeline/review.md`.
+  `.pipeline/merge-analysis.md` 는 제외.
+- 커밋 메시지 초안(spec 안 그대로, 저장소 트레일러 포함):
+
+  ```
+  fix(university-news): rss-collector tagValue가 CDATA title/link를 삼키는 버그 수정
+
+  - tagValue()에서 CDATA를 먼저 벗기고 잔여 태그 제거 후 decodeXml 적용하도록 순서 교체
+  - 한글 대학 CMS RSS(uos 등) title/link가 빈 값이 되어 전량 탈락하던 문제 해결
+  - CDATA 없는 bare text 소스(gnu 2개) 및 Atom <link href> 회귀 없음
+  - rss-collector.test.js 추가: CDATA/bare/href-attr/description-HTML 4개 고정 픽스처
+
+  Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+  ```
+
+- push/배포는 하지 않는다.
+- 배포 후속: uos/gnu RSS 소스를 실제 수집 활성화하기 전 네트워크 스모크 1회 권장.
