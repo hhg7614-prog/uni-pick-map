@@ -1,0 +1,6 @@
+# The news source catalog and gate data files are written by JS writers that
+# always emit LF (JSON.stringify(data, null, 2) + "\n"). Pin them to LF so a
+# Windows checkout never reintroduces CRLF and turns a 1-source insert into a
+# whole-file diff. See AGENTS.md section 4.4.
+development/university-news/data/university-news-sources.final.json text eol=lf
+server/agent/gate/data/** text eol=lf

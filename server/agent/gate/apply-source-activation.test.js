@@ -14,6 +14,7 @@ const {
   runAllGuards,
   performActivationAndSave,
   applyMinimalDiff,
+  writeJsonAtomic,
   findSourceInCatalog,
 } = require("./apply-source-activation");
 
@@ -382,6 +383,69 @@ test("(f) performActivationAndSave sets enabled:true via minimal diff and calls 
 
   const appliedRecordPath = path.join(fixture.dataDir, "review-decisions", `${packet.reviewId}.applied.json`);
   assert.ok(fs.existsSync(appliedRecordPath));
+});
+
+// before/after 라인 수가 같고, 지정한 부분문자열을 포함한 라인들만 바뀌었는지 단언.
+function assertOnlyLinesChanged(beforeText, afterText, { changedLineSubstrings }) {
+  const b = beforeText.split("\n");
+  const a = afterText.split("\n");
+  assert.equal(a.length, b.length, "라인 수가 달라짐 (구조가 재정렬됨)");
+  const changed = [];
+  for (let i = 0; i < b.length; i += 1) if (b[i] !== a[i]) changed.push(i);
+  assert.equal(
+    changed.length,
+    changedLineSubstrings.length,
+    `바뀐 라인 수 불일치: ${JSON.stringify(changed.map((i) => a[i]))}`
+  );
+  for (const i of changed) {
+    assert.ok(
+      changedLineSubstrings.some((sub) => a[i].includes(sub)),
+      `예상치 못한 라인 변경: ${JSON.stringify(a[i])}`
+    );
+  }
+}
+
+test("gate writeJsonAtomic + applyMinimalDiff on a writer-format catalog only rewrites the targeted field lines", () => {
+  const dir = makeTempDir("gate-mindiff-");
+  const catalogFile = path.join(dir, "catalog.json");
+  const catalog = {
+    universities: [
+      {
+        universityId: "test-university",
+        universityGroupId: "g1",
+        universityName: "테스트대학교",
+        sources: [
+          { id: "test-official-news", enabled: false, verified: true, status: "selector_required", listUrl: "https://news.example.ac.kr/list" },
+        ],
+      },
+      {
+        universityId: "unrelated-university",
+        universityGroupId: "g2",
+        universityName: "무관한대학교",
+        sources: [{ id: "unrelated-source", enabled: true, verified: true, status: "verified" }],
+      },
+    ],
+  };
+  const beforeText = `${JSON.stringify(catalog, null, 2)}\n`; // writer 형식(+ "\n")
+  fs.writeFileSync(catalogFile, beforeText, "utf8");
+
+  const scope = { universityId: "test-university", sourceId: "test-official-news" };
+  const proposedChange = {
+    enabled: { from: false, to: true },
+    verified: { from: true, to: true },
+    status: { from: "selector_required", to: "verified" },
+  };
+
+  const parsed = JSON.parse(fs.readFileSync(catalogFile, "utf8"));
+  applyMinimalDiff(parsed, scope, proposedChange);
+  writeJsonAtomic(catalogFile, parsed);
+
+  const afterText = fs.readFileSync(catalogFile, "utf8");
+  // verified 는 from===to 라 안 바뀜 -> enabled/status 2줄만 변경
+  assertOnlyLinesChanged(beforeText, afterText, { changedLineSubstrings: ['"enabled"', '"status"'] });
+  assert.ok(afterText.includes('"unrelated-source"'));
+  const after = JSON.parse(afterText);
+  assert.equal(after.universities[1].sources[0].enabled, true); // 무관한 소스 불변
 });
 
 test("applyMinimalDiff only touches enabled/verified/status on the targeted source", () => {

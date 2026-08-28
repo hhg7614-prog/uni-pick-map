@@ -33,3 +33,5 @@ server/agent/onboarding/data/onboarding-smart-retry-queue.json
 server/agent/onboarding/data/onboarding-smart-retry-state.json
 server/agent/onboarding/reports/
 server/agent/onboarding/backups/
+development/university-news/data/*.prepare-backup.*
+server/agent/onboarding/data/catalog-prepare-log.json
