@@ -1,204 +1,242 @@
 # 변경된 파일
 
-## 신규 (server/agent/gate/)
-- `server/agent/gate/checksum-utils.js`
-- `server/agent/gate/checksum-utils.test.js`
-- `server/agent/gate/signing-utils.js`
-- `server/agent/gate/signing-utils.test.js`
-- `server/agent/gate/review-packet.js`
-- `server/agent/gate/review-packet.test.js`
-- `server/agent/gate/review-decision-writer.js`
-- `server/agent/gate/review-decision-writer.test.js` (spec.md 9번에는 명시돼 있지 않지만, 프로젝트 관례상 모든 모듈에 짝이 되는 `*.test.js`를 두는 패턴을 따라 추가 — "미구현/임의 결정 항목" 참고)
-- `server/agent/gate/apply-source-activation.js`
-- `server/agent/gate/apply-source-activation.test.js`
-- `server/agent/gate/data/review-packets/.gitkeep`
-- `server/agent/gate/data/review-decisions/.gitkeep` (실제 패킷/판정 파일은 이번 라운드에 만들지 않음 — 디렉터리 존재만 보장)
+## 신규 (제품 코드 + 테스트) — 8개
 
-## 수정
-- `server/agent/tools/run-single-school-trial.js` — `module.exports`에 `backupBeforeSave` 추가(그 외 어떤 줄도 변경하지 않음)
-- `server/agent/onboarding/tools/activate-collector-ready.js` — 폐기 스텁으로 교체
-- `server/agent/onboarding/tools/activate-kyungnam-general-feed.js` — 폐기 스텁으로 교체
-- `server/agent/onboarding/tools/activate-dnue-general-feed.js` — 폐기 스텁으로 교체
-- `server/agent/onboarding/tools/activate-youngsan-shared-feed.js` — 폐기 스텁으로 교체
-- `server/agent/onboarding/tools/activate-mtu-general-feed.js` — 폐기 스텁으로 교체
-- `server/agent/tools/run-uni-pick-next-batch-auto-resolution.js` — 폐기 스텁으로 교체
-- `server/agent/onboarding/tools/run-one-onboarding.js` — 폐기 스텁으로 교체
+- `D:\hhg(code)\server\agent\onboarding\tools\prepare-catalog-source-block.js` (B1)
+- `D:\hhg(code)\server\agent\onboarding\tools\prepare-catalog-source-block.test.js` (B1 테스트)
+- `D:\hhg(code)\server\agent\onboarding\tools\build-review-packet-from-diagnose.js` (B2)
+- `D:\hhg(code)\server\agent\onboarding\tools\build-review-packet-from-diagnose.test.js` (B2 테스트, B1→B2 시연 포함)
+- `D:\hhg(code)\server\agent\gate\brain-batch-approve.js` (B3, Brain 전용·비배선)
+- `D:\hhg(code)\server\agent\gate\brain-batch-approve.test.js` (B3 테스트, 비배선 검증 포함)
+- `D:\hhg(code)\server\agent\gate\apply-approved-activations.js` (B4)
+- `D:\hhg(code)\server\agent\gate\apply-approved-activations.test.js` (B4 테스트, --apply 시연·안전성 포함)
 
-`package.json`은 건드리지 않았습니다(지시대로). `review-decision-writer.js`는 어떤 `npm run` 스크립트/다른 온보딩 도구/`apply-source-activation.js`에서도 `require()`되지 않습니다(코드 검토로 확인 — 아래 참고 참조).
+## 수정 (제품 코드) — 최소 diff
+
+- `D:\hhg(code)\server\agent\tools\run-single-school-trial.js`
+- `D:\hhg(code)\package.json`
+
+## 자동 생성 데이터 (테스트에서는 임시 fixture만 사용, 이번 세션에서 실제 생성/커밋 없음)
+
+- `server/agent/onboarding/data/catalog-prepare-log.json` — B1 감사 로그(최초 실행 시 생성)
+- `server/agent/gate/data/apply-batch-reports/<runId>.json` — B4 실행 리포트(최초 실행 시 생성)
+- `development/university-news/data/university-news-sources.final.json.prepare-backup.<stamp>` — B1 사전 백업
+
+# 각 파일의 "여는 명령" (AGENTS.md 4절)
+
+```powershell
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\onboarding\tools\prepare-catalog-source-block.js"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\onboarding\tools\prepare-catalog-source-block.test.js"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\onboarding\tools\build-review-packet-from-diagnose.js"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\onboarding\tools\build-review-packet-from-diagnose.test.js"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\gate\brain-batch-approve.js"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\gate\brain-batch-approve.test.js"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\gate\apply-approved-activations.js"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\gate\apply-approved-activations.test.js"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\tools\run-single-school-trial.js"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\package.json"
+```
 
 # 변경 내용
 
-## checksum-utils.js
-`canonicalStringify`(키 재귀 정렬 JSON 직렬화), `sha256Hex`, `sha256OfCanonicalObject`, `sha256OfFile`, `computeAllChecksums`(카탈로그/소스블록/store/preview 4종 체크섬을 한 번에 계산)를 구현. `review-packet.js`(패킷 생성 시점)와 `apply-source-activation.js`(`--apply` 검증 시점, "지금 이 순간" 재계산)가 이 함수를 공통 재사용하도록 설계했습니다(spec.md "checksum-utils.js: store.js/카탈로그/패킷에 공통 사용" 요구사항 반영).
+## B1 — prepare-catalog-source-block.js (신규)
 
-## signing-utils.js
-`signDecision`/`verifyDecisionSignature`(HMAC-SHA256, 서명 대상 필드는 `reviewId + packetSha256Recomputed + verdict + reasons + checkedItems`만, spec.md 설계안 7-3), `signingKeyId`(키 자체가 아닌 짧은 지문만 반환), `loadSigningKeyFromEnv`(환경변수 미설정/공백이면 `null`, 예외 던지지 않음)를 구현. 실제 키 값은 코드 어디에도 없고, 항상 `process.env.UNIPICK_GATE_SIGNING_KEY`(호출자가 전달)로만 읽습니다.
+- `normalizeCandidateSourceBlock(candidate)` — 후보의 `source` 블록을 카탈로그 관례로 정규화.
+  확정 결정 A안대로 `verified:false, enabled:false, status:"selector_required", healthStatus:"unknown"` 강제.
+- `insertSourceBlock(catalog, {universityId, sourceId}, sourceBlock)` — 순수 함수.
+  대학 블록이 없으면 throw(대학 블록 생성 안 함). 같은 sourceId 존재 시 throw(이미 `enabled:true`면 별도 메시지).
+  `university.sources` 배열에만 push, 원본 객체 불변(deep clone 반환).
+- `prepareCatalogSourceBlock({...})` — 후보 파일 조회 → `finalDecision === "COLLECTOR_CONFIG_READY"` 검증 →
+  `insertSourceBlock` → (`--dry-run`이면 요약만) → 사전 백업(`<catalog>.prepare-backup.<stamp>`) →
+  tmp 쓰기 → `JSON.parse` 검증 → `rename` → `catalog-prepare-log.json` 에 append(`{preparedAt, universityId, sourceId, catalogBackupPath, checksumBefore, checksumAfter}`).
+  결과 JSON 에 `mutation` 전부 false 선언.
+- 시간/경로/`fs.*`는 전부 주입 가능(`now`, `readFileImpl`, `writeFileImpl`, `renameImpl`, `copyFileImpl`, `existsImpl`, `mkdirImpl`).
+- 체크섬 계산은 `server/agent/gate/checksum-utils.js` 의 `sha256Hex` 재사용.
 
-## review-packet.js
-`generateReviewId`(형식: `rp-${universityId}-${sourceId}-${yyyyMMddHHmmss}-${6자리hex}`), `computePacketSha256`(자기 자신 필드 제외 후 canonical 직렬화 + sha256), `buildReviewPacket`(스키마 검증 + 패킷 객체 생성, 디스크 쓰기 없음), `writeReviewPacketOnce`(append-only 디스크 쓰기), `createAndWriteReviewPacket`(둘을 합친 편의 함수)를 구현. spec.md 설계안 1번 스키마를 그대로 따르며:
-- `robotsPolicyViolation`/`jsRuleUnverified`/`diagnoseFailed` 같은 위반 판정 필드를 전혀 계산/저장하지 않음(원본 근거만: `robotsEvidence`/`jsRuleEvidence`/`diagnostics.rawOutput`).
-- `regressionEvidence.npmTestSummary`에서 `fail N`을 파싱해 `N !== 0`이거나 형식을 해석할 수 없으면 패킷 생성 자체를 거부(spec.md §8/예외 상황).
-- `source.jsDetailLinkRule?.enabled === true`인 경우 `jsRuleEvidence`가 없으면 패킷 생성을 거부하고, 그 외에는 항상 `null`로 명시.
+## run-single-school-trial.js (수정, 최소 diff)
 
-## review-decision-writer.js
-`writeReviewDecision`(Brain 전용) — 패킷을 읽어 `packetSha256`을 독립적으로 재계산해 자체 검증한 뒤, `checkedItems`의 위반 플래그와 `verdict`의 구조적 일관성(위반이 하나라도 true면 APPROVE 불가)을 확인하고, `signDecision`으로 서명해 append-only로 판정 파일을 씁니다. `BLOCKED_REVIEWER_NAMES` 블록리스트도 이 파일에 정의됩니다. **이 파일은 `apply-source-activation.js`를 포함해 어떤 다른 프로덕션 코드에서도 `require()`되지 않습니다**(의도적 격리 — 아래 "임의로 결정한 부분" 참고).
+- `parseOptions()`: 반환 객체에 `allowUnverifiedForDiagnose: argv.includes("--allow-unverified-diagnose")` 추가.
+- `selectSource(university, sourceId, { allowUnverifiedForDiagnose = false } = {})`: 세 번째 인자(옵션) 추가.
+  `allowUnverifiedForDiagnose && sourceId && entry.id === sourceId` 인 소스에 한해 `verified !== true` 여도 후보 인정.
+  기존 2-인자 호출은 기본값으로 동작 불변.
+- `main()`: `selectSource(university, options.sourceId, { allowUnverifiedForDiagnose: options.diagnose && options.allowUnverifiedForDiagnose })`.
+  플래그는 `--diagnose` 일 때만 효력(읽기 전용). `assertSourceEnabledForSave`/저장/`backupBeforeSave`/export 목록 전부 불변.
 
-## apply-source-activation.js
-- `parseArgs`: `--review-id=`(필수) / `--apply`(플래그, 기본 false) 파싱.
-- `runAllGuards(reviewId, options)`: 패킷/판정 파일 존재 확인 → 3중 reviewId 일치 → 서명 키 로드(`SIGNING_KEY_UNAVAILABLE`) → 서명 존재(`SIGNATURE_MISSING`) → 서명 검증(`SIGNATURE_INVALID`) → 판정 내부 일관성(위반 플래그 vs APPROVE) → `packetSha256Recomputed` 재검증(`STALE_REVIEW_PACKET_INVALIDATED`) → `verdict==="APPROVE"`(`VERDICT_NOT_APPROVED`) → 리뷰어 블록리스트(`REVIEWER_BLOCKED`) → 카탈로그/소스블록/store/preview 4종 체크섬 재비교(`STALE_REVIEW_PACKET_INVALIDATED`, 어느 항목이 불일치했는지 이유에 명시). 어떤 경우에도 파일을 쓰지 않는 읽기 전용 함수입니다.
-- `performActivationAndSave(packet, options)`: `run-single-school-trial.js`의 `backupBeforeSave()`를 기본값으로 재사용(운영 시), 백업된 store/preview 파일에 JSON 파싱 검증 추가(기존 `backupBeforeSave()`가 하지 않던 것), 카탈로그도 별도로 백업+검증. `applyMinimalDiff`로 `enabled`/`verified`/`status` 3개 필드만 최소 변경 후 원자적 쓰기(`writeJsonAtomic`), `saveNewItems` 호출. 실패 시 카탈로그/store/preview 모두 백업에서 롤백하고 `enabled` 원복을 재확인, 복구 자체가 실패하면 `ROLLBACK_FAILED_MANUAL_INTERVENTION_REQUIRED`로 명확히 실패, 정상 롤백이면 `SAVE_FAILED_ROLLBACK_SUCCESS`로 실패를 보고. 성공 시 `review-decisions/<reviewId>.applied.json`을 append-only로 기록.
-- `main()`: 검증 실패 시 REJECTED(쓰기 없음), `--apply` 없으면 `VALIDATED_READY_FOR_APPLY`(쓰기 없음), `--apply` 있고 검증 통과 시에만 `performActivationAndSave` 호출.
-- `review-decision-writer.js`를 `require()`하지 않으며, `BLOCKED_REVIEWER_NAMES`도 독립적으로 재정의(의도적 격리).
+## B2 — build-review-packet-from-diagnose.js (신규)
 
-## run-single-school-trial.js
-`module.exports`에 `backupBeforeSave`만 추가. 그 외 어떤 줄도 변경하지 않음(diff 1줄).
+- `parseJsonObjectsFromStdout(text)` — 문자열/이스케이프 상태를 추적하는 중괄호 스캐너로
+  `run-single-school-trial.js` stdout 의 pretty-print JSON 2개를 분리. 마지막 객체를 결과로 사용.
+- `runDiagnose({universityId, sourceId, limit, runnerImpl})` — 기본 runner 는 `execFileSync` 로
+  `run-single-school-trial.js --diagnose --allow-unverified-diagnose` 실행. 테스트는 `runnerImpl` 주입.
+- `collectRobotsEvidence(source, {fetchImpl, timeoutMs})` — `<origin>/robots.txt` 조회 후
+  `screen-selector-required-sources.js` 의 `classifyRobotsFetchResult` 결과 그대로 사용(+`robotsUrl`).
+- `evaluateDiagnose(diagnoseResult, source, robotsEvidence, {minAccepted=2})` — 순수 통과 판정:
+  `foundCount>0` && `acceptedCount>=minAccepted` && `published_at_not_found` 없음 &&
+  `detail_title_or_university_mismatch` 없음 && robots `checked===true && !unavailable && policy.blocked!==true` &&
+  `jsDetailLinkRule.enabled!==true`.
+- `collectRegressionEvidence({npmTestImpl, now})` / `extractNpmTestSummary(raw)` — `npm test` 출력에서
+  `fail N` 형태를 뽑아 `regressionEvidence` 생성. (review-packet.js 가 `/fail\s+(\d+)/i` 로 재검증.)
+- `reconstructAcceptedNewItems(diagnoseResult, {university, source})` — 확정 결정 3: diagnose 결과의
+  `diagnostics[]` 중 `storable===true` 항목에서 `{title, sourceUrl, publishedAt, universityId, universityGroupId, category, sourceId}` 재구성.
+- `buildReviewPacketFromDiagnose({...})` — 위를 조립. **미통과면 패킷을 만들지 않고** `{status:"DIAGNOSE_FAILED"}` 반환(CLI exit 1).
+  통과 시에만 `createAndWriteReviewPacket()` 호출(`findSourceInCatalog` 로 `sourceSnapshot`/`universityGroupId` 확보).
+  `--skip-npm-test` 는 호출자가 `regressionEvidence` 를 명시 주입해야 하고 미주입 시 throw.
+- `review-decision-writer.js` 를 require 하지 않음.
 
-## activate-*.js / run-one-onboarding.js / run-uni-pick-next-batch-auto-resolution.js (7개)
-원래 로직을 전부 제거하고, 호출 시(require 또는 직접 실행 시) 즉시 `console.error`로 감사 로그를 남긴 뒤 명확한 `Error`를 던지는 스텁으로 교체. 에러 메시지에 "`server/agent/gate/apply-source-activation.js --apply` 경로를 사용하라"는 안내를 포함. 카탈로그/store/preview 파일을 전혀 열지 않습니다.
+## B3 — brain-batch-approve.js (신규, Brain 전용·비배선)
 
-이 7개 파일을 호출하던 다른 코드(`run-quality-recovery-test20.js`, `run-smart-retry.js`, `run-onboarding-batch.js`, `package.json`의 `news:onboard:one`/`news:onboard:activate:collector-ready` 스크립트)는 전부 `spawnSync`로 별도 프로세스 실행 후 종료 코드를 확인하는 방식이라, 스텁이 즉시 비정상 종료(코드 1)해도 기존 에러 처리 경로를 그대로 타므로 별도 수정이 필요하지 않았습니다(코드 검토로 확인, `git grep`으로 `require(...)`형태의 직접 의존은 없음을 확인).
+- gate 모듈 중 `review-decision-writer.js` 만 require. 서명 키 환경변수 이름(`UNIPICK_GATE_SIGNING_KEY`)은
+  `signing-utils.js` 를 require 하지 않기 위해 파일에 독립 선언(apply-source-activation.js 의
+  BLOCKED_REVIEWER_NAMES 재정의 선례와 동일).
+- `listPendingReviews({dataDir,...})` — 패킷은 있으나 판정 파일이 없는 reviewId + 패킷 요약(scope/diagnostics 카운트/robots 요약/regression 요약).
+  확정 결정 6: 소스별(`universityId+sourceId`) 최신 패킷 1개만(`createdAt` 기준).
+- `approveOne(reviewId, {...})` — `writeReviewDecision` 래퍼. 서명 키 없으면 `SIGNING_KEY_UNAVAILABLE` 로 throw(파일 미생성).
+- `batchApprove(reviewIds, {...})` — 시작 시 서명 키 1회 사전 검사(없으면 파일 0개 + throw).
+  이미 판정 파일이 있는 reviewId 는 `skipped[]` 기록. 한 건 실패해도 나머지 진행(`failed[]`).
+  `checkedItems` 위반 플래그 + APPROVE 는 `writeReviewDecision` 이 거부 → `failed[]`.
+- CLI: `--list` / `--approve --review-ids=` / `--approve --all-pending` (+ `--reviewed-by` / `--reason` / `--checked-items-file` / `--verdict`).
+- `package.json` 및 어떤 온보딩/tools/스케줄러/runner 코드에서도 require 되지 않음(테스트로 grep 검증).
+
+## B4 — apply-approved-activations.js (신규)
+
+- `apply-source-activation.js` 의 `runAllGuards` / `performActivationAndSave` / `writeJsonOnce` 재사용.
+- `listApprovedUnapplied({dataDir,...})` — `verdict==="APPROVE"` && `<reviewId>.applied.json` 없는 판정 순회.
+  확정 결정 6: 패킷 scope+createdAt 으로 소스별 최신 1개만.
+- `applyApprovedActivations({apply, stopOnFirstApplied, ...})`:
+  - 확정 결정 7: `runtime-lock.js` 의 `acquireRuntimeLock("news-update-agent")` 획득. 실패 시 `RUNTIME_LOCK_UNAVAILABLE` throw(아무것도 적용 안 함). 테스트에서 lock impl 주입.
+  - `getTargetUniversities().length` 를 before/after 로 기록(`countTargetsImpl` 주입 가능 —
+    테스트는 `countTargetUniversitiesInCatalogFile(fixtureCatalog)` 로 프로덕션 카탈로그 미접근).
+  - 각 건: `runAllGuards` 실패 → `skipped[]`(`STALE_REVIEW_PACKET_INVALIDATED` / `SIGNATURE_MISSING` 등 코드+사유 기록, 예외 없음).
+    통과 + `!apply` → `skipped[]` `VALIDATED_NOT_APPLIED`.
+    통과 + `apply` → `performActivationAndSave` → 성공 `applied[]`(+`stopOnFirstApplied` 면 이후 `SKIPPED_AFTER_STOP`).
+    `GateApplyFailure` → `failed[]`(code/rollback/backupDir). `ROLLBACK_FAILED_MANUAL_INTERVENTION_REQUIRED` 만 즉시 중단.
+  - `apply-batch-reports/<runId>.json` 에 `writeJsonOnce` 로 리포트 저장.
+- STALE 연쇄(첫 apply 성공 후 카탈로그 바이트 변경 → 나머지 STALE)는 정상 흐름으로 `skipped[]` 기록.
+- CLI: 기본 검증만, `--apply`, `--apply --stop-on-first-applied`. `failed` 또는 수동개입 필요 시 exit 1.
+- `review-decision-writer.js` 를 require 하지 않음.
+
+## package.json (수정)
+
+`scripts` 에 3개만 추가(B3 스크립트 없음):
+
+```
+"news:onboard:prepare-source": "node server/agent/onboarding/tools/prepare-catalog-source-block.js"
+"news:onboard:review-packet": "node server/agent/onboarding/tools/build-review-packet-from-diagnose.js"
+"gate:apply-approved": "node server/agent/gate/apply-approved-activations.js"
+```
 
 # 변경 이유
 
-`.pipeline/spec.md`에 설계된 "패킷 생성(Code Agent) → 서명된 승인 판정(Brain 전용) → `--apply`(사용자 명시 승인)" 3단계 게이트를 코드로 구현해, 기존에 파편화돼 있던 `activate-*.js`류 스크립트들이 각자 개별적으로 `enabled=true`를 직접 써버리던 구조를 단일 진입점(`apply-source-activation.js --apply`)으로 수렴시키기 위함입니다. Code Agent 세션은 패킷 생성까지만 할 수 있고, 판정 파일 작성(`review-decision-writer.js`)과 실제 활성화(`--apply`)는 각각 별도 실행 컨텍스트/서명 키/사용자 승인이 있어야만 가능하도록 파일 단위로 권한 경계를 분리했습니다.
+- `.pipeline/spec.md` "# 확정된 설계 결정 (2026-08-28, 사용자 승인)" 및 "# 완료 기준 1~12" 를 그대로 구현.
+- 온보딩 검증 통과 후보 → (B1) 카탈로그 비활성 삽입 → (B2) diagnose 통과 시 review-packet 생성 →
+  (B3, Brain 수동) 일괄 APPROVE 서명 → (B4) `--apply` 배치 활성화 로 이어지는 4개 "다리"를
+  기존 gate 모듈/스케줄러 락/store 원자적 쓰기 경로만 재사용해 배선.
+- 신규 npm 의존성 없음(Node 내장 `fs`/`path`/`crypto`/`child_process`만).
+- run-single-school-trial.js 수정은 확정 결정 1 A안(플래그 최소 추가)에 따른 것이며,
+  `--diagnose` 읽기 전용성과 기존 export/저장 로직을 보존.
 
-# 미구현 / 임의로 결정해야 했던 항목
+# 검증 결과
 
-1. **서명 키 환경변수 이름**: spec.md 설계안 7-2는 "`BRAIN_REVIEW_SIGNING_KEY`(환경변수 주입) vs OS 파일 권한 분리 디렉터리" 중 실제 운영 방식을 "다음 Coder 단계에서 확정"하도록 명시적으로 열어둔 상태였습니다(질문사항 1 하위 항목). 이번 라운드 상위 지시에서 "spec.md에 이미 확정된 이름이 없다면 `UNIPICK_GATE_SIGNING_KEY`로 하라"고 명시했으므로, `BRAIN_REVIEW_SIGNING_KEY`(예시로만 언급됨)가 아니라 `UNIPICK_GATE_SIGNING_KEY`를 채택했습니다. 다음 라운드에서 실제 운영 방식(환경변수 vs 파일 권한 분리)을 최종 확정해야 합니다.
-2. **`review-decision-writer.js` 테스트 파일**: spec.md 9번 "단위 테스트 계획"에는 이 파일 전용 테스트가 명시돼 있지 않았습니다(Brain 전용이라 Code Agent 실행 경로에 연결되지 않기 때문으로 추정). 프로젝트 관례(모든 모듈에 짝이 되는 `*.test.js`)를 따라 최소한의 유효성 검사 테스트(`review-decision-writer.test.js`)를 추가로 작성했습니다. 이 테스트 파일도 어떤 `npm run` 스크립트에 연결돼 있지 않으며 `node --test`로 직접 실행될 때만 동작합니다.
-3. **`sourceBlockCanonical` 재검증 의미 해석**: spec.md 의사코드는 `currentChecksums = computeAllChecksums()`만 적혀 있고 `sourceBlockCanonical` 입력값이 패킷의 `sourceSnapshot`인지 "지금 카탈로그의 살아있는 소스 블록"인지 문자 그대로 명시하지 않았습니다. 전자로 해석하면 자기 자신과 항상 같아 검증 의미가 없으므로(동어반복), `--apply` 쪽에서는 "지금 카탈로그를 다시 읽어 `packet.scope`로 찾은 현재 소스 블록"을 사용하도록 구현했습니다(반대로 `review-packet.js`의 패킷 생성 시점에는 당연히 `sourceSnapshot` 그 자체를 사용). 이 해석을 `apply-source-activation.js`의 `runAllGuards` 주석에 명시했습니다.
-4. **일부 실패 코드 이름**: spec.md가 명시적으로 이름을 정한 코드(`STALE_REVIEW_PACKET_INVALIDATED`/`SIGNATURE_MISSING`/`SIGNATURE_INVALID`/`SIGNING_KEY_UNAVAILABLE`/`NO_DECISION_YET`)는 그대로 사용했지만, 그 외 실패 경로(패킷 자체가 없음, reviewId 3중 불일치, verdict가 HOLD/REJECT, 리뷰어 블록리스트, 판정 내부 일관성 위반, 백업/롤백 실패)에는 spec.md에 정해진 이름이 없어 다음 코드를 새로 명명했습니다: `REVIEW_PACKET_NOT_FOUND`, `REVIEW_ID_MISMATCH`, `VERDICT_NOT_APPROVED`, `REVIEWER_BLOCKED`, `INVALID_DECISION_APPROVE_WITH_VIOLATION`, `BACKUP_VALIDATION_FAILED`, `SAVE_FAILED_ROLLBACK_SUCCESS`, `ROLLBACK_FAILED_MANUAL_INTERVENTION_REQUIRED`. 모두 "즉시 중단, 쓰기 없음"(검증 실패) 또는 "롤백 성공/실패 구분"(쓰기 실패) 원칙은 spec.md 그대로 따랐습니다.
-5. **폐기 대상 스크립트 목록**: 상위 지시("spec.md의 목록을 그대로 사용, 임의로 추측하지 마세요")에 따라 spec.md에 명시된 7개 파일만 스텁으로 교체했습니다. 다만 `git grep`으로 재확인한 결과 spec.md 목록에 없는 `server/agent/onboarding/tools/activate-mokpo-catholic.js`와 `server/agent/onboarding/tools/activate-ulsan-general-feed.js` 두 파일도 동일하게 `enabled: true`를 직접 쓰는 것을 확인했습니다(spec.md 자체도 "Coder 단계 착수 시 이 목록 외에도 유사 스크립트가 있는지 재확인 필요"라고 명시했던 부분). 이번 라운드 범위 밖으로 판단해 건드리지 않았으며, 다음 라운드에서 이 두 파일의 처리 여부를 Planner/사용자가 결정해야 합니다.
-6. **`apply-source-activation.js`의 `writeJsonOnce`/`writeJsonAtomic`/`restoreFromBackup` 등 소형 헬퍼**: `review-packet.js`/`review-decision-writer.js`에도 같은 이름의 유사 헬퍼가 각각 독립적으로 정의돼 있습니다(코드 중복). spec.md가 "판정 파일을 쓰는 코드는 별도 파일에 두고 Code Agent 실행 경로에 연결하지 않는다"는 격리 원칙을 명시했으므로, 공용 유틸 모듈로 묶기보다 각 파일에 소형 헬퍼를 중복 구현해 파일 간 `require` 연결을 만들지 않는 쪽을 선택했습니다.
-7. **`server/agent/gate/data/` 실제 데이터 파일**: 지시대로 실제 패킷/판정 파일(더미 아닌 실사용 데이터)은 만들지 않았습니다. `review-packets/`와 `review-decisions/` 아래에 `.gitkeep`만 두었습니다.
+## node --check (신규/수정 .js 전부)
+
+```
+OK server/agent/onboarding/tools/prepare-catalog-source-block.js
+OK server/agent/onboarding/tools/prepare-catalog-source-block.test.js
+OK server/agent/onboarding/tools/build-review-packet-from-diagnose.js
+OK server/agent/onboarding/tools/build-review-packet-from-diagnose.test.js
+OK server/agent/gate/brain-batch-approve.js
+OK server/agent/gate/brain-batch-approve.test.js
+OK server/agent/gate/apply-approved-activations.js
+OK server/agent/gate/apply-approved-activations.test.js
+OK server/agent/tools/run-single-school-trial.js
+```
+
+## package.json JSON 파싱
+
+```
+node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'));console.log('package.json JSON OK')"
+=> package.json JSON OK
+```
+
+## 신규 테스트 파일 개별 실행 (node --test)
+
+- `prepare-catalog-source-block.test.js` — tests 11, pass 11, fail 0
+- `build-review-packet-from-diagnose.test.js` — tests 13, pass 13, fail 0
+- `brain-batch-approve.test.js` — tests 8, pass 8, fail 0
+- `apply-approved-activations.test.js` — tests 9, pass 9, fail 0
+- (회귀) `run-single-school-trial.test.js` — tests 16, pass 16, fail 0 (파일 무수정)
+- (회귀) `server/agent/gate/*.test.js` — 기존 66 테스트 전부 pass
+
+## 전체 npm test 3회 연속
+
+| 실행 | tests | pass | fail | cancelled |
+|---|---|---|---|---|
+| 1회 | 274 | 274 | 0 | 0 |
+| 2회 | 274 | 274 | 0 | 0 |
+| 3회 | 274 | 274 | 0 | 0 |
+
+- 변경 전 baseline: tests 233 / pass 233 / fail 0.
+- 신규 +41 테스트(B1 11 + B2 13 + B3 8 + B4 9). 3회 모두 동일 결과 → 결정적(flaky 0).
+- 시간/난수/타임스탬프/락/`fs.*`/`fetch`/`npm test`/diagnose runner 는 전부 주입으로 고정,
+  테스트는 임시 fixture 디렉터리만 사용(프로덕션 카탈로그/store/preview/네트워크 미접근).
+
+# 미구현 항목 / 보류
+
+- 없음. spec "# 파일" 표의 신규 8개 파일 + 명시된 최소 수정(run-single-school-trial.js A안 플래그,
+  package.json 스크립트 3개)만 구현.
+- Code Agent 는 APPROVE 판정 파일 생성/서명/`--apply` 자동 실행을 하지 않음(B3 은 Brain 수동 단계).
+- 실제 44번째 대학 활성화(프로덕션 카탈로그 쓰기)는 사용자 승인 후 별도 — 이번엔 fixture 시연만.
+- `.gitignore` 는 spec 허용 파일 목록 밖이라 수정하지 않음(아래 참고사항 참조).
+- B5(스케줄러 워크트리 자동 동기화)는 이번 범위 아님.
 
 # 참고사항 (Tester가 알아야 할 내용)
 
-- **테스트를 실행하지 않았습니다**(이번 라운드 지시에 따라 `node --test`/`npm test` 실행 금지). 문법 검증 목적의 `node --check`만 아래처럼 실행해 전부 통과를 확인했습니다:
-  ```
-  node --check server/agent/gate/checksum-utils.js            OK
-  node --check server/agent/gate/checksum-utils.test.js       OK
-  node --check server/agent/gate/signing-utils.js              OK
-  node --check server/agent/gate/signing-utils.test.js         OK
-  node --check server/agent/gate/review-packet.js               OK
-  node --check server/agent/gate/review-packet.test.js          OK
-  node --check server/agent/gate/review-decision-writer.js      OK
-  node --check server/agent/gate/review-decision-writer.test.js OK
-  node --check server/agent/gate/apply-source-activation.js     OK
-  node --check server/agent/gate/apply-source-activation.test.js OK
-  node --check server/agent/tools/run-single-school-trial.js    OK
-  node --check server/agent/onboarding/tools/activate-collector-ready.js       OK
-  node --check server/agent/onboarding/tools/activate-kyungnam-general-feed.js OK
-  node --check server/agent/onboarding/tools/activate-dnue-general-feed.js     OK
-  node --check server/agent/onboarding/tools/activate-youngsan-shared-feed.js  OK
-  node --check server/agent/onboarding/tools/activate-mtu-general-feed.js      OK
-  node --check server/agent/tools/run-uni-pick-next-batch-auto-resolution.js   OK
-  node --check server/agent/onboarding/tools/run-one-onboarding.js             OK
-  ```
-- Tester 라운드에서 `node --test server/agent/gate/*.test.js`(개별) 및 전체 `npm test`를 3회 이상 연속 실행해 `fail 0`인지 확인해야 합니다(spec.md "다음 Coder 단계 완료 기준" 항목).
-- 모든 테스트는 fixture 임시 디렉터리(`fs.mkdtempSync(os.tmpdir())`)만 사용하고, 실제 프로덕션 카탈로그/store/preview 파일(`development/university-news/data/university-news-sources.final.json`, `server/agent/data/agent-news-store.json`, `data/university-news-preview.json`)은 어떤 테스트에서도 열거나 쓰지 않습니다.
-- 모든 테스트의 시각/난수 값은 고정 주입(`now`/`randomBytesImpl` 옵션)입니다 — spec.md에 기록된 직전 라운드 flaky 테스트 선례를 반영한 조치입니다.
-- `apply-source-activation.test.js`는 spec.md 9)/10)의 (a)~(k) 단위 테스트 시나리오와 통합 테스트 시나리오 1/3/6을 포함합니다(2/4/5는 각각 (f)/(b)/(g) 테스트와 사실상 동일한 내용이라 별도로 중복 작성하지 않았습니다 — 필요 시 Tester가 이름을 확인해 커버리지를 재확인해 주세요).
-- `grep`으로 실제 서명 키 값이 코드/테스트 어디에도 하드코딩되지 않았음을 재확인했습니다(위 "임의로 결정한 항목 1" 참고) — 테스트 파일에 있는 `TEST_DUMMY_SIGNING_KEY` 류 상수는 전부 "실제 키가 아님"이라는 주석이 붙은 더미 문자열입니다.
-- `git status` 기준 이번 라운드에서 변경된 파일(`git add`/`commit`은 수행하지 않았습니다):
-  ```
-   M server/agent/onboarding/tools/activate-collector-ready.js
-   M server/agent/onboarding/tools/activate-dnue-general-feed.js
-   M server/agent/onboarding/tools/activate-kyungnam-general-feed.js
-   M server/agent/onboarding/tools/activate-mtu-general-feed.js
-   M server/agent/onboarding/tools/activate-youngsan-shared-feed.js
-   M server/agent/onboarding/tools/run-one-onboarding.js
-   M server/agent/tools/run-single-school-trial.js
-   M server/agent/tools/run-uni-pick-next-batch-auto-resolution.js
-  ?? server/agent/gate/
-  ```
-  (`.pipeline/spec.md`가 `M`으로 표시되는 것은 이번 세션 시작 이전부터 있던 상태이며, 이번 세션에서는 `.pipeline/spec.md`를 Read만 했을 뿐 수정하지 않았습니다.)
-- `server/agent/gate/apply-source-activation.js`는 기본 실행(`--apply` 없이)에서 파일을 전혀 쓰지 않으며, `--apply`가 있어도 `runAllGuards`가 실패하면 아무것도 쓰지 않습니다(둘 다 테스트로 mtime 불변을 확인).
-- git add/commit, `source.enabled=true` 변경, `review-decisions/` 아래 실제 판정 파일 생성, scheduler/배포 작업은 이번 라운드에서 전혀 수행하지 않았습니다.
+- `npm test` 는 Windows PowerShell / Git Bash 어느 쪽에서도 `npm test` 로 실행(`node --test` 내장 러너).
+- 신규 테스트는 전부 `os.tmpdir()` 아래 `fs.mkdtempSync` fixture + 의존성 주입만 사용.
+  실제 `development/university-news/data/university-news-sources.final.json`,
+  `server/agent/data/agent-news-store.json`, `data/university-news-preview.json`, 네트워크를 건드리지 않음.
+- 결정적 재현용 고정값: `FIXED_NOW = new Date("2026-08-28T09:15:00.000Z")`,
+  `randomBytesImpl = () => Buffer.from("a1b2c3","hex")`, 더미 서명 키
+  `"test-only-dummy-signing-key-do-not-use-in-production"`.
+- B2 통과 시 결정적 reviewId 예: `rp-test-university-test-press-20260828181500-a1b2c3`
+  (타임스탬프는 로컬시간 기준 압축 — gate `review-packet.js` 의 `formatCompactTimestamp` 사용).
+- B3 `brain-batch-approve.js` 는 `node server/agent/gate/brain-batch-approve.js` 로 직접 실행만 가능하고
+  `npm run` 스크립트가 없음(의도). 실제 서명은 `UNIPICK_GATE_SIGNING_KEY` 가 설정된 Brain 컨텍스트에서만 동작.
+- B4 CLI 를 실제로 돌리면(`npm run gate:apply-approved`) `runtime-lock.js` 의
+  `server/agent/runtime/news-update-agent.lock` 를 스케줄러와 공유하므로, 스케줄러 실행 중에는 즉시 exit 1.
+- 자동 생성물(`server/agent/onboarding/data/catalog-prepare-log.json`,
+  `server/agent/gate/data/apply-batch-reports/*.json`,
+  `server/agent/gate/data/review-packets/*.json`, `review-decisions/*.json`,
+  `*.prepare-backup.*`)은 커밋 대상이 아님. 현재 `.gitignore` 에 명시 규칙이 없으므로
+  (기존 `server/agent/gate/data/` 는 `.gitkeep` 만 추적) 운영자가 `git add` 시 제외해야 함.
+- git add/commit/push/배포 미실행. `server/agent/gate/data/` 커밋 미실행.
+- 사용자가 직접 확인할 것:
+  1) `.gitignore` 에 위 자동 생성물 경로를 추가할지 여부(이번 세션 범위 밖으로 남김).
+  2) 실제 후보(`collector-config-candidates.json`)로 B1→B2→(B3 서명)→B4 를 프로덕션에 적용할지 승인.
+  3) `UNIPICK_GATE_SIGNING_KEY` 운영 값 관리(코드/로그에 절대 미포함).
 
----
+# P1 보완 (Reviewer 지적)
 
-# Coder 2라운드 — 10개 `activate-*.js` 스텁 교체 (catholic-kwandong 제외)
+## 결함
 
-## 변경된 파일 (10개, 전부 "수정" — 신규/삭제 없음)
+`server/agent/onboarding/tools/build-review-packet-from-diagnose.test.js` 의
+`FIXED_NOW = new Date("2026-08-28T09:15:00.000Z")` + 하드코딩 reviewId 단언
+`"...-20260828181500-a1b2c3"`. `181500` 은 gate `formatCompactTimestamp` 의
+로컬 `getHours()` 압축이라 UTC 문자열을 쓰면 UTC+9 이외 환경에서 결정적으로
+어긋남 → spec 공통 제약 4번(시간 필드 고정) 위반.
 
-우선 처리(가드 없는 즉시실행 구조였던 4개):
-- `server/agent/tools/activate-inje-shared-source.js`
-- `server/agent/tools/activate-daeshin-source.js`
-- `server/agent/onboarding/tools/activate-mokpo-catholic.js`
-- `server/agent/onboarding/tools/activate-ulsan-general-feed.js`
+## 수정
 
-이어서 처리(6개):
-- `server/agent/tools/activate-kyungdong-shared-source.js`
-- `server/agent/tools/activate-sangmyung-cheonan-source.js`
-- `server/agent/tools/activate-kyungwoon-source.js`
-- `server/agent/tools/activate-changshin-source.js` (`module.exports` 13개 헬퍼 제거)
-- `server/agent/tools/activate-hwasung-medi-science-source.js` (`module.exports` 14개 헬퍼 제거)
-- `server/agent/tools/activate-keimyung-source.js` (`module.exports` 11개 헬퍼 + `runDryValidation` 제거)
+- `FIXED_NOW` 를 로컬 시간 성분 생성자 `new Date(2026, 7, 28, 9, 15, 0)` 로 교체
+  (`server/agent/gate/review-packet.test.js:151` 의 타임존 무관 패턴과 동일).
+  이 값의 압축 스탬프는 어느 타임존에서든 `20260828091500`.
+- reviewId 단언을 `"rp-test-university-test-press-20260828091500-a1b2c3"` 로 교정하고,
+  타임존 무관 정규식 `/^rp-test-university-test-press-\d{14}-a1b2c3$/` 단언을 추가.
+  reviewId 결정성은 유지.
+- 그 외 파일은 건드리지 않음.
 
-`server/agent/tools/activate-catholic-kwandong-source-local.js`는 지시대로 **전혀 건드리지 않았습니다** — `git diff --stat`으로 무변경(diff 없음)임을 확인했습니다.
+## 재검증
 
-## 변경 내용
-
-10개 파일 모두 1라운드에서 이미 검증된 것과 동일한 스텁 패턴으로 전체 교체했습니다: 원래의 활성화 로직(카탈로그 읽기/백업/`enabled:true` 병합/쓰기, 일부 파일의 curl 기반 dry-run·`npm test` 실행·`node --check` 자기검증 등 부가 기능 포함)을 전부 제거하고, `main()` 호출 시 `console.error`로 감사 로그를 남긴 뒤 `server/agent/gate/apply-source-activation.js --review-id=<reviewId> --apply` 경로를 안내하는 `Error`를 던지는 구조로 통일했습니다. 카탈로그/store/preview 파일을 전혀 열지 않습니다. `module.exports = { main }`만 남기고 `main()`을 무조건 호출하는 구조(가드 없음)는 1라운드 스텁 7개와 동일하게 유지했습니다(기존 관례 일치).
-
-- `activate-changshin-source.js`/`activate-hwasung-medi-science-source.js`/`activate-keimyung-source.js` 3개는 스텁 교체 전 `module.exports`로 각각 13/14/11개의 파싱·검증 헬퍼 함수(및 `keimyung`의 네트워크 `runDryValidation`)를 노출하고 있었습니다. 스텁 교체 직전 `grep -rn "require(...)"`로 repo 전체를 재검색해 이 3개 파일을 `require()`하는 코드가 여전히 없음을 재확인(spec.md 조사 결과와 동일)한 뒤, export 선언 자체도 완전히 제거했습니다.
-- `activate-kyungdong-shared-source.js`는 스텁 교체 전 spec.md에 기록된 대로 "레거시 캠퍼스 소스 4개 삭제 + 공유소스 병합" 마이그레이션이 이미 카탈로그에 반영·커밋(`ff28464`)되어 있음을 전제로 교체했습니다 — 이번 라운드에서 카탈로그를 다시 확인하거나 수정하지 않았습니다(스크립트 코드만 교체).
-
-## 재확인 절차 (지시대로 수행)
-
-10개 파일 각각에 대해 교체 후 `grep -rn "require(.*<파일명>" --include="*.js" server development`를 재실행해 어디에서도 `require()`되지 않음을 확인했습니다(모두 빈 결과 — Research 결과와 동일). `*.test.js` 대상 검색도 동일하게 빈 결과였습니다. 불일치가 발견되면 즉시 중단하라는 지시였으나, 10개 전부 일치했으므로 중단 없이 진행했습니다.
-
-## 변경 이유
-
-`.pipeline/spec.md` "Coder 2라운드 대상" 섹션에서 확정된 11개 게이트-우회 활성화 스크립트 중 `catholic-kwandong-source-local.js`(ACTIVATE_ONLY 액션 타입 미확정)를 제외한 10개를 1라운드와 동일한 패턴으로 정리해, 신규 소스 활성화가 `apply-source-activation.js --apply` 단일 경로로만 가능하도록 수렴시키기 위함입니다.
-
-## 미구현 / 다음 라운드로 이월된 항목
-
-1. **`activate-catholic-kwandong-source-local.js`**: 지시대로 이번 라운드에서 제외했습니다. 이 파일은 `saveNewItems`(store/preview 저장)를 호출하지 않고 카탈로그만 변경하는 유일한 예외이므로(spec.md 판정 근거 참고), 게이트의 `ACTIVATE_AND_SAVE_INITIAL_ITEMS` 단일 액션 스키마와 별도로 "활성화만 하는" `ACTIVATE_ONLY` 액션 타입 설계가 먼저 확정되어야 합니다.
-2. **테스트 실행**: 지시대로 `node --test`/`npm test`는 실행하지 않았습니다. 문법 검증 목적의 `node --check`(파일을 파싱만 하고 실행하지 않음 — `main()`이 호출되지 않으므로 "테스트 실행 금지" 지시와 무관)만 10개 파일 전부에 실행해 전부 통과를 확인했습니다.
-3. **git add/commit**: 수행하지 않았습니다. 아래 "참고사항" 절의 `git status` 목록이 이번 라운드의 전체 변경분입니다.
-
-## 참고사항 (Tester가 알아야 할 내용)
-
-- 문법 검증(`node --check`, 10개 전부 OK):
-  ```
-  node --check server/agent/tools/activate-inje-shared-source.js              OK
-  node --check server/agent/tools/activate-daeshin-source.js                  OK
-  node --check server/agent/onboarding/tools/activate-mokpo-catholic.js       OK
-  node --check server/agent/onboarding/tools/activate-ulsan-general-feed.js   OK
-  node --check server/agent/tools/activate-kyungdong-shared-source.js         OK
-  node --check server/agent/tools/activate-sangmyung-cheonan-source.js        OK
-  node --check server/agent/tools/activate-kyungwoon-source.js                OK
-  node --check server/agent/tools/activate-changshin-source.js                OK
-  node --check server/agent/tools/activate-hwasung-medi-science-source.js     OK
-  node --check server/agent/tools/activate-keimyung-source.js                 OK
-  ```
-- Tester 라운드에서 확인이 필요한 항목: (a) 10개 스텁 모두 `require()` 또는 직접 실행 시 예외를 던지고 카탈로그/store/preview를 전혀 건드리지 않는지, (b) `activate-catholic-kwandong-source-local.js`가 이번 커밋 대상에 전혀 포함되지 않았는지(diff 없음), (c) 기존 `npm test` 233/233(1라운드 기준)이 이번 교체 이후에도 여전히 fail 0인지(이 10개 파일을 요구하는 테스트가 없었으므로 회귀는 없을 것으로 예상되나, Tester가 직접 실행해 확인 필요 — 이번 라운드에서는 실행하지 않았습니다).
-- `git status --porcelain` 기준 이번 라운드 포함 전체 변경 파일 목록(`git add` 없이 확인):
-  ```
-   M .pipeline/changes.md
-   M .pipeline/spec.md
-   M development/university-news/data/university-news-sources.final.json   (이번 세션 이전부터 있던 상태 — 이번 라운드에서 건드리지 않음)
-   M server/agent/onboarding/tools/activate-collector-ready.js             (1라운드)
-   M server/agent/onboarding/tools/activate-dnue-general-feed.js           (1라운드)
-   M server/agent/onboarding/tools/activate-kyungnam-general-feed.js       (1라운드)
-   M server/agent/onboarding/tools/activate-mokpo-catholic.js              (2라운드, 신규)
-   M server/agent/onboarding/tools/activate-mtu-general-feed.js            (1라운드)
-   M server/agent/onboarding/tools/activate-ulsan-general-feed.js          (2라운드, 신규)
-   M server/agent/onboarding/tools/activate-youngsan-shared-feed.js        (1라운드)
-   M server/agent/onboarding/tools/run-one-onboarding.js                  (1라운드)
-   M server/agent/tools/activate-changshin-source.js                      (2라운드, 신규)
-   M server/agent/tools/activate-daeshin-source.js                        (2라운드, 신규)
-   M server/agent/tools/activate-hwasung-medi-science-source.js           (2라운드, 신규)
-   M server/agent/tools/activate-inje-shared-source.js                    (2라운드, 신규)
-   M server/agent/tools/activate-keimyung-source.js                       (2라운드, 신규)
-   M server/agent/tools/activate-kyungdong-shared-source.js               (2라운드, 신규)
-   M server/agent/tools/activate-kyungwoon-source.js                      (2라운드, 신규)
-   M server/agent/tools/activate-sangmyung-cheonan-source.js              (2라운드, 신규)
-   M server/agent/tools/run-single-school-trial.js                        (1라운드)
-   M server/agent/tools/run-uni-pick-next-batch-auto-resolution.js        (1라운드)
-  ?? server/agent/gate/                                                   (1라운드)
-  ```
-  `server/agent/tools/activate-catholic-kwandong-source-local.js`는 이 목록에 없습니다(무변경 확인됨).
-- git add/commit, `source.enabled=true` 변경, 카탈로그 데이터 수정, 실제 서명 키 설정, `review-decisions/` 실데이터 생성, scheduler 등록, 배포는 이번 2라운드에서도 전혀 수행하지 않았습니다.
+- `node --check server/agent/onboarding/tools/build-review-packet-from-diagnose.test.js` — 통과.
+- `node --test .../build-review-packet-from-diagnose.test.js` — tests 13, pass 13, fail 0.
+- 전체 `npm test` 1회 — tests 274, pass 274, fail 0 (카운트 불변).

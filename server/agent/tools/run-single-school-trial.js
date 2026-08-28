@@ -23,7 +23,13 @@ function parseOptions(argv) {
   const limit = Number(read("--limit") || MAX_ITEMS);
   if (!universityId) throw new Error("--university-id is required.");
   if (!Number.isInteger(limit) || limit < 1 || limit > MAX_ITEMS) throw new Error(`--limit must be 1-${MAX_ITEMS}.`);
-  return { universityId, sourceId, limit, diagnose: argv.includes("--diagnose") };
+  return {
+    universityId,
+    sourceId,
+    limit,
+    diagnose: argv.includes("--diagnose"),
+    allowUnverifiedForDiagnose: argv.includes("--allow-unverified-diagnose"),
+  };
 }
 
 // Picks the source a trial run will use. Without --source-id this preserves
@@ -32,9 +38,17 @@ function parseOptions(argv) {
 // exact match among the same official/verified/rss-or-html candidates, so a
 // university with multiple sources (e.g. notice + press release) can be
 // trialed one at a time.
-function selectSource(university, sourceId) {
+//
+// allowUnverifiedForDiagnose (확정 결정 1 A안): B1 이 카탈로그에 삽입하는
+// 소스는 verified:false 로 들어오므로, `--diagnose` 읽기 전용 시연을 위해서만
+// 명시적으로 지정된 --source-id 소스 하나에 한해 verified 미검증 소스도
+// 후보로 인정합니다. enabled/저장/assertSourceEnabledForSave 로직은 불변입니다.
+function selectSource(university, sourceId, { allowUnverifiedForDiagnose = false } = {}) {
   const qualifying = (university.sources || []).filter(
-    (entry) => entry.sourceType === "official" && entry.verified && ["rss", "html"].includes(entry.collectionType)
+    (entry) =>
+      entry.sourceType === "official" &&
+      (entry.verified || (allowUnverifiedForDiagnose && Boolean(sourceId) && entry.id === sourceId)) &&
+      ["rss", "html"].includes(entry.collectionType)
   );
   if (sourceId) {
     const match = qualifying.find((entry) => entry.id === sourceId);
@@ -176,7 +190,9 @@ async function main() {
   const catalog = JSON.parse(fs.readFileSync(path.join(ROOT, "development", "university-news", "data", "university-news-sources.final.json"), "utf8"));
   const university = (catalog.universities || []).find((entry) => entry.universityId === options.universityId);
   if (!university) throw new Error("No verified official RSS/HTML source exists for the requested university.");
-  const source = selectSource(university, options.sourceId);
+  const source = selectSource(university, options.sourceId, {
+    allowUnverifiedForDiagnose: options.diagnose && options.allowUnverifiedForDiagnose,
+  });
   assertSourceEnabledForSave(source, options.universityId, options.diagnose);
 
   console.log(JSON.stringify({ phase: "single_school_trial", diagnose: options.diagnose, requestedSourceId: options.sourceId, university: { universityId: university.universityId, universityGroupId: university.universityGroupId, universityName: university.universityName }, source: { id: source.id, name: source.name, category: source.category, collectionType: source.collectionType, configuredEnabled: source.enabled }, limits: { items: options.limit, concurrency: 1, maxAttempts: MAX_ATTEMPTS } }, null, 2));

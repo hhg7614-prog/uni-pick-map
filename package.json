@@ -79,6 +79,9 @@
     ,"news:onboard:agent-v1:ysu2-collector:dry-run": "node server/agent/onboarding/tools/run-ysu2-collector-dry-run.js"
     ,"news:onboard:agent-v1:ulsan-title:test": "node server/agent/onboarding/tools/run-ulsan-title-validation.js"
     ,"news:onboard:agent-v1:ulsan-collector:dry-run": "node server/agent/onboarding/tools/run-ulsan-collector-dry-run.js"
+    ,"news:onboard:prepare-source": "node server/agent/onboarding/tools/prepare-catalog-source-block.js"
+    ,"news:onboard:review-packet": "node server/agent/onboarding/tools/build-review-packet-from-diagnose.js"
+    ,"gate:apply-approved": "node server/agent/gate/apply-approved-activations.js"
   },
   "engines": { "node": ">=18" }
 }
