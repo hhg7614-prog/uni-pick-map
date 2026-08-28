@@ -9,7 +9,13 @@ function decodeXml(value) {
 function tagValue(xml, names) {
   for (const name of names) {
     const match = xml.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`, "i"));
-    if (match) return decodeXml(match[1].replace(/<[^>]*>/g, " ").replace(/\s+/g, " "));
+    if (match) {
+      // CDATA를 먼저 벗긴 뒤 잔여 HTML 태그를 제거해야 한다. 순서가 반대이면
+      // `<![CDATA[ ... ]]>`(내부에 '>' 없음) 블록 전체가 하나의 태그로 잡혀
+      // title/link가 통째로 사라진다(한글 대학 CMS RSS의 일반적 형태).
+      const withoutCdata = match[1].replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1");
+      return decodeXml(withoutCdata.replace(/<[^>]*>/g, " ").replace(/\s+/g, " "));
+    }
   }
   return "";
 }
