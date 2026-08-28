@@ -404,13 +404,18 @@
             "title": "h4.tit02",
             "date": "span.date"
           },
-          "officialNames": ["경희대학교"],
+          "officialNames": [
+            "경희대학교"
+          ],
           "jsDetailLinkRule": {
             "enabled": true,
             "pattern": "functionCall",
             "functionName": "view",
             "argCount": 1,
-            "fixedParams": { "bbsId": "BMSR00044", "menuNo": "200265" },
+            "fixedParams": {
+              "bbsId": "BMSR00044",
+              "menuNo": "200265"
+            },
             "urlTemplate": "https://www.khu.ac.kr/kor/user/bbs/{bbsId}/view.do?boardId={arg0}&menuNo={menuNo}",
             "verification": {
               "method": "manual-curl-get-equivalence",
@@ -686,7 +691,9 @@
             "pattern": "functionCall",
             "functionName": "pf_DetailMove",
             "argCount": 1,
-            "fixedParams": { "menu": "2377" },
+            "fixedParams": {
+              "menu": "2377"
+            },
             "urlTemplate": "https://www.jbnu.ac.kr/web/Board/{arg0}/detailView.do?pageIndex=1&menu={menu}",
             "verification": {
               "method": "manual-curl-get-equivalence",
@@ -733,7 +740,9 @@
             "pattern": "functionCall",
             "functionName": "pf_DetailMove",
             "argCount": 1,
-            "fixedParams": { "menu": "2382" },
+            "fixedParams": {
+              "menu": "2382"
+            },
             "urlTemplate": "https://www.jbnu.ac.kr/web/Board/{arg0}/detailView.do?pageIndex=1&menu={menu}",
             "verification": {
               "method": "manual-curl-get-equivalence",
@@ -1966,8 +1975,13 @@
             "title": "h2.view-title",
             "date": "dl.modify dd"
           },
-          "titleCleanupTokens": ["[공통]"],
-          "officialNames": ["가천대학교", "가천대"],
+          "titleCleanupTokens": [
+            "[공통]"
+          ],
+          "officialNames": [
+            "가천대학교",
+            "가천대"
+          ],
           "verified": true,
           "enabled": true,
           "status": "selector_required",
@@ -2020,7 +2034,9 @@
             "title": "table.dku-bbs-view_message-inner th",
             "date": "table.dku-bbs-view_message-inner td"
           },
-          "officialNames": ["단국대학교"],
+          "officialNames": [
+            "단국대학교"
+          ],
           "jsDetailLinkRule": {
             "enabled": true,
             "pattern": "functionCall",
@@ -2063,12 +2079,18 @@
             "date": "p.text-center",
             "dateIndex": 1
           },
-          "titleCleanupTokens": ["일반 ", "행사 ", "특강 "],
+          "titleCleanupTokens": [
+            "일반 ",
+            "행사 ",
+            "특강 "
+          ],
           "detailSelectors": {
             "title": "table.dku-bbs-view_message-inner th",
             "date": "table.dku-bbs-view_message-inner td"
           },
-          "officialNames": ["단국대학교"],
+          "officialNames": [
+            "단국대학교"
+          ],
           "jsDetailLinkRule": {
             "enabled": true,
             "pattern": "functionCall",
@@ -2211,7 +2233,9 @@
             "title": "div.head h4",
             "date": "div.board_status span.date"
           },
-          "officialNames": ["POSTECH"],
+          "officialNames": [
+            "POSTECH"
+          ],
           "verified": true,
           "enabled": true,
           "status": "verified",
@@ -2262,7 +2286,9 @@
             "title": "p.b-title",
             "date": "li.b-date-box span"
           },
-          "officialNames": ["UNIST"],
+          "officialNames": [
+            "UNIST"
+          ],
           "verified": true,
           "enabled": true,
           "status": "selector_required",
@@ -2335,7 +2361,10 @@
             "title": "td.title_b",
             "date": "td.text_l"
           },
-          "officialNames": ["국립부경대학교", "부경대학교"],
+          "officialNames": [
+            "국립부경대학교",
+            "부경대학교"
+          ],
           "verified": true,
           "enabled": true,
           "status": "selector_required",
