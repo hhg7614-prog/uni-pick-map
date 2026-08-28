@@ -1,144 +1,111 @@
 # 검토 요약
 
-"학교별 업데이트 내역" 기능(스케줄러 뉴스 업데이트 결과에 학교별 3분류 반영)의
-계획·구현·테스트를 종합 검토했다. Reviewer 1차 검토 후 나온 후속 권고 #2(catch 분기 payload
-수치 디커플링)를 Coder 가 반영했고, 2차 검토에서 해당 수정을 재검증했다.
+카탈로그 포맷 정규화(Option A) 작업. `feat/onboarding-gate-bridges` 위에 3커밋:
 
-- 최초 요구사항(순수 함수 / payload 새 필드 / messageKo 요약 줄 / HTML 표 / PS1 자동 반영)
-  5개 항목 모두 구현됨.
-- spec 완료 기준 1~9 전부 충족, Tester 결과와 교차 확인 일치.
-- spec 제약(수집 로직 불변, 기존 payload 필드·타입·status 분기 유지, 새 필드만 추가,
-  신규 의존성 0, git/배포 미실행, 수정 금지 파일 불변) 전부 준수.
-- `git diff` 로 실제 변경 범위 확인: 제품 코드 수정은 `report-html.js`,
-  `run-scheduled-news-update.js` 두 파일 최소 diff. 신규 3파일은 순수 모듈 + 테스트 2종.
-- 후속 권고 #2 반영 후: `node --check` OK, 신규 테스트 21/21, 전체 `npm test` 295/295/0 유지.
-- 요청하지 않은 제품 코드 변경 없음. (`.pipeline/*.md` 변경은 파이프라인 산출물로 정상.
-  `.pipeline/merge-analysis.md` 는 이번 작업 이전부터 존재하던 untracked 파일.)
+- `b20d55e` chore(catalog): 정규화 (카탈로그 1파일, 41 insert / 12 delete, 순수 reflow)
+- `fe69441` test(catalog): `.gitattributes` 신규 + `.gitignore` 2줄 + 회귀 테스트 2종 (4파일, 156 insert)
+- `5ed7eaf` feat(catalog): `knsu-press-release` 비활성 삽입 (카탈로그 1파일, 28 insert / 1 delete)
 
-최종 판정: **승인**.
+Reviewer 가 직접 재현·교차 확인한 항목:
+
+- 정규화 무손실: `JSON.stringify(JSON.parse(before)) === JSON.stringify(JSON.parse(after))` → true, 대학 247=247, 소스 91=91, **부모 커밋을 동일 정규화기에 통과시킨 결과가 커밋 A 와 바이트 단위 완전 일치** → true.
+- 커밋 A diff 12개 하이라이트 전부 `officialNames` / `fixedParams` / `titleCleanupTokens` 인라인 압축 구조의 다중 라인 reflow. 값·키·배열순서 토큰 변경 0.
+- 제품 writer 코드 4파일(`prepare-catalog-source-block.js`, `apply-source-activation.js`, `store.js`, `targets.js`) `git diff 3e602ed..HEAD` → 출력 없음(diff 0).
+- 커밋 C diff: `"sources": [],` → `"sources": [` 컨테이너 라인 1줄 + knsu 블록 27줄 연속 삽입. 타 대학·소스 라인 변경 0. `정규화본 + knsu === HEAD` 의미 동일.
+- `knsu-press-release` 최종 상태: `verified:false / enabled:false / status:"selector_required" / healthStatus:"unknown"`. `getTargetUniversities().length` = 43 (정규화 전후 동일).
+- `npm test` → tests 300 / pass 300 / fail 0. 대상 2파일 `node --test` → 34/34 pass (신규 케이스 2개 pass 확인).
+- `.gitattributes`: 카탈로그 + `server/agent/gate/data/**` → `text: set / eol: lf` (`git check-attr` 확인). 전역 `*.json` 규칙 없음.
+- `.gitignore`: `*.prepare-backup.*` + `catalog-prepare-log.json` 2줄 추가, `git check-ignore` 로 두 산출물 매칭 확인.
+- 브랜치 `feat/onboarding-gate-bridges`. `git branch -r --contains b20d55e` → 없음(push 흔적 없음). `main` 커밋 없음. `stash@{0}` 미접촉.
+- 커밋 메시지에 `Co-Authored-By: Claude Sonnet 5` + `Claude-Session` 트레일러 포함(저장소 관례 부합).
 
 # 요구사항 확인
 
-## 최초 요구사항 매핑
-
-| 요구 | 구현 | 확인 |
+| spec 완료 기준 | 상태 | 근거 |
 |---|---|---|
-| (1) 재사용 가능한 순수 함수 | `server/agent/university-update-summary.js` 의 `classifyUniversityResults`, `buildUniversitySummaryLines`. I/O·시간·난수·부수효과 없음 | 충족 |
-| (2) payload 새 필드 | `payload.universityBreakdown{updated,noNewItems,failed}` + `updatedCount / noNewItemsCount / failedCount / totalTargets` | 충족 |
-| (3) payload.messageKo 요약 줄 | 성공 분기에서 base 문구와 이미지 통계 줄 사이에 요약 4줄 삽입, 기존 문구·순서 유지 | 충족 |
-| (4) HTML 리포트 표 | `renderBreakdownCell` 로 3개 소표 렌더, 그 외 키는 기존 `<pre>` 유지 | 충족 |
-| (5) PS1 팝업 자동 반영 | `show-uni-pick-agent-result.ps1` 미변경, `messageKo` 를 그대로 출력하므로 자동 반영 | 충족 |
+| 1. 정규화 커밋 A (카탈로그 1파일, 값 무변경, JSON OK, 무손실/카운트 로그) | 충족 (문구 1건 예외) | 카탈로그 단독 커밋. deep re-serialize 동일 + 카운트 동일 + 바이트 재현 일치. `git diff -w` "비어 있음"은 물리적으로 불가능(아래 문제점 1). |
+| 2. B1 회귀 테스트 (삭제 0줄 / 타 대학·소스 라인 변경 0 / 삽입 블록 필드 단언) | 충족 (문구 1건 예외) | 테스트 존재·pass. `assertSingleContiguousInsertion` 이 `"sources": []` 컨테이너 라인 1줄만 예외 허용, 그 외 삭제/치환 전부 실패 처리. "삭제 0줄"은 empty→nonempty 배열에서 불가능(아래 문제점 2). |
+| 3. 게이트 회귀 테스트 (`enabled`/`status` 2줄만 변경, 라인 수 불변, 무관 소스 불변) | 충족 | 테스트 존재·pass. `assertOnlyLinesChanged` 자동 단언. |
+| 4. 한국체육대 `knsu-press-release` 삽입 + 커밋 + 타깃 수 불변 | 충족 | `korea-national-sport-university-본교` 블록에 지정 4필드로 존재, 커밋 `5ed7eaf`. `getTargetUniversities().length` 43 불변. |
+| 5. `.gitattributes` + `.gitignore` | 충족 | 스코프 규칙 2줄. `.gitignore` 2줄. `git status` 에 백업/로그 미노출. |
+| 6. `npm test` 전/후 통과 + 커밋 3개 순서 + main/push/배포 없음 | 충족 | 298 → 300. 커밋 순서·브랜치·push 정책 준수. |
+| 7. `node --check` 2파일 통과 + 제품 코드 diff 0 | 충족 | 제품 4파일 diff 0 재확인. |
+| 8. `.pipeline/changes.md` 기록 | 충족 | 사전 측정·커밋 해시·검증 로그·`git diff -w` 편차까지 기록. |
 
-## spec 완료 기준 1~9
-
-| 완료 기준 | 판정 | 근거 |
-|---|---|---|
-| 1 순수 분류 함수 단위 테스트 | 충족 | `university-update-summary.test.js` 혼합 분류 / updated 형태 / noNewItems reason(N=duplicateCount, 누락 시 0) / 빈·undefined → 0 / 불변식 `updatedCount+noNewItemsCount+failedCount===totalTargets` |
-| 2 실패 사유 원본 전달 | 충족 | `{error}` → `String(error)`, `errors[]` → `"; "` 결합·순서 보존, falsy 제거, `newCount>0 + errors` → failed |
-| 3 messageKo / 요약 줄 시연 | 충족 | 3줄 고정 형식 + 실패 상세 + `(신규 K건)` = newCount 합. 통합 시연이 성공 분기 조립식을 그대로 재현해 최종 블록 문자열 정확 일치 검증 (spec 3번이 허용한 간접 검증 방식) |
-| 4 HTML 리포트 표 렌더 | 충족 | `report-html.test.js` 헤더/학교명/신규수/사유 포함, `< & ` → `&lt; &amp;` 이스케이프, 빈 목록 `없음` 3회, `universityBreakdown` 없는 payload 회귀, 신규 카운트 키는 여전히 `<pre>` |
-| 5 하위 호환 | 충족 (후속 권고 #2 반영으로 catch 경로 포함 해소) | 성공·NO_CHANGES payload 에서 `failedCount===failed`, `totalTargets===processed`, `updatedCount+noNewItemsCount===success` 성립. catch(WARNING/FAILED) 분기는 스칼라 카운트 4종을 세팅하지 않게 수정되어 `payload.failed(스칼라)` 와 모순되는 키가 생기지 않음. `universityBreakdown.failed` 는 배열이므로 스칼라 `payload.failed` 와 이름·타입이 구분됨 |
-| 6 전체 npm test 통과 / 회귀 0 / 결정적 | 충족 | 1차 3회 295/295/0, 후속 수정 후 재확인 295/295/0. 신규 테스트는 순수 함수 + `os.tmpdir()` 임시 디렉터리만 사용 |
-| 7 node --check 3개 .js 통과 | 충족 | 수정/신규 5개 파일 전부 OK (후속 수정 후 재확인) |
-| 8 scripts/*.ps1 미변경, git add/commit/push/배포 미실행 | 충족 | `git status` 로 확인. ps1 3종 불변 |
-| 9 changes.md 기록 | 충족 | 변경 파일 절대경로·이유·`node --check`·`npm test` 결과·시연 출력 + 후속 보완 절 포함 |
-
-## 제약 준수 체크
-
-| 제약 | 판정 | 근거 |
-|---|---|---|
-| runner.js / collector.js 수집·중복 로직 불변 | 준수 | `git status` 에 미포함. diff 없음 |
-| 기존 payload 필드/타입/status 분기(SUCCESS/NO_CHANGES/WARNING/FAILED) 유지 | 준수 | payload 리터럴 diff 없음, 새 키만 추가. status 분기 로직 미변경 |
-| 새 필드만 추가 | 준수 | `universityBreakdown` 및 카운트 4종 전부 신규 키. catch 분기는 배열 + messageKo 요약만 추가 |
-| 신규 npm 의존성 0 | 준수 | `require` 추가는 로컬 모듈 1줄뿐. package.json 불변 |
-| git / 배포 미실행, 프로덕션 store/preview/카탈로그 미변경 | 준수 | `git status` 로 확인 |
-| 수정 금지 파일 불변 | 준수 | runner.js / collector.js / dedup.js / store.js / report.js / *.ps1 / package.json / collection-report.js 전부 diff 없음 |
-| 시간/난수 테스트 고정 주입 | 준수 | 순수 함수 자체가 시간/난수 미사용 |
+최초 요구사항(카탈로그를 writer 직렬화 형식으로 1회 정규화 + 최소 diff 회귀 테스트 고정 + Option A writer 미수정 + knsu 1건 비활성 삽입)은 모두 달성.
 
 # 테스트 결과
 
-- `node --check` 5개 파일 전부 OK (후속 수정 후 재확인).
-- 신규 테스트 개별: `university-update-summary.test.js` 16, `report-html.test.js` 5 = 21 pass / 0 fail.
-- 전체 `npm test`: 1차 3회 연속 295/295/0, 후속 수정 후 재확인 295/295/0. baseline 274 대비 +21,
-  회귀 0.
-- 신규 테스트 격리 확인: 순수 함수 + `fs.mkdtempSync(os.tmpdir())` + `fs.rmSync` 정리.
-- Tester 종합 판정: 통과. Reviewer 재확인 결과 동일.
+- `npm test`: tests 300 / pass 300 / fail 0 (Reviewer 재실행으로 확인). baseline 298 → +2 신규.
+- 대상 2파일 `node --test`: 34 / 34 pass. 신규 케이스 2개 모두 pass.
+- Tester 종합 판정 "합격(조건부), 차단 요소 없음" — Reviewer 교차 확인 결과 타당.
+- 조건부 사유 2건은 구현 결함이 아니라 spec 완료 기준 문구의 실현 불가능성에서 기인.
 
 # 문제점
 
-## 후속 권고 #2 — catch 분기 payload 수치 디커플링 — 해소됨
+## 문제점 1 — spec 완료 기준 1.2 "`git diff -w` 결과가 비어 있음" 은 실현 불가능 (심각도: 낮음, spec 결함)
 
-1차 검토에서 지적한 catch(WARNING/FAILED) 분기의 스칼라 카운트 4종(`updatedCount /
-noNewItemsCount / failedCount / totalTargets`)이 하드코딩 `processed:0 / success:0 / failed:1`
-과 모순될 수 있던 문제를 Coder 가 반영했다.
+`git diff -w`(`--ignore-all-space`)는 라인 내부 공백만 무시하고 인라인 배열/객체를
+여러 줄로 펼칠 때 추가되는 개행은 변경으로 남긴다. spec 의 "조사로 확인된 현재 상태"
+표 자체가 "-12줄 / +40~55줄 reflow" 를 예측하므로, 같은 spec 안에서 1.2 와 내부 모순이다.
+어떤 JSON pretty-print 정규화로도 문자 그대로 만족 불가.
 
-`git diff` 로 확인한 수정 범위:
-- `run-scheduled-news-update.js` **성공 분기**: 1차 검토 시점과 바이트 단위로 동일 (변경 없음).
-  breakdown 배열 3종 + 스칼라 카운트 4종 + messageKo 요약 4줄을 그대로 세팅.
-- `run-scheduled-news-update.js` **catch 분기**: `payload.universityBreakdown`(배열 3종) +
-  messageKo 요약 줄만 유지, 스칼라 카운트 4종 세팅 라인 **제거**. 의도 설명 주석 4줄 추가
-  (그 분기의 processed/success/failed 는 하드코딩값이라 카운트를 함께 두면 모순).
-- `university-update-summary.js`: 함수 로직 **변경 없음**. 파일 상단에 소비처 계약 주석
-  (성공 = 배열 + 카운트 + 요약 / catch = 배열 + 요약) 6줄 추가.
+- 판정: **(b) 승인 + spec 개정 권고**. Coder 가 중단하지 않고 진행한 판단은 타당하다.
+  값 무변경 증거는 (a) deep re-serialize 동일 (b) 대학/소스 수 동일
+  (c) **커밋 A 부모를 동일 정규화기에 통과 → 커밋 A 와 바이트 단위 완전 일치**
+  3중으로 대체되었고, (c)는 `git diff -w` 보다 강한 증거다. Reviewer 가 직접 재현해 확인했다.
+- 향후 조치: spec 완료 기준을 "`git diff -w` 비어 있음" 대신
+  "`JSON.stringify(JSON.parse(before)) === JSON.stringify(JSON.parse(after))` + 대학/소스 수 동일
+  + 부모 재직렬화 바이트 일치" 로 개정 권고.
 
-회귀 여부: 성공 분기 diff 무변화, 순수 함수 로직 무변화, `node --check` OK, 신규 테스트 21/21,
-전체 `npm test` 295/295/0 유지. 수정이 권고 #2 범위에 국한되고 다른 로직에 영향 없음을 확인.
+## 문제점 2 — B1 회귀 테스트가 "삭제 0줄" 을 컨테이너 라인 1줄 예외로 우회 (심각도: 낮음, 타당)
 
-결과: 완료 기준 5 불변식(`payload.failedCount === payload.failed` 등)이 이제 무조건 성립한다.
-카운트 4종은 성공 분기에서만 존재하며, catch 분기의 `universityBreakdown.failed` 는 배열이라
-스칼라 `payload.failed` 와 키 의미가 명확히 구분된다. WARNING/FAILED 리포트는 배열 breakdown +
-messageKo 요약으로 부분 수집 정보를 여전히 제공한다.
+병합 스텁이 남긴 빈 `"sources": []` 에 원소를 append 하면 `JSON.stringify` 규칙상
+`"sources": [` 로 그 여는 라인이 반드시 재작성된다. 헬퍼는 `/^\s*"sources": \[\],?$/`
+정규식으로 이 1줄만 허용하고 그 외 삭제/치환은 전부 실패로 처리한다.
 
-## 나머지 위험 요소 심각도 판정 (전부 비차단)
+- 판정: **타당(승인)**. "삭제 0줄" 은 empty→nonempty 배열에서 물리적으로 불가능하며,
+  대안은 (제품 코드 수정 = Option A 위반) 또는 (B1 미사용 = 요구사항 위반)뿐이다.
+  완료 기준의 실제 의도("타 대학·소스 라인 변경 0")는 그대로 강제된다.
+  Reviewer 가 커밋 C 실제 diff 로 확인: 컨테이너 라인 1줄 외 삭제/치환 0.
+- 향후 조치: spec 완료 기준 2를 "삭제 0줄" 대신 "타 대학·소스 라인 변경 0줄" 로 개정 권고.
 
-- **위험 #1 (hasError 술어 `filter(Boolean)` 미세 불일치)** — 무시 가능. 순수 함수는
-  `errors.filter(Boolean).length > 0`, 기존 payload 술어는 `(x.errors||[]).length`. `errors` 가
-  전부 falsy 인 경우에만 갈리는데 `runner.js` 는 `errors` 항목을 항상 `` `${sourceName}: ${error}` ``
-  (truthy)로 생성하므로 프로덕션 미발생. spec 요구사항 2 + 구현 계획 pseudo-code 가 `filter(Boolean)`
-  를 강제(spec 내부 모순)하며 Coder 는 계획을 정확히 따랐다.
-- **위험 #3 (`universityBreakdown` 값이 null/배열일 때 폴백 전용 테스트 부재)** — 무시 가능.
-  `value && typeof value === "object" && !Array.isArray(value)` 가드로 기존 `<pre>` 경로 폴백,
-  `JSON.stringify(null)` → `"null"` 로 크래시 없음. 코드 인스펙션 확인. 실사용상 payload 는 항상
-  객체이거나 키 자체가 없음.
-- **위험 #4 (catch 분기 `run` undefined 가드 전용 테스트 부재)** — 무시 가능. `let status,run`
-  초기 undefined → `run && Array.isArray(...)` false → 새 필드 미세팅 → 기존 동작 유지. 코드
-  인스펙션 확인. 이 경로는 `asyncMain()` 즉시 실행 구조 + Q4 기본값(require.main 가드 미추가)으로
-  자동 테스트 불가.
-- **위험 #5 (HTML 중첩 표 육안 확인 미수행)** — 후속 권고(우선순위 하, 비차단). `.ubk th{width:auto}`
-  가 전역 `th{width:260px}` 를 오버라이드하는지 브라우저 확인은 환경상 불가. 렌더 구조는
-  테스트로 고정되어 데이터 정확성에는 영향 없음. 배포 전
-  `server/agent/news/reports/ui/latest-news-update-report.html` 1회 육안 확인 권장.
-- **위험 #6 (`run-scheduled-news-update.js` 실환경 실행 미검증)** — 무시 가능. 네트워크/git push/
-  배포를 수행하므로 범위 밖이자 금지 규칙. 이번 변경은 payload 표현 계층에 국한되어 스케줄러
-  핵심 흐름(수집/커밋/푸시)에 손대지 않았다. 순수 함수 + HTML 렌더 + `node --check` + 전체
-  `npm test` 로 대체 검증.
+## 문제점 3 — 요청하지 않은 변경 없음 (확인 완료)
 
-## 그 외
+3커밋이 건드린 파일은 카탈로그(A/C), `.gitattributes`·`.gitignore`·테스트 2파일(B)뿐.
+제품 코드·무관 파일 혼입 0. `stash@{0}`(CAU rss) 미접촉. 전역 `*.json` 규칙 미적용,
+`apply-batch-reports/` 미추가 — 모두 spec 의 미회신 기본값대로.
 
-- 명백한 오류·안전 문제 없음. `esc()` 로 실패 사유 특수문자 이스케이프 처리됨.
-- `.pipeline/spec.md` 가 diff 상 대폭 축소되었으나 파이프라인 산출물이며 제품 코드가 아니다.
-  현재 spec 내용 기준으로 완료 기준 충족을 확인했다.
+# 잔여 위험 (이번 라운드 범위 밖, 후속 필요)
+
+1. **`origin/main` 카탈로그 분기 (`.pipeline/merge-analysis.md`)** — 로컬이 33개 소스에서
+   앞서고 원격이 1개(`knue-general-notice`)에서 앞섬. 이 feat 브랜치가 나중에
+   `main`/`origin/main` 과 병합될 때 정규화 reflow + `korea-national-sport-university-본교`
+   블록이 대규모 텍스트 충돌을 낼 수 있다. 병합 담당자는 필드 단위 수동 병합 +
+   병합 후 정규화 직렬화 1회 재적용 필요. Brain/사용자 승인 후 별도 라운드에서 처리.
+2. **`core.autocrlf=true` + 신규 `.gitattributes`** — 다른 워킹트리에서 `.gitattributes`
+   반영 전 카탈로그를 수정하면 CRLF 로 저장돼 전체 파일 diff 가 재발할 수 있다.
+   `.gitattributes` 병합 시 `git add --renormalize` 동반 권장.
+3. **`.pipeline/spec.md` / `changes.md` / `test-results.md` 워킹트리 미커밋, `merge-analysis.md` untracked**
+   — 파이프라인 산출물이며 이 작업 커밋이 만든 것이 아니다. 커밋 대상 아님(정상).
+   프로젝트 관례에 따라 별도 처리.
+4. **B1 회귀 테스트가 실제 카탈로그·후보 파일에 의존** — `korea-national-sport-university-본교`
+   블록 또는 knsu 후보의 `finalDecision` 이 바뀌면 테스트가 깨진다(설계된 동작이나 리팩터 시 취약).
 
 # 최종 판정
 승인
 
 # 판정 이유
 
-1. **최초 요구사항 5개 항목과 spec 완료 기준 1~9 를 모두 충족**했고, Tester 결과와 Reviewer
-   2차 재확인이 일치한다. 21개 신규 테스트, 전체 `npm test` 295/295/0 (1차 3회 + 후속 수정 후
-   재확인) 결정적 통과.
-
-2. **spec 제약을 전부 준수**한다: 수집·중복 로직(runner.js/collector.js) 불변, 기존 payload
-   필드·타입·status 4분기 유지(하위 호환), 새 필드만 추가, 신규 npm 의존성 0, git add/commit/
-   push/배포 미실행, 수정 금지 파일 8종 전부 불변. `git diff` 로 제품 코드 변경이 2파일 최소
-   diff 임을 직접 확인했다.
-
-3. **1차 검토의 유일한 실질 쟁점(위험 #2, catch 분기 payload 수치 디커플링)이 해소되었다.**
-   catch 분기에서 스칼라 카운트 4종 세팅을 제거하고 배열 breakdown + messageKo 요약만 남겨,
-   완료 기준 5 불변식이 무조건 성립한다. 성공 분기와 순수 함수 로직에는 회귀가 없음을 diff·
-   테스트로 확인했다. 의도 설명 주석과 소비처 계약 주석도 추가되어 유지보수성이 개선됐다.
-
-4. 나머지 위험 #1·#3·#4·#6 은 프로덕션 미발생이거나 코드 인스펙션으로 확인된 방어 로직이며,
-   #5(HTML 육안 확인)는 데이터 정확성 무관한 레이아웃 항목으로 배포 전 1회 확인만 권고한다.
-
-현재 상태는 배포(병합) 가능하다.
+- spec 완료 기준 1~8 이 모두 충족되었고, Reviewer 가 정규화 무손실성(deep re-serialize
+  동일 + 대학/소스 수 동일 + 부모 재직렬화 바이트 일치)·Option A 준수(제품 4파일 diff 0)·
+  커밋 위생(카탈로그 단독 A 커밋, 3커밋 순서, main 미커밋, push/배포 없음, 트레일러 부합)·
+  knsu 삽입 상태·`npm test` 300/300 을 직접 재현해 확인했다.
+- 문자 그대로 불충족한 완료 기준 문구 2건(1.2 "`git diff -w` 비어 있음", 2 "삭제 0줄")은
+  **spec 자체의 실현 불가능한 조건**이며 구현 결함이 아니다. 두 경우 모두 완료 기준의
+  실제 의도(값 무변경 / 타 대학·소스 라인 변경 0)는 더 강한 증거로 충족되었고,
+  Coder 의 두 확인필요 판단과 Tester 의 수용은 타당하다.
+- 잔여 위험(원격 병합 분기, autocrlf)은 모두 이번 라운드 범위 밖이며 문서화되어 있어
+  배포 게이트가 아니다. 요청하지 않은 변경, 명백한 오류, 안전 문제 없음.
+- 조건: Planner 는 향후 spec 작성 시 완료 기준 1.2 / 2 문구를 위 "향후 조치" 대로 개정하고,
+  병합 담당자는 잔여 위험 1을 인지할 것.

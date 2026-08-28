@@ -1,229 +1,186 @@
 # 변경된 파일
 
-## 신규
-- `D:\hhg(code)\server\agent\university-update-summary.js` (순수 모듈)
-- `D:\hhg(code)\server\agent\university-update-summary.test.js` (단위 테스트)
-- `D:\hhg(code)\server\agent\report-html.test.js` (HTML 리포트 렌더/회귀 테스트)
+- `D:\hhg(code)\development\university-news\data\university-news-sources.final.json` (커밋 A: 정규화 / 커밋 C: knsu 소스 1건 삽입)
+- `D:\hhg(code)\.gitattributes` (신규, 커밋 B)
+- `D:\hhg(code)\.gitignore` (커밋 B, 2줄 추가)
+- `D:\hhg(code)\server\agent\onboarding\tools\prepare-catalog-source-block.test.js` (커밋 B, 헬퍼+테스트 추가)
+- `D:\hhg(code)\server\agent\gate\apply-source-activation.test.js` (커밋 B, 헬퍼+테스트 추가)
 
-## 수정
-- `D:\hhg(code)\server\agent\report-html.js`
-- `D:\hhg(code)\server\agent\tools\run-scheduled-news-update.js`
+제품 writer 코드(`prepare-catalog-source-block.js`, `apply-source-activation.js`, `store.js`, `targets.js`)는 **diff 0** (아래 검증 참조).
 
-그 외 파일(`runner.js` / `collector.js` / `dedup.js` / `store.js` / `report.js` / `*.ps1` /
-`package.json` / `collection-report.js`)은 수정하지 않았습니다.
+---
+
+# AGENTS.md 4절 "여는 명령"
+
+편집 전 각 파일을 여는 명령(PowerShell):
+
+```powershell
+Get-Content -Raw -LiteralPath "D:\hhg(code)\development\university-news\data\university-news-sources.final.json"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\.gitignore"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\onboarding\tools\prepare-catalog-source-block.test.js"
+Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\gate\apply-source-activation.test.js"
+```
+
+편집 후 검증:
+
+```powershell
+node --check "D:\hhg(code)\server\agent\onboarding\tools\prepare-catalog-source-block.test.js"
+node --check "D:\hhg(code)\server\agent\gate\apply-source-activation.test.js"
+node -e "JSON.parse(require('fs').readFileSync('D:\\hhg(code)\\development\\university-news\\data\\university-news-sources.final.json','utf8'));console.log('JSON OK')"
+```
+
+전부 통과 (`checks ok`, `JSON OK`).
 
 ---
 
 # 변경 내용
 
-## `server/agent/university-update-summary.js` (신규)
-spec "# 구현 계획 > 1" 코드 블록을 그대로 구현. 부수효과·I/O·시간·난수 없음.
-- `classifyUniversityResults(universityResults = [])` → `{ updated[], noNewItems[], failed[],
-  updatedCount, noNewItemsCount, failedCount, totalTargets }`.
-  - 우선순위: `failed`(`r.error` truthy 또는 `errors.filter(Boolean).length > 0`) → `updated`
-    (`newCount > 0`) → `noNewItems`.
-  - 실패 사유: `r.error` truthy면 `String(r.error)`, 아니면 `errors.filter(Boolean).join("; ")`.
-  - `noNewItems.reason` = `` `신규 게시물 없음 (중복 ${duplicateCount ?? 0}건)` ``.
-  - 배열이 아닌 입력/`undefined`는 빈 배열로 처리(카운트 전부 0).
-  - 이름 누락 시 `"(이름 없음)"`.
-- `buildUniversitySummaryLines(breakdown)` → `string[]`. 3줄 고정
-  (`업데이트 완료: N개교 (신규 K건)` / `변경 없음: N개교` / `수집 실패: N개교`) +
-  `failed[]` 전부 `- 이름: 사유`. `breakdown` 없으면 빈 분류로 폴백.
+## 사전 측정 (구현 계획 0)
 
-## `server/agent/tools/run-scheduled-news-update.js` (수정, 3곳)
-1. 상단 require 추가:
-   `const { classifyUniversityResults, buildUniversitySummaryLines } = require("../university-update-summary");`
-2. `asyncMain()` 성공 분기 — `payload.cleanupStats` 세팅 직후:
-   - `breakdown` 계산 → `payload.universityBreakdown = { updated, noNewItems, failed }`,
-     `payload.updatedCount / noNewItemsCount / failedCount / totalTargets` 세팅.
-   - 기존 `payload.messageKo = ...\n대표 이미지...\n이미지 보완...` 한 줄을 배열 `.join("\n")`
-     조립으로 교체. 순서: `base` → 요약 4번 줄 → `대표 이미지` 줄 → `이미지 보완` 줄.
-     (base 문구/이미지 통계 문구·순서는 불변, 요약 줄만 사이에 삽입.)
-3. `catch` 분기 — `writeResult(payload)` 직전:
-   - `run && Array.isArray(run.universityResults)` 이면 `payload.universityBreakdown`(배열 3종)
-     세팅 + `payload.messageKo = [payload.messageKo, ...요약줄].join("\n")`
-     (이미지 통계 줄은 catch payload에 없으므로 미포함).
-   - **스칼라 카운트 4종은 catch 분기에서 세팅하지 않음** (후속 보완 #2 참조).
-   - `run` 이 undefined(runOnce 이전 throw)면 아무것도 안 함 → 기존 동작 유지.
+| 항목 | 결과 |
+|---|---|
+| 1. `git rev-parse --abbrev-ref HEAD` | `feat/onboarding-gate-bridges` (일치, 진행) |
+| 2. `git status --porcelain` (카탈로그) | 클린 (`.pipeline/spec.md` M, `.pipeline/merge-analysis.md` ?? 만 존재 — 이 작업과 무관, 미접촉) |
+| 3. `git stash list` | `stash@{0}: On main: pre-existing uncommitted CAU rss source edit` — **미접촉 (pop 안 함)** |
+| 3. `git stash show -p stash@{0} --stat` | `university-news-sources.final.json | 14 ++++++++++----` (10 insertions / 4 deletions). CAU(중앙대) `cau-official-news` 소스 블록 1건을 html→rss 로 바꾸고 `rssUrl`/`baseUrl`/`officialNames`/`detailSelectors` 추가, `verified` false→true. 카탈로그 줄 ~355 부근 (정규화가 건드린 첫 인라인 구조 줄 404보다 앞). |
+| 4. 카탈로그 측정 (정규화 전, 워킹트리) | `bytes 262948`, `crlf 7690`, `lines 7691`, `endsNL true`, `alreadyNormalized false`, `semanticEqual true`, `universities 247`, `sources 91` |
+| 4. `alreadyNormalized` | **false** → 커밋 A 필요 (12곳 인라인 구조 reflow) |
+| 5. `git ls-files --eol "*.json"` CRLF tracked | 카탈로그 포함 모든 tracked JSON 이 `i/lf` (인덱스=LF). 워킹트리만 `w/crlf` (core.autocrlf=true 체크아웃). **CRLF 로 커밋된 JSON 은 0건.** → 기본값대로 스코프 규칙만 적용 (전역 `*.json` 규칙 미적용). |
+| 6. `npm test` 정규화 전 기준선 | `tests 298, pass 298, fail 0` |
+| `getTargetUniversities().length` 정규화 전 | **43** |
 
-기존 `payload` 필드/타입/`status` 분기(SUCCESS/NO_CHANGES/WARNING/FAILED)는 전부 유지, 새 키만 추가.
+`core.autocrlf=true`. 카탈로그의 커밋본(인덱스)은 이미 LF 였고, 워킹트리 파일만 체크아웃 시 CRLF 로 변환된 상태였음.
 
-## `server/agent/report-html.js` (수정)
-- `renderBreakdownCell(v)` 함수 추가: `updated / noNewItems / failed` 3개 소표(`<table class="ubk">`)
-  + 요약 `<p><strong>...</strong></p>`. 빈 목록은 `<p class="ubk-empty">없음</p>`.
-  값은 전부 기존 `esc()` 로 이스케이프.
-- `writeHtmlReport` 의 rows 생성부: `key === "universityBreakdown"` 이고 값이 (배열 아닌) 객체이면
-  `<pre>` 대신 `renderBreakdownCell` 결과를 `<td>` 에 렌더, `<th>` 는 `학교별 업데이트 내역`.
-  그 외 모든 키는 기존 `<pre>` 방식 그대로.
-- `<style>` 에 `.ubk{width:auto;margin:4px 0 12px}.ubk th{width:auto;background:#fff}h4{margin:12px 0 4px}`
-  추가(전역 `th{width:260px}` 가 중첩 표에 먹지 않도록). 기존 CSS 규칙은 불변.
+## 커밋 A — 카탈로그 정규화 (`b20d55e`)
 
-## 테스트 파일 2종 (신규)
-- `university-update-summary.test.js` (16 테스트): 혼합 분류, updated 형태, noNewItems reason,
-  빈/undefined 입력, 불변식 `updatedCount+noNewItemsCount+failedCount===totalTargets`,
-  실패 사유 원본 전달 4종(`SCHEDULER_WAF_BLOCK` / `"main-notice: 403; press: timeout"` /
-  `"a; b"` / `newCount:5+errors` → failed), 기존 payload 술어 불변식(`failedCount===payload.failed`
-  등), `buildUniversitySummaryLines` 3줄 고정 + 실패 상세, messageKo 최종 블록 정확 일치 시연.
-- `report-html.test.js` (5 테스트): `universityBreakdown` 3소표 렌더/헤더/학교명/신규수/사유,
-  `<`·`&` 이스케이프, 빈 목록 `없음` 3회, `universityBreakdown` 없는 payload 회귀(`<pre>` 유지),
-  신규 카운트 키는 여전히 `<pre>`. 임시 디렉터리(`fs.mkdtempSync`)만 사용, 프로덕션 경로 미접근.
+- `const out = JSON.stringify(JSON.parse(raw), null, 2) + "\n";` 로 카탈로그 1파일 전체 1회 덮어쓰기 (LF).
+- 손으로 압축한 인라인 구조 12곳이 여러 줄로 reflow: `khu officialNames`, `khu fixedParams`, `jbnu fixedParams(menu 2377)`, `jbnu fixedParams(menu 2382)`, `gachon titleCleanupTokens`, `gachon officialNames`, `dankook officialNames`, `dankook titleCleanupTokens`, `dankook officialNames(2번째 블록)`, `postech officialNames`, `unist officialNames`, `pukyong officialNames`.
+- 커밋 stat: `1 file changed, 41 insertions(+), 12 deletions(-)` (순수 reflow, 12줄 → 41줄).
 
----
+### 정규화 무손실 단언 (전부 통과)
 
-# 변경 이유
+- 의미 무손실: `JSON.stringify(JSON.parse(before)) === JSON.stringify(JSON.parse(after))` → **true**
+- 대학 수: `247 === 247` → **true**
+- 소스 수: `sum(u.sources.length)` `91 === 91` → **true**
+- **추가(가장 강한) 증거**: 커밋 A 직전 HEAD(`b20d55e~1`) 의 카탈로그를 동일 정규화기(`JSON.stringify(JSON.parse(x),null,2)+"\n"`)에 통과시킨 결과가 워킹트리 파일과 **바이트 단위 완전 일치** (`HEAD normalized === working tree : true`). 즉 값·키 순서·배열 순서 변경 0을 독립 재현으로 증명.
+- 커밋 후 `node -e "JSON.parse(...)"` → **JSON OK**
+- `git diff --stat` → 카탈로그 1파일만.
 
-`runOnce()` 가 이미 반환하는 학교별 세부(`run.universityResults[]`)를
-`run-scheduled-news-update.js` 가 집계 수치만 남기고 버리고 있었음. spec 요구대로
-학교별 결과를 3분류(업데이트 완료 / 변경 없음 / 수집 실패)로 정리해
-(1) 재사용 순수 함수, (2) `payload` 새 필드, (3) `payload.messageKo` 요약 줄,
-(4) HTML 리포트 표에 반영. PS1 팝업은 `messageKo` 를 그대로 출력하므로 자동 반영(미변경).
-수집/중복 로직(`runner.js`/`collector.js`)은 건드리지 않고 집계·표현 계층만 수정.
+### `git diff -w` 관련 — spec 단언과의 편차 (Reviewer 확인 필요, 아래 "참고사항" 상세)
 
-순수 함수를 별도 모듈로 분리한 이유: `run-scheduled-news-update.js` 는 파일 끝에서
-`asyncMain()` 을 무조건 실행(`require.main` 가드 없음)하므로 `require` 로 테스트 불가.
-spec 질문사항 4건은 전부 기본값(계획대로)으로 확정: (1) 에러 보유 시 무조건 failed,
-(2) 배열 3종은 `payload.universityBreakdown` 중첩, (3) catch 분기에도 `run` 있으면 요약 추가,
-(4) `require.main` 가드 미추가.
+`git diff -w`(= `--ignore-all-space`)는 **라인 내부 공백만** 무시하고, 인라인 구조를 여러 줄로 펼칠 때 **추가되는 개행은 무시하지 않는다**. 따라서 `["경희대학교"]` → 3줄 reflow 는 `git diff -w` 에서도 변경으로 표시되어, spec 1.2 의 "`git diff -w` 결과가 비어 있음" 단언은 **어떤 JSON pretty-print 정규화로도 문자 그대로 만족 불가능**하다. (spec 파일 표 자체가 "-12줄/+40~55줄 reflow" 를 예상하고 있어 내부 모순.) 값 무변경은 위의 4개 단언 + 바이트 단위 재현으로 확정했고, 실제 `git diff` 육안 확인 결과 12곳 reflow 외 토큰 변경 0. 이 편차를 이유로 중단하지 않고 진행함.
 
----
+## 커밋 B — .gitattributes + .gitignore + 회귀 테스트 2종 (`fe69441`)
 
-# AGENTS.md 4절 — 각 파일 "여는 명령"
+- `.gitattributes` (신규):
+  ```
+  development/university-news/data/university-news-sources.final.json text eol=lf
+  server/agent/gate/data/** text eol=lf
+  ```
+  전역 `*.json` 규칙은 기본값대로 **미적용** (사전 측정 5: CRLF tracked JSON 0건이라 기술적으로는 안전하나, 요청 기본값이 "스코프 규칙만").
+- `.gitignore` 파일 끝에 2줄 추가:
+  ```
+  development/university-news/data/*.prepare-backup.*
+  server/agent/onboarding/data/catalog-prepare-log.json
+  ```
+- `prepare-catalog-source-block.test.js`: `assertSingleContiguousInsertion` 헬퍼 + 테스트 1개 추가.
+  정규화된 실제 카탈로그 사본 + 실제 후보 파일(`collector-config-candidates.json`)에서 `knsu-press-release` 후보의 `universityId` 를 **exact string 으로 읽어**(하드코딩 아님) `prepareCatalogSourceBlock` 실행 → 삽입 결과가 연속 1블록이고, 삽입 블록에 `"id": "knsu-press-release"` / `"status": "selector_required"` / `"enabled": false` / `"verified": false` 포함, `"universityId"` 미포함(대학 블록 신규 생성 안 함), `enabled/verified/status/healthStatus` 값 단언.
+- `apply-source-activation.test.js`: `assertOnlyLinesChanged` 헬퍼 + 테스트 1개 추가.
+  writer 형식(`+ "\n"`) 카탈로그 fixture 에 `applyMinimalDiff` + `writeJsonAtomic` 적용 → `enabled`/`status` 2줄만 변경(verified 는 from===to 라 불변), 라인 수 불변, 무관한 소스(`unrelated-source`) `enabled:true` 불변 단언. `writeJsonAtomic` 를 require 목록에 추가.
+- 커밋 stat: `4 files changed, 156 insertions(+)`.
 
-```powershell
-Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\university-update-summary.js"
-Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\university-update-summary.test.js"
-Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\report-html.js"
-Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\report-html.test.js"
-Get-Content -Raw -LiteralPath "D:\hhg(code)\server\agent\tools\run-scheduled-news-update.js"
-```
+## 커밋 C — 한국체육대 knsu-press-release 실제 삽입 (`5ed7eaf`)
 
-편집 전 5개 파일 모두 전체 내용을 읽고 최소 diff로 수정함.
+- 스크래치패드 임시 node 러너(커밋 안 함)로 실행. `universityId` 를 `collector-config-candidates.json` 에서 exact string(`"korea-national-sport-university-본교"`, 한글 `본교` 포함)으로 읽어 `prepareCatalogSourceBlock({ universityId, sourceId: "knsu-press-release" })` 호출.
+- 러너 출력: `status: "PREPARED"`, `checksumBefore e9bf65c3...`, `checksumAfter 45bf1aee...`, `sourceBlock` = `{ id: knsu-press-release, ..., verified:false, enabled:false, status:"selector_required", healthStatus:"unknown" }`, `mutation` 전부 false.
+- 삽입 위치: 카탈로그 `korea-national-sport-university-본교` 블록의 `"sources": []` → 소스 1건.
+- 커밋 stat: `1 file changed, 28 insertions(+), 1 deletion(-)`.
+  `-1` 은 `"sources": [],` 컨테이너 라인이 `"sources": [` 로 열리는 변경 (빈 배열 → 원소 1개일 때 `JSON.stringify` 상 불가피). 다른 대학/소스 라인 변경 0.
+- `git status` 에 `*.prepare-backup.*` / `catalog-prepare-log.json` **나타나지 않음** (gitignore 확인: `git check-ignore -v` 로 두 파일 모두 매칭 확인).
+- 임시 러너 삭제 완료.
 
 ---
 
 # 검증 결과
 
-## `node --check` (AGENTS.md 5절)
+| 시점 | `npm test` | `getTargetUniversities().length` |
+|---|---|---|
+| 정규화 전 (기준선) | tests 298 / pass 298 / fail 0 | 43 |
+| 커밋 A 후 | tests 298 / pass 298 / fail 0 | 43 |
+| 커밋 B 후 | tests 300 / pass 300 / fail 0 (신규 테스트 2개 +) | 43 |
+| 커밋 C 후 | tests 300 / pass 300 / fail 0 | 43 |
+
+회귀 0.
+
+- `node --check` — `prepare-catalog-source-block.test.js`, `apply-source-activation.test.js` 둘 다 통과.
+- 제품 writer 코드 4개 파일 `git diff 3e602ed HEAD -- <4파일>` → **출력 없음 (diff 0)**.
+- 커밋 3개가 `feat/onboarding-gate-bridges` 위에 순서대로 존재:
+  - `b20d55e` chore(catalog): normalize university-news-sources.final.json to writer format
+  - `fe69441` test(catalog): lock in minimal-diff of B1 + gate writers on normalized catalog; add scoped .gitattributes
+  - `5ed7eaf` feat(catalog): register knsu-press-release for 한국체육대 as disabled (selector_required)
+- `main` 직접 커밋 없음. `git push` 없음. 배포/스케줄러 실행 없음.
+- `stash@{0}` 미접촉 (여전히 `git stash list` 에 존재).
+
+## 정규화 무손실 재확인 (커밋 A 부모 vs 커밋 A)
 
 ```
-node --check "D:\hhg(code)\server\agent\university-update-summary.js"          → OK
-node --check "D:\hhg(code)\server\agent\report-html.js"                        → OK
-node --check "D:\hhg(code)\server\agent\tools\run-scheduled-news-update.js"    → OK
-node --check "D:\hhg(code)\server\agent\university-update-summary.test.js"     → OK
-node --check "D:\hhg(code)\server\agent\report-html.test.js"                   → OK
-(출력: "ALL CHECKS OK")
+semantic equal: true
+unis 247 247   sources 91 91
 ```
 
-## 신규 테스트 개별 (`node --test`)
+## knsu 삽입 diff (커밋 C)
 
 ```
-node --test server/agent/university-update-summary.test.js   → tests 16, pass 16, fail 0
-node --test server/agent/report-html.test.js                 → tests 5,  pass 5,  fail 0
+@@ -6902,7 +6902,34 @@
+-      "sources": [],
++      "sources": [
++        { "id": "knsu-press-release", ... "verified": false, "enabled": false,
++          "status": "selector_required", "healthStatus": "unknown" }
++      ],
 ```
-
-## 전체 `npm test` 3회 연속
-
-| 회차 | tests | pass | fail |
-|---|---|---|---|
-| baseline (변경 전) | 274 | 274 | 0 |
-| 1 | 295 | 295 | 0 |
-| 2 | 295 | 295 | 0 |
-| 3 | 295 | 295 | 0 |
-
-증가분: +21 (university-update-summary.test.js 16 + report-html.test.js 5). 회귀 0, 결정적 통과.
+삭제 1줄(컨테이너 오픈), 삽입 27줄, 타 대학/소스 라인 변경 0.
 
 ---
 
-# 시연 출력 발췌
+# 미구현 항목 / 보류
 
-## messageKo (성공 분기, fixture: 완료 2 / 변경없음 3 / 실패 1)
-
-```
-뉴스 업데이트와 배포 요청이 완료되었습니다.
-업데이트 완료: 2개교 (신규 7건)
-변경 없음: 3개교
-수집 실패: 1개교
-- 목포대학교: WAF 차단
-대표 이미지: 34건
-이미지 보완: 3건
-```
-
-## HTML 리포트 `universityBreakdown` 셀
-
-```html
-<tr><th>학교별 업데이트 내역</th><td><p><strong>업데이트 완료 2개교 (신규 7건) / 변경 없음 3개교 / 수집 실패 1개교</strong></p><h4>업데이트 완료</h4><table class="ubk"><thead><tr><th>학교</th><th>신규</th></tr></thead><tbody><tr><td>가대</td><td>3</td></tr><tr><td>나대</td><td>4</td></tr></tbody></table><h4>변경 없음</h4><table class="ubk"><thead><tr><th>학교</th><th>사유</th></tr></thead><tbody><tr><td>다대</td><td>신규 게시물 없음 (중복 2건)</td></tr><tr><td>라대</td><td>신규 게시물 없음 (중복 0건)</td></tr><tr><td>마대</td><td>신규 게시물 없음 (중복 0건)</td></tr></tbody></table><h4>수집 실패</h4><table class="ubk"><thead><tr><th>학교</th><th>사유</th></tr></thead><tbody><tr><td>목포대학교</td><td>WAF 차단</td></tr></tbody></table></td></tr>
-```
-
-특수문자 이스케이프 확인: `reason: "타임아웃 & <error>"` → `타임아웃 &amp; &lt;error&gt;` 로 렌더됨.
+- 없음. 요청한 커밋 A/B/C 전부 완료.
+- 전역 `.gitattributes *.json text eol=lf` 규칙: 기본값대로 미적용 (사전 측정 5 에서 CRLF tracked JSON 0건이라 안전하긴 하나 요청 기본값이 스코프 한정).
+- `apply-batch-reports/` gitignore: 요청 기본값대로 미추가.
+- `stash@{0}` (CAU rss 편집): 요청 기본값대로 미접촉.
 
 ---
 
-# 불변식 (테스트로 고정)
+# 참고사항 (Tester가 알아야 할 내용)
 
-- `payload.failedCount === payload.failed` (동일 술어 `x.error || (x.errors||[]).length` 재사용)
-- `payload.totalTargets === payload.processed` (`(run.universityResults||[]).length`)
-- `payload.updatedCount + payload.noNewItemsCount === payload.success`
-- `updatedCount + noNewItemsCount + failedCount === totalTargets`
+1. **`git diff -w` "비어 있음" 단언은 이번 정규화로 문자 그대로 충족 불가** — Reviewer 확인 요망.
+   `-w`(`--ignore-all-space`)는 라인 내부 공백만 무시하며, 인라인 배열/객체를 여러 줄로 펼칠 때
+   추가되는 개행은 diff 에서 변경으로 남는다. spec 파일 표가 예측한 "reflow -12/+40~55줄" 과
+   spec 1.2 의 "`git diff -w` 비어 있음" 은 서로 모순이다.
+   값 무변경 증거는 다음 3중으로 대체·강화했다:
+   (a) `JSON.stringify(JSON.parse(before)) === JSON.stringify(JSON.parse(after))` = true
+   (b) 대학 수 247=247, 소스 수 91=91
+   (c) **커밋 A 직전 HEAD 를 동일 정규화기에 통과 → 워킹트리와 바이트 단위 완전 일치** (가장 강한 증거)
+   Tester 는 `git diff -w` 대신 (a)~(c) 로 무손실을 검증할 것.
 
----
+2. **B1 회귀 테스트의 헬퍼는 "빈 sources 배열 오픈 1줄" 을 유일 예외로 허용**한다.
+   한국체육대 대학 블록이 병합 스텁으로 `"sources": []` 상태이므로, 소스를 append 하면
+   `JSON.stringify` 상 `"sources": [],` → `"sources": [` 로 그 컨테이너 라인 1줄이 반드시 다시 써진다.
+   이는 삽입 대상 배열 자신의 여는 라인이고 다른 대학/소스와 무관하다. 헬퍼는
+   `/^\s*"sources": \[\],?$/` 정규식으로 이 1줄만 허용하고 그 외 삭제/치환은 전부 실패로 본다.
+   spec 완료기준 2의 "삭제 0줄" 은 empty→nonempty 배열에서 불가능하므로 이렇게 조정함
+   (제품 코드 미수정, 완료기준 의도 = "타 대학·소스 라인 변경 0" 은 유지).
+   커밋 C 후에도 테스트는 knsu-press-release 를 먼저 필터링 제거하므로 계속 green.
 
-# 미구현 / 보류 항목
+3. `core.autocrlf=true` 환경. 새 `.gitattributes` 가 카탈로그와 `server/agent/gate/data/**` 를
+   `text eol=lf` 로 고정한다. 워킹트리에서 해당 파일을 다시 체크아웃하면 LF 로 정규화된다.
+   커밋 시 `warning: LF will be replaced by CRLF` 경고가 뜨지만 인덱스에는 LF 로 저장된다(정상).
 
-- `run-scheduled-news-update.js` 에 `require.main === module` 가드 및 `module.exports` 미추가
-  (spec 질문사항 4 기본값). 따라서 `asyncMain()` 자체의 스모크 테스트는 없음.
-  성공/catch 분기의 payload 조립 로직은 순수 함수 조합이라 `university-update-summary.test.js`
-  의 "messageKo 시연" 테스트에서 동일 조립을 재현해 간접 검증함.
-- `run-scheduled-news-update.js` 는 네트워크/git push/실제 배포를 수행하므로 실환경 실행 검증은
-  하지 않음(범위 밖, 그리고 git/배포 금지 규칙). 순수 함수 + HTML 렌더 + `node --check` +
-  전체 `npm test` 로 검증.
+4. 임시 산출물 `university-news-sources.final.json.prepare-backup.20260828153340`,
+   `server/agent/onboarding/data/catalog-prepare-log.json` 은 워킹트리에 남아 있으나
+   `.gitignore` 로 제외됨 (무해, 삭제해도 됨).
 
----
+5. 신규 npm 의존성 없음. 테스트는 `npm test` (= `node --test` 자동 탐색).
 
-# Tester가 알아야 할 내용
-
-- baseline 테스트 수 274 → 295 (+21). `npm test` 는 `node --test` 자동 탐색이라 별도 스크립트 없음.
-- 신규 테스트는 네트워크/프로덕션 store/preview/카탈로그를 건드리지 않음.
-  `report-html.test.js` 는 `os.tmpdir()` 하위 임시 디렉터리에만 파일을 쓰고 정리함.
-- `run-scheduled-news-update.js` 는 `require` 시 `asyncMain()` 이 즉시 실행되므로
-  테스트에서 직접 require하지 말 것. payload 조립 검증은 순수 함수로.
-- 새 `payload` 키: `universityBreakdown`(객체 `{updated,noNewItems,failed}` 배열 3종),
-  `updatedCount`, `noNewItemsCount`, `failedCount`, `totalTargets`. 기존 키/타입 전부 유지.
-- HTML 회귀 확인 포인트: `universityBreakdown` 없는 payload는 모든 키가 기존처럼
-  `<tr><th>key</th><td><pre>...</pre></td></tr>` 로 렌더됨.
-- 직접 확인 권장: `server/agent/news/reports/ui/latest-news-update-report.html` 을 브라우저로 열어
-  중첩 표 레이아웃(전역 `th{width:260px}` 미적용, `.ubk th{width:auto}` 적용) 육안 확인.
-
----
-
-## 후속 보완 (Reviewer 권고 #2 — catch 분기 payload 수치 디커플링)
-
-### 문제
-catch(WARNING/FAILED) 분기 payload 는 `processed:0, success:0, failed:1` 을 하드코딩한다.
-초기 구현은 이 분기에서도 `run` 존재 시 스칼라 카운트 4종
-(`updatedCount / noNewItemsCount / failedCount / totalTargets`)을 breakdown 값으로 세팅했다
-→ 같은 payload 안에서 `payload.failed(1) !== payload.failedCount(예:3)` 모순.
-
-### 수정 (`server/agent/tools/run-scheduled-news-update.js`, catch 분기만)
-- `payload.universityBreakdown = { updated, noNewItems, failed }` (배열 3종): **유지**
-- `payload.messageKo` 요약 줄 삽입: **유지**
-- 스칼라 카운트 4종(`updatedCount / noNewItemsCount / failedCount / totalTargets`):
-  **catch 분기에서 세팅하지 않음** — 성공 분기(SUCCESS/NO_CHANGES) 전용으로 남김.
-- 성공 분기는 변경 없음(4종 카운트 + breakdown + 요약 전부 유지).
-- catch 분기 삽입부에 의도 설명 주석 4줄 추가.
-
-### 주석 (`server/agent/university-update-summary.js` 상단)
-소비처(성공 분기 = 배열+카운트4종+요약 / catch 분기 = 배열+요약만)를 명시하는 주석 6줄 추가.
-
-### 효과
-완료 기준 5의 불변식(`payload.failedCount === payload.failed` 등)은
-"해당 키가 존재하는 경로 = 성공 분기"에서만 평가되므로 항상 성립.
-기존 catch 분기 카운트 4종을 단언하는 테스트는 없음(신규 테스트는 순수 함수/HTML 렌더 대상) → 수정 불필요.
-
-### 재검증
-```
-node --check "server/agent/tools/run-scheduled-news-update.js"   → OK
-node --check "server/agent/university-update-summary.js"          → OK
-node --test university-update-summary.test.js report-html.test.js → tests 21, pass 21, fail 0
-npm test (1회)                                                    → tests 295, pass 295, fail 0
-```
-테스트 수 변동 없음(295 유지). 회귀 0.
+6. 별도 이슈(이번 범위 밖): `.pipeline/spec.md` 가 워킹트리에서 M 상태, `.pipeline/merge-analysis.md`
+   untracked — 이 작업이 만든 것이 아니며 커밋하지 않았다.
