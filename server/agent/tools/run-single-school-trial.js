@@ -238,4 +238,4 @@ if (require.main === module) {
   main().catch((error) => { console.error("[single-school-trial]", error.message); process.exitCode = 1; });
 }
 
-module.exports = { assertSourceEnabledForSave, normalizeText, sameText, extractDetail, selectSource, titleMatches, universityNameMatches };
+module.exports = { assertSourceEnabledForSave, normalizeText, sameText, extractDetail, selectSource, titleMatches, universityNameMatches, backupBeforeSave };

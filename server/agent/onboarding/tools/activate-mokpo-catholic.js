@@ -1,15 +1,36 @@
 "use strict";
-const fs = require("fs"), path = require("path");
-const { htmlListCollector, findBySelector, textOf } = require("../../../../development/university-news/collectors/html-list-collector");
-const { parseDate } = require("../../../../development/university-news/utils/parse-date");
-const { getAllItems, saveNewItems, STORE_PATH, PREVIEW_PATH } = require("../../store");
-const { filterNewItems } = require("../../dedup");
-const ROOT = path.resolve(__dirname, "../../../.."), CATALOG = path.join(ROOT, "development/university-news/data/university-news-sources.final.json"), V2 = path.join(ROOT, "server/agent/onboarding/reports/candidate-discovery-recovery/candidate-recovery-batch-003-v2.json"), BACKUPS = path.join(ROOT, "server/agent/onboarding/backups"), REPORT = path.join(ROOT, "server/agent/onboarding/reports/mokpo-catholic-activation.json"), UNIVERSITY_ID = "mokpo-catholic-university-본교", SOURCE_ID = "mokpo-catholic-university-notice";
-function read(f) { return JSON.parse(fs.readFileSync(f, "utf8")); }
-function write(f,v) { const t=`${f}.${process.pid}.tmp`; fs.writeFileSync(t,`${JSON.stringify(v,null,2)}\n`,`utf8`); JSON.parse(fs.readFileSync(t,"utf8")); fs.renameSync(t,f); }
-function clean(x) { return String(x||"").replace(/<[^>]*>/g," ").replace(/\s+/g," ").trim().replace(/[^ㄱ-힝A-Za-z0-9]/g,"").toLowerCase(); }
-function host(a,b) { try { return new URL(a).hostname.replace(/^www\./,"")===new URL(b).hostname.replace(/^www\./,""); } catch{return false;} }
-function backup() { const d=path.join(BACKUPS,`mokpo-catholic-activation-${new Date().toISOString().replace(/[-:.TZ]/g,"").slice(0,14)}`); fs.mkdirSync(d,{recursive:true}); for(const f of [CATALOG,STORE_PATH,PREVIEW_PATH]) fs.copyFileSync(f,path.join(d,path.basename(f))); return d; }
-async function main() { const gate=read(V2).items.find(x=>x.universityId===UNIVERSITY_ID); if(!gate||gate.finalDecision!=="QUALITY_APPROVED"||gate.collector?.finalDecision!=="COLLECTOR_CONFIG_READY"||gate.collector.collected<2||gate.collector.nullPublishedAt!==0) throw new Error("activation_gate_not_ready"); const catalog=read(CATALOG), university=catalog.universities.find(x=>x.universityId===UNIVERSITY_ID); if(!university) throw new Error("university_not_found"); const before={verified:catalog.universities.filter(u=>(u.sources||[]).some(s=>s.verified)).length,store:getAllItems().length,preview:read(PREVIEW_PATH).items.length}; const backupDir=backup(); const source={id:SOURCE_ID,name:"목포가톨릭대학교 공지사항",category:"school_notice",categoryLabel:"공지사항",sourceType:"official",collectionType:"html",listUrl:"https://www.mcu.ac.kr/bb/bbBoard.php?boardID=NOTICE&pageID=mcu0701000000",selectors:{item:"div.list_body ul li",title:"span.subject a",link:"span.subject a",date:"span.date"},detailSelectors:{title:"div.view_head h6",date:"div.text_info span"},verified:false,enabled:false,status:"collector_config_candidate",healthStatus:"unknown"}; const collected=await htmlListCollector({university,source,limit:3}); const accepted=[]; for(const item of collected.items||[]) { const r=await fetch(item.sourceUrl,{redirect:"follow",headers:{"User-Agent":"Mozilla/5.0 compatible UNI-PICK validator",Accept:"text/html"}}); const html=await r.text(), title=textOf(findBySelector(html,source.detailSelectors.title)[0]), dateRaw=findBySelector(html,source.detailSelectors.date).map(textOf).find(x=>parseDate(x).value), detailDate=dateRaw&&parseDate(dateRaw).value; if(r.ok&&item.title&&item.publishedAt&&host(item.sourceUrl,source.listUrl)&&clean(item.title).includes(clean(title))||clean(title).includes(clean(item.title))) { if(detailDate||item.publishedAt) accepted.push({...item,sourceId:SOURCE_ID,sourceName:source.name,sourceSiteUrl:source.listUrl,detailValidation:{verified:true,sourceTitle:title,sourceDate:dateRaw||null,detailDate:detailDate||null}}); } }
-  if(accepted.length<2||accepted.some(x=>!x.publishedAt)) throw new Error("production_collection_validation_failed"); const existing=getAllItems(), {newItems,duplicateCount}=filterNewItems(accepted,existing); if(newItems.length<2) throw new Error("insufficient_new_items"); const index=(university.sources||[]).findIndex(s=>s.id===SOURCE_ID); if(index>=0) throw new Error("source_id_exists"); university.sources.push({...source,verified:true,enabled:true,status:"verified"}); write(CATALOG,catalog); saveNewItems(newItems); const preview=read(PREVIEW_PATH).items.filter(x=>x.universityId===UNIVERSITY_ID).length; const after={verified:catalog.universities.filter(u=>(u.sources||[]).some(s=>s.verified)).length,store:getAllItems().length,preview:read(PREVIEW_PATH).items.length}; const result={phase:"mokpo_catholic_activation",status:"ACTIVATED_SUCCESS",universityId:UNIVERSITY_ID,sourceId:SOURCE_ID,found:(collected.items||[]).length,accepted:accepted.length,newItems:newItems.length,duplicateCount,publishedAtNull:accepted.filter(x=>!x.publishedAt).length,previewCount:preview,previewVisibility:preview?"VISIBLE":"PREVIEW_NOT_VISIBLE",before,after,backupDir,files:[CATALOG,STORE_PATH,PREVIEW_PATH]}; fs.mkdirSync(path.dirname(REPORT),{recursive:true}); write(REPORT,result); console.log(JSON.stringify(result,null,2)); }
-main().catch(e=>{console.error(e.stack||e.message);process.exitCode=1});
+
+// DEPRECATED (retired at the same time the review/approval gate was
+// introduced -- .pipeline/spec.md 질문사항 3, 결정됨; Coder 2라운드).
+//
+// This script used to write `enabled: true` / `verified: true` directly to
+// development/university-news/data/university-news-sources.final.json
+// without going through Brain's review + signed approval. It has been
+// replaced by the review-packet -> signed ReviewDecision -> --apply flow:
+//
+//   1. Build a review packet:          server/agent/gate/review-packet.js
+//   2. Brain records a signed decision (separate, non-Code-Agent execution
+//      context -- never wired into any npm run script or onboarding tool):
+//                                       server/agent/gate/review-decision-writer.js
+//   3. Apply the approved activation:
+//      node server/agent/gate/apply-source-activation.js --review-id=<reviewId> --apply
+//
+// This stub never touches the source catalog, the news store, or the
+// preview file. It only logs the attempted invocation (for audit purposes)
+// and throws immediately.
+
+function main() {
+  console.error(
+    "[DEPRECATED] server/agent/onboarding/tools/activate-mokpo-catholic.js was invoked but is retired. " +
+    "Use `node server/agent/gate/apply-source-activation.js --review-id=<reviewId> --apply` instead " +
+    "(see .pipeline/spec.md for the review/approval gate design)."
+  );
+  throw new Error(
+    "activate-mokpo-catholic.js is deprecated and no longer performs source activation. " +
+    "Use server/agent/gate/apply-source-activation.js --apply after Brain has recorded an APPROVE decision."
+  );
+}
+
+module.exports = { main };
+
+main();
