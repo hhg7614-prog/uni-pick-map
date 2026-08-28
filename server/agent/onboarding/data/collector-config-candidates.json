@@ -125,6 +125,14 @@
         "enabled": false,
         "status": "collector_config_candidate",
         "healthStatus": "unknown"
+      },
+      "robotsPolicyBlock": {
+        "blocked": true,
+        "checkedAt": "2026-08-28",
+        "rule": "screen-selector-required-sources 규칙 1 (AI 봇 트리거 전체 차단)",
+        "evidence": "knsu.ac.kr/robots.txt: User-agent: ClaudeBot -> Disallow: /",
+        "diagnose": "수집/셀렉터/publishedAt 전부 통과했으나 robotsOk=false 로 B2 게이트, 패킷 미생성",
+        "note": "finalDecision 은 회귀 테스트(prepare-catalog-source-block.test.js) 의존으로 유지. B1 재삽입 방지는 향후 테스트 fixture 분리 후 BLOCKED 로 변경."
       }
     }
   ]
