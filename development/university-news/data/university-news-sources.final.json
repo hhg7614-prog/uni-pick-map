@@ -3511,11 +3511,13 @@
             "date": "td.date"
           },
           "verified": true,
-          "enabled": true,
+          "enabled": false,
           "status": "verified",
           "healthStatus": "validated",
           "verifiedAt": "2026-08-21T07:22:10.363Z",
-          "campusScope": "CAMPUS_SPECIFIC"
+          "campusScope": "CAMPUS_SPECIFIC",
+          "disabledReason": "robots.txt GPTBot/OAI/ChatGPT-User Disallow:/ (AI 크롤러 차단) + 로컬 TLS 오류로 수집 실패 지속",
+          "disabledAt": "2026-08-31"
         }
       ],
       "searchKeywords": [
@@ -3703,7 +3705,7 @@
             "경성대학교"
           ],
           "verified": true,
-          "enabled": true,
+          "enabled": false,
           "status": "verified",
           "healthStatus": "validated",
           "verifiedAt": "2026-08-25T01:02:26.527Z",
@@ -3711,7 +3713,9 @@
           "canonicalOwner": "kyungsung-university-본교",
           "collectOnce": false,
           "duplicateStorage": false,
-          "notes": "UNI PICK 통합 자동 검증: 공식 도메인, 목록/상세 링크, 날짜, 중복 키를 확인한 direct verified source입니다."
+          "notes": "UNI PICK 통합 자동 검증: 공식 도메인, 목록/상세 링크, 날짜, 중복 키를 확인한 direct verified source입니다.",
+          "disabledReason": "robots.txt User-agent:* Disallow:/*Board.do — listUrl 경로(Board.do)가 차단 대상",
+          "disabledAt": "2026-08-31"
         }
       ],
       "searchKeywords": [
@@ -5352,9 +5356,11 @@
           },
           "dateProvenance": "LIST_ROW_VERIFIED",
           "verified": true,
-          "enabled": true,
+          "enabled": false,
           "status": "verified",
-          "healthStatus": "healthy"
+          "healthStatus": "healthy",
+          "disabledReason": "robots.txt User-agent:* Disallow:/*Board.do (Allow:/ 보다 구체적) — listUrl 경로 차단",
+          "disabledAt": "2026-08-31"
         }
       ],
       "searchKeywords": [
@@ -6095,9 +6101,11 @@
           },
           "dateProvenance": "LIST_ROW_VERIFIED",
           "verified": true,
-          "enabled": true,
+          "enabled": false,
           "status": "verified",
-          "healthStatus": "healthy"
+          "healthStatus": "healthy",
+          "disabledReason": "robots.txt User-agent:* Disallow:/ (전체 차단, Allow:/$ 만 예외)",
+          "disabledAt": "2026-08-31"
         }
       ],
       "searchKeywords": [
@@ -6469,10 +6477,12 @@
             "date": "td.col.col5"
           },
           "verified": true,
-          "enabled": true,
+          "enabled": false,
           "status": "verified",
           "healthStatus": "validated",
-          "verifiedAt": "2026-08-21T07:58:03.601Z"
+          "verifiedAt": "2026-08-21T07:58:03.601Z",
+          "disabledReason": "robots.txt User-agent:GPTBot Disallow:/ (AI 크롤러 차단) + 로컬 TLS 오류로 수집 실패 지속",
+          "disabledAt": "2026-08-31"
         }
       ],
       "searchKeywords": [
