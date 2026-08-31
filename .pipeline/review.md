@@ -1,138 +1,143 @@
 # 검토 요약
 
-`development/university-news/collectors/rss-collector.js` 의 `tagValue()` 가
-`<![CDATA[...]]>` 로 감싼 `<title>` / `<link>` 를 통째로 삼켜 한국 대학 CMS RSS(uos 등)
-항목이 전량 탈락하던 버그 수정 건을 종합 검토했다.
+Nara Info CMS 계열 대학 게시판 RSS가 내보내는 잘못된 상세 링크
+(`.../artclView?layout=unknown` — `.do` 누락 + 가짜 쿼리스트링)를 수집 단계에서
+`.../artclView.do`로 정규화하는 작업.
 
-- 코드 변경: `tagValue()` 내부 `if (match)` 분기 1곳 (1줄 → 7줄). CDATA 언랩 →
-  잔여 태그 제거 → `decodeXml` 순으로 순서 교체.
-- 신규 테스트: `rss-collector.test.js` 5개 (a/b/c/d 픽스처 + 반환 계약).
-- `npm test` 3회 연속 305/305/0, baseline 300 대비 정확히 +5.
-- 변경 범위: 대상 2개 파일 + 파이프라인 문서(`.pipeline/*.md`)만. 제품 코드 타 파일,
-  게이트/robots/활성화/프로덕션 데이터 무변경. 커밋/푸시 미실행.
-- 현재 브랜치 `feat/onboarding-gate-bridges` (HEAD `a2d3cf1`) — spec 지정 대상 브랜치와 일치.
-  세션 시작 스냅샷의 `main` 표기는 낡은 정보이며 spec 질문사항 1은 사실상 해소됨.
+- 제품 파일 변경: `development/university-news/collectors/rss-collector.js` 1개 (+8 라인)
+  - 순수 함수 `normalizeDetailLink(value)` 신규 (주석 2줄 + 본문 1줄)
+  - `linkValue` 반환문 1줄을 `normalizeDetailLink(...)`로 감쌈
+- 테스트: `rss-collector.test.js`에 신규 4개(nara-1..nara-4), 기존 5개 무변경
+- 그 외 제품 파일 무변경, `module.exports = { rssCollector };` 무변경
+- 파이프라인 기록(`.pipeline/spec.md`, `changes.md`, `test-results.md`)만 추가 수정
+
+실제 diff와 spec 확정안이 문자 단위로 일치함을 확인했다.
 
 # 요구사항 확인
 
-## 최초 요구사항 (CDATA 파싱 버그 수정)
-충족. `tagValue()` 가 CDATA 를 먼저 벗기므로 `>` 없는 CDATA 블록이 태그로 오인되어
-삭제되던 문제가 해결된다. bare text 소스 회귀 없음.
+## 사용자 최초 요구사항
+- Nara CMS RSS의 잘못된 상세 링크를 수집 단계에서 정상 URL로 교정 → 충족.
+  라이브 스모크(`inu.ac.kr/bbs/inu/2594/rssList.do`)에서 5개 아이템 전부
+  `/artclView.do`로 끝나고 `?` 없음 확인.
 
-## spec 필수 요구사항 1~8
-- 1 (CDATA 먼저 → 잔여 태그 → decodeXml 순서 교체): 충족. 코드 12-18행.
-- 2 (CDATA 감싼 title/link 값 보존): 충족. 테스트 (a) green, 직접 분석 확인.
-- 3 (bare text 회귀 없음): 충족. 언랩 정규식 미매칭 → 기존 경로 동일. 테스트 (b) green.
-- 4 (Atom `<link href>` 는 `linkValue()` 에서 선처리): 충족. `linkValue()` 무변경,
-  속성 분기가 `tagValue()` 진입 전. 테스트 (c) green.
-- 5 (description CDATA 내부 HTML 제거 유지): 충족. 언랩 후 `<[^>]*>` 제거가 그대로 동작.
-  테스트 (a) summary, (d) green.
-- 6 (`rssCollector()` export/반환 계약 불변): 충족. `module.exports` 무변경,
-  반환 `{status, items, warnings, finalUrl}` 유지. 반환 계약 테스트 green.
-- 7 (신규 테스트 파일, 네트워크 없이 fetchImpl 주입): 충족. spec 은 4개 픽스처를 요구했고
-  구현은 5개(4 픽스처 + 반환 계약). 초과분은 계약 확인용으로 범위 내.
-- 8 (`node --check` + `npm test` 통과): 충족. Coder/Tester 양측 확인.
+## spec.md 필수 요구사항 1~6
+1. `normalizeDetailLink(value)` 순수 함수 추가 — 충족 (rss-collector.js:25-27)
+2. 변형 금지 대상(이미 `.do`, 다른 경로 절대 URL, 비-http, 무관 도메인) — 정규식
+   `$` 앵커 + `.do` 뒤 문자 불일치로 자동 충족. nara-3/nara-4 테스트로 확인.
+3. `linkValue` 두 경로(`<link href>` 속성 + `tagValue` 폴백) 모두 정규화 —
+   단일 지점 wrap으로 충족. nara-2(속성) + nara-1(폴백) 테스트로 양쪽 경로 검증.
+4. `rssCollector` 반환 계약 `{ status, items, warnings, finalUrl }` / `skipped` 분기
+   `{ status, items, warnings }` — 무변경 (rss-collector.js:40, 60). "return shape" 테스트 통과.
+5. `module.exports = { rssCollector };` 무변경, `normalizeDetailLink` 미export — 충족 (rss-collector.js:63)
+6. `decodeXml`/`tagValue`/`extractEntries`/`normalize-collected-item.js`/`resolve-url.js`
+   무변경 — git diff로 확인, `rss-collector.js` 외 제품 파일 변경 없음.
 
-## spec 하지 말 것
-위반 없음. `decodeXml` 시그니처/동작 불변, 타 제품 코드 무수정, 배포/푸시 없음,
-범위 밖 기능 추가 없음.
+## 완료 기준(9개) 체크리스트
+- [x] 1. 변경이 `rss-collector.js` 1개 제품 파일로 한정, 신규 함수 + 1줄 배선
+- [x] 2. 순수 함수 + 확정 정규식 `/(\/artcl[Vv]iew)(\?[^#]*)?$/` 문자 그대로 사용
+- [x] 3. `linkValue` 두 경로 모두 `normalizeDetailLink` 통과
+- [x] 4. 반환 계약 불변, `module.exports` 불변
+- [x] 5. 신규 테스트 nara-1..nara-4 추가, 4개 전부 통과
+- [x] 6. 기존 5개 테스트 통과(회귀 0)
+- [x] 7. `node --check` x2 OK / 타깃 9 pass 0 fail / `npm test` 309 pass 0 fail /
+       라이브 스모크 성공(네트워크 가능, 픽스처 대체 불필요)
+- [x] 8. `.env`/토큰/자격증명 미포함 (변경 파일·기록에 비밀정보 없음)
+- [x] 9. push/deploy/production 데이터 변경 없음, 커밋은 추후 `main`에서
 
-# 완료 기준
-
-| # | 기준 | 판정 | 근거 |
-|---|------|------|------|
-| 1 | 변경이 `tagValue()` 1곳, diff 최소, `node --check` 통과 | 충족 | `git diff` 상 `tagValue()` 블록만 변경. 나머지 함수/exports 무변경 |
-| 2 | (a)(b)(c)(d) 픽스처 + 기대 단언이 명세와 일치 | 충족 | 테스트 파일 48-184행, 각 단언이 spec 130-210 과 일치 |
-| 3 | `node --test rss-collector.test.js` 전부 green | 충족 | 5/5 pass |
-| 4 | `npm test` 전체 green, 회귀 없음 | 충족 | 3회 연속 305/305/0, baseline 300 → +5 |
-| 5 | (a) 가 "수정 전 0 / 수정 후 1" 증명 | 충족(경미) | 42-45행 회귀 방지 주석 존재(spec 이 주석 허용). 수정 되돌리면 (a) 실패 → 회귀 가드 유효. 단 구 로직 대조 단언은 없음 |
-| 6 | (b)/gnu 형태 수정 후 정상 추출 증명 | 충족 | 테스트 (b) green, gnu 실제 rssUrl/baseUrl 스텁 사용 |
-| 7 | 네트워크 실측 회복 확인 (차단 시 명시) | 충족 | 실측 미실행, changes/test-results 에 "픽스처로 대체" 명시. spec 확정사항 3 및 완료 기준 7이 허용 |
-| 8 | 반환 형태·export 불변, `collector.js`/`collector-factory.js` 무수정 | 충족 | `git status` 상 `server/agent/collector.js` 무변경. `collector-factory.js` 는 저장소에 부재(spec 명칭 오류) |
-| 9 | 프로덕션 데이터·게이트·robots 무변경, push/배포 미실행 | 충족 | `git status` 로 확인. 변경은 대상 2파일 + `.pipeline/*.md` 뿐 |
+## AGENTS.md 4·5절
+- 4절: 절대경로 명시, 전체 파일 열람, 최소 변경, `node --check` 검증, 핸드오프 기록 — 준수
+- 5절: `node --check` + 타깃 테스트 + collector 변경이므로 `npm test` 실행 — 준수.
+  실패 은폐 없음. 데이터/소스/배포 변경 아님.
 
 # 테스트 결과
 
-- 타깃: `node --test rss-collector.test.js` → 5 tests / 5 pass / 0 fail.
-- 전체: `npm test` → 305 / 305 / 0, 3회 연속 결정적 통과. baseline 300 대비 신규 5개.
-- `node --check` : 수정 파일 + 신규 테스트 파일 모두 OK.
-- 수정의 정확성 (Reviewer 코드 재분석):
-  - (a) CDATA title `<![CDATA[...]]>` → 언랩 → 잔여 태그 없음 → `decodeXml` trim → 값 보존. OK.
-  - (a) CDATA link 절대 URL → `resolveUrl` 통과. OK.
-  - (b) bare text + `&amp;` → 언랩 미매칭 → `decodeXml` 이 `&amp;`→`&`. 회귀 없음. OK.
-  - (c) Atom `<link href>` → `linkValue()` 속성 정규식이 선처리, `tagValue()` 미도달. OK.
-  - (d) description CDATA 내부 `<p style>`/`<a href>` → 언랩 후 `<[^>]*>` 제거 → 평문. OK.
-  - 엣지: CDATA 내부 `>` 포함(`<b>강조</b>`) → non-greedy `[\s\S]*?` 가 `]]>` 까지 매칭 후
-    내부 태그는 다음 단계에서 제거됨. 안전.
-  - 엣지: 닫는 `]]>` 없는 깨진 CDATA → 언랩 정규식 미매칭 → 기존 `<[^>]*>` 폴백.
-    해당 항목만 탈락, 소스 전체 실패 아님. 기존 동작과 동급.
-  - 다중 CDATA: `/g` 플래그로 각각 처리. 중첩 CDATA 는 XML 상 불가.
+- `node --check` (rss-collector.js, rss-collector.test.js): 둘 다 OK
+- `node --test rss-collector.test.js`: 9 pass / 0 fail (기존 5 + 신규 4)
+- `npm test`: 309 pass / 0 fail / 0 skipped, 2회 실행 동일(결정적). baseline 305 + 4 = 309
+- 라이브 스모크(inu.ac.kr): items 5개, 전부 `/artclView.do`로 끝남, `?` 없음
+
+Tester 판정 PASS를 재확인함. 결과 신뢰 가능.
 
 # 문제점
 
-경미 사항만 존재하며 배포 차단 요소는 없음.
+차단·보완이 필요한 문제 없음. 아래는 잔여 리스크(모두 spec에서 수용했거나 경미):
 
-1. (경미, 정보성) 테스트 (a) 는 수정 후 동작만 단언하고, 구 로직을 복제한 대조 단언은
-   없다. spec 완료 기준 5의 문구("주석 또는 별도 단언")는 주석으로 충족하며, 수정을
-   되돌리면 (a) 가 실패하므로 회귀 가드로서 유효하다. 보완 필요 수준 아님. 향후 강화 여지.
-2. (경미) 네트워크 실측(uos `allBoard.do` 0→회복, gnu RSS 2개 정상 유지) 미실행.
-   spec 확정사항 3 및 완료 기준 7이 명시적으로 허용한 결정이므로 sign-off 차단 아님.
-   다만 이 소스들을 실제 수집 활성화하기 전 네트워크 가능 환경에서 spec 3단계 4번
-   스모크 명령으로 1회 확인 권장.
-3. (경미, 문서) spec 이 `server/agent/collector-factory.js` 를 불변 대상으로 명시하나
-   해당 파일은 저장소에 없다. 실제 호출부는 `server/agent/collector.js` 뿐이며 무변경.
-   제품에 영향 없음.
-4. (경미, 문서) 실제 uos RSS 의 CDATA `<title>` 에 개행/HTML 이 섞인 변형은 픽스처가
-   대표형(순수 텍스트 CDATA)만 커버. CDATA-내부-`>` 케이스는 Tester 수동 확인으로 통과.
-5. (절차) `.pipeline/spec.md` / `changes.md` / `test-results.md` 가 함께 수정됨.
-   제품 코드와 무관한 파이프라인 산출물이므로 커밋에 포함 가능. `.pipeline/merge-analysis.md`
-   는 이번 작업과 무관하므로 스테이징에서 제외해야 함.
+1. (수용됨) 프래그먼트 포함 링크 `/artclView?x=1#frag`는 `$` 앵커로 매칭 실패 →
+   정규화 안 됨. 실제 Nara RSS `<link>`에 프래그먼트 없음. spec 명시 범위 제외.
+2. (수용됨) 소문자 `/artclview`도 매칭되어 `/artclview.do`로 재작성(대소문자 보존).
+   전용 테스트는 없음. Nara 서버가 대소문자 무시 라우팅이라 무해. 향후 픽스처 추가 권장.
+3. (경미) 정규식은 경로 suffix `/artclView`만 보고 도메인을 구분하지 않는다. 즉
+   무관 도메인이라도 경로가 `/artclView` 또는 `/artclView?...`로 끝나면 `.do`가 붙는다.
+   nara-4 테스트는 `/atom/entry/1`(artclView 없음)이라 이 경계를 직접 커버하지 않는다.
+   그러나 `/artclView` 경로 세그먼트는 Nara CMS 고유 패턴이고 spec이 이 정규식을
+   확정했으므로 수용. 실무상 오탐 가능성 극히 낮음.
+4. 정규식 안전성: `(\?[^#]*)?$` — 부정 문자클래스 단일 `*`, 중첩 수량자 없음,
+   `$` 앵커. catastrophic backtracking 없음. `.do`로 끝나는 링크에 대한 오탐 없음
+   (`artclView` 뒤에 `.do`가 오면 `?`도 `$`도 아니므로 불일치). 확인 완료.
+5. (범위 외) 현재 `main`이 `origin/main`보다 1커밋 앞서 있음(b35ba69, 이번 작업과
+   무관한 온보딩 문서 커밋). 이번 변경과 무관하나 push 시 함께 올라감을 인지할 것.
+6. 요청하지 않은 변경 없음. 파이프라인 기록 3개 외 추가 수정 파일 없음.
 
 # 최종 판정
 승인
 
 # 판정 이유
 
-수정의 방향과 구현이 정확하다. `tagValue()` 에서 CDATA 를 먼저 언랩한 뒤 잔여 태그를
-제거하고 `decodeXml` 을 적용하는 순서 교체는 버그의 근본 원인(`>` 없는 CDATA 블록이
-`/<[^>]*>/` 에 통째로 매칭)을 정확히 해소하며, 코드 재분석 결과 (a) CDATA title/link 보존,
-(b) bare text 무회귀, (c) Atom `<link href>` 무영향, (d) description 내부 HTML 제거 유지가
-모두 성립한다. non-greedy CDATA 언랩과 깨진 `]]>` 폴백 등 엣지 케이스도 안전하다.
+- spec.md 필수 요구사항 1~6과 완료 기준 9개 항목을 실제 코드/테스트/실행 로그로
+  전부 확인했다. diff가 확정안과 문자 단위로 일치한다.
+- 변경이 제품 파일 1개(`rss-collector.js`, +8라인)로 엄격히 한정되고, export
+  shape와 반환 계약이 불변이다. 요청하지 않은 변경이 없다.
+- 정규식은 정확하고 안전하다(오탐 없음, backtracking 없음). 잔여 한계는 모두
+  spec이 명시적으로 수용한 항목이다.
+- 신규 4개 테스트가 속성 경로와 폴백 경로, 그리고 pass-through 케이스를 모두
+  실질적으로 검증한다. 전체 스위트 309 pass 2회 결정적, 라이브 스모크도 실서버로
+  교정 동작을 확인했다.
+- robots/gate/activation/카탈로그/프로덕션 데이터 변경 없음. 커밋·푸시·배포 없음.
+- AGENTS.md 4·5·6절 프로토콜 준수.
 
-변경 범위가 `tagValue()` 1곳으로 엄격히 한정되고 `decodeXml`/`linkValue`/`extractEntries`/
-`rssCollector` 및 타 제품 코드가 불변이며, 반환 계약 `{status, items, warnings, finalUrl}`
-과 export 시그니처가 유지된다. 게이트/robots/활성화/프로덕션 데이터 변경이 없고
-push/배포도 실행되지 않았다.
+배포(커밋) 가능한 상태다. 단, 커밋은 사용자가 명시적으로 요청할 때만 수행한다.
 
-`npm test` 305/305 가 3회 연속 결정적으로 통과하고 신규 5개 테스트가 명세 단언과
-일치한다. 발견된 5건은 모두 경미(테스트 강화 여지, 네트워크 실측 보류, spec 문서상
-파일명 오류, 픽스처 대표성, 커밋 스테이징 주의)하며 spec 이 명시적으로 허용했거나
-구현 결함이 아니다. 완료 기준 9개 전부 충족.
+## 권장 커밋 (사용자 요청 시에만, 현재 `main`에서)
 
-## 커밋 권고
+선례(`becfd2d docs(pipeline): ...`)에 따라 코드 커밋과 파이프라인 기록 커밋을
+분리 권장.
 
-커밋해도 된다. 단 CLAUDE.md/AGENTS.md 원칙상 실제 커밋은 사용자의 명시적 지시가 있을
-때만 진행한다.
+### 커밋 1 — 코드 수정
+`git add` 대상 (정확히 이 2개):
+```
+git add development/university-news/collectors/rss-collector.js
+git add development/university-news/collectors/rss-collector.test.js
+```
+커밋 메시지:
+```
+fix(rss-collector): Nara CMS artclView 링크에 .do 접미사 보정
 
-- 대상 브랜치: 현재 체크아웃된 `feat/onboarding-gate-bridges` (spec 지정과 일치, 신규
-  브랜치 생성 불필요).
-- 커밋 수/타입: `fix` 타입 1커밋 적절.
-- 스테이징: `development/university-news/collectors/rss-collector.js`,
-  `development/university-news/collectors/rss-collector.test.js`,
-  `.pipeline/spec.md`, `.pipeline/changes.md`, `.pipeline/test-results.md`, `.pipeline/review.md`.
-  `.pipeline/merge-analysis.md` 는 제외.
-- 커밋 메시지 초안(spec 안 그대로, 저장소 트레일러 포함):
+Nara Info CMS 계열 대학 게시판 RSS의 <link>가 .do 없이 가짜 쿼리스트링이
+붙은 상세 URL(.../artclView?layout=unknown)을 내보내 온보딩 상세 검증이
+실패하는 문제를 수집 단계(resolveUrl 이전)에서 교정한다.
 
-  ```
-  fix(university-news): rss-collector tagValue가 CDATA title/link를 삼키는 버그 수정
+- normalizeDetailLink(value) 순수 함수 추가: /(\/artcl[Vv]iew)(\?[^#]*)?$/ → $1.do
+- linkValue의 두 경로(<link href> 속성, tagValue 폴백)를 단일 지점에서 wrap
+- 반환 계약 { status, items, warnings, finalUrl } 및 module.exports 불변
+- 신규 테스트 4개(nara-1..nara-4), 타깃 9 pass / 전체 309 pass, 회귀 0
+- 라이브 스모크(inu.ac.kr): 5개 아이템 전부 /artclView.do로 정규화 확인
 
-  - tagValue()에서 CDATA를 먼저 벗기고 잔여 태그 제거 후 decodeXml 적용하도록 순서 교체
-  - 한글 대학 CMS RSS(uos 등) title/link가 빈 값이 되어 전량 탈락하던 문제 해결
-  - CDATA 없는 bare text 소스(gnu 2개) 및 Atom <link href> 회귀 없음
-  - rss-collector.test.js 추가: CDATA/bare/href-attr/description-HTML 4개 고정 픽스처
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_018xL7sjPuyqD63j9fxyCvp2
+```
 
-  Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
-  ```
+### 커밋 2 — 파이프라인 기록
+`git add` 대상:
+```
+git add .pipeline/spec.md .pipeline/changes.md .pipeline/test-results.md .pipeline/review.md
+```
+커밋 메시지:
+```
+docs(pipeline): rss-collector Nara artclView 링크 보정 라운드 기록 (spec/changes/test-results/review)
 
-- push/배포는 하지 않는다.
-- 배포 후속: uos/gnu RSS 소스를 실제 수집 활성화하기 전 네트워크 스모크 1회 권장.
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_018xL7sjPuyqD63j9fxyCvp2
+```
+
+(두 커밋을 하나로 합쳐도 무방하나, 코드와 문서를 나누면 되돌리기가 쉽다.
+어느 쪽이든 push/deploy는 사용자 명시 요청 시에만.)
