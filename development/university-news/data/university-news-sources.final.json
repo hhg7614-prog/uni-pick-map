@@ -5798,7 +5798,30 @@
       "enabled": false,
       "verificationStatus": "pending",
       "healthStatus": "unknown",
-      "sources": [],
+      "sources": [
+        {
+          "id": "inu-press-release",
+          "name": "인천대학교 보도자료",
+          "category": "school_news",
+          "categoryLabel": "학교 소식",
+          "sourceType": "official",
+          "collectionType": "rss",
+          "rssUrl": "https://www.inu.ac.kr/bbs/inu/2594/rssList.do",
+          "listUrl": "https://www.inu.ac.kr/inu/13580/subview.do",
+          "baseUrl": "https://www.inu.ac.kr",
+          "detailSelectors": {
+            "title": "h2.view-title",
+            "date": "dl.write dd"
+          },
+          "datePolicy": {
+            "prefer": "list"
+          },
+          "verified": false,
+          "enabled": false,
+          "status": "selector_required",
+          "healthStatus": "unknown"
+        }
+      ],
       "searchKeywords": [
         "인천대학교",
         "인천대학교"

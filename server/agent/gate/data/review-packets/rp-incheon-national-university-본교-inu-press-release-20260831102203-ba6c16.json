@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "1.0",
+  "reviewId": "rp-incheon-national-university-본교-inu-press-release-20260831102203-ba6c16",
+  "createdAt": "2026-08-31T01:22:03.389Z",
+  "createdBy": "code-agent",
+  "scope": {
+    "universityId": "incheon-national-university-본교",
+    "universityGroupId": "incheon-national-university-본교",
+    "sourceId": "inu-press-release",
+    "action": "ACTIVATE_AND_SAVE_INITIAL_ITEMS"
+  },
+  "sourceSnapshot": {
+    "id": "inu-press-release",
+    "name": "인천대학교 보도자료",
+    "category": "school_news",
+    "categoryLabel": "학교 소식",
+    "sourceType": "official",
+    "collectionType": "rss",
+    "rssUrl": "https://www.inu.ac.kr/bbs/inu/2594/rssList.do",
+    "listUrl": "https://www.inu.ac.kr/inu/13580/subview.do",
+    "baseUrl": "https://www.inu.ac.kr",
+    "detailSelectors": {
+      "title": "h2.view-title",
+      "date": "dl.write dd"
+    },
+    "datePolicy": {
+      "prefer": "list"
+    },
+    "verified": false,
+    "enabled": false,
+    "status": "selector_required",
+    "healthStatus": "unknown"
+  },
+  "proposedChange": {
+    "enabled": {
+      "from": false,
+      "to": true
+    },
+    "verified": {
+      "from": false,
+      "to": true
+    },
+    "status": {
+      "from": "selector_required",
+      "to": "verified"
+    }
+  },
+  "diagnostics": {
+    "command": "node D:\\hhg(code)\\server\\agent\\tools\\run-single-school-trial.js --university-id=incheon-national-university-본교 --source-id=inu-press-release --limit=3 --diagnose --allow-unverified-diagnose",
+    "rawOutput": {
+      "foundCount": 3,
+      "acceptedCount": 3,
+      "newCount": 3,
+      "duplicateCount": 0,
+      "excludedCount": 0,
+      "diagnostics": [
+        {
+          "title": "인천대학교, 인문사회 집단연구 2개 국가사업 선정 체계적 집단연구 지원 ‘결실’",
+          "sourceUrl": "https://www.inu.ac.kr/bbs/inu/2594/429421/artclView.do",
+          "publishedAtRaw": "2026-08-27",
+          "dateLocation": "dl.write dd",
+          "method": "detail page selector",
+          "publishedAt": "2026-08-27",
+          "detailValidation": "passed_attempt_1",
+          "storable": true,
+          "reason": null
+        },
+        {
+          "title": "인천대 법학부, 초등학생 대상 「찾아가는 생활법률」 성료…참여 학교 확대 기대",
+          "sourceUrl": "https://www.inu.ac.kr/bbs/inu/2594/429340/artclView.do",
+          "publishedAtRaw": "2026-08-26",
+          "dateLocation": "dl.write dd",
+          "method": "detail page selector",
+          "publishedAt": "2026-08-26",
+          "detailValidation": "passed_attempt_1",
+          "storable": true,
+          "reason": null
+        },
+        {
+          "title": "인천강소연구개발특구사업단, 우즈베키스탄 정부·테크노파크 관계자 대상 특구 운영사례 공유",
+          "sourceUrl": "https://www.inu.ac.kr/bbs/inu/2594/429339/artclView.do",
+          "publishedAtRaw": "2026-08-26",
+          "dateLocation": "dl.write dd",
+          "method": "detail page selector",
+          "publishedAt": "2026-08-26",
+          "detailValidation": "passed_attempt_1",
+          "storable": true,
+          "reason": null
+        }
+      ],
+      "sourceWarnings": [],
+      "backupDir": null,
+      "saveResult": {
+        "dryRun": true,
+        "savedCount": 0,
+        "totalCount": 868
+      }
+    },
+    "foundCount": 3,
+    "acceptedCount": 3,
+    "newCount": 3,
+    "duplicateCount": 0,
+    "excludedCount": 0,
+    "acceptedNewItemsForSave": [
+      {
+        "title": "인천대학교, 인문사회 집단연구 2개 국가사업 선정 체계적 집단연구 지원 ‘결실’",
+        "sourceUrl": "https://www.inu.ac.kr/bbs/inu/2594/429421/artclView.do",
+        "publishedAt": "2026-08-27",
+        "universityId": "incheon-national-university-본교",
+        "universityGroupId": "incheon-national-university-본교",
+        "category": "school_news",
+        "sourceId": "inu-press-release"
+      },
+      {
+        "title": "인천대 법학부, 초등학생 대상 「찾아가는 생활법률」 성료…참여 학교 확대 기대",
+        "sourceUrl": "https://www.inu.ac.kr/bbs/inu/2594/429340/artclView.do",
+        "publishedAt": "2026-08-26",
+        "universityId": "incheon-national-university-본교",
+        "universityGroupId": "incheon-national-university-본교",
+        "category": "school_news",
+        "sourceId": "inu-press-release"
+      },
+      {
+        "title": "인천강소연구개발특구사업단, 우즈베키스탄 정부·테크노파크 관계자 대상 특구 운영사례 공유",
+        "sourceUrl": "https://www.inu.ac.kr/bbs/inu/2594/429339/artclView.do",
+        "publishedAt": "2026-08-26",
+        "universityId": "incheon-national-university-본교",
+        "universityGroupId": "incheon-national-university-본교",
+        "category": "school_news",
+        "sourceId": "inu-press-release"
+      }
+    ]
+  },
+  "robotsEvidence": {
+    "checked": true,
+    "unavailable": false,
+    "policy": {
+      "blocked": false,
+      "blockedGroups": [],
+      "softBlocked": false,
+      "softBlockedGroups": [],
+      "informationalOnlyGroups": []
+    },
+    "robotsUrl": "https://www.inu.ac.kr/robots.txt"
+  },
+  "jsRuleEvidence": null,
+  "regressionEvidence": {
+    "npmTestCommand": "npm test",
+    "npmTestSummary": "tests 309, pass 309, fail 0",
+    "ranAt": "2026-08-31T01:22:03.388Z"
+  },
+  "checksums": {
+    "sourceCatalogFile": {
+      "path": "D:\\hhg(code)\\development\\university-news\\data\\university-news-sources.final.json",
+      "sha256": "b90392ba1dd54688a70735cbd707644eb6dd6b67fcbf6364eac96bb47b99f93a"
+    },
+    "sourceBlockCanonical": {
+      "sha256": "e82e0e231d9796df9d9dde20ba6dec790eae12d19a958b59ab8b3b2b5a5380a1"
+    },
+    "storeFile": {
+      "path": "D:\\hhg(code)\\server\\agent\\data\\agent-news-store.json",
+      "sha256": "cfc429a54bbe002b49c67cfdd989259a7899fd1edda8b6477e5eeafef4571a46"
+    },
+    "previewFile": {
+      "path": "D:\\hhg(code)\\data\\university-news-preview.json",
+      "sha256": "f814711a844bfc01c2a450098b2d8e765a482001a5b308593265287f39a13fc7"
+    }
+  },
+  "mutation": {
+    "enabled": false,
+    "verified": false,
+    "status": false,
+    "store": false,
+    "preview": false,
+    "git": false,
+    "deploy": false
+  },
+  "packetSha256": "2a04f6a16d6c19bdfd8de83a0b2cfd42fb5719a85afd842421eb51783aaf9b0c"
+}
