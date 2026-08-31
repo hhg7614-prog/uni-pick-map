@@ -1,0 +1,2225 @@
+[
+ {
+  "id": "seoul-national-university-gwanak",
+  "name": "서울대학교",
+  "site": "https://www.snu.ac.kr",
+  "origin": "https://www.snu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "korea-university-seoul",
+  "name": "고려대학교 서울캠퍼스",
+  "site": "https://www.korea.ac.kr",
+  "origin": "https://www.korea.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "yonsei-university-sinchon",
+  "name": "연세대학교 신촌캠퍼스",
+  "site": "https://www.yonsei.ac.kr",
+  "origin": "https://www.yonsei.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "skku-university-insa",
+  "name": "성균관대학교 인사캠퍼스",
+  "site": "https://www.skku.edu",
+  "origin": "https://www.skku.edu",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "hanyang-university-seoul",
+  "name": "한양대학교 서울캠퍼스",
+  "site": "https://www.hanyang.ac.kr",
+  "origin": "https://www.hanyang.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "university-of-seoul",
+  "name": "서울시립대학교",
+  "site": "https://www.uos.ac.kr",
+  "origin": "https://www.uos.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "konkuk-university-seoul",
+  "name": "건국대학교 서울캠퍼스",
+  "site": "https://www.konkuk.ac.kr",
+  "origin": "https://www.konkuk.ac.kr",
+  "homeStatus": "302",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "cau-university-seoul",
+  "name": "중앙대학교 서울캠퍼스",
+  "site": "https://www.cau.ac.kr",
+  "origin": "https://www.cau.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_UNVERIFIED"
+ },
+ {
+  "id": "kyunghee-university-seoul",
+  "name": "경희대학교 서울캠퍼스",
+  "site": "https://www.khu.ac.kr",
+  "origin": "https://www.khu.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "pusan-national-university",
+  "name": "부산대학교",
+  "site": "https://www.pusan.ac.kr",
+  "origin": "https://www.pusan.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "inha-university",
+  "name": "인하대학교",
+  "site": "https://www.inha.ac.kr",
+  "origin": "https://www.inha.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "kyungpook-national-university",
+  "name": "경북대학교",
+  "site": "https://www.knu.ac.kr",
+  "origin": "https://www.knu.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "chonbuk-national-university",
+  "name": "전북대학교",
+  "site": "https://www.jbnu.ac.kr",
+  "origin": "https://www.jbnu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "chonnam-national-university",
+  "name": "전남대학교",
+  "site": "https://www.jnu.ac.kr",
+  "origin": "https://www.jnu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "jeju-national-university",
+  "name": "제주대학교",
+  "site": "https://www.jejunu.ac.kr",
+  "origin": "https://www.jejunu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "chungnam-national-university",
+  "name": "충남대학교",
+  "site": "https://www.cnu.ac.kr",
+  "origin": "https://www.cnu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "chungbuk-national-university",
+  "name": "충북대학교",
+  "site": "https://www.chungbuk.ac.kr",
+  "origin": "https://www.chungbuk.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "kangwon-national-university",
+  "name": "강원대학교",
+  "site": "https://www.kangwon.ac.kr",
+  "origin": "https://www.kangwon.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "gyeongsang-national-university",
+  "name": "경상국립대학교",
+  "site": "https://www.gnu.ac.kr",
+  "origin": "https://www.gnu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "busan-national-university-of-education",
+  "name": "부산교육대학교",
+  "site": "https://www.bnue.ac.kr",
+  "origin": "https://www.bnue.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "seoul-national-university-of-education",
+  "name": "서울교육대학교",
+  "site": "https://www.snue.ac.kr",
+  "origin": "https://www.snue.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "korea-national-university-of-education",
+  "name": "한국교원대학교",
+  "site": "https://www.knue.ac.kr",
+  "origin": "https://www.knue.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "korea-university-of-technology-and-education",
+  "name": "한국기술교육대학교",
+  "site": "https://www.koreatech.ac.kr",
+  "origin": "https://www.koreatech.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "korea-marine-and-ocean-university",
+  "name": "한국해양대학교",
+  "site": "https://www.kmou.ac.kr",
+  "origin": "https://www.kmou.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "korea-aerospace-university",
+  "name": "한국항공대학교",
+  "site": "https://www.kau.ac.kr",
+  "origin": "https://www.kau.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "ewha-womans-university",
+  "name": "이화여자대학교",
+  "site": "https://www.ewha.ac.kr",
+  "origin": "https://www.ewha.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "sogang-university",
+  "name": "서강대학교",
+  "site": "https://www.sogang.ac.kr",
+  "origin": "https://www.sogang.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "hufs-seoul",
+  "name": "한국외국어대학교 서울캠퍼스",
+  "site": "https://www.hufs.ac.kr",
+  "origin": "https://www.hufs.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_UNVERIFIED"
+ },
+ {
+  "id": "dongguk-university-seoul",
+  "name": "동국대학교 서울캠퍼스",
+  "site": "https://www.dongguk.edu",
+  "origin": "https://www.dongguk.edu",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "hongik-university-seoul",
+  "name": "홍익대학교 서울캠퍼스",
+  "site": "https://www.hongik.ac.kr",
+  "origin": "https://www.hongik.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "kookmin-university",
+  "name": "국민대학교",
+  "site": "https://www.kookmin.ac.kr",
+  "origin": "https://www.kookmin.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "soongsil-university",
+  "name": "숭실대학교",
+  "site": "https://www.ssu.ac.kr",
+  "origin": "https://www.ssu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "sejong-university",
+  "name": "세종대학교",
+  "site": "https://www.sejong.ac.kr",
+  "origin": "https://www.sejong.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "ajou-university",
+  "name": "아주대학교",
+  "site": "https://www.ajou.ac.kr",
+  "origin": "https://www.ajou.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "gachon-university-global",
+  "name": "가천대학교 글로벌캠퍼스",
+  "site": "https://www.gachon.ac.kr",
+  "origin": "https://www.gachon.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "dankook-university-jukjeon",
+  "name": "단국대학교 죽전캠퍼스",
+  "site": "https://www.dankook.ac.kr",
+  "origin": "https://www.dankook.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "kyonggi-university-suwon",
+  "name": "경기대학교 수원캠퍼스",
+  "site": "https://www.kyonggi.ac.kr",
+  "origin": "https://www.kyonggi.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kaist-daejeon",
+  "name": "한국과학기술원",
+  "site": "https://www.kaist.ac.kr",
+  "origin": "https://www.kaist.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "postech",
+  "name": "포항공과대학교",
+  "site": "https://www.postech.ac.kr",
+  "origin": "https://www.postech.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "unist",
+  "name": "울산과학기술원",
+  "site": "https://www.unist.ac.kr",
+  "origin": "https://www.unist.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "dgist",
+  "name": "대구경북과학기술원",
+  "site": "https://www.dgist.ac.kr",
+  "origin": "https://www.dgist.ac.kr",
+  "homeStatus": "ERR:ECONNRESET",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "pukyong-national-university-daeyeon",
+  "name": "부경대학교 대연캠퍼스",
+  "site": "https://www.pknu.ac.kr",
+  "origin": "https://www.pknu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "donga-university-seunghak",
+  "name": "동아대학교 승학캠퍼스",
+  "site": "https://www.donga.ac.kr",
+  "origin": "https://www.donga.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "yeungnam-university-gyeongsan",
+  "name": "영남대학교 경산캠퍼스",
+  "site": "https://www.yu.ac.kr",
+  "origin": "https://www.yu.ac.kr",
+  "homeStatus": "404",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "chosun-university",
+  "name": "조선대학교",
+  "site": "https://www.chosun.ac.kr",
+  "origin": "https://www.chosun.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "kyungdong-university-제4캠퍼",
+  "name": "경동대학교 제4캠퍼",
+  "site": "https://www.kduniv.ac.kr",
+  "origin": "https://www.kduniv.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kyungdong-university-제3캠퍼",
+  "name": "경동대학교 제3캠퍼",
+  "site": "https://www.kduniv.ac.kr",
+  "origin": "https://www.kduniv.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kyungdong-university-제2캠퍼",
+  "name": "경동대학교 제2캠퍼",
+  "site": "https://www.kduniv.ac.kr",
+  "origin": "https://www.kduniv.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kyungdong-university-본교",
+  "name": "경동대학교",
+  "site": "https://www.kduniv.ac.kr",
+  "origin": "https://www.kduniv.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "kyungnam-university-본교",
+  "name": "경남대학교",
+  "site": "https://www.kyungnam.ac.kr",
+  "origin": "https://www.kyungnam.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "DEACTIVATED"
+ },
+ {
+  "id": "kyonggi-university-제2캠퍼",
+  "name": "경기대학교 제2캠퍼",
+  "site": "https://www.kyonggi.ac.kr",
+  "origin": "https://www.kyonggi.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "konyang-university-제2캠퍼",
+  "name": "건양대학교 제2캠퍼",
+  "site": "https://www.konyang.ac.kr",
+  "origin": "https://www.konyang.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "konyang-university-본교",
+  "name": "건양대학교",
+  "site": "https://www.konyang.ac.kr",
+  "origin": "https://www.konyang.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "konkuk-university-분교",
+  "name": "건국대학교(글로컬) 분교",
+  "site": "https://www.kku.ac.kr",
+  "origin": "https://www.kku.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "gangseo-university-본교",
+  "name": "강서대학교",
+  "site": "https://gangseo.ac.kr",
+  "origin": "https://gangseo.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kangnam-university-본교",
+  "name": "강남대학교",
+  "site": "https://www.kangnam.ac.kr",
+  "origin": "https://www.kangnam.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "methodist-theological-university-본교",
+  "name": "감리교신학대학교",
+  "site": "https://www.mtu.ac.kr",
+  "origin": "https://www.mtu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "the-catholic-university-of-korea-제3캠퍼",
+  "name": "가톨릭대학교 제3캠퍼",
+  "site": "https://www.catholic.ac.kr",
+  "origin": "https://www.catholic.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "the-catholic-university-of-korea-제2캠퍼",
+  "name": "가톨릭대학교 제2캠퍼",
+  "site": "https://www.catholic.ac.kr",
+  "origin": "https://www.catholic.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "the-catholic-university-of-korea-본교",
+  "name": "가톨릭대학교",
+  "site": "https://www.catholic.ac.kr",
+  "origin": "https://www.catholic.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "catholic-kwandong-university-본교",
+  "name": "가톨릭관동대학교",
+  "site": "https://www.cku.ac.kr",
+  "origin": "https://www.cku.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "kaya-university-본교",
+  "name": "가야대학교(김해)",
+  "site": "https://www.kaya.ac.kr",
+  "origin": "https://www.kaya.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kaya-university-제2캠퍼",
+  "name": "가야대학교(고령) 제2캠퍼",
+  "site": "https://www.kaya.ac.kr",
+  "origin": "https://www.kaya.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "mokpo-national-university-본교",
+  "name": "국립목포대학교",
+  "site": "https://www.mokpo.ac.kr",
+  "origin": "https://www.mokpo.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kumoh-national-institute-of-technology-본교",
+  "name": "국립금오공과대학교",
+  "site": "https://www.kumoh.ac.kr",
+  "origin": "https://www.kumoh.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kunsan-national-university-본교",
+  "name": "국립군산대학교",
+  "site": "https://www.kunsan.ac.kr",
+  "origin": "https://www.kunsan.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kongju-national-university-본교",
+  "name": "국립공주대학교",
+  "site": "https://www.kongju.ac.kr",
+  "origin": "https://www.kongju.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "gyeongguk-national-university-본교",
+  "name": "국립경국대학교",
+  "site": "https://www.andong.ac.kr",
+  "origin": "https://www.andong.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "gangneung-wonju-national-university-제2캠퍼",
+  "name": "국립강릉원주대학교 제2캠퍼",
+  "site": "https://www.gwnu.ac.kr",
+  "origin": "https://www.gwnu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "gangneung-wonju-national-university-본교",
+  "name": "국립강릉원주대학교",
+  "site": "https://www.gwnu.ac.kr",
+  "origin": "https://www.gwnu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kwangju-womens-university-본교",
+  "name": "광주여자대학교",
+  "site": "https://www.kwu.ac.kr",
+  "origin": "https://www.kwu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "gwangju-university-본교",
+  "name": "광주대학교",
+  "site": "https://www.gwangju.ac.kr",
+  "origin": "https://www.gwangju.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "gwangju-national-university-of-education-본교",
+  "name": "광주교육대학교",
+  "site": "https://www.gnue.ac.kr",
+  "origin": "https://www.gnue.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "gwangju-institute-of-science-and-technology-본교",
+  "name": "광주과학기술원",
+  "site": "https://www.gist.ac.kr",
+  "origin": "https://www.gist.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "gwangju-catholic-university-본교",
+  "name": "광주가톨릭대학교",
+  "site": "https://www.gjc.ac.kr",
+  "origin": "https://www.gjc.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kwangwoon-university-본교",
+  "name": "광운대학교",
+  "site": "https://www.kw.ac.kr",
+  "origin": "https://www.kw.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kwangshin-university-본교",
+  "name": "광신대학교",
+  "site": "https://www.kwangshin.ac.kr",
+  "origin": "https://www.kwangshin.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "gongju-national-university-of-education-본교",
+  "name": "공주교육대학교",
+  "site": "https://www.gjue.ac.kr",
+  "origin": "https://www.gjue.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kosin-university-본교",
+  "name": "고신대학교",
+  "site": "https://www.kosin.ac.kr",
+  "origin": "https://www.kosin.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "korea-university-sejong-campus-분교",
+  "name": "고려대학교(세종) 분교",
+  "site": "https://sejong.korea.ac.kr",
+  "origin": "https://sejong.korea.ac.kr",
+  "homeStatus": "200",
+  "robots": "HTTP_400",
+  "cat": "SOURCE_UNVERIFIED"
+ },
+ {
+  "id": "keimyung-university-본교",
+  "name": "계명대학교",
+  "site": "https://www.kmu.ac.kr",
+  "origin": "https://www.kmu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "DEACTIVATED"
+ },
+ {
+  "id": "kyungil-university-본교",
+  "name": "경일대학교",
+  "site": "https://www.kiu.ac.kr",
+  "origin": "https://www.kiu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "gyeongin-national-university-of-education-제2캠퍼",
+  "name": "경인교육대학교 제2캠퍼",
+  "site": "https://www.ginue.ac.kr",
+  "origin": "https://www.ginue.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "gyeongin-national-university-of-education-본교",
+  "name": "경인교육대학교",
+  "site": "https://www.ginue.ac.kr",
+  "origin": "https://www.ginue.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "kyungwoon-university-본교",
+  "name": "경운대학교",
+  "site": "https://www.ikw.ac.kr",
+  "origin": "https://www.ikw.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "kyungsung-university-본교",
+  "name": "경성대학교",
+  "site": "https://www.ks.ac.kr",
+  "origin": "https://www.ks.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "DEACTIVATED"
+ },
+ {
+  "id": "daegu-university-본교",
+  "name": "대구대학교",
+  "site": "https://www.daegu.ac.kr",
+  "origin": "https://www.daegu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "daegu-national-university-of-education-본교",
+  "name": "대구교육대학교",
+  "site": "https://www.dnue.ac.kr",
+  "origin": "https://www.dnue.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "daegu-catholic-university-본교",
+  "name": "대구가톨릭대학교",
+  "site": "https://www.cu.ac.kr",
+  "origin": "https://www.cu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "dankook-university-제2캠퍼",
+  "name": "단국대학교 제2캠퍼",
+  "site": "https://www.dankook.ac.kr",
+  "origin": "https://www.dankook.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "namseoul-university-본교",
+  "name": "남서울대학교",
+  "site": "https://www.nsu.ac.kr/",
+  "origin": "https://www.nsu.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "nambu-university-본교",
+  "name": "남부대학교",
+  "site": "https://www.nambu.ac.kr",
+  "origin": "https://www.nambu.ac.kr",
+  "homeStatus": "200",
+  "robots": "HTTP_400",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "korea-nazarene-university-본교",
+  "name": "나사렛대학교",
+  "site": "https://www.kornu.ac.kr",
+  "origin": "https://www.kornu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "gimcheon-university-본교",
+  "name": "김천대학교",
+  "site": "https://www.gimcheon.ac.kr",
+  "origin": "https://www.gimcheon.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "geumgang-university-본교",
+  "name": "금강대학교",
+  "site": "https://www.ggu.ac.kr",
+  "origin": "https://www.ggu.ac.kr",
+  "homeStatus": "200",
+  "robots": "HTTP_400",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "far-east-university-본교",
+  "name": "극동대학교",
+  "site": "https://www.kdu.ac.kr",
+  "origin": "https://www.kdu.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "hanbat-national-university-본교",
+  "name": "국립한밭대학교",
+  "site": "https://www.hanbat.ac.kr",
+  "origin": "https://www.hanbat.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "korea-national-university-of-transportation-본교",
+  "name": "국립한국교통대학교",
+  "site": "https://www.ut.ac.kr",
+  "origin": "https://www.ut.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "changwon-national-university-제3캠퍼",
+  "name": "국립창원대학교(남해캠퍼스) 제3캠퍼",
+  "site": "https://www.changwon.ac.kr",
+  "origin": "https://www.changwon.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "changwon-national-university-제2캠퍼",
+  "name": "국립창원대학교(거창캠퍼스) 제2캠퍼",
+  "site": "https://www.changwon.ac.kr",
+  "origin": "https://www.changwon.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "changwon-national-university-본교",
+  "name": "국립창원대학교",
+  "site": "https://www.changwon.ac.kr",
+  "origin": "https://www.changwon.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "sunchon-national-university-본교",
+  "name": "국립순천대학교",
+  "site": "https://www.scnu.ac.kr",
+  "origin": "https://www.scnu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "mokpo-national-maritime-university-본교",
+  "name": "국립목포해양대학교",
+  "site": "https://www.mmu.ac.kr",
+  "origin": "https://www.mmu.ac.kr",
+  "homeStatus": "ERR:HPE_INVALID_HEADER_TOKEN",
+  "robots": "ERR:HPE_INVALID_HEADER_TOKEN",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "busan-university-of-foreign-studies-본교",
+  "name": "부산외국어대학교",
+  "site": "https://www.bufs.ac.kr",
+  "origin": "https://www.bufs.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "catholic-university-of-pusan-본교",
+  "name": "부산가톨릭대학교",
+  "site": "https://www.cup.ac.kr",
+  "origin": "https://www.cup.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "baekseok-university-본교",
+  "name": "백석대학교",
+  "site": "https://www.bu.ac.kr",
+  "origin": "https://www.bu.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "pai-chai-university-본교",
+  "name": "배재대학교",
+  "site": "https://www.pcu.ac.kr",
+  "origin": "https://www.pcu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "mokpo-catholic-university-본교",
+  "name": "목포가톨릭대학교",
+  "site": "https://www.mcu.ac.kr",
+  "origin": "https://www.mcu.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "mokwon-university-본교",
+  "name": "목원대학교",
+  "site": "https://www.mokwon.ac.kr",
+  "origin": "https://www.mokwon.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "myongji-university-social-science-campus-제2캠퍼",
+  "name": "명지대학교 제2캠퍼",
+  "site": "https://www.mju.ac.kr",
+  "origin": "https://www.mju.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "myongji-university-natural-science-campus-본교",
+  "name": "명지대학교",
+  "site": "https://www.mju.ac.kr",
+  "origin": "https://www.mju.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "luther-university-본교",
+  "name": "루터대학교",
+  "site": "https://www.ltu.ac.kr",
+  "origin": "https://www.ltu.ac.kr",
+  "homeStatus": "406",
+  "robots": "HTTP_406",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "dong-eui-university-본교",
+  "name": "동의대학교",
+  "site": "https://www.deu.ac.kr",
+  "origin": "https://www.deu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "dongyang-university-본교",
+  "name": "동양대학교",
+  "site": "https://www.dyu.ac.kr",
+  "origin": "https://www.dyu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "dongshinuniversity-본교",
+  "name": "동신대학교",
+  "site": "https://www.dsu.ac.kr",
+  "origin": "https://www.dsu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "dongseo-university-본교",
+  "name": "동서대학교",
+  "site": "https://www.dongseo.ac.kr",
+  "origin": "https://www.dongseo.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "tongmyong-university-본교",
+  "name": "동명대학교",
+  "site": "https://www.tu.ac.kr",
+  "origin": "https://www.tu.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "dongduk-womens-university-본교",
+  "name": "동덕여자대학교",
+  "site": "https://www.dongduk.ac.kr",
+  "origin": "https://www.dongduk.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "dongguk-university-분교",
+  "name": "동국대학교(WISE) 분교",
+  "site": "https://wise.dongguk.ac.kr",
+  "origin": "https://wise.dongguk.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "duksung-womens-university-본교",
+  "name": "덕성여자대학교",
+  "site": "https://www.duksung.ac.kr",
+  "origin": "https://www.duksung.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "daejin-university-본교",
+  "name": "대진대학교",
+  "site": "https://www.daejin.ac.kr",
+  "origin": "https://www.daejin.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "daejeon-theological-university-본교",
+  "name": "대전신학대학교",
+  "site": "https://www.daejeon.ac.kr",
+  "origin": "https://www.daejeon.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "daejeon-university-본교",
+  "name": "대전대학교",
+  "site": "https://www.dju.ac.kr",
+  "origin": "https://www.dju.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "daejeoncatholicuniversity-본교",
+  "name": "대전가톨릭대학교",
+  "site": "https://www.dcatholic.ac.kr",
+  "origin": "https://www.dcatholic.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "daeshin-university-본교",
+  "name": "대신대학교",
+  "site": "https://www.daeshin.ac.kr",
+  "origin": "https://www.daeshin.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "daegu-haany-university-본교",
+  "name": "대구한의대학교",
+  "site": "https://www.dhu.ac.kr",
+  "origin": "https://www.dhu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "semyung-university-본교",
+  "name": "세명대학교",
+  "site": "https://www.semyung.ac.kr",
+  "origin": "https://www.semyung.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "sungshin-womens-university-본교",
+  "name": "성신여자대학교",
+  "site": "https://www.sungshin.ac.kr",
+  "origin": "https://www.sungshin.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "sungkonghoe-university-본교",
+  "name": "성공회대학교",
+  "site": "https://www.skhu.ac.kr",
+  "origin": "https://www.skhu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "sungkyul-university-본교",
+  "name": "성결대학교",
+  "site": "https://www.sungkyul.ac.kr",
+  "origin": "https://www.sungkyul.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "sun-moon-university-본교",
+  "name": "선문대학교",
+  "site": "https://www.sunmoon.ac.kr",
+  "origin": "https://www.sunmoon.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "seowon-university-본교",
+  "name": "서원대학교",
+  "site": "https://www.seowon.ac.kr",
+  "origin": "https://www.seowon.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "seoul-hanyoung-university-본교",
+  "name": "서울한영대학교",
+  "site": "https://shyu.ac.kr",
+  "origin": "https://shyu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "seoul-jangsin-university-본교",
+  "name": "서울장신대학교",
+  "site": "https://www.sjs.ac.kr",
+  "origin": "https://www.sjs.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "seoul-womens-university-본교",
+  "name": "서울여자대학교",
+  "site": "https://www.swu.ac.kr",
+  "origin": "https://www.swu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "seoul-theological-university-본교",
+  "name": "서울신학대학교",
+  "site": "https://www.stu.ac.kr",
+  "origin": "https://www.stu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "seoul-christian-university-본교",
+  "name": "서울기독대학교",
+  "site": "https://www.scu.ac.kr",
+  "origin": "https://www.scu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "seoul-national-university-of-science-and-technology-본교",
+  "name": "서울과학기술대학교",
+  "site": "https://www.seoultech.ac.kr",
+  "origin": "https://www.seoultech.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "seokyeong-university-본교",
+  "name": "서경대학교",
+  "site": "https://www.skuniv.ac.kr",
+  "origin": "https://www.skuniv.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "sangji-university-본교",
+  "name": "상지대학교",
+  "site": "https://www.sangji.ac.kr",
+  "origin": "https://www.sangji.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "sangmyung-university-제2캠퍼",
+  "name": "상명대학교 제2캠퍼",
+  "site": "https://www.smuc.ac.kr",
+  "origin": "https://www.smuc.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "sangmyung-university-seoul-본교",
+  "name": "상명대학교",
+  "site": "https://www.smu.ac.kr",
+  "origin": "https://www.smu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "sahmyook-university-본교",
+  "name": "삼육대학교",
+  "site": "https://www.syu.ac.kr",
+  "origin": "https://www.syu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "busan-presbyterian-university-본교",
+  "name": "부산장신대학교",
+  "site": "https://www.bpu.ac.kr",
+  "origin": "https://www.bpu.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "yewon-arts-university-본교",
+  "name": "예원예술대학교",
+  "site": "https://www.yewon.ac.kr",
+  "origin": "https://www.yewon.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "jesus-university-본교",
+  "name": "예수대학교",
+  "site": "https://www.jesus.ac.kr",
+  "origin": "https://www.jesus.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "youngsan-university-of-seon-studies-본교",
+  "name": "영산선학대학교",
+  "site": "https://www.youngsan.ac.kr",
+  "origin": "https://www.youngsan.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "youngsan-university-제2캠퍼",
+  "name": "영산대학교(해운대) 제2캠퍼",
+  "site": "https://www.ysu.ac.kr",
+  "origin": "https://www.ysu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "youngsan-university-본교",
+  "name": "영산대학교(양산)",
+  "site": "https://www.ysu.ac.kr",
+  "origin": "https://www.ysu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "DEACTIVATED"
+ },
+ {
+  "id": "youngnam-theological-university-seminary-본교",
+  "name": "영남신학대학교",
+  "site": "https://www.ytus.ac.kr",
+  "origin": "https://www.ytus.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "yonsei-university-mirae-campus-분교",
+  "name": "연세대학교(미래) 분교",
+  "site": "https://mirae.yonsei.ac.kr/wj/index.do",
+  "origin": "https://mirae.yonsei.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "anyang-university-제2캠퍼",
+  "name": "안양대학교 제2캠퍼",
+  "site": "https://www.anyang.ac.kr/main/index.do",
+  "origin": "https://www.anyang.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "anyang-university-본교",
+  "name": "안양대학교",
+  "site": "https://www.anyang.ac.kr/main/index.do",
+  "origin": "https://www.anyang.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "acts-university-본교",
+  "name": "아신대학교",
+  "site": "https://www.acts.ac.kr",
+  "origin": "https://www.acts.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "shinhan-university-제2캠퍼",
+  "name": "신한대학교 제2캠퍼",
+  "site": "https://www.shinhan.ac.kr/",
+  "origin": "https://www.shinhan.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "shinhan-unvirsity-본교",
+  "name": "신한대학교",
+  "site": "https://www.shinhan.ac.kr/",
+  "origin": "https://www.shinhan.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "silla-university-본교",
+  "name": "신라대학교",
+  "site": "https://www.silla.ac.kr",
+  "origin": "https://www.silla.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "singyeongju-university-본교",
+  "name": "신경주대학교",
+  "site": "https://sgu.ac.kr/ko/main.php",
+  "origin": "https://sgu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "soonchunhyang-university-본교",
+  "name": "순천향대학교",
+  "site": "https://www.sch.ac.kr",
+  "origin": "https://www.sch.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "sookmyung-womens-university-본교",
+  "name": "숙명여자대학교",
+  "site": "https://www.sookmyung.ac.kr",
+  "origin": "https://www.sookmyung.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "the-university-of-suwon-본교",
+  "name": "수원대학교",
+  "site": "https://www.suwon.ac.kr",
+  "origin": "https://www.suwon.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "suwon-catholic-university-본교",
+  "name": "수원가톨릭대학교",
+  "site": "https://www.suwoncatholic.ac.kr",
+  "origin": "https://www.suwoncatholic.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "songwon-university-본교",
+  "name": "송원대학교",
+  "site": "https://www.songwon.ac.kr",
+  "origin": "https://www.songwon.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "sehan-university-본교",
+  "name": "세한대학교",
+  "site": "https://www.sehan.ac.kr",
+  "origin": "https://www.sehan.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "jeonju-university-본교",
+  "name": "전주대학교",
+  "site": "https://www.jj.ac.kr",
+  "origin": "https://www.jj.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "jeonju-national-university-of-education-본교",
+  "name": "전주교육대학교",
+  "site": "https://www.jnue.kr",
+  "origin": "https://www.jnue.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "presbyterian-university-theological-seminary-본교",
+  "name": "장로회신학대학교",
+  "site": "https://www.puts.ac.kr",
+  "origin": "https://www.puts.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "incheon-national-university-본교",
+  "name": "인천대학교",
+  "site": "https://www.inu.ac.kr/",
+  "origin": "https://www.inu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "incheon-catholic-university-제2캠퍼",
+  "name": "인천가톨릭대학교 제2캠퍼",
+  "site": "https://www.iccu.ac.kr",
+  "origin": "https://www.iccu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "incheon-catholic-university-본교",
+  "name": "인천가톨릭대학교",
+  "site": "https://www.iccu.ac.kr",
+  "origin": "https://www.iccu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "inje-university-제2캠퍼",
+  "name": "인제대학교 제2캠퍼",
+  "site": "https://www.inje.ac.kr",
+  "origin": "https://www.inje.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "inje-university-본교",
+  "name": "인제대학교",
+  "site": "https://www.inje.ac.kr",
+  "origin": "https://www.inje.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "eulji-university-제3캠퍼",
+  "name": "을지대학교 제3캠퍼",
+  "site": "https://www.eulji.ac.kr",
+  "origin": "https://www.eulji.ac.kr",
+  "homeStatus": "ERR:HPE_INVALID_HEADER_TOKEN",
+  "robots": "ERR:HPE_INVALID_HEADER_TOKEN",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "eulji-university-제2캠퍼",
+  "name": "을지대학교 제2캠퍼",
+  "site": "https://www.eulji.ac.kr",
+  "origin": "https://www.eulji.ac.kr",
+  "homeStatus": "ERR:HPE_INVALID_HEADER_TOKEN",
+  "robots": "ERR:HPE_INVALID_HEADER_TOKEN",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "eulji-university-본교",
+  "name": "을지대학교",
+  "site": "https://www.eulji.ac.kr",
+  "origin": "https://www.eulji.ac.kr",
+  "homeStatus": "ERR:HPE_INVALID_HEADER_TOKEN",
+  "robots": "ERR:HPE_INVALID_HEADER_TOKEN",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "u1-university-본교",
+  "name": "유원대학교",
+  "site": "https://www.U1.ac.kr",
+  "origin": "https://www.u1.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "uiduk-university-본교",
+  "name": "위덕대학교",
+  "site": "https://www.uu.ac.kr",
+  "origin": "https://www.uu.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "wonkwang-university-본교",
+  "name": "원광대학교",
+  "site": "https://www.wku.ac.kr",
+  "origin": "https://www.wku.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "university-of-ulsan-본교",
+  "name": "울산대학교",
+  "site": "https://www.ulsan.ac.kr",
+  "origin": "https://www.ulsan.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "DEACTIVATED"
+ },
+ {
+  "id": "woosong-university-본교",
+  "name": "우송대학교",
+  "site": "https://www.wsu.ac.kr",
+  "origin": "https://www.wsu.ac.kr",
+  "homeStatus": "302",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "woosuk-university-본교",
+  "name": "우석대학교",
+  "site": "https://www.woosuk.ac.kr",
+  "origin": "https://www.woosuk.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "yong-in-university-본교",
+  "name": "용인대학교",
+  "site": "https://www.yongin.ac.kr",
+  "origin": "https://www.yongin.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "yewon-arts-university-제2캠퍼",
+  "name": "예원예술대학교 제2캠퍼",
+  "site": "https://www.yewon.ac.kr",
+  "origin": "https://www.yewon.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "tech-university-of-korea-본교",
+  "name": "한국공학대학교",
+  "site": "https://www.tukorea.ac.kr",
+  "origin": "https://www.tukorea.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "hankyong-national-university-본교",
+  "name": "한경국립대학교",
+  "site": "https://www.hknu.ac.kr",
+  "origin": "https://www.hknu.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "pyeongtaek-university-본교",
+  "name": "평택대학교",
+  "site": "https://www.ptu.ac.kr",
+  "origin": "https://www.ptu.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "calvin-university-본교",
+  "name": "칼빈대학교",
+  "site": "https://www.calvin.ac.kr",
+  "origin": "https://www.calvin.ac.kr",
+  "homeStatus": "ERR:ECONNREFUSED",
+  "robots": "ERR:ECONNREFUSED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "chuncheon-national-university-of-education-본교",
+  "name": "춘천교육대학교",
+  "site": "https://www.cnue.ac.kr",
+  "origin": "https://www.cnue.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "chugye-university-for-the-arts-본교",
+  "name": "추계예술대학교",
+  "site": "https://www.chugye.ac.kr",
+  "origin": "https://www.chugye.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "chongshin-university-본교",
+  "name": "총신대학교",
+  "site": "https://www.chongshin.ac.kr",
+  "origin": "https://www.chongshin.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "chodang-university-본교",
+  "name": "초당대학교",
+  "site": "https://www.cdu.ac.kr",
+  "origin": "https://www.cdu.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "cheongju-university-본교",
+  "name": "청주대학교",
+  "site": "https://www.cju.ac.kr",
+  "origin": "https://www.cju.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "cheongju-national-university-of-education-본교",
+  "name": "청주교육대학교",
+  "site": "https://www.cje.ac.kr",
+  "origin": "https://www.cje.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "chungwoon-university-본교",
+  "name": "청운대학교",
+  "site": "https://www.chungwoon.ac.kr",
+  "origin": "https://www.chungwoon.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "changshin-university-본교",
+  "name": "창신대학교",
+  "site": "https://www.cs.ac.kr",
+  "origin": "https://www.cs.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "DEACTIVATED"
+ },
+ {
+  "id": "cha-university-본교",
+  "name": "차의과학대학교",
+  "site": "https://www.cha.ac.kr",
+  "origin": "https://www.cha.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "chinju-national-uinversity-of-education-본교",
+  "name": "진주교육대학교",
+  "site": "https://www.cue.ac.kr",
+  "origin": "https://www.cue.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "jungwon-university-본교",
+  "name": "중원대학교",
+  "site": "https://www.jwu.ac.kr",
+  "origin": "https://www.jwu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "joong-ang-sangha-university-본교",
+  "name": "중앙승가대학교",
+  "site": "https://admission.sangha.ac.kr",
+  "origin": "https://admission.sangha.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "chung-ang-university-제2캠퍼",
+  "name": "중앙대학교 제2캠퍼",
+  "site": "https://www.cau.ac.kr",
+  "origin": "https://www.cau.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "joongbu-university-본교",
+  "name": "중부대학교",
+  "site": "https://www.joongbu.ac.kr",
+  "origin": "https://www.joongbu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "jejuinternationaluniversity-본교",
+  "name": "제주국제대학교",
+  "site": "https://www.jeju.ac.kr",
+  "origin": "https://www.jeju.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "haniluniv-presb-theol-sem-본교",
+  "name": "한일장신대학교",
+  "site": "https://www.hanil.ac.kr",
+  "origin": "https://www.hanil.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "hanyang-university-erica-campus-분교",
+  "name": "한양대학교(ERICA) 분교",
+  "site": "https://www.hanyang.ac.kr",
+  "origin": "https://www.hanyang.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "hanshin-university-본교",
+  "name": "한신대학교",
+  "site": "https://www.hs.ac.kr",
+  "origin": "https://www.hs.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "hansei-university-본교",
+  "name": "한세대학교",
+  "site": "https://www.hansei.ac.kr",
+  "origin": "https://www.hansei.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "hansung-university-본교",
+  "name": "한성대학교",
+  "site": "https://www.hansung.ac.kr",
+  "origin": "https://www.hansung.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "hanseo-university-본교",
+  "name": "한서대학교",
+  "site": "https://www.hanseo.ac.kr",
+  "origin": "https://www.hanseo.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "hallym-university-본교",
+  "name": "한림대학교",
+  "site": "https://www.hallym.ac.kr",
+  "origin": "https://www.hallym.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "halla-university-본교",
+  "name": "한라대학교",
+  "site": "https://www.halla.ac.kr",
+  "origin": "https://www.halla.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "handong-global-university-본교",
+  "name": "한동대학교",
+  "site": "https://www.handong.edu",
+  "origin": "https://www.handong.edu",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "hannam-university-본교",
+  "name": "한남대학교",
+  "site": "https://www.hannam.ac.kr",
+  "origin": "https://www.hannam.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "korea-baptist-theological-university-seminary-본교",
+  "name": "한국침례신학대학교",
+  "site": "https://www.kbtus.ac.kr",
+  "origin": "https://www.kbtus.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "korea-national-sport-university-본교",
+  "name": "한국체육대학교",
+  "site": "https://www.knsu.ac.kr/",
+  "origin": "https://www.knsu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "korea-national-university-of-heritage-본교",
+  "name": "한국전통문화대학교",
+  "site": "https://www.knuh.ac.kr",
+  "origin": "https://www.knuh.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "korea-institute-of-energy-technology-본교",
+  "name": "한국에너지공과대학교",
+  "site": "https://www.kentech.ac.kr/",
+  "origin": "https://www.kentech.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "korean-bible-university-본교",
+  "name": "한국성서대학교",
+  "site": "https://www.bible.ac.kr",
+  "origin": "https://www.bible.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "hwasung-medi-science-university-본교",
+  "name": "화성의과학대학교",
+  "site": "https://www.hsmu.ac.kr/",
+  "origin": "https://www.hsmu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_DISABLED"
+ },
+ {
+  "id": "hongik-university-제2캠퍼",
+  "name": "홍익대학교 제2캠퍼",
+  "site": "https://www.hongik.ac.kr",
+  "origin": "https://www.hongik.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "howon-university-본교",
+  "name": "호원대학교",
+  "site": "https://www.howon.ac.kr",
+  "origin": "https://www.howon.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "hoseo-university-본교",
+  "name": "호서대학교",
+  "site": "https://www.hoseo.ac.kr",
+  "origin": "https://www.hoseo.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "honam-theological-university-seminary-본교",
+  "name": "호남신학대학교",
+  "site": "https://www.htus.ac.kr",
+  "origin": "https://www.htus.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "honam-university-본교",
+  "name": "호남대학교",
+  "site": "https://www.honam.ac.kr",
+  "origin": "https://www.honam.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "hyupsung-university-본교",
+  "name": "협성대학교",
+  "site": "https://www.uhs.ac.kr",
+  "origin": "https://www.uhs.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "catholic-kkottongnae-university",
+  "name": "가톨릭꽃동네대학교",
+  "site": "https://www.kkot.ac.kr",
+  "origin": "https://www.kkot.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "daegu-arts-university",
+  "name": "대구예술대학교",
+  "site": "https://www.dgau.ac.kr",
+  "origin": "https://www.dgau.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "sungkyunkwan-university-natural-sciences",
+  "name": "성균관대학교 자연과학캠퍼스",
+  "site": "https://www.skku.edu",
+  "origin": "https://www.skku.edu",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "ACTIVE"
+ },
+ {
+  "id": "kyunghee-university-global",
+  "name": "경희대학교 국제캠퍼스",
+  "site": "https://www.khu.ac.kr",
+  "origin": "https://www.khu.ac.kr",
+  "homeStatus": "200",
+  "robots": "not-robots(html)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "hufs-global-campus",
+  "name": "한국외국어대학교 글로벌캠퍼스",
+  "site": "https://www.hufs.ac.kr",
+  "origin": "https://www.hufs.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "gachon-university-medical",
+  "name": "가천대학교 메디컬캠퍼스",
+  "site": "https://www.gachon.ac.kr",
+  "origin": "https://www.gachon.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kangwon-national-university-samcheok",
+  "name": "강원대학교 삼척캠퍼스",
+  "site": "https://www.kangwon.ac.kr",
+  "origin": "https://www.kangwon.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kangwon-national-university-dogye",
+  "name": "강원대학교 도계캠퍼스",
+  "site": "https://www.kangwon.ac.kr",
+  "origin": "https://www.kangwon.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kongju-national-university-cheonan",
+  "name": "국립공주대학교 천안캠퍼스",
+  "site": "https://www.kongju.ac.kr",
+  "origin": "https://www.kongju.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kongju-national-university-yesan",
+  "name": "국립공주대학교 예산캠퍼스",
+  "site": "https://www.kongju.ac.kr",
+  "origin": "https://www.kongju.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "knut-jeungpyeong-campus",
+  "name": "국립한국교통대학교 증평캠퍼스",
+  "site": "https://www.ut.ac.kr",
+  "origin": "https://www.ut.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "knut-uiwang-campus",
+  "name": "국립한국교통대학교 의왕캠퍼스",
+  "site": "https://www.ut.ac.kr",
+  "origin": "https://www.ut.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "chungbuk-national-university-osong",
+  "name": "충북대학교 오송캠퍼스",
+  "site": "https://www.cbnu.ac.kr",
+  "origin": "https://www.cbnu.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "pusan-national-university-miryang",
+  "name": "부산대학교 밀양캠퍼스",
+  "site": "https://www.pusan.ac.kr",
+  "origin": "https://www.pusan.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "pusan-national-university-yangsan",
+  "name": "부산대학교 양산캠퍼스",
+  "site": "https://www.pusan.ac.kr",
+  "origin": "https://www.pusan.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "gyeongsang-national-university-chilam",
+  "name": "경상국립대학교 칠암캠퍼스",
+  "site": "https://www.gnu.ac.kr",
+  "origin": "https://www.gnu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "gyeongsang-national-university-tongyeong",
+  "name": "경상국립대학교 통영캠퍼스",
+  "site": "https://www.gnu.ac.kr",
+  "origin": "https://www.gnu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "kyungpook-national-university-sangju",
+  "name": "경북대학교 상주캠퍼스",
+  "site": "https://www.knu.ac.kr",
+  "origin": "https://www.knu.ac.kr",
+  "homeStatus": "200",
+  "robots": "none(404)",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "dong-a-university-bumin",
+  "name": "동아대학교 부민캠퍼스",
+  "site": "https://www.donga.ac.kr",
+  "origin": "https://www.donga.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "dong-a-university-gudeok",
+  "name": "동아대학교 구덕캠퍼스",
+  "site": "https://www.donga.ac.kr",
+  "origin": "https://www.donga.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "chonnam-national-university-yeosu",
+  "name": "전남대학교 여수캠퍼스",
+  "site": "https://www.jnu.ac.kr",
+  "origin": "https://www.jnu.ac.kr",
+  "homeStatus": "200",
+  "robots": "AI_BLOCKED",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "jeonbuk-national-university-iksan",
+  "name": "전북대학교 특성화캠퍼스",
+  "site": "https://www.jbnu.ac.kr",
+  "origin": "https://www.jbnu.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "NO_SOURCE"
+ },
+ {
+  "id": "yonsei-university-international",
+  "name": "연세대학교 국제캠퍼스",
+  "site": "https://www.yonsei.ac.kr",
+  "origin": "https://www.yonsei.ac.kr",
+  "homeStatus": "200",
+  "robots": "ok",
+  "cat": "SOURCE_DISABLED"
+ }
+]
