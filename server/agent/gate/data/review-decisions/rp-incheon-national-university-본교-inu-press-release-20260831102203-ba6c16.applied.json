@@ -1,0 +1,13 @@
+{
+  "reviewId": "rp-incheon-national-university-본교-inu-press-release-20260831102203-ba6c16",
+  "appliedAt": "2026-08-31T01:30:30.124Z",
+  "backupDir": "D:\\hhg(code)\\server\\agent\\data\\single-school-trial-backups\\20260831013030",
+  "saveResult": {
+    "savedCount": 3,
+    "totalCount": 871
+  },
+  "catalogChecksumAfter": {
+    "path": "D:\\hhg(code)\\development\\university-news\\data\\university-news-sources.final.json",
+    "sha256": "c93f696c7d4c3bfe5b94bf34d68c7bc281c80df6092bb35b858dc3d33062b603"
+  }
+}

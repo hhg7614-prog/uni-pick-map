@@ -5816,9 +5816,9 @@
           "datePolicy": {
             "prefer": "list"
           },
-          "verified": false,
-          "enabled": false,
-          "status": "selector_required",
+          "verified": true,
+          "enabled": true,
+          "status": "verified",
           "healthStatus": "unknown"
         }
       ],

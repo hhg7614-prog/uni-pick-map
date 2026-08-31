@@ -1,0 +1,22 @@
+{
+  "runId": "apply-20260831103030",
+  "startedAt": "2026-08-31T01:30:30.054Z",
+  "finishedAt": "2026-08-31T01:30:30.135Z",
+  "apply": true,
+  "stopOnFirstApplied": false,
+  "manualInterventionRequired": false,
+  "applied": [
+    {
+      "reviewId": "rp-incheon-national-university-본교-inu-press-release-20260831102203-ba6c16",
+      "saveResult": {
+        "savedCount": 3,
+        "totalCount": 871
+      },
+      "backupDir": "D:\\hhg(code)\\server\\agent\\data\\single-school-trial-backups\\20260831013030"
+    }
+  ],
+  "skipped": [],
+  "failed": [],
+  "targetUniversityCountBefore": 34,
+  "targetUniversityCountAfter": 35
+}

@@ -1,9 +1,36 @@
 {
   "version": 1,
   "createdAt": "2026-08-06T06:31:04.174Z",
-  "updatedAt": "2026-08-31T00:32:51.580Z",
-  "totalItems": 868,
+  "updatedAt": "2026-08-31T01:30:30.092Z",
+  "totalItems": 871,
   "items": [
+    {
+      "title": "인천대학교, 인문사회 집단연구 2개 국가사업 선정 체계적 집단연구 지원 ‘결실’",
+      "sourceUrl": "https://www.inu.ac.kr/bbs/inu/2594/429421/artclView.do",
+      "publishedAt": "2026-08-27",
+      "universityId": "incheon-national-university-본교",
+      "universityGroupId": "incheon-national-university-본교",
+      "category": "school_news",
+      "sourceId": "inu-press-release"
+    },
+    {
+      "title": "인천대 법학부, 초등학생 대상 「찾아가는 생활법률」 성료…참여 학교 확대 기대",
+      "sourceUrl": "https://www.inu.ac.kr/bbs/inu/2594/429340/artclView.do",
+      "publishedAt": "2026-08-26",
+      "universityId": "incheon-national-university-본교",
+      "universityGroupId": "incheon-national-university-본교",
+      "category": "school_news",
+      "sourceId": "inu-press-release"
+    },
+    {
+      "title": "인천강소연구개발특구사업단, 우즈베키스탄 정부·테크노파크 관계자 대상 특구 운영사례 공유",
+      "sourceUrl": "https://www.inu.ac.kr/bbs/inu/2594/429339/artclView.do",
+      "publishedAt": "2026-08-26",
+      "universityId": "incheon-national-university-본교",
+      "universityGroupId": "incheon-national-university-본교",
+      "category": "school_news",
+      "sourceId": "inu-press-release"
+    },
     {
       "id": "agent-d641823df6ef70d0",
       "universityId": "skku-university-insa",

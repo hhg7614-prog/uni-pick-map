@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "reviewId": "rp-incheon-national-university-본교-inu-press-release-20260831102203-ba6c16",
+  "reviewedAt": "2026-08-31T01:28:34.993Z",
+  "reviewedBy": "hhg",
+  "packetPathRead": "D:\\hhg(code)\\server\\agent\\gate\\data\\review-packets\\rp-incheon-national-university-본교-inu-press-release-20260831102203-ba6c16.json",
+  "packetSha256Recomputed": "2a04f6a16d6c19bdfd8de83a0b2cfd42fb5719a85afd842421eb51783aaf9b0c",
+  "verdict": "APPROVE",
+  "reasons": [
+    "Nara CMS 보도자료, robots 허용, diagnose 3/3 통과"
+  ],
+  "checkedItems": {
+    "robotsPolicyViolation": false,
+    "jsRuleUnverified": false,
+    "diagnoseFailed": false
+  },
+  "signature": {
+    "alg": "HMAC-SHA256",
+    "keyId": "437c5359ddabb702",
+    "value": "ec0d1176d784d8202bc7629f12c3ac233c59873fdede6d10c3b35999b2635205"
+  }
+}
