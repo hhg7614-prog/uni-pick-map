@@ -819,10 +819,12 @@
             "dateIndex": 3
           },
           "verified": true,
-          "enabled": true,
+          "enabled": false,
           "status": "verified",
           "healthStatus": "unknown",
-          "verifiedAt": "2026-08-18T06:19:32.824Z"
+          "verifiedAt": "2026-08-18T06:19:32.824Z",
+          "disabledReason": "robots.txt User-agent:* Disallow:/ (전체 크롤러 차단, 게시판 경로 미허용)",
+          "disabledAt": "2026-08-31"
         }
       ],
       "searchKeywords": [
@@ -921,10 +923,12 @@
             "date": "td.date"
           },
           "verified": true,
-          "enabled": true,
+          "enabled": false,
           "status": "verified",
           "healthStatus": "unknown",
-          "verifiedAt": "2026-08-18T06:13:04.339Z"
+          "verifiedAt": "2026-08-18T06:13:04.339Z",
+          "disabledReason": "robots.txt User-agent:* Disallow:/ (전체 크롤러 차단)",
+          "disabledAt": "2026-08-31"
         }
       ],
       "searchKeywords": [
@@ -1297,10 +1301,12 @@
             "dateIndex": 3
           },
           "verified": true,
-          "enabled": true,
+          "enabled": false,
           "status": "verified",
           "healthStatus": "unknown",
-          "verifiedAt": "2026-08-18T06:28:51.801Z"
+          "verifiedAt": "2026-08-18T06:28:51.801Z",
+          "disabledReason": "robots.txt에서 ClaudeBot 포함 AI 크롤러 그룹 Disallow:/ (프로젝트 robots 존중 정책)",
+          "disabledAt": "2026-08-31"
         }
       ],
       "searchKeywords": [
@@ -2652,9 +2658,11 @@
             "prefer": "list_row_date"
           },
           "verified": true,
-          "enabled": true,
+          "enabled": false,
           "status": "verified",
-          "healthStatus": "healthy"
+          "healthStatus": "healthy",
+          "disabledReason": "robots.txt User-agent:* Disallow:/ (전체 크롤러 차단)",
+          "disabledAt": "2026-08-31"
         }
       ],
       "searchKeywords": [
