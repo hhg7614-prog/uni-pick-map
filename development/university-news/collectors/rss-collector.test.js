@@ -210,3 +210,143 @@ test("rssCollector() return shape is unchanged", async () => {
   assert.deepEqual(Object.keys(result).sort(), ["finalUrl", "items", "status", "warnings"]);
   assert.equal(result.finalUrl, "https://www.example.ac.kr/rss/final.do");
 });
+
+// -----------------------------------------------------------------------
+// (nara-1) bare-text <link> Nara artclView form: missing `.do` + fake query
+//     string must be normalized to `.../artclView.do` before resolveUrl().
+// -----------------------------------------------------------------------
+
+test("(nara-1) bare-text <link> Nara artclView is normalized to /artclView.do", async () => {
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+  <item>
+    <title>인천대학교 공지 제목</title>
+    <link>https://www.inu.ac.kr/bbs/inu/2594/429421/artclView?layout=unknown</link>
+    <pubDate>Wed, 27 Aug 2026 09:00:00 +0900</pubDate>
+    <description>공지 요약</description>
+  </item>
+</channel></rss>`;
+
+  const source = makeSource({
+    rssUrl: "https://www.inu.ac.kr/bbs/inu/2594/rssList.do",
+    baseUrl: "https://www.inu.ac.kr",
+  });
+  const result = await rssCollector({
+    university: UNIVERSITY,
+    source,
+    limit: 10,
+    fetchImpl: fetchStub(xml, source.rssUrl),
+    collectedAt: FIXED_COLLECTED_AT,
+  });
+
+  assert.equal(result.status, "success");
+  assert.equal(result.items.length, 1);
+  assert.equal(
+    result.items[0].sourceUrl,
+    "https://www.inu.ac.kr/bbs/inu/2594/429421/artclView.do"
+  );
+  assert.equal(result.items[0].sourceUrl.endsWith("/artclView.do"), true);
+  assert.equal(result.items[0].sourceUrl.includes("?"), false);
+});
+
+// -----------------------------------------------------------------------
+// (nara-2) Atom <link href> attribute path is normalized too: both the
+//     attribute path and the tagValue fallback path pass through
+//     normalizeDetailLink().
+// -----------------------------------------------------------------------
+
+test("(nara-2) Atom <link href> Nara artclView is normalized to /artclView.do", async () => {
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <entry>
+    <title>인천대학교 아톰 공지</title>
+    <link href="https://www.inu.ac.kr/bbs/inu/2594/429999/artclView?layout=unknown" />
+    <updated>2026-08-27T09:00:00+09:00</updated>
+    <summary>아톰 요약</summary>
+  </entry>
+</feed>`;
+
+  const source = makeSource({
+    rssUrl: "https://www.inu.ac.kr/bbs/inu/2594/atom.do",
+    baseUrl: "https://www.inu.ac.kr",
+  });
+  const result = await rssCollector({
+    university: UNIVERSITY,
+    source,
+    limit: 10,
+    fetchImpl: fetchStub(xml, source.rssUrl),
+    collectedAt: FIXED_COLLECTED_AT,
+  });
+
+  assert.equal(result.status, "success");
+  assert.equal(result.items.length, 1);
+  assert.equal(result.items[0].sourceUrl.endsWith("/artclView.do"), true);
+  assert.equal(result.items[0].sourceUrl.includes("?"), false);
+});
+
+// -----------------------------------------------------------------------
+// (nara-3) Links already ending in `.do` are untouched (query string kept).
+// -----------------------------------------------------------------------
+
+test("(nara-3) link already ending in .do is left unchanged", async () => {
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+  <item>
+    <title>이미 정상인 링크</title>
+    <link>https://www.gnu.ac.kr/main/na/ntt/selectNttInfo.do?nttSn=1</link>
+    <pubDate>Wed, 27 Aug 2026 09:00:00 +0900</pubDate>
+    <description>요약</description>
+  </item>
+</channel></rss>`;
+
+  const source = makeSource({
+    rssUrl: "https://www.gnu.ac.kr/main/na/ntt/selectRssFeed.do",
+    baseUrl: "https://www.gnu.ac.kr",
+  });
+  const result = await rssCollector({
+    university: UNIVERSITY,
+    source,
+    limit: 10,
+    fetchImpl: fetchStub(xml, source.rssUrl),
+    collectedAt: FIXED_COLLECTED_AT,
+  });
+
+  assert.equal(result.status, "success");
+  assert.equal(result.items.length, 1);
+  assert.equal(
+    result.items[0].sourceUrl,
+    "https://www.gnu.ac.kr/main/na/ntt/selectNttInfo.do?nttSn=1"
+  );
+});
+
+// -----------------------------------------------------------------------
+// (nara-4) Unrelated absolute URLs (other path) are left unchanged.
+// -----------------------------------------------------------------------
+
+test("(nara-4) unrelated absolute URL is left unchanged", async () => {
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <entry>
+    <title>무관한 절대 URL</title>
+    <link href="https://news.example.ac.kr/atom/entry/1" />
+    <updated>2026-08-27T09:00:00+09:00</updated>
+    <summary>요약</summary>
+  </entry>
+</feed>`;
+
+  const source = makeSource({
+    rssUrl: "https://news.example.ac.kr/atom.xml",
+    baseUrl: "https://news.example.ac.kr",
+  });
+  const result = await rssCollector({
+    university: UNIVERSITY,
+    source,
+    limit: 10,
+    fetchImpl: fetchStub(xml, source.rssUrl),
+    collectedAt: FIXED_COLLECTED_AT,
+  });
+
+  assert.equal(result.status, "success");
+  assert.equal(result.items.length, 1);
+  assert.equal(result.items[0].sourceUrl, "https://news.example.ac.kr/atom/entry/1");
+});

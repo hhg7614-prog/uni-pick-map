@@ -20,9 +20,15 @@ function tagValue(xml, names) {
   return "";
 }
 
+// Nara Info CMS RSS <link> 보정: `.do` 접미사가 빠지고 가짜 쿼리스트링이 붙은
+// `.../artclView` 링크를 정상 `.../artclView.do`로 재작성한다(대소문자 보존).
+function normalizeDetailLink(value) {
+  return String(value || "").replace(/(\/artcl[Vv]iew)(\?[^#]*)?$/, "$1.do");
+}
+
 function linkValue(xml) {
   const attributeLink = xml.match(/<link[^>]+href=["']([^"']+)["'][^>]*>/i);
-  return attributeLink ? attributeLink[1] : tagValue(xml, ["link"]);
+  return normalizeDetailLink(attributeLink ? attributeLink[1] : tagValue(xml, ["link"]));
 }
 
 function extractEntries(xml, tag) {
