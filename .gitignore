@@ -31,7 +31,14 @@ server/agent/onboarding/data/onboarding-batch-state.json
 server/agent/onboarding/data/onboarding-push-retry-queue.json
 server/agent/onboarding/data/onboarding-smart-retry-queue.json
 server/agent/onboarding/data/onboarding-smart-retry-state.json
-server/agent/onboarding/reports/
+server/agent/onboarding/reports/*
 server/agent/onboarding/backups/
 development/university-news/data/*.prepare-backup.*
 server/agent/onboarding/data/catalog-prepare-log.json
+
+# discover-nara-cms-batch run artifacts (report/state) -- keep only the reports
+# directory placeholder tracked (AGENTS.md §6: run artifacts stay out of source)
+!server/agent/onboarding/reports/nara-cms-batch/
+server/agent/onboarding/reports/nara-cms-batch/*
+!server/agent/onboarding/reports/nara-cms-batch/.gitkeep
+server/agent/onboarding/data/nara-cms-batch-state.json*
