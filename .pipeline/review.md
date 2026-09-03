@@ -1,251 +1,149 @@
 # 검토 요약
 
-`discover-nara-cms-batch` (`/ship` 최종 검토).
+`discover-nara-cms-batch.js`의 Nara CMS 탐지·게시판 선택 개선 라운드(다중 시그널
+탐지 §A, sitemap 기반 게시판 발견+nav 폴백 §B, 커밋 전 후보별 실검증 §C,
+request budget 8→18+90s 상한 §E, `--retry-decisions` 플래그 §G)를 spec.md /
+changes.md / test-results.md 및 실제 git diff, 실행 재현을 통해 검토했다.
 
-- 대상: `server/agent/onboarding/tools/discover-nara-cms-batch.js` (신규),
-  `discover-nara-cms-batch.test.js` (신규), `reports/nara-cms-batch/.gitkeep` (신규),
-  `.gitignore` (수정).
-- Reviewer 재검증: `node --check` 2건 통과, 타깃 테스트 25/25 통과,
-  `npm test` **334 pass / 0 fail** (직접 실행 확인), 회귀 0.
-- `git status`: 코드 3파일 + `.gitignore` + `.pipeline/*` 문서만. 예상 밖 변경 없음.
-- 재사용 모듈(`rss-collector.js`, `run-single-school-trial.js`,
-  `prepare-catalog-source-block.js`, `build-review-packet-from-diagnose.js`,
-  screening 모듈) **git diff 완전 무변경** — import 만 함.
-- F1(클라이언트 리다이렉트 추적)·F2(`detectNaraCms` host 교차검증) 코드 확인 결과
-  실제로 수정됨.
-
-판정: **승인**. 단, 아래 잔여 위험(중 1건)을 다음 라운드에서 다룰 것.
-
----
+spec.md는 사용자 원문 요구 5개 항목·제약·완료 기준을 코드 위치까지 구체화해
+충실히 반영했다. changes.md의 구현은 spec §A~§G와 라인 단위로 대조한 결과
+정확히 일치했다(직접 diff 확인). test-results.md의 검증도 Coder 주장을 그대로
+베끼지 않고 코드 대조 + `node --test`/`npm test` 독립 재실행 + 완료 기준 1/2/
+2-보조의 실측 네트워크 재현까지 수행한 것으로 판단된다(본 Reviewer도 동일
+명령을 독립적으로 재실행해 41/41, 350/350을 재확인했고, fullscan2.json
+베이스라인의 daegu/sehan/hallym/kongju 레코드를 직접 조회해 Tester의 주장과
+정확히 일치함을 확인했다).
 
 # 요구사항 확인
 
-## 사용자 최초 요구사항
+## 1. spec.md의 사용자 요구 반영 타당성
 
-Nara Info CMS 대학을 자동 선별 → 뉴스/공지 게시판 RSS 발견·검증 → **활성화 없이**
-게이트 패킷(B1 카탈로그 enabled:false 삽입 + B2 review-packet) 생성하는 배치 도구.
-→ 구현됨. "만들 것 1~9" 전부 코드에 존재(선정 필터, Nara 탐지, boardId 추출,
-RSS 검증, robots path 판정, 메모리 내 preflight, candidates append + B1 + B2,
-리포트, 상태파일/`--resume`).
-
-## spec.md 완료 기준 체크리스트 (L477-494)
-
-| 기준 | 결과 |
-| --- | --- |
-| `node --check` (도구) | 통과 (재확인) |
-| `node --check` (테스트) | 통과 (재확인) |
-| `node --test` 도구 테스트 전부 통과 | 통과 — 25/25 |
-| `npm test` 기존 309 + 신규, 회귀 0 | 통과 — 334 pass / 0 fail (Reviewer 직접 실행) |
-| 실측 시연 1 — 라이브 `PACKET_CREATED` + review-packet 1개 | **N/A — 외부요인(Nara `rssList.do` 가 inu 외 전 대학 비활성), 사용자 수용, 통합 테스트 #18c 로 커버** |
-| 실측 시연 2 — 실패 대학 1건+ 분류·리포트 | 통과 — 117곳 스캔에서 NOT_NARA_CMS/DIAGNOSE_FAILED/ROBOTS_BLOCKED/ERROR/SOURCE_ALREADY_EXISTS 분류·기록 |
-| `--limit=10 --dry-run` — 상태·리포트 생성, 카탈로그 diff 0 | 통과 (dry 시 카탈로그 4파일 SHA1 불변, mutation 전부 false) |
-| 단위 테스트 — 필터/탐지/boardId/robots/집계/상태·resume, 오프라인 | 통과 — 25 test, 완전 오프라인(fetch/now/random/sleep 주입) |
-| 산출물이 candidates append + B1 enabled:false + B2 로 국한, enabled:true/store/preview/git/deploy 0 | 통과 (코드 경로 확인 + 라이브 SHA1 불변) |
-| git push / 배포 미실행 | 통과 |
-
-## 제약(AGENTS.md) 준수
-
-- **§1 스코프**: "UNI PICK work → Source activation and source-quality tools"
-  안. 읽기 전용 발굴 + 게이트 패킷. 범위 내.
-- **§3**: 활성화/수집/프리뷰/배포가 별도 게이트로 분리 유지됨. 도구는 B1/B2
-  게이트 앞단까지만.
-- **§4**: 코더 핸드오프(changes.md)에 파일 경로·검증 결과 기재. Reviewer 재검증 완료.
-- **§5**: `node --check` + 타깃 테스트 + `npm test` 전부 실행·통과.
-- **§6**: 런 리포트/상태/백업을 `.gitignore` 로 소스 밖에 둠. `.gitkeep` 만 추적.
-
----
+- 만들 것 1-5(다중 시그널, sitemap 기반 발견+nav 폴백, 커밋 전 검증, budget
+  8→18, `--retry-decisions`)를 §A~§G에 정확히 대응시켰다.
+- **인천대 SOURCE_ALREADY_EXISTS 문제 → 스크래치 사본 방식**: 타당하다.
+  인천대는 이미 `inu-press-release` 소스를 보유해 실제 파이프라인이
+  `SOURCE_ALREADY_EXISTS`로 즉시 반환하는 것이 정상 동작(중복 방지)이며,
+  이를 우회하려고 실제 코드 로직을 바꾸는 대신 `runBatch()`가 이미 받는
+  `catalogFile`/`candidatesFile`/`stateFile`/`reportDir` 옵션을 스크래치
+  디렉터리로 격리해 시연한 것은 "새 CLI 플래그 추가 금지" 원칙과 부합하는
+  합리적 선택이다. 운영 카탈로그는 read-only로 유지됐다(diff 0 확인).
+- **완료 기준 2의 대구대 재선정 근거**: fullscan2.json을 직접 조회해
+  `kongju-national-university-본교`/`gangneung-wonju-national-university-*`가
+  이미 `DIAGNOSE_FAILED`(isNara 이미 true)였지 `NOT_NARA_CMS`가 아니었다는
+  Planner의 판단이 정확함을 확인했다. `daegu-university-본교`가 실제
+  `NOT_NARA_CMS`/`no_nara_pattern`이었다는 것도 fullscan2.json에서 확인했다.
+  다만 이 대상 선정의 최종 전제("기존 단위 테스트 픽스처가 실제 Nara CMS
+  가능성을 시사한다")는 실측 결과 틀린 것으로 드러났다(§3 참고) — 이는 아래
+  "문제점"에서 별도로 다룬다.
 
 # 테스트 결과
 
-- 오프라인: `node --check` ×2 통과. `node --test discover-nara-cms-batch.test.js`
-  → **25 pass / 0 fail**. `npm test` → **334 pass / 0 fail** (Reviewer 직접 실행,
-  test-results.md 의 334 와 일치).
-- 회귀: 309 → 334 (+25 신규). 인접 스위트(prepare-catalog-source-block,
-  build-review-packet-from-diagnose) 무변경·통과.
-- 테스트 품질:
-  - spec "테스트 계획" 표 20개 항목 + F1/F2 확장(#4 cross-host, #4b
-    `extractClientRedirect`, #18c/#18d 리다이렉트 통합) 커버.
-  - 헬퍼는 픽스처 + 주입(fetch=Map 스텁, now/random/sleep 고정)으로 오프라인 검증.
-  - **#18c 는 `runBatch` 의 실제 `PACKET_CREATED` 쓰기 경로 통합 테스트**:
-    루트 URL 이 meta-refresh+JS 스텁 → 1-hop 추적 → Nara 탐지 → 게시판 발견 →
-    preflight 통과 → `appendCandidateAtomic` 실행 → `b1Impl` 1회(`sourceId`
-    정확) → `b2Impl` 1회(`skipNpmTest:true` + 동일 `regressionEvidence`) →
-    `PACKET_CREATED` + `homeResolvedUrl` 기록 + `requestCount <= 8`. B1/B2
-    **내부**는 스텁이지만 오케스트레이션·후보파일·리포트·상태 쓰기는 실제 실행.
-- 라이브: Phase 1 큐 117곳 전수 dry 스캔 → 패킷 0건. 원인은 코드 결함이 아니라
-  Nara `rssList.do` 가 대학들에서 꺼져 있음(`"This board unsupportable RSS
-  function"`). 도구는 이를 정확히 `DIAGNOSE_FAILED(rss_invalid)` 로 분류.
-  살아있는 `inu` 피드(40 items)가 해피패스의 정황 증거.
-
----
+- `node --check` 양쪽 파일 OK(Reviewer 재실행 확인).
+- `node --test discover-nara-cms-batch.test.js` → **41/41 pass**(Reviewer
+  독립 재실행으로 일치 확인).
+- `npm test` → **350/350 pass**(Reviewer 독립 재실행으로 일치 확인).
+- 완료 기준 1(인천대 스크래치 시연): PACKET_CREATED, site=inu, boardId=2594,
+  detectionSignals.isNara=true, reviewId 채워짐 — changes.md/test-results.md
+  보고와 일치. 생성된 review-packet 잔여 파일은 정리됐고(`git status`/
+  `ls`로 확인, Aug 31 기존 커밋 파일만 남아 있고 이번 라운드 생성분은 없음),
+  스크래치 카탈로그/상태 파일은 저장소 밖(OS temp)에만 존재.
+- 완료 기준 2(대구대): spec 지정 대상으로는 재현 불가(NOT_NARA_CMS 그대로).
+  대체 대상(세한대/한림대)으로 취지 실증. fullscan2.json에서 세 대학 모두
+  베이스라인 `NOT_NARA_CMS`/`no_nara_pattern`이었음을 Reviewer가 직접
+  재확인.
+- 완료 기준 2-보조(공주대): `DIAGNOSE_FAILED`, `boardId=null`(옛 코드의
+  `2134` 고정 커밋과 다름), `reason`에 `no_valid_board_found` 명시.
+  fullscan2.json 베이스라인(`boardId:"2134"`, `reason:"rss_invalid:items<2"`)
+  과 대조해 개선을 확인. `tried=1`로 OR 조건 중 `boardId!=="2134"` 항만
+  충족(`failures.length>1`은 미충족) — 실제 사이트 구조(nav 후보 1개뿐)에
+  기인하며 코드 결함이 아니라는 Tester 판단이 타당하다.
 
 # 문제점
 
-## 명백한 오류 / 안전 문제
+1. **완료 기준 2가 spec 지정 정확한 대상(대구대)으로 재현되지 않음**
+   (`server/agent/onboarding/tools/discover-nara-cms-batch.js` 자체 결함
+   아님, `.pipeline/spec.md` "가정/결정 3"의 전제 오류). 근본 원인은 spec
+   작성 시점에 라이브 네트워크 접근 없이 기존 단위 테스트의 **합성
+   픽스처**(`www.daegu.ac.kr/bbs/daegu/123/artclList.do`, 실제로는
+   cross-host 판정 테스트용으로 만든 가상 URL)를 실제 사이트 구조의
+   근거로 오인한 것이다. Reviewer가 테스트 파일 230-241행을 직접 확인해
+   이 픽스처가 실제 대구대 사이트 캡처가 아닌 합성 데이터임을 재확인했다.
+   → 이는 문서(spec.md)의 사실 오류이지 이번 라운드가 구현한 코드의
+   버그가 아니다. 코드는 세한대/한림대에서 정확히 의도대로 동작했다.
+2. **완료 기준 2-보조의 `tried=1`**: spec 문구가 요구한 "여러 후보를 실제로
+   시도했다는 증거(`failures.length > 1`)"는 공주대 실측에서 충족되지
+   못했다(OR 조건의 다른 절로만 통과). 실제 원인(공주대 nav 후보가 라벨
+   매칭 기준 1개뿐, sitemap은 200이지만 K2WebWizard 오류 페이지라 0개
+   추출)도 Tester가 직접 조사해 코드 결함이 아님을 확인했고, 오프라인
+   단위 테스트 N7(b) 케이스가 "여러 후보 재시도" 시나리오 자체는 별도로
+   견고하게 커버하고 있어 리스크는 낮다.
+3. **§B sitemap 경로가 실전에서 잘 안 쓰임**(위험 요소, 결함 아님): 인천대/
+   공주대 실측 모두 최종적으로 nav 폴백으로 귀결됐다. `extractSitemapMenuEntries`
+   정규식이 실제 대학 sitemap 마크업(중첩 구조 등)과 안 맞을 가능성이 있다는
+   점을 spec "가정/결정 4"가 이미 명시했고, 예외 처리(자동 nav 폴백)도 정상
+   동작하므로 파이프라인이 막히지는 않는다. 다음 라운드에서 표본을 더 모아
+   정규식을 보정할 필요가 있다는 코멘트는 타당하나 이번 라운드 승인 여부와는
+   무관하다.
+4. **경미한 문서/재현 노이즈**(코드 결함 아님): spec.md의 완료 기준 1 예시
+   커맨드 중 `regressionEvidence.npmTestSummary` placeholder 문자열이 B2의
+   패턴 검증(`/\bfail\s+[1-9]/` 부재 요구)에 걸려 그대로 실행하면 실패한다는
+   점을 Coder/Tester가 공통으로 발견하고 실제 npm test 요약 문자열로
+   대체해 우회했다. 코드 수정 없이 검증 커맨드 문서만의 문제이므로 다음
+   spec 갱신 시 예시를 고쳐두면 된다.
 
-없음. 구체적으로 확인한 것:
+요청하지 않은 변경 여부: `boardSource`(sitemap/nav/null) 필드와
+`detectionSignals` 필드가 base 스키마에 추가됐으나, spec §F 8단계와 N16
+요구사항이 "결과 필드로 확인"하라고 명시적으로 요청한 투명성 필드이며 기존
+스키마 필드는 전혀 제거·변경되지 않았다 — 범위를 벗어난 변경이 아니다.
+그 외 사용자가 요청하지 않은 기능 추가나 무관한 리팩터링은 발견되지 않았다.
 
-1. **부수효과 억제 (코드 경로 확인, 리포트 신뢰 아님)**
-   - `buildCandidateSource` 가 `enabled:false`, `verified:false`,
-     `status:"collector_config_candidate"` 를 **하드코딩**. enabled:true 생성 경로 없음.
-   - `agent-news-store.json` / `university-news-preview.json` / `git` / `deploy` /
-     `exec`·`spawn` **참조 0건** (grep 확인). npm test 서브프로세스는 재사용 모듈
-     `build-review-packet-from-diagnose.js` 안에서만, 증거 수집 목적.
-   - 카탈로그 쓰기는 `b1Impl`(기본 `prepareCatalogSourceBlock`) 경유만. 도구가
-     `catalogFile` 을 직접 write 하는 코드 없음. `PACKET_CREATED`/
-     `DIAGNOSE_FAILED_POST_B1` 후 `catalogFile` 을 다시 **읽기**만 함(메모리 갱신).
-   - `--dry-run`: `processUniversity` 가 실쓰기 블록 이전에
-     `PACKET_CREATED_DRYRUN` 으로 조기 반환(L1184). `appendCandidateAtomic`/b1/b2
-     호출 0회. `regressionEvidence`(npm test)도 수집 안 함. 리포트/상태만 기록.
-     테스트 #18b 로 검증.
-2. **재사용 모듈 무수정**: `git diff` 상 `rss-collector.js`,
-   `run-single-school-trial.js`, `prepare-catalog-source-block.js`,
-   `build-review-packet-from-diagnose.js`, `robots-group-parser.js`,
-   `screen-selector-required-sources.js` 전부 변경 없음.
-3. **B2 배치 사용**: `collectRegressionEvidence` 는 `runBatch` 에서 루프 이전
-   **1회만** 호출(L1313), `!dryRun && !regressionEvidence && selected.length`
-   가드. 실패 감지(`/\bfail\s+[1-9]/`) 시 candidates/B1/B2 이전에 throw.
-   각 `b2Impl` 호출에 `skipNpmTest:true` + 공용 `regressionEvidence` 전달(L1234).
-4. **F1 `extractClientRedirect`**: 보수적.
-   - meta-refresh 는 브라우저 지시라 신뢰하되 `본문≥600자 && <a>≥5개` 면 무시.
-   - JS `location.*` 는 `본문<400자 && <a>≤3개` 얇은 스텁일 때만 신뢰.
-   - `safeOrigin(redirectTarget)` 로 파싱 가능한 목적지만 추적.
-   - **1-hop 한정**: 따라간 페이지가 또 스텁이면
-     `NOT_NARA_CMS(redirect_loop_or_double_stub)`.
-   - host/origin 은 따라간 최종 URL(`finalHomeUrl`) 기준으로 재계산(L1036,
-     L1049-1050). 오탐으로 엉뚱한 페이지에 갈 위험 낮음.
-5. **F2 same-host 체크**: `sameUniversityHost` 가 `www.` 정규화 후 **정확히
-   일치**만 인정. `lib.daegu.ac.kr` 같은 형제 서브도메인 탈락. 상대 경로 href 는
-   같은 host 로 간주. 근거 타당(Nara `/bbs/` 는 메인 host 서빙, 우리가 만드는
-   rssUrl 도 해결된 홈 host 기준이므로 다른 host 증거는 어차피 잘못된 rssUrl).
-6. **`DIAGNOSE_FAILED_POST_B1` 무롤백** (사용자 Q8 승인): B1 통과 후 B2 실패 시
-   candidates + 카탈로그 항목을 남기고 `finalDecision` + `b2Reasons` 로 리포트
-   기록. 남는 카탈로그 항목은 `enabled:false / verified:false /
-   status:"collector_config_candidate"` — inert. spec §B/§J·changes.md 에 명기됨.
-7. **`.gitignore`**: `git check-ignore` 로 확인 —
-   `.gitkeep` 추적 가능 / 런 `*.json` 무시 / `reports/source-247/foo.json` 여전히
-   무시(회귀 없음) / `nara-cms-batch-state.json(.bak)` 무시. `reports/` →
-   `reports/*` 변경 근거 정확: 디렉터리 통짜 무시(`reports/`)는 중첩 negation 으로
-   재포함 불가하므로 `reports/*` 로 바꿔야 `!.../nara-cms-batch/` 가 먹힌다.
-   현재 `reports/` 하위에 추적 중인 파일 없음(`git ls-files` 빈 결과) → 무해.
-   신규 추적 대상은 `.gitkeep` 하나뿐(`git status` 확인).
-
-## 요청하지 않은 변경
-
-없음. `.pipeline/spec.md` 의 modified 표시는 Planner 산출물로 이번 코드 커밋과
-분리. 그 외 전부 spec 범위 내.
-
-## 개선 권고 (비차단)
-
-- **요청 예산**: `maxRequests=8` 유지. 최악(리다이렉트 hop + subview 크롤 3 +
-  상세 3 = 10) 초과 시 `runPreflight` 의 per-item catch 가 `detail_fetch_failed`
-  로 처리(B1 이전, 부분 쓰기 없음). **그러나** 그 결과가
-  `DIAGNOSE_FAILED`(종결 결정)이면 `--resume` 재시도 대상이 아니다
-  (resume 은 `ERROR` 만 재처리). 예산 때문에만 막힌 대학이 영구 오분류될 수 있음.
-  → 권고: `maxRequests` 를 10 으로 상향(전부 B1 이전이라 안전) **또는** 예산
-  소진을 `DIAGNOSE_FAILED` 가 아닌 `ERROR` 로 반환. 현재 라이브 산출 0건이라
-  머지 조건은 아님. 다음 라운드.
-- 리포트 `mutation` 플래그가 B1 카탈로그 삽입 시에도 전부 `false`. spec §H
-  정의(= "위험 변형 안 함")에는 부합하나, "아무것도 안 씀"으로 오독될 수 있음.
-  향후 `catalogCandidateInserted` 같은 별도 불리언 추가 검토.
-- `location=...` 정규식이 얇은 스텁 한정이지만 `mylocation="..."` 부분 매칭
-  가능성 이론상 존재(본문<400자·링크≤3 게이트로 확률 낮음).
-
----
+AGENTS.md/제약 위반 여부: `git diff --stat`으로 `rss-collector.js`,
+`run-single-school-trial.js`, `prepare-catalog-source-block.js`,
+`build-review-packet-from-diagnose.js`, `server/agent/gate/*`,
+`server/agent/screening/*`, `universities.js`, `server/agent/data/agent-news-store.json`,
+`data/university-news-preview.json`, 운영 카탈로그(`university-news-sources.final.json`)
+전체에 diff 0임을 Reviewer가 직접 재확인했다. `enabled:true` 전환, store/
+preview 직접 쓰기, git commit/push, 배포는 전혀 실행되지 않았다(`git log`
+HEAD 그대로, `git status`도 의도한 5개 파일만 modified).
 
 # 최종 판정
-
 승인
-
----
 
 # 판정 이유
 
-- **필수 조건 충족**: `node --check` ×2, 타깃 테스트 25/25, `npm test`
-  334/334(회귀 0), 오프라인 단위/통합 테스트, `--dry-run` 무쓰기, git/deploy
-  미실행 — 전부 Reviewer 가 직접 재확인.
-- **안전성**: 부수효과 억제를 리포트가 아니라 **코드 경로**로 확인했다.
-  enabled:false 하드코딩, store/preview/git/deploy 참조 없음, 카탈로그는 B1
-  경유만, `--dry-run` 은 실쓰기 블록 이전 조기 반환. 재사용 모듈은 `git diff`
-  상 완전 무변경.
-- **F1/F2 진짜 수정됨**: `extractClientRedirect`(보수적 1-hop, 최종 URL 기준
-  host 재계산)와 `sameUniversityHost`(정확 일치) 코드 확인 + 테스트 #4/#4b/
-  #18c/#18d + Tester 라이브 확인.
-- **완료 기준 "라이브 PACKET_CREATED" 1건 미달은 N/A**: 원인이 도구 결함이
-  아니라 외부요인(Nara `rssList.do` 가 inu 외 전 대학 비활성)이며, 사용자가
-  RSS-only 경로로 as-is 머지를 명시 결정했다. 해당 쓰기 경로는 통합 테스트
-  #18c(오케스트레이션·후보·리포트·상태는 실제 실행, B1/B2 내부만 스텁) +
-  독립적으로 통과하는 B1/B2 자체 스위트 + 살아있는 inu 피드로 커버된다.
-- **잔여 위험은 전부 낮음~중간이고 비차단**: 최고 위험(라이브 B1/B2 end-to-end
-  미검증)도 B1/B2 모듈이 무변경·독립 테스트되고 inu 수동 선례(커밋 1ca360e)로
-  한 번 완주된 바 있어 수용 가능. 요청 예산 건은 다음 라운드 권고.
+spec.md → changes.md → test-results.md 세 문서가 서로 정합적이고, 실제
+코드(diff)와 대조한 결과 spec §A~§G 요구사항이 정확히 구현돼 있음을 직접
+확인했다. 단위 테스트(N1~N16 + 기존 #14/#18c/#18d 수정분)는 형식적 통과용이
+아니라 실제 회귀 방지력을 갖는다 — 특히 N7(첫 통과/재시도/전부 실패 3분기),
+N9/N10(budget 경계값), N14/N15(4-hop 경계), N16(sitemap/nav 분기)은 이번
+라운드가 고치려는 두 근본 원인(단일 시그널 오탐, 빈 게시판 재시도 없이 확정)을
+정확히 겨냥한 케이스다. `node --check`/`node --test`(41/41)/`npm test`
+(350/350)를 Reviewer가 독립적으로 재실행해 모두 일치함을 확인했고, 금지
+파일 무변경과 커밋/배포 없음도 git으로 직접 재확인했다.
 
----
+완료 기준 2가 spec이 지정한 정확한 대상(대구대)으로는 재현되지 않지만, 이는
+spec.md 자체의 가정 오류(라이브 데이터 검증 없이 합성 테스트 픽스처를
+근거로 대상을 선정)에서 비롯된 것이지 코드 결함이 아니다. Reviewer가 직접
+fullscan2.json 베이스라인과 테스트 픽스처 원문을 조회해 이 원인 분석이
+사실임을 검증했다. 코드는 세한대·한림대라는 실제 라이브 사례에서 의도한
+전환(NOT_NARA_CMS → isNara=true)을 정확히 재현했으며, Tester도 이 사실을
+투명하게 기록하고 "부분통과(취지 충족)"로 명확히 표시했다. 완료 기준
+2-보조의 `tried=1` 역시 OR 조건의 다른 절로 통과했고 원인이 코드가 아닌
+실제 사이트 구조임이 확인됐다. 두 사안 모두 "코드 품질과 무관한 문서상
+이슈"로 분류하는 것이 타당하며, 승인을 막을 만한 결함으로 보지 않는다.
 
-# 잔여 위험 (심각도순)
+# 사용자가 직접 확인해야 할 사항
 
-1. **[중] 라이브 B1/B2 쓰기 경로가 end-to-end 로 한 번도 실행되지 않음.**
-   preflight 통과 대학이 라이브 큐에 0곳이라 `appendCandidateAtomic` →
-   `prepareCatalogSourceBlock` → `buildReviewPacketFromDiagnose` 실호출·
-   카탈로그 enabled:false 삽입 diff·review-packet 파일 생성·
-   `DIAGNOSE_FAILED_POST_B1` 무롤백이 전부 스텁 커버. 완화: B1/B2 무변경·독립
-   테스트 통과, inu 수동 선례 존재. 첫 실제 비-inu 통과 대학에서 육안 확인 필요.
-2. **[낮~중] 예산 소진발 `DIAGNOSE_FAILED` 는 `--resume` 재시도 안 됨.**
-   위 "개선 권고" 참고. `maxRequests` 10 상향 또는 예산소진→`ERROR` 반환 권고.
-3. **[낮] `extractClientRedirect` 보수 게이트의 false negative.** "살찐 스플래시"
-   (JS 리다이렉트 + 두꺼운 인트로)를 안 따라감. hanbat 에서 관찰(비-Nara,
-   무해). 동형 스플래시 쓰는 진짜 Nara 대학이 있으면 조용히 `NOT_NARA_CMS`.
-4. **[낮] `location=` 정규식 부분 매칭 가능성** (얇은 스텁 게이트로 확률 낮음).
-5. **[낮] 리포트 `mutation` 플래그가 B1 삽입 시에도 전부 false** — spec 정의엔
-   부합하나 오독 소지.
-6. **[정보] 도구의 Phase 1 큐 라이브 산출량 = 0건.** Nara RSS 가 inu 외 전부
-   꺼져 있음. 사용자가 as-is 머지 결정. HTML-list 폴백은 별도 라운드.
-
----
-
-# 요청 예산(≤8) 권고
-
-**머지 조건 아님.** 근거:
-- 예산 초과는 전부 B1 이전(preflight) 단계 → 부분 쓰기·크래시 없음.
-- Tester 관찰상 "오직 예산 때문에" 막힌 `PACKET_CREATED` 는 0건(예산 초과
-  케이스는 전부 `university_name_mismatch` 등 다른 실패 동반).
-- 알려진 유일한 해피패스(inu)는 홈(1)+리다이렉트(1)+nav 직접링크(subview 0)+
-  robots(1)+rss(1)+상세(3) = **7 ≤ 8** 로 예산 안에 들어옴.
-- spec 이 "대학당 최대 ~8"(틸드)로 명시.
-
-**다음 라운드 권고**: `maxRequests` 를 10 으로 올리고(전부 B1 이전이라 안전),
-예산 소진을 `DIAGNOSE_FAILED`(종결·resume 제외) 대신 `ERROR`(resume 재시도)
-로 반환. RSS 폴백 라운드와 함께 처리.
-
----
-
-# 커밋 계획 (main 위, **미실행** — 사용자 명시 요청 시에만)
-
-라이브 런 산출물(리포트/상태/백업)은 전부 `.gitignore` 대상이라 수동 제외 불필요.
-`git status` 확인 결과 스테이징 대상은 아래 6개 파일뿐.
-
-## 커밋 1 — 코드
-
-```
-feat(onboarding): Nara Info CMS 배치 발굴 도구(discover-nara-cms-batch) — B1+B2 게이트 패킷, 활성화 없음
-```
-
-```
-git add server/agent/onboarding/tools/discover-nara-cms-batch.js
-git add server/agent/onboarding/tools/discover-nara-cms-batch.test.js
-git add server/agent/onboarding/reports/nara-cms-batch/.gitkeep
-git add .gitignore
-```
-
-## 커밋 2 — 파이프라인 기록
-
-```
-docs(pipeline): discover-nara-cms-batch spec/changes/test-results/review 기록
-```
-
-```
-git add .pipeline/spec.md .pipeline/changes.md .pipeline/test-results.md .pipeline/review.md
-```
-
-git push / 배포 없음. 데이터 산출물(candidates append·카탈로그 삽입·review-packet)은
-이번 라운드에 생성된 것이 없으므로 커밋 대상 없음.
+1. `.pipeline/spec.md`의 완료 기준 2가 실측상 재현 불가능한 대상
+   (`daegu-university-본교`)을 지정하고 있다는 점을 인지하고, 다음 라운드
+   진행 전에 spec.md의 이 항목을 세한대/한림대 등 실측 확인된 대상으로
+   갱신할지 결정이 필요하다(코드 변경 불필요, 문서만 수정하면 됨).
+2. 이번 라운드는 대구대/세한대/한림대/공주대에 대해 실제 운영 카탈로그를
+   전혀 변경하지 않았다(전부 `--dry-run` 또는 스크래치 사본). 실제로 이
+   대학들을 운영 파이프라인에 태워 후보를 등록하려면 사용자가 별도로
+   `--limit=N`(운영 경로) 실행을 명시적으로 요청해야 한다.
+3. §B(sitemap 기반 게시판 발견)가 실전 2개 표본(인천대/공주대) 모두에서
+   최종적으로 nav 폴백으로 귀결됐다는 점 — 파이프라인은 정상 동작하지만
+   "sitemap 우선" 효과가 아직 실증되지 않았다. 다음 라운드에서 실제
+   sitemap 마크업 샘플을 더 수집해 `extractSitemapMenuEntries` 정규식을
+   보정할 필요가 있어 보인다(이번 승인과는 무관한 개선 여지).

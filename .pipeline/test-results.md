@@ -1,323 +1,350 @@
-# 테스트 요약 (F1/F2 수정 라운드 재검증)
+# 테스트 요약
 
-Coder 가 F1(클라이언트측 리다이렉트 추적)·F2(`detectNaraCms` 호스트 교차검증)를
-수정했다. 재검증 결과:
+`discover-nara-cms-batch.js`/`.test.js` 변경분을 spec.md/changes.md 대비 코드
+직독 + 직접 재실행(정적 검사, 단위 테스트, 전체 회귀, 완료 기준 1/2/2-보조 실측
+재현)으로 검증했다. spec.md §A~§G 요구사항이 실제 코드에 그대로 구현돼 있고,
+changes.md 가 보고한 수치(node --check OK, node --test 41/41, npm test 350/350,
+완료 기준 1/2/2-보조 실측 결과)를 전부 독립적으로 재현해 일치를 확인했다.
+변경 범위(이 두 파일만)와 "절대 건드리지 않음" 목록도 git status/diff 로
+위반 없음을 확인했다. 발견된 결함(코드 버그) 없음. 한 가지 경미한 관찰 사항
+(§B sitemap 경로가 실전에서는 nav 폴백보다 덜 채택됨, "완료 기준 2-보조"의
+`tried>1` 조건 미충족 등)은 changes.md 가 이미 투명하게 밝힌 것과 일치하며
+완료 기준 자체는 OR 조건으로 통과.
 
-- **F1: 해결됨.** 홈 fetch 후 meta-refresh / `location.*` 스텁을 1회 따라가고
-  `homeResolvedUrl` 을 기록한다. 이전 라운드에 전부 `NOT_NARA_CMS(no_nara_pattern)`
-  로 끝나던 kongju·gwnu·inu·donga·gangseo 등이 이제 실제 홈으로 넘어가
-  Nara 탐지·게시판 발견까지 도달한다. Phase 1 큐 117곳 전수 스캔에서
-  `DIAGNOSE_FAILED` 가 1 → 16 으로 늘었다(= 더 깊은 단계까지 진입).
-- **F2: 해결됨.** `www.daegu.ac.kr` 홈이 `lib.daegu.ac.kr/bbs/` 링크를 포함해도
-  `detectNaraCms` 가 이제 `isNara:false` (cross-host `/bbs/` 증거 불인정). 라이브
-  확인 + 단위 테스트 #4 확장 커버.
-- **오프라인 검증: 전부 통과.** targeted 25/25, `npm test` 334/334 (2회 결정적),
-  회귀 0 (309 + 25 = 334).
-- **`.gitignore`: 정상.** `.gitkeep` stageable, 런 리포트/상태 JSON 무시,
-  `reports/source-247/` 회귀 없음.
-- **부수효과 억제: 통과.** 약 10회 실행(비-dry 5회 포함) 후 catalog / candidates /
-  agent-news-store / preview SHA1 전부 불변. `catalog-prepare-log.json` mtime
-  불변(B1 미실행). review-packet 0개. 백업 0개. mutation 플래그 전부 false.
+전체 결과: **통과**
 
-**남은 caveat (완료 기준 1건 미달):**
-실측 라이브 `PACKET_CREATED` end-to-end 를 **여전히 시연하지 못했다**. 단,
-이번에는 원인이 도구 결함이 아니라 **데이터 소진**이다. 필터 통과 117곳을 전수
-돌렸으나 패킷 0건 — Nara Info CMS 의 `rssList.do` 가 거의 모든 대학에서
-비활성(`"This board unsupportable RSS function"`)이기 때문이다(kongju·sungshin·
-seowon·shinhan 등 확인). 인천대 선례가 통한 건 inu 가 RSS 를 켜둔 예외적 케이스
-(지금도 `https://www.inu.ac.kr/bbs/inu/2594/rssList.do` 가 실아이템 40개 반환 —
-직접 확인). 대체 증거: 통합 테스트 #18c(리다이렉트 스텁 → `PACKET_CREATED`) +
-#18 + #18d, 그리고 살아있는 inu 피드.
+# 완료 기준
 
-전체 평가: **PASS-WITH-CAVEATS.** F1·F2 는 해결. 오프라인·부수효과·`.gitignore`
-전부 녹색. 그러나 이 도구의 **Phase 1 큐 실측 산출량이 0건**이며, 그 원인
-(대학들이 Nara RSS 를 꺼둠)은 코드로 못 고치는 외부 요인이다. Reviewer 가
-도구의 실효성(RSS 외 수집 경로 / 대학당 복수 게시판 시도 / JS 네비 처리)을
-다음 라운드 범위로 판단할 필요가 있다.
+- 조건 1 (인천대 실측 시연: `detectNaraCms=true`, board 2594, `rssList.do items>=2`,
+  diagnose 통과, review-packet 생성): 통과 — 직접 재현 완료(아래 재현 방법 참고).
+- 조건 2 (NOT_NARA → isNara=true 전환, 대구대 지정): **부분통과(취지는 충족, 지정
+  대상 자체는 spec 가정 오류로 재현 불가)** — 아래 상세 참고. 대체 대상(세한대/
+  한림대)으로 취지 실증은 통과.
+- 조건 2-보조 (공주대 게시판 재검증 개선): 통과(OR 조건 중 `boardId !== "2134"`
+  충족, `tried>1` 조건은 미충족하나 spec 문구가 "이거나"로 OR 결합이므로 전체
+  통과로 판정) — 단, 아래 "위험 요소"에 재확인 포인트 기록.
+- 조건 3 (단위 테스트): 통과 — `node --test` 41/41 재현.
+- 조건 4 (전체 회귀): 통과 — `npm test` 350/350 재현.
+- 부가: 변경 범위 준수(이 두 파일만, 절대 건드리지 않음 목록 무결): 통과.
+- 부가: `enabled:true`/store/preview/git/배포 없음: 통과.
 
----
+# 검증 항목별 근거
 
-# 완료 기준 (spec.md L477-494)
+## 1. spec.md 대비 코드 구현 일치 여부 (§A~§G)
 
-- `node --check discover-nara-cms-batch.js`: **통과**
-- `node --check discover-nara-cms-batch.test.js`: **통과**
-- `node --test discover-nara-cms-batch.test.js` 전부 통과: **통과** (25 pass / 0 fail)
-- `npm test` 기존 309 + 신규 25, 회귀 0: **통과** (334 pass / 0 fail, 2회 실행 동일)
-- 실측 시연 1 — 인천대 아닌 Nara 대학 1곳 rssUrl 발견 → preflight 통과 → B1 → B2 `PACKET_CREATED`, review-packet 파일 1개:
-  **미달 (N-A: 데이터 소진)**. 필터 통과 117곳 전수 스캔 → PACKET_CREATED 0건.
-  코드 결함 아님(모두 올바르게 `DIAGNOSE_FAILED`/`ROBOTS_BLOCKED`/`NOT_NARA_CMS`
-  분류). 대체 증거: 통합 테스트 #18c + 확인된 inu 실피드. **라이브 B1/B2
-  경로는 end-to-end 로 실행되지 않았음을 명시.**
-- 실측 시연 2 — 실패 대학 1건 이상 분류·리포트 기록: **통과**
-  (117곳 스캔: `NOT_NARA_CMS` 92, `DIAGNOSE_FAILED` 16, `ERROR` 4,
-  `SOURCE_ALREADY_EXISTS` 3, `ROBOTS_BLOCKED` 2 — 전부 리포트·상태파일 기록)
-- `--limit=10 --dry-run` — 상태파일+리포트 생성, 카탈로그 diff 0: **통과**
-  (`--limit=10` 비-dry 도 실행: `regressionEvidence` = npm test 334 pass 수집,
-  catalog/candidates/store/preview SHA1 불변, mutation 플래그 전부 false.
-  "B1 통과분 최소 diff" 는 통과분 0곳이라 자명하게 diff 0 — B1 삽입 경로 라이브 미검증)
-- 단위 테스트 — 후보 필터 / Nara 탐지 / boardId 추출 / robots path 판정 / 리포트 집계 / 상태·resume, 픽스처 기반 오프라인: **통과** (25 test)
-- 산출물이 candidates append + B1 enabled:false + B2 review-packet 로 국한, `enabled:true`/store/preview/git/deploy 변경 0: **통과**
-  (전 실행 후 4개 파일 SHA1 불변, mutation 플래그 전부 false. 단 B1/B2 자체가
-  라이브에서 한 번도 트리거되지 않아 "통과분 처리" 쓰기 경로는 test #18 주입
-  스텁으로만 커버.)
-- git push / 배포 미실행: **통과**
+`server/agent/onboarding/tools/discover-nara-cms-batch.js` 전체를 직접 읽고
+spec.md 의사코드/시그니처와 라인 단위로 대조했다.
 
----
+- **§A `detectNaraCms` 다중 시그널**(파일 350-459행): `extractRobotsSitemapUrls`
+  (367행), `robotsSignalIndicatesNara`(380행), `sitemapSignalIndicatesNara`
+  (397행) 가 spec 코드 블록과 정확히 동일. `detectNaraCms(html, options={})`
+  가 A→B→C 순서로 평가하고(444-446행), evidence 조립이 `[A?, B?, ...C(최대3)]`
+  (448-451행)으로 spec의 "최대 5개(A1+B1+C3)" 규칙과 일치. A/B 문자열 접두사
+  형식(`"[A] robots Sitemap -> ..."`, `"[B] xmlSite/siteMap.do subview.do
+  links=..."`)도 spec 그대로. C 는 접두사 없이 기존 스니펫 형식 유지(410-442행,
+  기존 로직 변수명만 `evidence`→`cEvidence` 변경, 로직 불변 — 회귀 없음, 아래
+  §3 재실행으로 재확인).
+- **§B sitemap 기반 게시판 발견 + nav 폴백**(494-523행, 1315-1349행):
+  `extractSitemapMenuEntries`/`prioritizeBoardCandidates` 순수 함수가 spec
+  그대로. `processUniversity` 내부(1315행부터)에서 `sitemapHtml` 있으면 sitemap
+  경로 시도 → 후보 0개면 자동으로 `extractNavBoardLinks` 폴백(1333행 `if
+  (!boardCandidates.length)`) → 그래도 0개면 `DIAGNOSE_FAILED`/`no_board_found`
+  (1350행). `MAX_BOARD_CANDIDATES=4` 상수(72행) 로 두 경로 모두 상한 적용.
+  `boardSource` 필드(sitemap/nav/null)로 실제 채택 경로를 리포트에 남김(신규
+  투명성 필드, spec N16 "결과 필드로 확인" 요구를 충족하기 위한 추가 — spec 이
+  금지한 "새 개념"이 아니라 기존 스키마에 부가 필드를 얹은 것뿐이므로 §제약
+  위반 아님).
+- **§C `selectValidatedBoard`**(622-685행): 후보를 순회하며 `directBoardId`
+  없으면 subview fetch→`extractSiteAndBoardId`, 있으면 바로 `rssCollectorImpl`
+  로 rssList.do 검증(`verifyRssFeed`), 실패 시 `failures[]`에 사유 남기고
+  **다음 후보로 계속**(668행 `continue`), 첫 통과만 채택해 즉시 반환
+  (671-682행). 예산/타임아웃 에러(`isGateBudgetError`)만 즉시 rethrow(643,
+  661행) — spec §C 의사코드와 완전히 일치. 실제 동작은 N7(922행)로 확인,
+  아래 §6 참고.
+- **§D `runPreflight` 의 `prefetchedRssResult`**(754-783행): 인자가 있으면
+  `rssCollectorImpl` 재호출을 건너뛰고 그대로 사용(766-769행), 없으면 기존과
+  100% 동일 fetch 경로(771행부터). N8 테스트가 "rssUrl 매핑을 일부러 안 넣어
+  재조회하면 실패"하는 방식으로 실제 재조회 스킵을 증명 — 실행해 통과 확인.
+- **§E request budget**: `createFetchGate` 기본값 `maxRequests: 18`(1079행),
+  `maxElapsedMs: 90000`(1081행), `minDelayMs: 500`/`timeoutMs: 15000` 불변
+  (1078, 1080행) — spec 그대로. `isGateBudgetError`(1139-1141행) 신규 헬퍼가
+  두 코드만 true 반환. `processUniversity` 내 4곳+신규 2곳(sitemap fetch,
+  selectValidatedBoard 호출) 총 6곳에서 `isGateBudgetError` 로 예산/타임아웃
+  에러를 감지해 `finalDecision="ERROR"` 로 즉시 반환(`budgetErrorPatch` 헬퍼,
+  1184-1189행) — spec §E 요구와 일치. 대학당 최악 요청 수 계산(홈1+리다이렉트
+  4+robots1+sitemap1+게시판루프8+preflight상세3=18) 도 실제 코드 흐름과 일치
+  (1206-1428행 순서 확인).
+- **§F `processUniversity` 흐름 재배선**: 순서(BLOCK_MISSING→
+  SOURCE_ALREADY_EXISTS→gate 생성→홈+4-hop 리다이렉트→host/origin 확정→
+  robots 1회 fetch(신규 위치)→sitemap fetch(신규)→detectNaraCms 다중시그널→
+  boardCandidates(§B)→selectValidatedBoard(§C)→robots path 판정(캐시 재사용)→
+  buildCandidateSource→runPreflight(prefetchedRssResult)→dryRun 분기→실쓰기)
+  가 파일 1145-1530행 그대로 정확히 이 순서. 4-hop 리다이렉트 루프
+  (`for (let hop = 0; hop < 4; hop += 1)`, 1221행)와 루프 후에도 여전히
+  스텁이면 `NOT_NARA_CMS`/`redirect_loop_or_double_stub`(1250행) 로직도
+  spec 과 일치.
+- **§G `--retry-decisions`**: `parseCliArgs`(134-146행) 콤마 파싱+trim+빈값
+  제거, 빈 값 지정 시 throw. `selectCandidates`(247-263행) 에서
+  `retryDecisions` 있으면 상태의 `finalDecision` 매칭 필터(상태 없는 대학은
+  자동 제외), `resume` 은 `else if` 로 자동 배타(spec 의도 그대로). `runBatch`
+  (1539, 1572-1577행)→`selectCandidates` 전달, `buildReport`(998행)의
+  `report.options.retryDecisions` 필드 기록, `main()`(1689행)에서
+  `runBatch` 로 전달 — 배선 전체 확인.
 
-# F1 / F2 해결 여부
+**결론**: spec §A~§G 전 항목이 실제 코드에 정확히 구현돼 있다. changes.md 의
+"spec 코드 블록 그대로 구현했다"는 주장은 사실과 일치한다.
 
-## F1 (홈 fetch 클라이언트 리다이렉트 무시) — **해결됨**
+## 2. 변경 범위 및 수정 금지 파일 확인
 
-증거:
-- 신규 export 헬퍼 `extractClientRedirect(html, baseUrl)` — 단위 테스트 #4b 통과
-  (meta-refresh `url=` 유/무·따옴표 유/무·포트정규화, `location.href/replace`,
-  순수 지연 → null, 두꺼운 실콘텐츠 → null).
-- `processUniversity` 라이브 동작 확인:
-
-| university | homeResolvedUrl | 결과 |
-| --- | --- | --- |
-| kongju-national-university-본교 | `https://www.kongju.ac.kr/KNU/index.do` | Nara 탐지 O, board `KNU/2134` 발견, rssUrl 생성 → `DIAGNOSE_FAILED(rss_invalid: 그 게시판 RSS 비활성)` |
-| gangneung-wonju-national-university-본교 | `https://new.gwnu.ac.kr/sites/kr/index.do` | Nara 탐지 O, board `kr/1613` 발견 → `DIAGNOSE_FAILED(preflight: budget + name mismatch)` |
-| donga-university-seunghak | `https://www.donga.ac.kr/kor/Main.do` | 리다이렉트 추적 O → `NOT_NARA_CMS` (실제 비-Nara) |
-| gangseo-university-본교 | `https://gangseo.ac.kr/kcua/mainService` | 리다이렉트 추적 O → `NOT_NARA_CMS` |
-| incheon-national-university-본교 | (n/a) | `SOURCE_ALREADY_EXISTS` (네트워크 0 — 카탈로그 사전 차단) |
-
-- 이전 라운드: 이 대학들 전부 `NOT_NARA_CMS(no_nara_pattern)` req=1. 지금은
-  실제 홈까지 도달.
-- `--limit=117 --dry-run` 전수: `DIAGNOSE_FAILED` 1→16, `no_nara_pattern` 로만
-  끝나는 비율 대폭 감소.
-
-**잔여 한계 (블로커 아님, 문서화 권고):**
-`extractClientRedirect` 의 보수적 게이트는 JS 리다이렉트를
-"본문 <400자 + `<a>` ≤3개" 인 얇은 스텁일 때만 신뢰한다. `www.hanbat.ac.kr`
-처럼 `<script>location.href='/kor.do'</script>` 를 두되 인트로 슬라이드로 본문이
-두꺼운 "살찐 스플래시" 페이지는 따라가지 않아 `NOT_NARA_CMS(no_nara_pattern)`
-로 끝난다(req=1). (hanbat 은 어차피 eGov `/bbs/BBSMSTR_...` CMS 라 Nara 아님 —
-이 케이스에서는 손실 없음. 하지만 동형 스플래시를 쓰는 진짜 Nara 대학은
-놓칠 수 있음.) meta-refresh 쪽도 `본문≥600자 && <a>≥5개` 면 무시.
-
-## F2 (`detectNaraCms` 호스트 교차검증 느슨) — **해결됨**
-
-라이브 확인:
 ```
-daegu 홈 resolved=https://www.daegu.ac.kr/main
-  contains lib.daegu.ac.kr/bbs/ : true
-  detectNaraCms.isNara : false   (evidence: [])
+git status --porcelain=v1 -uall
 ```
-`--limit=40 --dry-run` 에서도 `daegu-university-본교 → NOT_NARA_CMS(no_nara_pattern)`
-(이전 라운드엔 이 지점이 false-positive Nara 였음).
-단위 테스트 #4 가 cross-host `/bbs/` → `isNara:false`, same-host(절대/상대)
-→ `isNara:true` 를 커버.
-> 참고: Coder 는 Tester 가 요구한 "equals or subdomain-of" 대신 "exact host
-> (www 정규화)" 로 더 좁혔다. `lib.daegu.ac.kr` 이 `daegu.ac.kr` 의 서브도메인
-> 이라 subdomain 허용 시 여전히 통과하기 때문. 타당하며 요구사항 충족.
+결과: `.pipeline/changes.md`, `.pipeline/spec.md`,
+`server/agent/onboarding/tools/discover-nara-cms-batch.js`,
+`server/agent/onboarding/tools/discover-nara-cms-batch.test.js` 4개만 수정
+표시. 추가로:
 
----
-
-# 실패한 / 미달한 항목
-
-## C1 (완료 기준 미달, 데이터 소진) — 라이브 `PACKET_CREATED` 미시연
-
-`--limit=117 --dry-run` (report `fullscan2.json`) 요약:
 ```
-processed 117 | packetsCreated 0 | notNaraCms 92 | diagnoseFailed 16
-              | robotsBlocked 2 | sourceAlreadyExists 3 | error 4
+git diff --stat -- development/university-news/collectors/rss-collector.js \
+  server/agent/tools/run-single-school-trial.js \
+  server/agent/onboarding/tools/prepare-catalog-source-block.js \
+  server/agent/onboarding/tools/build-review-packet-from-diagnose.js \
+  server/agent/gate server/agent/screening universities.js
 ```
+출력 없음(diff 0) — spec.md "절대 건드리지 않음" 목록 전체 무결 확인. 게이트/
+스크리닝 모듈, `universities.js`, rss-collector 등 재사용만 하고 수정하지
+않았다는 changes.md 주장과 일치.
 
-board 발견 + rssUrl 생성까지 도달했으나 RSS 단계에서 실패한 Nara 대학들:
+`git log --oneline -5` 확인 결과 세션 시작 시점 이후 새 커밋 없음(`e06af01`
+그대로 HEAD) — git commit/push 를 실행하지 않았다는 changes.md 주장과 일치.
+`server/agent/data/agent-news-store.json`, `data/university-news-preview.json`
+diff 도 0 — store/preview 미변경 확인.
 
-| university | rssUrl | 실패 이유 |
-| --- | --- | --- |
-| kongju-national-university-본교 (+ cheonan, yesan) | `.../bbs/KNU/2134/rssList.do` | `rss_invalid: items<2 (got 0)` — 응답이 `"This board unsupportable RSS function"` |
-| sungshin-womens-university-본교 | `.../bbs/main_kor/3192/rssList.do` | 동일 (해당 대학 **전 게시판** RSS 비활성 — 3181/4006/14091 직접 확인) |
-| seowon-university-본교 | `.../bbs/seowon/405/rssList.do` | 동일 |
-| shinhan-university (본교 + 제2캠퍼) | `.../bbs/kr/191/rssList.do` | 동일 |
-| hyupsung-university-본교 | `.../bbs/uhs/4/rssList.do` | `rss_fetch_failed: XML 아닌 응답` |
-| gangneung-wonju (본교 + 제2캠퍼) | `.../bbs/kr/1613/rssList.do` | `preflight_failed acceptedCount=0/2 [university_name_mismatch, detail_fetch_failed:request_budget_exceeded]` |
+## 3. 직접 재실행 — 정적 검사 / 단위 테스트 / 전체 회귀
 
-**근본 원인**: Nara Info CMS 의 `rssList.do` 엔드포인트가 기본 비활성이고 대부분의
-대학이 켜두지 않는다. 도구는 이를 정확히 `DIAGNOSE_FAILED` 로 분류한다(코드
-정상). 완료 기준의 "인천대 아닌 새 Nara 대학 1곳 PACKET_CREATED" 를 충족할
-대학이 현재 Phase 1 큐 안에 존재하지 않는다.
+```
+node --check "server/agent/onboarding/tools/discover-nara-cms-batch.js"
+node --check "server/agent/onboarding/tools/discover-nara-cms-batch.test.js"
+```
+→ 둘 다 무출력(OK). changes.md 주장과 일치.
 
-**해피패스가 실데이터로 도달 가능하다는 정황 증거**: `inu` 를 카탈로그에서
-빼고 돌린다고 가정하면 — `www.inu.ac.kr` 은 meta-refresh 스텁 → F1 이 
-`https://www.inu.ac.kr/inu/index.do` 로 따라가 Nara 탐지 O, nav 5개, 그리고
-`https://www.inu.ac.kr/bbs/inu/2594/rssList.do` 가 **지금도 실아이템 40개**
-(제목·링크·pubDate 완비)를 반환한다. 즉 RSS 만 켜져 있으면 파이프가 끝까지 간다.
+```
+node --test "server/agent/onboarding/tools/discover-nara-cms-batch.test.js"
+```
+→ `tests 41 / pass 41 / fail 0 / cancelled 0`. changes.md 가 보고한
+"41/41" 과 정확히 일치(테스트 이름 목록도 spec §테스트 계획의 N1~N16, 기존
+1-21(#14/#18c/#18d 수정 포함) 과 일치).
 
-## C2 (관찰됨, 요청 예산) — `maxRequests=8` 이 preflight 상세 fetch 를 조인 사례
+```
+npm test
+```
+→ `tests 350 / pass 350 / fail 0`. changes.md 가 보고한 "350/350" 과 정확히
+일치. 기존 스위트(onboarding/screening/gate/news 등) 회귀 없음.
 
-`gangneung-wonju` (본교/제2캠퍼): `requestCount=8`, preflight 중
-`detail_fetch_failed:request_budget_exceeded`. 시퀀스 추정:
-홈(1) + 리다이렉트(1) + subview 크롤(3) + robots(1) + rss(1) = 7 → 상세 1개만
-받고 8 도달 → 예산 초과.
-**단, 이 대학은 `university_name_mismatch` 도 함께 떠서 예산을 늘려도
-PACKET_CREATED 가 보장되지 않는다.** 이번 검증에서 **오직 예산 때문에 막힌
-PACKET_CREATED 는 없었다**(모든 예산-초과 케이스가 다른 실패도 동반).
-→ Reviewer 판단: `maxRequests` 를 10 으로 올릴지. 현재는 spec "대학당 최대 ~8"
-(틸드) 범위 내이고 graceful degradation(부분 실패 → 다음 라운드 재시도) 확인됨.
+## 4. 완료 기준 실측 재현 (네트워크 가능 확인됨)
 
-## C3 (관찰됨, 외부 요인) — `ERROR` 4건은 전부 실네트워크 실패
+네트워크 접근이 가능함을 `fetch('https://www.inu.ac.kr/')` 로 먼저 확인
+(status 200) 한 뒤, spec.md 가 명시한 완료 기준 커맨드를 그대로 재실행했다.
 
-| university | reason | 실측 |
-| --- | --- | --- |
-| korea-national-university-of-transportation-본교 | `home_fetch_error` | `www.ut.ac.kr` 간헐적 `fetch failed` (재시도 시 200/132KB 정상) |
-| knut-jeungpyeong-campus / knut-uiwang-campus | `home_fetch_error` | 동일 host, 동일 간헐 실패 |
-| daejin-university-본교 | `home_redirect_fetch_error` | 리다이렉트 타겟 `www.daejin.ac.kr/gopage.jsp` 자체가 `fetch failed` (서버측) |
+### 완료 기준 1 — 인천대 스크래치 시연
 
-도구가 크래시 없이 `ERROR` 로 분류, 부분 쓰기 없음. `--resume` 재시도 대상 —
-`--resume --limit=5 --dry-run` 실행 시 정확히 이 4건만 재처리됨(나머지 113건
-스킵) 확인.
+spec.md 커맨드를 거의 그대로 사용(단, `--university-id` 로 넘기는 한글
+universityId 문자열을 bash 도구 경유 시 NFC/NFD 정규화 차이로 카탈로그의
+원본 NFD 문자열과 바이트 단위로 어긋나는 환경 이슈가 있어, 카탈로그에서 찾은
+`uni.universityId` 원본 문자열을 그대로 `runBatch({ universityId: uni.universityId,
+... })` 로 넘기는 방식으로 대체 — 이는 테스트 실행 환경의 인코딩 이슈이며
+`selectCandidates` 자체는 NFC 정규화 비교를 이미 하고 있어 코드 결함이
+아니다). `regressionEvidence.npmTestSummary` 도 changes.md 가 지적한 대로
+spec 예시의 `"pre-collected, see npm test run"` 문자열을 그대로 쓰면 B2 의
+`/\bfail\s+[1-9]/` 미검출 요구(정상 문자열 필요) 검증에 걸려 실행조차 안 되는
+것을 직접 재현으로 확인했고, `"tests 350, pass 350, fail 0"` 로 교체하니
+정상 진행됨 — changes.md 의 "spec 예시 placeholder 문제" 주장은 사실이었다.
 
----
+실행 결과(직접 재현):
+```
+"finalDecision": "PACKET_CREATED",
+"site": "inu",
+"boardId": "2594",
+"rssUrl": "https://www.inu.ac.kr/bbs/inu/2594/rssList.do",
+"requestCount": 10,
+"detectionSignals": { "isNara": true, "signals": { "A": true, "B": true, "C": true } },
+"boardSource": "nav",
+"reviewId": "rp-incheon-national-university-본교-inu-press-release-20260903142011-8a03d4",
+"writtenPath": "...review-packets\\rp-...-20260903142011-8a03d4.json"
+```
+스크래치 카탈로그 사본(OS 임시 디렉터리) 사용, 운영 카탈로그
+(`development/university-news/data/university-news-sources.final.json`)
+diff 0 확인. B2 가 실제로 `server/agent/gate/data/review-packets/`에 새
+review-packet 파일을 생성하는 부작용은 changes.md 가 미리 경고한 대로였고,
+Tester 도 검증 직후 해당 파일을 삭제해 `git status` 를 재확인, 잔여물 없음을
+확인했다(첫 삭제 시도는 한글 파일명 인코딩 문제로 bash `rm` 이 실패해 Node
+`fs.unlinkSync` 로 재시도해 성공 — 이 역시 Windows 셸/파일시스템 인코딩
+환경 이슈이며 코드 결함이 아니다).
+
+**통과 조건 전부 재현 확인**: `finalDecision===PACKET_CREATED`,
+`site===inu`, `boardId===2594`, `detectionSignals.isNara===true`, `reviewId`
+채워짐. changes.md 의 완료 기준 1 실측 로그와 값(evidence, requestCount=10 등)
+까지 동일하게 재현됐다 — 신뢰도 높음(같은 라이브 사이트를 같은 코드로 재실행한
+결과이므로 당연하지만, 독립 재현 자체가 검증 목적).
+
+### 완료 기준 2 — NOT_NARA → isNara=true 전환 (대구대)
+
+```
+node "server/agent/onboarding/tools/discover-nara-cms-batch.js" \
+  --university-id=daegu-university-본교 --dry-run
+```
+→ `NOT_NARA=1`(즉 `finalDecision==="NOT_NARA_CMS"`), 리포트 확인:
+`detectionSignals: {isNara:false, evidence:[], signals:{A:false,B:false,C:false}}`,
+`reason:"no_nara_pattern"`. **spec 이 기대한 전환이 재현되지 않는다** —
+changes.md 의 주장과 정확히 일치.
+
+이 판단의 타당성을 독립적으로 재검증했다:
+```
+node -e "fetch('https://www.daegu.ac.kr/robots.txt')...; fetch('.../xmlSite/siteMap.do')..."
+```
+→ robots.txt 에 `Sitemap:` 라인 자체가 없음(시그널 A 불가), `xmlSite/siteMap.do`
+는 404(시그널 B 불가). fullscan2.json 베이스라인도 직접 확인:
+`daegu-university-본교` → 베이스라인부터 `NOT_NARA_CMS`/`no_nara_pattern`
+(변경 없음, 실제로 전환 대상이 아니었음을 뒷받침). 즉 **`daegu-university-본교`
+(www.daegu.ac.kr) 는 실측상 Nara CMS 가 아니며, spec.md "가정/결정 3" 의
+근거(기존 단위 테스트 픽스처가 `www.daegu.ac.kr/bbs/daegu/...` 를 다룬다)는
+합성 테스트 픽스처였을 뿐 실제 라이브 사이트 구조와 무관했다** — changes.md 의
+원인 분석이 타당하다고 판단.
+
+changes.md 가 제시한 대체 시연(세한대/한림대)도 독립 재현:
+```
+node "...discover-nara-cms-batch.js" --university-id=sehan-university-본교 --dry-run
+node "...discover-nara-cms-batch.js" --university-id=hallym-university-본교 --dry-run
+```
+→ 둘 다 `NOT_NARA=0`, 리포트: `sehan` → `{isNara:true, signals:{A:false,B:true,C:false}}
+evidence:["[B] xmlSite/siteMap.do subview.do links=334"]`, `hallym` → 동일 패턴
+(`links=4449`). fullscan2.json 베이스라인 재확인: 두 대학 모두 베이스라인에서는
+`NOT_NARA_CMS`/`no_nara_pattern` 이었음을 직접 확인 — **다중 시그널(특히 신규
+시그널 B) 이 실제 라이브 사이트에서 `NOT_NARA_CMS`→`isNara=true` 전환을
+일으킨다는 완료 기준 2 의 취지는 실측으로 명확히 증명됐다.**
+
+**판정**: spec 이 지정한 정확한 대상(`daegu-university-본교`) 로는 재현 불가능
+(spec 자체의 가정 오류, 코드 결함 아님) → 이 좁은 의미로는 **실패**. 그러나
+"NOT_NARA_CMS 오탐을 다중 시그널로 고친다"는 완료 기준의 취지는 대체 대상으로
+명확히 실증됨 → 넓은 의미로는 **통과**. Tester 판정: **부분통과(취지 충족)** 로
+기록하며, spec.md 자체의 대상 선정 오류(라이브 데이터 없이 문서 작성 시점에
+합성 픽스처를 근거로 삼음)가 원인이라는 점을 명확히 남긴다. Reviewer/사용자가
+"완료 기준 문구를 문자 그대로" 요구한다면 이 기준은 재작성(대상 대학 변경)이
+필요하다는 점을 참고할 것.
+
+### 완료 기준 2-보조 — 공주대 게시판 재검증 개선
+
+```
+node "server/agent/onboarding/tools/discover-nara-cms-batch.js" \
+  --university-id=kongju-national-university-본교 --dry-run
+```
+→ `DIAGNOSE_FAILED=1`. 리포트 확인:
+```
+"boardId": null,
+"reason": "no_valid_board_found tried=1 [rss_invalid:items<2 (got 0)]",
+"detectionSignals": {"isNara": true, "signals": {"A": false, "B": false, "C": true}},
+"boardSource": "nav"
+```
+changes.md 의 보고와 정확히 일치. fullscan2.json 베이스라인 재확인:
+베이스라인은 `boardId:"2134"`, `reason:"rss_invalid:items<2 (got 0)"` (빈
+게시판을 그대로 커밋 시도하고 끝났었음). 새 실행은 `boardId!==2134`(빈
+게시판을 커밋하지 않고 `null` 로 명시적으로 "실패"를 리포트) — spec 의 OR
+조건(`boardId !== "2134"` 이거나 `failures.length > 1`) 중 첫 항을 충족한다.
+
+추가로 원인을 직접 확인했다: `https://www.kongju.ac.kr/xmlSite/siteMap.do` 는
+실제로 HTTP 200 을 반환하지만 본문은 사이트맵 메뉴가 아니라 "Alert" 오류
+페이지(K2WebWizard CMS 프레임워크의 JS 경고 페이지, `subview.do` 문자열
+0개)였다 — `extractSitemapMenuEntries` 가 정상적으로 0개 항목을 반환해
+자동으로 nav 폴백 경로로 진입했고(§B 의사코드/예외 상황 표 그대로 동작),
+nav 에서 발견된 라벨 매칭 후보가 1개뿐이라 `tried=1` 로 끝났다. 이는 spec
+"가정/결정 4"(sitemap 실제 마크업 미검증, 정규식이 실제와 다를 수 있음을
+사전에 명시)가 예견한 상황이 실측으로 그대로 나타난 것이며, 파이프라인은
+예외 상황 표대로 정상 동작했다(막히지 않고 nav 폴백으로 계속 진행) —
+**코드 결함이 아니다.**
+
+**판정**: 통과(OR 조건 중 한 항목 충족). 다만 spec 문구의 "여러 후보를 실제로
+시도했다는 증거(failures 길이 > 1)" 는 이번 실측에서는 충족하지 못했다는
+점(`tried=1`)을 changes.md 도 이미 투명하게 기록했고, Tester 도 원인(실제
+사이트 구조상 라벨 매칭 후보가 nav 기준 1개뿐)을 직접 확인해 동일 결론에
+도달했다.
+
+# 실패한 테스트
+
+없음(node --check/--test/npm test 전부 성공, changes.md 주장과 완전 일치).
+"실패"로 분류할 만한 항목은 완료 기준 2 하나뿐이며, 이는 spec.md 자체가
+지정한 시연 대상(`daegu-university-본교`)의 전제(실측 없이 세운 가정)가
+틀렸기 때문이지 Coder 의 구현 결함이 아니다(§완료 기준 2 상세 참고). Coder 가
+대체 대상으로 취지를 실증했고 그 판단도 Tester 가 독립적으로 재현·검증했다.
 
 # 재현 방법
 
-## 오프라인 (전부 통과)
-```
-cd "D:\hhg(code)"
-node --check server/agent/onboarding/tools/discover-nara-cms-batch.js       # OK
-node --check server/agent/onboarding/tools/discover-nara-cms-batch.test.js   # OK
-node --test  server/agent/onboarding/tools/discover-nara-cms-batch.test.js   # 25 pass / 0 fail
-npm test                                                                     # 334 pass / 0 fail (2회 동일)
-```
+```powershell
+# 정적 검사 + 단위 테스트 + 전체 회귀
+node --check "D:\hhg(code)\server\agent\onboarding\tools\discover-nara-cms-batch.js"
+node --check "D:\hhg(code)\server\agent\onboarding\tools\discover-nara-cms-batch.test.js"
+node --test "D:\hhg(code)\server\agent\onboarding\tools\discover-nara-cms-batch.test.js"
+npm test
 
-## `.gitignore` sanity (전부 정상)
-```
-git add -A --dry-run | grep gitkeep
-#  -> add 'server/agent/onboarding/reports/nara-cms-batch/.gitkeep'
-git check-ignore -v server/agent/onboarding/reports/nara-cms-batch/zzz.json           # 무시됨 (L42)
-git check-ignore -v server/agent/onboarding/reports/source-247/foo.json               # 무시됨 (L34)
-git check-ignore -v server/agent/onboarding/data/nara-cms-batch-state.json[.bak]      # 무시됨 (L44)
-git status --porcelain -u | grep nara   # .gitkeep + .js + .test.js 3개만. 런 리포트/상태 JSON 안 뜸.
-```
+# 완료 기준 2 / 2-보조 (네트워크 필요, --dry-run 이라 카탈로그/후보/B1/B2 미호출)
+node "D:\hhg(code)\server\agent\onboarding\tools\discover-nara-cms-batch.js" --university-id=daegu-university-본교 --dry-run
+node "D:\hhg(code)\server\agent\onboarding\tools\discover-nara-cms-batch.js" --university-id=sehan-university-본교 --dry-run
+node "D:\hhg(code)\server\agent\onboarding\tools\discover-nara-cms-batch.js" --university-id=hallym-university-본교 --dry-run
+node "D:\hhg(code)\server\agent\onboarding\tools\discover-nara-cms-batch.js" --university-id=kongju-national-university-본교 --dry-run
+# (각 실행 후 생성된 report/state 파일은 server/agent/onboarding/reports|data 아래
+#  .gitignore 로 이미 제외돼 있음 — 별도 정리 불필요, git status 로 확인 가능)
 
-## F1 재현
+# 완료 기준 1 (스크래치 카탈로그 사본, 운영 파일 read-only) — spec.md §완료 기준 1
+# 커맨드 그대로. 단, regressionEvidence.npmTestSummary 는 "tests 350, pass 350,
+# fail 0" 같은 실제 npm test 요약 문자열이어야 B2 검증을 통과한다(spec 예시의
+# "pre-collected, see npm test run" placeholder 는 실패한다 — 재현 완료).
+# 실행 후 server/agent/gate/data/review-packets/ 에 새 파일이 생기므로(B2 정상
+# 동작) 검증 후 그 파일만 삭제할 것(운영 카탈로그/후보/상태는 스크래치 디렉터리
+# 안에만 존재하므로 정리 불필요).
 ```
-node server/agent/onboarding/tools/discover-nara-cms-batch.js --university-id=kongju-national-university-본교
-#  -> DIAGNOSE_FAILED, homeResolvedUrl="https://www.kongju.ac.kr/KNU/index.do",
-#     rssUrl="https://www.kongju.ac.kr/bbs/KNU/2134/rssList.do", reason="rss_invalid:items<2 (got 0)"
-node server/agent/onboarding/tools/discover-nara-cms-batch.js --university-id=incheon-national-university-본교
-#  -> SOURCE_ALREADY_EXISTS (requestCount=0)
-node server/agent/onboarding/tools/discover-nara-cms-batch.js --limit=10 --dry-run     # state+report, catalog diff 0
-node server/agent/onboarding/tools/discover-nara-cms-batch.js --limit=10               # regressionEvidence=npm test 334 pass, mutation 전부 false
-```
-```
-# 리다이렉트 스텁 원문
-node -e "fetch('https://www.kongju.ac.kr/').then(r=>r.text()).then(console.log)"   # <script>location.href="/KNU/index.do"</script>
-node -e "fetch('https://www.inu.ac.kr/').then(r=>r.text()).then(console.log)"      # <meta http-equiv="refresh" content="0;url=.../inu/index.do">
-# inu 피드는 살아있음
-node -e "fetch('https://www.inu.ac.kr/bbs/inu/2594/rssList.do').then(r=>r.text()).then(t=>console.log((t.match(/<item>/g)||[]).length))"   # 40
-```
-
-## F2 재현
-```
-node -e "const m=require('./server/agent/onboarding/tools/discover-nara-cms-batch.js');fetch('https://www.daegu.ac.kr/').then(r=>r.text()).then(t=>console.log(m.detectNaraCms(t,{host:'www.daegu.ac.kr'})))"
-#  -> { isNara: false, evidence: [], host: 'www.daegu.ac.kr' }   (lib.daegu.ac.kr/bbs/ 링크 있어도)
-```
-
-## C1 전수 스캔 재현
-```
-node server/agent/onboarding/tools/discover-nara-cms-batch.js --limit=117 --dry-run --run-id=fullscan2
-#  -> processed=117 packets=0  (report: server/agent/onboarding/reports/nara-cms-batch/fullscan2.json)
-node -e "fetch('https://www.sungshin.ac.kr/bbs/main_kor/3181/rssList.do').then(r=>r.text()).then(t=>console.log(t.slice(0,200)))"
-#  -> "...This board unsupportable RSS function..."
-```
-
----
 
 # 위험 요소
 
-1. **[높음 → 제품 판단 필요] 도구의 Phase 1 큐 실측 산출량 = 0건.** 코드 결함이
-   아니라 대학들이 Nara `rssList.do` 를 꺼둔 탓. 인천대 1건(RSS 켜짐)이 예외.
-   Reviewer/사용자 결정 필요: (a) RSS 외 수집 경로(artclList HTML 파싱),
-   (b) 대학당 첫 게시판 말고 복수 게시판 RSS 시도, (c) JS 렌더 네비 처리
-   — 어느 것을 다음 라운드로 잡을지. 현 상태로는 "게이트 패킷 생성" 목적이
-   실데이터에서 달성되지 않는다.
-2. **[중] 라이브 B1/B2 쓰기 경로 미검증.** preflight 통과 대학이 0곳이라
-   `appendCandidateAtomic` → `prepareCatalogSourceBlock`(B1) →
-   `buildReviewPacketFromDiagnose`(B2) 실호출이 이번에도 0회. 카탈로그
-   `enabled:false` 삽입 diff, review-packet 파일 생성, `DIAGNOSE_FAILED_POST_B1`
-   무롤백 동작은 전부 test #18 주입 스텁으로만 커버. `regressionEvidence`
-   (npm test) 수집 → 리포트 기록 경로만 라이브 확인됨.
-3. **[중] `extractClientRedirect` 보수 게이트의 false negative.** "살찐 스플래시"
-   (JS 리다이렉트 + 두꺼운 인트로 본문)를 안 따라간다. hanbat 에서 관찰(hanbat 은
-   Nara 아니라 무해했음). 동형 스플래시를 쓰는 진짜 Nara 대학이 있으면
-   `NOT_NARA_CMS` 로 조용히 누락된다. Reviewer: 실제 누락 사례가 나오면
-   게이트 임계값(400자/3링크) 재조정 검토.
-4. **[낮음] 요청 예산 8.** 리다이렉트 hop + subview 크롤 + 상세 3개가 겹치면
-   상세 검증이 빡빡(gwnu 관찰, req=8). 이번엔 예산만으로 막힌 패킷 없음.
-   `maxRequests` 상향은 Reviewer 판단.
-5. **[낮음] `changwon`·`chungbuk`·`pusan` 등 국립대가 `no_nara_pattern`.**
-   실제로는 Nara 를 쓰지만 홈 raw HTML 에 `/subview.do`·same-host `/bbs/`
-   링크가 없음(네비가 완전 JS 렌더 or 다른 진입 URL). F1 로도 못 잡는
-   더 깊은 한계 — 위험요소 1과 연결.
-6. **[낮음] 환경 HEAD.** 세션 시작 컨텍스트의 "Recent commits"(b35ba69…)와
-   실제 `git log`(HEAD=7531f6e "인천대학교 활성화")가 다르다. npm test
-   베이스라인 309 는 현재 트리로 재현됨(309+25=334)이라 검증엔 영향 없음.
-
----
-
-# 라이브 런이 생성/변경한 것 (전부 gitignore — 되돌리지 않음, 그대로 둠)
-
-이번 라운드 실행 목록:
-- 비-dry 단건 4회: kongju, gangneung-wonju(본교), hanbat, incheon(본교)
-- 비-dry `--limit=10` 1회 (run-id `live10`)
-- dry 단건/소limit 다수 (run-id `probe` 재사용, `scan40`, `resumetest`)
-- dry `--limit=117` 2회 (`fullscan` nohup + `fullscan2`)
-
-생성/갱신 파일 (전부 `.gitignore`, `git status -u` 에 안 나타남):
-- `server/agent/onboarding/reports/nara-cms-batch/*.json` — 이번 라운드 추가:
-  `20260831T132824/132845/132851/132853/132944.json`, `probe.json`, `scan40.json`,
-  `fullscan.json`, `fullscan2.json`, `live10.json`, `resumetest.json`
-  (이전 라운드분 `20260831T1312*` / `131346` 도 잔존)
-- `server/agent/onboarding/data/nara-cms-batch-state.json` (+ `.json.bak`)
-  — `processed[]` 117건 누적, version 1, 원자적 쓰기(backup→tmp→parse→rename) 확인
-
-변경 **안 된** 것 (baseline SHA1 대비 불변, 라이브 런 전 과정 확인):
-- `development/university-news/data/university-news-sources.final.json`  7cb1617…
-- `server/agent/onboarding/data/collector-config-candidates.json`        6f7cb40…
-- `server/agent/data/agent-news-store.json`                              051eabc…
-- `data/university-news-preview.json`                                    ce55c77…
-- `server/agent/onboarding/data/catalog-prepare-log.json`  (mtime 08-31 10:21, 라운드 전 — B1 미실행)
-- `server/agent/onboarding/backups/`  (새 백업 없음)
-- `server/agent/gate/review-packets/`  (새 패킷 없음)
-
-`git diff --stat -- development/university-news/data/university-news-sources.final.json` → **빈 출력**.
-
-`git status --porcelain -u` 최종:
-```
- M .gitignore
- M .pipeline/changes.md
- M .pipeline/spec.md
- M .pipeline/test-results.md
-?? server/agent/onboarding/reports/nara-cms-batch/.gitkeep
-?? server/agent/onboarding/tools/discover-nara-cms-batch.js
-?? server/agent/onboarding/tools/discover-nara-cms-batch.test.js
-```
-= 예상된 코드 산출물 3개(.gitkeep, .js, .test.js) + `.gitignore` + 파이프라인 문서.
-예상 밖 변경 없음.
-
----
+1. **완료 기준 2 의 지정 대상 재선정 필요**: spec.md 를 문자 그대로 실행하면
+   이 기준은 항상 실패한다(`daegu-university-본교` 가 실제로 Nara CMS 가
+   아니므로). 다음 라운드에서 spec.md 를 갱신할 때 완료 기준 2 의 대상을
+   `sehan-university-본교`/`hallym-university-본교` 로 공식 교체하거나, 최소
+   변경만 하는 게 아니라면 대상 재검증 후 spec 을 고정할 것을 권고.
+2. **§B sitemap 경로가 실전에서 잘 안 쓰임**: 인천대(신호 B 는 매칭됐지만
+   `boardSource:"nav"`), 공주대(sitemap 200 이지만 실제로는 "Alert" 오류
+   페이지라 `subview.do` 0개) 두 실측 사례 모두 최종적으로 nav 폴백 경로로
+   귀결됐다. `extractSitemapMenuEntries` 의 정규식(라벨이 앵커 안에 바로
+   있어야 매칭)이 실제 대학 sitemap 마크업(중첩 서브메뉴 구조 등)과 안 맞을
+   가능성이 높다 — spec "가정/결정 4"가 이미 이 리스크를 명시했고 예외 처리
+   (자동 nav 폴백)도 정상 동작하므로 파이프라인이 막히지는 않지만, §B 가
+   의도한 "sitemap 우선" 효과가 실전에서 얼마나 발휘될지는 이번 2건의 표본
+   만으로는 낮아 보인다. 다음 라운드에서 sitemap 마크업 실측 샘플을 더 모아
+   정규식을 보정할 필요가 있어 보인다(코드 결함이 아니라 개선 여지).
+3. **완료 기준 2-보조의 `tried=1`**: spec 문구의 "여러 후보 시도" 증거까지는
+   못 만든 채 OR 조건의 다른 항목으로만 통과했다. 공주대의 실제 nav 후보가
+   1개뿐이라는 게 원인이므로 코드 결함은 아니지만, "여러 후보 재시도" 라는
+   원래 요구사항의 핵심 시나리오(N7 의 (b) 케이스)는 실측이 아니라 오프라인
+   단위 테스트로만 증명됐다는 점은 남는다(N7 자체는 충분히 견고한 테스트).
+4. **한글 universityId 인코딩(NFC/NFD)**: 이번 검증 중 Bash 도구를 경유해
+   한글 `--university-id` 값을 JS 문자열 리터럴로 인라인할 때 NFC/NFD 정규화
+   차이로 카탈로그 조회가 실패하는 환경 이슈를 겪었다(코드 자체는
+   `selectCandidates` 에서 이미 NFC 정규화 비교를 하고 있어 정상). 실제 CLI
+   경유 실행(`--university-id=daegu-university-본교` 등, PowerShell/CLI 인자)
+   에서는 문제없이 동작함을 확인했으므로 **이 도구의 결함이 아니라 테스트
+   스크립트 작성 환경 특이사항**으로 기록한다.
+5. **B2 부작용(review-packet 실제 파일 생성)**: 완료 기준 1 실측(스크래치
+   카탈로그 사용)이라도 B2(`build-review-packet-from-diagnose.js`, 수정 금지
+   파일)는 실제로 `server/agent/gate/data/review-packets/`(스크래치 밖, 저장소
+   경로)에 파일을 쓴다는 점은 spec.md 의 "가정/결정 2"에 명시돼 있고
+   changes.md 도 인지·정리했다. Tester 도 재현 중 동일 부작용을 확인하고
+   정리했다 — 향후 이 커맨드를 재실행하는 사람은 반드시 사후 정리가
+   필요하다는 점을 기록해 둔다(리뷰 큐에 더미 review-packet 이 residue 로
+   남을 위험).
 
 # 최종 테스트 상태
 
-**PASS-WITH-CAVEATS**
+통과
 
-- **F1 해결, F2 해결.** 클라이언트 리다이렉트 추적으로 kongju·gwnu·inu·donga 등이
-  실제 홈까지 도달하고, cross-host `/bbs/` 오탐이 사라졌다.
-- 오프라인 검증(node --check ×2, node --test 25/25, npm test 334/334 ×2, 회귀 0),
-  `.gitignore` 동작, 부수효과 억제(store/preview/enabled:true/git/deploy 변경 0,
-  mutation 플래그 전부 false), 실패 대학 분류·리포트·상태·`--resume`: **전부 통과.**
-- **완료 기준 "실측 시연 1 — 라이브 PACKET_CREATED + review-packet 1개" 는
-  이번에도 미달**. 그러나 원인이 도구 결함에서 **데이터 소진**으로 바뀌었다:
-  Phase 1 큐 117곳 전수 스캔에서 board·rssUrl 까지 도달한 Nara 대학들이
-  전부 `rssList.do` 비활성으로 실패. 대체 증거 = 통합 테스트 #18c/#18/#18d +
-  살아있는 inu 피드(40 items). **라이브 B1/B2 쓰기 경로는 end-to-end 로
-  실행되지 않았음을 명시.**
-- 권고: Reviewer/사용자가 이 도구의 실효성을 결정 — 현 형태로는 Phase 1
-  큐에서 게이트 패킷 0건. RSS 외 수집 경로 또는 복수 게시판 시도를 다음
-  라운드 범위로 검토. F1 보수 게이트의 살찐-스플래시 누락(위험요소 3)과
-  요청 예산 8(위험요소 4)도 함께 판단.
-- 코드는 수정하지 않음. 커밋/푸시 없음.
+(완료 기준 1/3/4 는 완전 통과, 완료 기준 2 는 spec 자체의 대상 선정 오류로
+좁은 의미에서는 재현 실패지만 취지는 대체 대상으로 명확히 실증, 완료 기준
+2-보조는 OR 조건 중 한 항목으로 통과. 코드 구현·테스트 자체에서 발견된
+결함은 없음. 위 "위험 요소"는 결함이 아니라 다음 라운드 참고용 리스크임.)
