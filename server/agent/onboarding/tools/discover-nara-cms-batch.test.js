@@ -19,11 +19,17 @@ const {
   universityHasCatalogSource,
   selectCandidates,
   extractClientRedirect,
+  extractRobotsSitemapUrls,
+  robotsSignalIndicatesNara,
+  sitemapSignalIndicatesNara,
   detectNaraCms,
   extractNavBoardLinks,
   classifyBoardCategory,
+  extractSitemapMenuEntries,
+  prioritizeBoardCandidates,
   pickBestBoard,
   extractSiteAndBoardId,
+  selectValidatedBoard,
   buildCandidateSource,
   deriveShortName,
   verifyRssFeed,
@@ -38,6 +44,7 @@ const {
   mergeState,
   writeStateAtomic,
   createFetchGate,
+  isGateBudgetError,
   runBatch,
 } = require("./discover-nara-cms-batch");
 const { parseRobotsGroups } = require("../../screening/robots-group-parser");
@@ -66,6 +73,22 @@ const NAV_ONLY_HTML = `<ul>
 <a href="/inu/1/subview.do">공지사항</a>
 <a href="/inu/2/subview.do">입학안내</a>
 </ul>`;
+
+// §테스트 계획 "신규 픽스처" -- robots.txt 의 Sitemap 라인.
+const ROBOTS_WITH_SITEMAP =
+  "User-agent: *\nDisallow: /admin/\nSitemap: https://www.inu.ac.kr/xmlSite/siteMap.do\n";
+
+// §테스트 계획 "신규 픽스처" -- `{origin}/xmlSite/siteMap.do` 응답 본문.
+// "입학안내"는 라벨 미매칭(classifyBoardCategory -> null) -> 필터링 확인용.
+const SITEMAP_HTML =
+  `<a href="/inu/13580/subview.do">인천대소식</a>` +
+  `<a href="/inu/13600/subview.do">공지사항</a>` +
+  `<a href="/inu/1/subview.do">입학안내</a>`;
+
+// §테스트 계획 "신규 픽스처" -- items.length===0 RSS(빈 게시판 재현, 공주대
+// 2134 유사).
+const EMPTY_BOARD_RSS_XML =
+  `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>공지사항</title></channel></rss>`;
 
 function rssXml(titles) {
   return (
@@ -444,6 +467,7 @@ test("14. createFetchGate: crawl-delay / 요청 예산 / 타임아웃 abort", as
   const okFetch = async () => ({ ok: true, status: 200, url: "x", text: async () => "ok" });
   const gate = createFetchGate({
     fetchImpl: okFetch,
+    maxRequests: 8, // maxRequests 기본값이 8->18 로 바뀌었으므로 소규모 시나리오를 오버라이드(N10 이 새 기본값 자체를 커버)
     now: () => 0,
     sleepImpl: async (ms) => {
       sleeps.push(ms);
@@ -720,14 +744,22 @@ test("18c. runBatch: 홈이 리다이렉트 스텁이면 1회 따라가서 PACKE
   assert.equal(row.homeResolvedUrl, realHomeUrl);
   assert.equal(calls.b1.length, 1);
   assert.equal(calls.b2.length, 1);
-  assert.ok(row.requestCount <= 8, `requestCount ${row.requestCount} must stay within the per-university budget`);
+  assert.ok(row.requestCount <= 18, `requestCount ${row.requestCount} must stay within the per-university budget`);
 });
 
-test("18d. runBatch: 따라간 페이지도 스텁이면 redirect_loop_or_double_stub", async () => {
+test("18d. runBatch: 4-hop 을 다 따라가도 여전히 스텁이면 redirect_loop_or_double_stub", async () => {
   const fx = integrationFixtureDir();
-  const hop1 = `${ORIGIN}/inu/index.do`;
+  // 홈 리다이렉트를 4회까지 추종하므로, 진짜 redirect_loop 를 재현하려면
+  // hop1~hop4 전부 스텁이어야 한다(N15 와 동일 취지).
+  const hop1 = `${ORIGIN}/inu/hop1.do`;
+  const hop2 = `${ORIGIN}/inu/hop2.do`;
+  const hop3 = `${ORIGIN}/inu/hop3.do`;
+  const hop4 = `${ORIGIN}/inu/hop4.do`;
   fx.map.set(ORIGIN, { text: `<script>location.href="${hop1}"</script>` });
-  fx.map.set(hop1, { text: `<meta http-equiv="refresh" content="0;url=${ORIGIN}/inu/deeper.do">` });
+  fx.map.set(hop1, { text: `<script>location.href="${hop2}"</script>` });
+  fx.map.set(hop2, { text: `<script>location.href="${hop3}"</script>` });
+  fx.map.set(hop3, { text: `<script>location.href="${hop4}"</script>` });
+  fx.map.set(hop4, { text: `<meta http-equiv="refresh" content="0;url=${ORIGIN}/inu/deeper.do">` });
 
   const result = await runBatch({
     limit: 10,
@@ -748,7 +780,7 @@ test("18d. runBatch: 따라간 페이지도 스텁이면 redirect_loop_or_double
   const row = result.report.results[0];
   assert.equal(row.finalDecision, "NOT_NARA_CMS");
   assert.equal(row.reason, "redirect_loop_or_double_stub");
-  assert.equal(row.homeResolvedUrl, hop1);
+  assert.equal(row.homeResolvedUrl, hop4);
 });
 
 // -- 19. parseCliArgs ---------------------------------------------------
@@ -797,4 +829,364 @@ test("21. buildReport: 스키마 + mutation 플래그", () => {
   });
   assert.equal(universityHasCatalogSource({ universities: [{ universityId: "u", sources: [{ id: "s" }] }] }, "u"), true);
   assert.equal(universityHasCatalogSource({ universities: [{ universityId: "u", sources: [] }] }, "u"), false);
+});
+
+// -- N1. extractRobotsSitemapUrls --------------------------------------------
+
+test("N1. extractRobotsSitemapUrls: Sitemap 라인 추출(대소문자 무관)", () => {
+  assert.deepEqual(extractRobotsSitemapUrls(ROBOTS_WITH_SITEMAP), ["https://www.inu.ac.kr/xmlSite/siteMap.do"]);
+  assert.deepEqual(extractRobotsSitemapUrls("User-agent: *\nDisallow: /admin/\n"), []);
+  assert.deepEqual(extractRobotsSitemapUrls("User-agent: *\nSITEMAP: https://x/sitemap.xml\n"), [
+    "https://x/sitemap.xml",
+  ]);
+  assert.deepEqual(extractRobotsSitemapUrls(""), []);
+});
+
+// -- N2. robotsSignalIndicatesNara -------------------------------------------
+
+test("N2. robotsSignalIndicatesNara", () => {
+  assert.equal(robotsSignalIndicatesNara(["https://x/xmlSite/siteMap.do"]).matched, true);
+  assert.equal(robotsSignalIndicatesNara(["https://x/sitemap.xml"]).matched, false);
+  assert.equal(robotsSignalIndicatesNara(["https://x/bbs/foo/sitemap.xml"]).matched, true);
+  assert.equal(robotsSignalIndicatesNara([]).matched, false);
+});
+
+// -- N3. sitemapSignalIndicatesNara ------------------------------------------
+
+test("N3. sitemapSignalIndicatesNara", () => {
+  const multi = sitemapSignalIndicatesNara(SITEMAP_HTML);
+  assert.equal(multi.matched, true);
+  assert.equal(multi.subviewLinkCount, 3);
+  const single = sitemapSignalIndicatesNara(`<a href="/inu/13580/subview.do">인천대소식</a>`);
+  assert.equal(single.matched, false);
+  assert.equal(sitemapSignalIndicatesNara("").matched, false);
+});
+
+// -- N4. detectNaraCms 다중 시그널(하위호환 포함) ----------------------------
+
+test("N4. detectNaraCms: 다중 시그널(하위호환 포함)", () => {
+  // (a) 옵션 없이 기존 호출 -- 기존 테스트 #4 와 동일하게 동작해야 한다.
+  const a = detectNaraCms('<a href="/inu/13580/subview.do">소개</a>', { host: HOST });
+  assert.equal(a.isNara, true);
+  assert.deepEqual(a.signals, { A: false, B: false, C: true });
+
+  // (b) robotsSitemapUrls 만 매칭.
+  const b = detectNaraCms(WORDPRESS_HOME_HTML, {
+    host: HOST,
+    robotsSitemapUrls: ["https://www.inu.ac.kr/xmlSite/siteMap.do"],
+  });
+  assert.equal(b.isNara, true);
+  assert.equal(b.signals.A, true);
+  assert.ok(b.evidence.some((e) => e.startsWith("[A]")));
+
+  // (c) sitemapHtml 만 매칭.
+  const c = detectNaraCms(WORDPRESS_HOME_HTML, { host: HOST, sitemapHtml: SITEMAP_HTML });
+  assert.equal(c.isNara, true);
+  assert.equal(c.signals.B, true);
+  assert.ok(c.evidence.some((e) => e.startsWith("[B]")));
+
+  // (d) 셋 다 미매칭인 워드프레스 HTML.
+  const d = detectNaraCms(WORDPRESS_HOME_HTML, { host: HOST });
+  assert.equal(d.isNara, false);
+});
+
+// -- N5. extractSitemapMenuEntries -------------------------------------------
+
+test("N5. extractSitemapMenuEntries", () => {
+  const entries = extractSitemapMenuEntries(SITEMAP_HTML);
+  assert.equal(entries.length, 3);
+  assert.deepEqual(entries[0], { href: "/inu/13580/subview.do", site: "inu", menuId: "13580", text: "인천대소식" });
+  const withCategory = entries
+    .map((e) => ({ ...e, category: classifyBoardCategory(e.text) }))
+    .filter((e) => e.category);
+  assert.equal(withCategory.length, 2); // "입학안내"는 classifyBoardCategory 필터링에서 제외
+});
+
+// -- N6. prioritizeBoardCandidates -------------------------------------------
+
+test("N6. prioritizeBoardCandidates: school_news 전체가 school_notice 전체보다 앞, 그룹 내 순서 유지", () => {
+  const list = [
+    { key: "notice1", category: "school_notice" },
+    { key: "news1", category: "school_news" },
+    { key: "notice2", category: "school_notice" },
+    { key: "news2", category: "school_news" },
+  ];
+  assert.deepEqual(
+    prioritizeBoardCandidates(list).map((c) => c.key),
+    ["news1", "news2", "notice1", "notice2"]
+  );
+});
+
+// -- N7. selectValidatedBoard -------------------------------------------------
+
+test("N7. selectValidatedBoard: 첫 통과 후보 채택 / items=0 이면 다음 후보 / 전부 실패", async () => {
+  const titles = ["소식 1", "소식 2", "소식 3"];
+  const map = new Map();
+  map.set(`${ORIGIN}/bbs/inu/2594/rssList.do`, { text: rssXml(titles) });
+  map.set(`${ORIGIN}/bbs/inu/2595/rssList.do`, { text: EMPTY_BOARD_RSS_XML });
+  const gate = createFetchGate({ fetchImpl: stubFetch(map), now: () => 0, sleepImpl: NOOP_SLEEP, maxRequests: 20 });
+
+  // (a) 첫 후보가 바로 통과.
+  const candA = [{ site: "inu", directBoardId: "2594", category: "school_news", subviewUrl: `${ORIGIN}/a` }];
+  const a = await selectValidatedBoard({ candidates: candA, university: UNIVERSITY, host: HOST, origin: ORIGIN, gate });
+  assert.ok(a.board);
+  assert.equal(a.board.boardId, "2594");
+  assert.equal(a.failures.length, 0);
+
+  // (b) 첫 후보 items=0(EMPTY_BOARD_RSS_XML), 두 번째 후보가 통과.
+  const candB = [
+    { site: "inu", directBoardId: "2595", category: "school_notice", subviewUrl: `${ORIGIN}/b1` },
+    { site: "inu", directBoardId: "2594", category: "school_news", subviewUrl: `${ORIGIN}/b2` },
+  ];
+  const b = await selectValidatedBoard({ candidates: candB, university: UNIVERSITY, host: HOST, origin: ORIGIN, gate });
+  assert.ok(b.board);
+  assert.equal(b.board.boardId, "2594");
+  assert.equal(b.failures.length, 1);
+  assert.match(b.failures[0].reason, /rss_invalid/);
+
+  // (c) 전부 실패(둘 다 무효/미매핑).
+  const candC = [
+    { site: "inu", directBoardId: "2595", category: "school_notice", subviewUrl: `${ORIGIN}/c1` },
+    { site: "inu", directBoardId: "9999", category: "school_notice", subviewUrl: `${ORIGIN}/c2` },
+  ];
+  const c = await selectValidatedBoard({ candidates: candC, university: UNIVERSITY, host: HOST, origin: ORIGIN, gate });
+  assert.equal(c.board, null);
+  assert.equal(c.failures.length, candC.length);
+});
+
+// -- N8. runPreflight with prefetchedRssResult -------------------------------
+
+test("N8. runPreflight: prefetchedRssResult 를 넘기면 rssList.do 를 다시 fetch 하지 않는다", async () => {
+  const titles = ["인천대 소식 1", "인천대 소식 2", "인천대 소식 3"];
+  const source = buildCandidateSource({
+    host: HOST,
+    site: "inu",
+    boardId: "2594",
+    category: "school_news",
+    shortName: "inu",
+    universityName: "인천대학교",
+  });
+  const prefetchedRssResult = {
+    status: "success",
+    items: titles.map((t, i) => ({
+      title: t,
+      sourceUrl: `${ORIGIN}/bbs/inu/2594/10000${i + 1}/artclView.do`,
+      publishedAt: `2026-08-1${i + 1}`,
+    })),
+  };
+  const detailMap = new Map();
+  titles.forEach((t, i) => detailMap.set(`${ORIGIN}/bbs/inu/2594/10000${i + 1}/artclView.do`, { text: detailHtml(t) }));
+  // source.rssUrl 매핑을 일부러 넣지 않는다 -- 재조회 시도 시 실패하도록.
+  const gate = createFetchGate({ fetchImpl: stubFetch(detailMap), now: () => 0, sleepImpl: NOOP_SLEEP, maxRequests: 20 });
+
+  const result = await runPreflight({
+    university: UNIVERSITY,
+    source,
+    limit: 3,
+    fetchGate: gate,
+    prefetchedRssResult,
+  });
+  assert.equal(result.ok, true);
+  assert.equal(result.acceptedCount, 3);
+});
+
+// -- N9. createFetchGate: maxElapsedMs / UNIVERSITY_TIMEOUT_EXCEEDED --------
+
+test("N9. createFetchGate: 대학당 90s 벽시계 예산 초과 시 university_timeout_exceeded", async () => {
+  const seq = [0, 50, 100, 90200];
+  let i = 0;
+  const now = () => seq[Math.min(i++, seq.length - 1)];
+  const gate = createFetchGate({
+    fetchImpl: async () => ({ ok: true, status: 200, url: "x", text: async () => "ok" }),
+    now,
+    sleepImpl: NOOP_SLEEP,
+  });
+  await gate.fetch("https://a/1");
+  await assert.rejects(() => gate.fetch("https://a/2"), /university_timeout_exceeded/);
+});
+
+// -- N10. createFetchGate: 기본 maxRequests=18 --------------------------------
+
+test("N10. createFetchGate: 기본 maxRequests=18", async () => {
+  const gate = createFetchGate({
+    fetchImpl: async () => ({ ok: true, status: 200, url: "x", text: async () => "ok" }),
+    now: () => 0,
+    sleepImpl: NOOP_SLEEP,
+  });
+  for (let n = 0; n < 18; n += 1) await gate.fetch(`https://a/${n}`);
+  assert.equal(gate.count, 18);
+  await assert.rejects(() => gate.fetch("https://a/19"), /request_budget_exceeded/);
+});
+
+// -- N11. isGateBudgetError ---------------------------------------------------
+
+test("N11. isGateBudgetError", () => {
+  const budget = new Error("x");
+  budget.code = "REQUEST_BUDGET_EXCEEDED";
+  const timeout = new Error("y");
+  timeout.code = "UNIVERSITY_TIMEOUT_EXCEEDED";
+  const other = new Error("z");
+  other.code = "SOMETHING_ELSE";
+  assert.equal(isGateBudgetError(budget), true);
+  assert.equal(isGateBudgetError(timeout), true);
+  assert.equal(isGateBudgetError(other), false);
+  assert.equal(isGateBudgetError(undefined), false);
+});
+
+// -- N12. parseCliArgs --retry-decisions -------------------------------------
+
+test("N12. parseCliArgs: --retry-decisions", () => {
+  const parsed = parseCliArgs(["--retry-decisions=NOT_NARA_CMS,DIAGNOSE_FAILED"]);
+  assert.deepEqual(parsed.retryDecisions, ["NOT_NARA_CMS", "DIAGNOSE_FAILED"]);
+  assert.throws(() => parseCliArgs(["--retry-decisions="]), /--retry-decisions requires/);
+  assert.equal(parseCliArgs([]).retryDecisions, null);
+});
+
+// -- N13. selectCandidates --retry-decisions 필터 ----------------------------
+
+test("N13. selectCandidates: --retry-decisions 필터(--resume 동시 지정 시 무시)", () => {
+  const rows = [
+    { id: "u1", name: "u1", homeStatus: "200", robots: "ok", cat: "NO_SOURCE" },
+    { id: "u2", name: "u2", homeStatus: "200", robots: "ok", cat: "NO_SOURCE" },
+    { id: "u3", name: "u3", homeStatus: "200", robots: "ok", cat: "NO_SOURCE" },
+    { id: "u4", name: "u4", homeStatus: "200", robots: "ok", cat: "NO_SOURCE" },
+  ];
+  const catalog = { universities: [] };
+  const state = {
+    processed: [
+      { universityId: "u1", finalDecision: "NOT_NARA_CMS" },
+      { universityId: "u2", finalDecision: "DIAGNOSE_FAILED" },
+      { universityId: "u3", finalDecision: "PACKET_CREATED" },
+      // u4: 상태 없음(한 번도 처리 안 됨) -- 자동으로 제외되어야 한다.
+    ],
+  };
+  const result = selectCandidates(rows, catalog, state, {
+    limit: 10,
+    retryDecisions: ["NOT_NARA_CMS", "DIAGNOSE_FAILED"],
+    resume: true, // 동시 지정 -- retryDecisions 우선(§G), resume 은 무시된다.
+  });
+  assert.deepEqual(
+    result.selected.map((r) => r.id),
+    ["u1", "u2"]
+  );
+});
+
+// -- N14. processUniversity(runBatch): 4-hop 리다이렉트 끝에 실콘텐츠 도달 ----
+
+test("N14. runBatch: 4-hop 리다이렉트를 전부 따라간 뒤 실콘텐츠 도달 시 정상 진행", async () => {
+  const fx = integrationFixtureDir();
+  const hop1 = `${ORIGIN}/inu/hop1.do`;
+  const hop2 = `${ORIGIN}/inu/hop2.do`;
+  const hop3 = `${ORIGIN}/inu/hop3.do`;
+  fx.map.set(ORIGIN, { text: `<script>location.href="${hop1}"</script>` });
+  fx.map.set(hop1, { text: `<script>location.href="${hop2}"</script>` });
+  fx.map.set(hop2, { text: `<script>location.href="${hop3}"</script>` });
+  fx.map.set(hop3, { text: HOME_HTML }); // 4번째(마지막) hop 에서 실콘텐츠 도달
+
+  const result = await runBatch({
+    limit: 10,
+    dryRun: true,
+    runId: "N14",
+    auditFile: fx.auditFile,
+    catalogFile: fx.catalogFile,
+    candidatesFile: fx.candidatesFile,
+    stateFile: fx.stateFile,
+    reportDir: fx.reportDir,
+    now: FIXED_NOW,
+    sleepImpl: NOOP_SLEEP,
+    fetchImpl: stubFetch(fx.map),
+  });
+
+  const row = result.report.results[0];
+  assert.notEqual(row.finalDecision, "NOT_NARA_CMS");
+  assert.equal(row.finalDecision, "PACKET_CREATED_DRYRUN");
+  assert.equal(row.homeResolvedUrl, hop3);
+});
+
+// -- N15. processUniversity(runBatch): 4-hop 넘어도 계속 스텁 ----------------
+
+test("N15. runBatch: 4-hop 을 넘어도 계속 스텁이면 redirect_loop_or_double_stub", async () => {
+  const fx = integrationFixtureDir();
+  const hop1 = `${ORIGIN}/inu/r1.do`;
+  const hop2 = `${ORIGIN}/inu/r2.do`;
+  const hop3 = `${ORIGIN}/inu/r3.do`;
+  const hop4 = `${ORIGIN}/inu/r4.do`;
+  fx.map.set(ORIGIN, { text: `<meta http-equiv="refresh" content="0;url=${hop1}">` });
+  fx.map.set(hop1, { text: `<meta http-equiv="refresh" content="0;url=${hop2}">` });
+  fx.map.set(hop2, { text: `<meta http-equiv="refresh" content="0;url=${hop3}">` });
+  fx.map.set(hop3, { text: `<meta http-equiv="refresh" content="0;url=${hop4}">` });
+  fx.map.set(hop4, { text: `<script>location.href="${ORIGIN}/inu/r5.do"</script>` });
+
+  const result = await runBatch({
+    limit: 10,
+    runId: "N15",
+    auditFile: fx.auditFile,
+    catalogFile: fx.catalogFile,
+    candidatesFile: fx.candidatesFile,
+    stateFile: fx.stateFile,
+    reportDir: fx.reportDir,
+    now: FIXED_NOW,
+    sleepImpl: NOOP_SLEEP,
+    fetchImpl: stubFetch(fx.map),
+    regressionEvidence: { npmTestCommand: "npm test", npmTestSummary: "fail 0", ranAt: "x" },
+    b1Impl: () => ({ status: "PREPARED" }),
+    b2Impl: () => ({ status: "PACKET_CREATED", reviewId: "x" }),
+  });
+
+  const row = result.report.results[0];
+  assert.equal(row.finalDecision, "NOT_NARA_CMS");
+  assert.equal(row.reason, "redirect_loop_or_double_stub");
+  assert.equal(row.homeResolvedUrl, hop4);
+});
+
+// -- N16. 게시판 후보 소스 -- sitemap 우선 + nav 폴백 ------------------------
+
+test("N16. runBatch: sitemap 200+유효 메뉴 -> sitemap 기반 / sitemap 404 -> nav 폴백", async () => {
+  // (a) sitemap 200 + 유효 메뉴.
+  const fxA = integrationFixtureDir();
+  fxA.map.set(`${ORIGIN}/xmlSite/siteMap.do`, { text: SITEMAP_HTML });
+  fxA.map.set(`${ORIGIN}/inu/13580/subview.do`, {
+    text: `<html><body><a href="${ORIGIN}/bbs/inu/2594/artclList.do">인천대소식</a></body></html>`,
+  });
+  fxA.map.set(`${ORIGIN}/inu/13600/subview.do`, {
+    text: `<html><body><a href="${ORIGIN}/bbs/inu/2595/artclList.do">공지사항</a></body></html>`,
+  });
+
+  const resultA = await runBatch({
+    limit: 10,
+    dryRun: true,
+    runId: "N16a",
+    auditFile: fxA.auditFile,
+    catalogFile: fxA.catalogFile,
+    candidatesFile: fxA.candidatesFile,
+    stateFile: fxA.stateFile,
+    reportDir: fxA.reportDir,
+    now: FIXED_NOW,
+    sleepImpl: NOOP_SLEEP,
+    fetchImpl: stubFetch(fxA.map),
+  });
+  const rowA = resultA.report.results[0];
+  assert.equal(rowA.finalDecision, "PACKET_CREATED_DRYRUN");
+  assert.equal(rowA.boardSource, "sitemap");
+  assert.equal(rowA.site, "inu");
+  assert.equal(rowA.boardId, "2594");
+
+  // (b) sitemap 404(xmlSite/siteMap.do 매핑 없음) -- nav 기반으로도 기존과 동일하게 성공.
+  const fxB = integrationFixtureDir();
+  const resultB = await runBatch({
+    limit: 10,
+    dryRun: true,
+    runId: "N16b",
+    auditFile: fxB.auditFile,
+    catalogFile: fxB.catalogFile,
+    candidatesFile: fxB.candidatesFile,
+    stateFile: fxB.stateFile,
+    reportDir: fxB.reportDir,
+    now: FIXED_NOW,
+    sleepImpl: NOOP_SLEEP,
+    fetchImpl: stubFetch(fxB.map),
+  });
+  const rowB = resultB.report.results[0];
+  assert.equal(rowB.finalDecision, "PACKET_CREATED_DRYRUN");
+  assert.equal(rowB.boardSource, "nav");
 });

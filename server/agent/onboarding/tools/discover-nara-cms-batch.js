@@ -68,6 +68,9 @@ const NEWS_NAV_KEYWORDS = [
 
 const DATE_SELECTOR_FALLBACKS = ["dl.write dd", "dl.date dd", "ul.board-etc li", ".artclInfo .date"];
 
+// sitemap/nav 게시판 후보 상한(대학당 요청 예산 계산의 기준값, §E 참고).
+const MAX_BOARD_CANDIDATES = 4;
+
 // -- small url helpers ------------------------------------------------------
 
 function safeHost(value) {
@@ -128,6 +131,20 @@ function parseCliArgs(argv) {
     return n;
   };
 
+  const retryDecisionsRaw = read("--retry-decisions");
+  const retryDecisions =
+    retryDecisionsRaw === undefined
+      ? null
+      : retryDecisionsRaw
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean);
+  if (retryDecisionsRaw !== undefined && !retryDecisions.length) {
+    throw new Error(
+      '--retry-decisions requires at least one finalDecision value (e.g. "NOT_NARA_CMS,DIAGNOSE_FAILED").'
+    );
+  }
+
   return {
     limit: parsePositiveInt(read("--limit"), "--limit", 10),
     universityId: read("--university-id") || null,
@@ -136,6 +153,7 @@ function parseCliArgs(argv) {
     auditFile: read("--audit-file") || null,
     runId: read("--run-id") || null,
     minAccepted: parsePositiveInt(read("--min-accepted"), "--min-accepted", 2),
+    retryDecisions,
   };
 }
 
@@ -177,7 +195,7 @@ function isVariantCampus(row, catalog) {
 // -- 6. selectCandidates ---------------------------------------------------------
 
 function selectCandidates(auditRows, catalog, stateData, opts = {}) {
-  const { limit = 10, universityId = null, resume = false } = opts;
+  const { limit = 10, universityId = null, resume = false, retryDecisions = null } = opts;
   const rows = Array.isArray(auditRows) ? auditRows : [];
   const preSkipped = [];
 
@@ -226,7 +244,16 @@ function selectCandidates(auditRows, catalog, stateData, opts = {}) {
     return true;
   });
 
-  if (resume) {
+  if (retryDecisions && retryDecisions.length) {
+    const stateById = new Map(((stateData && stateData.processed) || []).map((entry) => [entry.universityId, entry]));
+    pool = pool.filter((row) => {
+      const st = stateById.get(row.id);
+      return Boolean(st) && retryDecisions.includes(st.finalDecision);
+    });
+    // resume 은 여기서 무시한다(§G) -- retryDecisions 가 지정되면 그 필터가 곧
+    // "다른 결정은 손대지 않음" 요구사항 자체이므로 resume 의 "종결분 제외"
+    // 규칙과 병행하지 않는다.
+  } else if (resume) {
     const done = new Set(
       ((stateData && stateData.processed) || [])
         .filter((entry) => entry && entry.finalDecision && entry.finalDecision !== "ERROR")
@@ -334,23 +361,64 @@ function sameUniversityHost(linkHost, universityHost) {
   );
 }
 
+// robots.txt 원문에서 `Sitemap:` 라인 값들을 추출한다(순수, 네트워크 없음).
+// (robots-group-parser.js 는 수정하지 않는다 -- Sitemap 지시어는 User-agent
+// 그룹에 속하지 않으므로 그 파서의 그룹 모델과 무관한 별도 정규식 스캔이다.)
+function extractRobotsSitemapUrls(robotsText) {
+  const out = [];
+  const re = /^sitemap\s*:\s*(.+)$/gim;
+  let m;
+  while ((m = re.exec(String(robotsText || "")))) {
+    const v = m[1].trim();
+    if (v) out.push(v);
+  }
+  return out;
+}
+
+// 시그널 A: robots.txt 의 Sitemap 라인 중 하나라도 `/xmlSite/siteMap.do` 로
+// 끝나거나 `/bbs/` 를 포함하면 매칭(경로 소문자 비교).
+function robotsSignalIndicatesNara(sitemapUrls) {
+  for (const raw of sitemapUrls || []) {
+    let pathname = "";
+    try {
+      pathname = new URL(raw).pathname.toLowerCase();
+    } catch {
+      continue;
+    }
+    if (pathname.endsWith("/xmlsite/sitemap.do") || pathname.includes("/bbs/")) {
+      return { matched: true, matchedUrl: raw };
+    }
+  }
+  return { matched: false, matchedUrl: null };
+}
+
+// 시그널 B: `{origin}/xmlSite/siteMap.do` 본문 안에서 `/{seg}/{digits}/subview.do`
+// 링크가 2개 이상(다수) 발견되면 매칭.
+function sitemapSignalIndicatesNara(sitemapHtml) {
+  const text = String(sitemapHtml || "");
+  if (!text) return { matched: false, subviewLinkCount: 0 };
+  const matches = text.match(/\/[A-Za-z0-9_-]+\/\d+\/subview\.do/g) || [];
+  const count = new Set(matches).size;
+  return { matched: count >= 2, subviewLinkCount: count };
+}
+
 function detectNaraCms(html, options = {}) {
   const text = String(html || "");
   const uniHost = options.host || "";
-  const evidence = [];
+  const cEvidence = [];
 
   // (1) `/{seg}/{digits}/subview.do` -- 경로 전용, 어디에 있든 안전.
   const subviewRe = /\/[A-Za-z0-9_-]+\/\d+\/subview\.do/g;
   let subviewMatch;
-  while ((subviewMatch = subviewRe.exec(text)) && evidence.length < 3) {
-    evidence.push(subviewMatch[0].slice(0, 160));
+  while ((subviewMatch = subviewRe.exec(text)) && cEvidence.length < 3) {
+    cEvidence.push(subviewMatch[0].slice(0, 160));
   }
 
   // (2) `/bbs/{seg}/` href -- link host 가 대학 자체 host 일 때만 증거로 인정.
-  if (evidence.length < 3) {
+  if (cEvidence.length < 3) {
     const hrefRe = /href\s*=\s*["']([^"']*\/bbs\/[A-Za-z0-9_-]+\/[^"']*)["']/gi;
     let hrefMatch;
-    while ((hrefMatch = hrefRe.exec(text)) && evidence.length < 3) {
+    while ((hrefMatch = hrefRe.exec(text)) && cEvidence.length < 3) {
       const raw = hrefMatch[1];
       let linkHost = "";
       try {
@@ -359,21 +427,35 @@ function detectNaraCms(html, options = {}) {
         linkHost = "";
       }
       if (sameUniversityHost(linkHost, uniHost) && /\/bbs\/[A-Za-z0-9_-]+\//.test(raw)) {
-        evidence.push(raw.slice(0, 160));
+        cEvidence.push(raw.slice(0, 160));
       }
     }
   }
 
   // (3) host 컨텍스트가 없을 때만: 본문 어디든 `/bbs/{seg}/{digits}/` 경로.
-  if (!uniHost && evidence.length === 0) {
+  if (!uniHost && cEvidence.length === 0) {
     const bareRe = /\/bbs\/[A-Za-z0-9_-]+\/\d+\//g;
     let bareMatch;
-    while ((bareMatch = bareRe.exec(text)) && evidence.length < 3) {
-      evidence.push(bareMatch[0].slice(0, 160));
+    while ((bareMatch = bareRe.exec(text)) && cEvidence.length < 3) {
+      cEvidence.push(bareMatch[0].slice(0, 160));
     }
   }
 
-  return { isNara: evidence.length > 0, evidence: evidence.slice(0, 3), host: options.host || null };
+  const signalA = robotsSignalIndicatesNara(options.robotsSitemapUrls || []);
+  const signalB = sitemapSignalIndicatesNara(options.sitemapHtml);
+  const signalC = cEvidence.length > 0;
+
+  const evidence = [];
+  if (signalA.matched) evidence.push(`[A] robots Sitemap -> ${signalA.matchedUrl}`);
+  if (signalB.matched) evidence.push(`[B] xmlSite/siteMap.do subview.do links=${signalB.subviewLinkCount}`);
+  evidence.push(...cEvidence.slice(0, 3));
+
+  return {
+    isNara: signalA.matched || signalB.matched || signalC,
+    evidence,
+    signals: { A: signalA.matched, B: signalB.matched, C: signalC },
+    host: options.host || null,
+  };
 }
 
 // -- 9. extractNavBoardLinks --------------------------------------------------
@@ -406,6 +488,38 @@ function classifyBoardCategory(linkText) {
   if (/보도|뉴스|소식|언론/.test(value)) return "school_news";
   if (/공지|알림/.test(value)) return "school_notice";
   return null;
+}
+
+// -- 10b. extractSitemapMenuEntries / prioritizeBoardCandidates (§B) --------
+
+// sitemapHtml: `{origin}/xmlSite/siteMap.do` 응답 본문. 반환: 중복 제거된
+// 메뉴 항목 목록(순서는 문서 등장 순).
+function extractSitemapMenuEntries(sitemapHtml) {
+  const text = String(sitemapHtml || "");
+  const anchorRe =
+    /<a\b[^>]*href\s*=\s*["']([^"']*\/([A-Za-z0-9_-]+)\/(\d+)\/subview\.do)[^"']*["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const out = [];
+  const seen = new Set();
+  let m;
+  while ((m = anchorRe.exec(text))) {
+    const [, href, site, menuId, innerHtml] = m;
+    const label = innerHtml.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+    if (!label) continue;
+    const key = `${site}/${menuId}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({ href, site, menuId, text: label });
+  }
+  return out;
+}
+
+// school_news 우선, school_notice 다음(각 그룹 내부 순서 유지).
+function prioritizeBoardCandidates(labeledCandidates) {
+  const list = Array.isArray(labeledCandidates) ? labeledCandidates : [];
+  return [
+    ...list.filter((c) => c.category === "school_news"),
+    ...list.filter((c) => c.category === "school_notice"),
+  ];
 }
 
 // -- 12. extractSiteAndBoardId --------------------------------------------------
@@ -505,6 +619,71 @@ function verifyRssFeed(rssResult) {
   return { ok: reasons.length === 0, itemCount: items.length, reasons };
 }
 
+// -- 16b. selectValidatedBoard (§C) -----------------------------------------
+
+// candidates: §B 의 boardCandidates(순서 = 우선순위). 커밋(카탈로그 삽입)
+// 이전에 후보별로 rssList.do 를 실제 검증해, 첫 통과 후보를 채택한다(빈/비활성
+// 게시판을 골라도 재시도하지 않던 근본 원인 2 를 고친다).
+async function selectValidatedBoard({ candidates, university, host, origin, gate, rssCollectorImpl }) {
+  const collector = rssCollectorImpl || rssCollector;
+  const list = Array.isArray(candidates) ? candidates : [];
+  const failures = [];
+
+  for (const cand of list) {
+    let site = cand.site;
+    let boardId = cand.directBoardId;
+
+    if (!boardId) {
+      // sitemap 후보(또는 direct 추출 실패한 nav 후보): subview.do fetch 필요.
+      let html = "";
+      try {
+        const res = await gate.fetch(cand.subviewUrl);
+        if (res && res.ok) html = await res.text();
+      } catch (error) {
+        if (isGateBudgetError(error)) throw error; // 예산/타임아웃은 즉시 상위로 전파
+        failures.push({ candidate: cand, reason: `subview_fetch_failed:${error.message}` });
+        continue;
+      }
+      const found = extractSiteAndBoardId(html, { host });
+      if (!found) {
+        failures.push({ candidate: cand, reason: "boardid_not_found" });
+        continue;
+      }
+      site = found.site;
+      boardId = found.boardId;
+    }
+
+    const trialSource = { rssUrl: `https://${host}/bbs/${site}/${boardId}/rssList.do` };
+    let rssResult;
+    try {
+      rssResult = await collector({ university, source: trialSource, limit: 3, fetchImpl: gate.fetch });
+    } catch (error) {
+      if (isGateBudgetError(error)) throw error;
+      failures.push({ candidate: cand, site, boardId, reason: `rss_fetch_failed:${error.message}` });
+      continue;
+    }
+    const feed = verifyRssFeed(rssResult);
+    if (!feed.ok) {
+      failures.push({ candidate: cand, site, boardId, reason: `rss_invalid:${feed.reasons.join(";")}` });
+      continue; // 다음 후보로
+    }
+
+    return {
+      board: {
+        site,
+        boardId,
+        category: cand.category,
+        categoryLabel: cand.category === "school_news" ? "학교 소식" : "학교 공지",
+        sourceUrl: cand.subviewUrl,
+      },
+      rssResult,
+      triedCount: failures.length + 1,
+      failures,
+    };
+  }
+  return { board: null, triedCount: failures.length, failures };
+}
+
 // -- 17. checkRobotsPathDisallow ----------------------------------------------
 
 function checkRobotsPathDisallow(groups, paths) {
@@ -580,20 +759,27 @@ async function runPreflight({
   rssCollectorImpl,
   minAccepted = 2,
   maxDetailFetches,
+  prefetchedRssResult,
 }) {
   const collector = rssCollectorImpl || rssCollector;
   let rssResult;
-  try {
-    rssResult = await collector({ university, source, limit, fetchImpl: fetchGate.fetch });
-  } catch (error) {
-    return {
-      ok: false,
-      acceptedCount: 0,
-      storableItems: [],
-      triedDateSelectors: [],
-      usedDateSelector: null,
-      reason: `rss_fetch_failed:${error.message}`,
-    };
+  if (prefetchedRssResult) {
+    // §C selectValidatedBoard 에서 이미 검증 통과한 결과 재사용 -- rssList.do
+    // 를 두 번 fetch 하지 않는다(§E 예산).
+    rssResult = prefetchedRssResult;
+  } else {
+    try {
+      rssResult = await collector({ university, source, limit, fetchImpl: fetchGate.fetch });
+    } catch (error) {
+      return {
+        ok: false,
+        acceptedCount: 0,
+        storableItems: [],
+        triedDateSelectors: [],
+        usedDateSelector: null,
+        reason: `rss_fetch_failed:${error.message}`,
+      };
+    }
   }
 
   const feed = verifyRssFeed(rssResult);
@@ -809,6 +995,7 @@ function buildReport({ runId, startedAt, finishedAt, options, results, summary, 
       universityId: options.universityId || null,
       resume: Boolean(options.resume),
       dryRun: Boolean(options.dryRun),
+      retryDecisions: options.retryDecisions || null,
     },
     regressionEvidence: regressionEvidence || null,
     summary,
@@ -889,8 +1076,9 @@ function writeStateAtomic(stateFile, state, fsImpls = {}) {
 
 function createFetchGate({
   minDelayMs = 500,
-  maxRequests = 8,
+  maxRequests = 18,
   timeoutMs = 15000,
+  maxElapsedMs = 90000,
   fetchImpl,
   now = () => Date.now(),
   sleepImpl,
@@ -901,11 +1089,17 @@ function createFetchGate({
     const value = now();
     return value instanceof Date ? value.getTime() : Number(value);
   };
+  const startedAtMs = nowMs();
 
   const gate = {
     count: 0,
     lastAt: null,
     async fetch(url, init = {}) {
+      if (nowMs() - startedAtMs > maxElapsedMs) {
+        const error = new Error(`university_timeout_exceeded (max ${maxElapsedMs}ms wall-clock per university)`);
+        error.code = "UNIVERSITY_TIMEOUT_EXCEEDED";
+        throw error;
+      }
       if (gate.count >= maxRequests) {
         const error = new Error(`request_budget_exceeded (max ${maxRequests} requests per university)`);
         error.code = "REQUEST_BUDGET_EXCEEDED";
@@ -937,6 +1131,13 @@ function createFetchGate({
     },
   };
   return gate;
+}
+
+// gate.fetch() 가 요청 예산/대학당 벽시계 예산 초과로 throw 한 에러인지 판정
+// (순수, 네트워크 없음). 이 두 코드만 즉시 상위(processUniversity)로 전파하고,
+// 나머지 에러는 후보별 실패로 흡수한다(§E).
+function isGateBudgetError(error) {
+  return Boolean(error) && ["REQUEST_BUDGET_EXCEEDED", "UNIVERSITY_TIMEOUT_EXCEEDED"].includes(error.code);
 }
 
 // -- 29. processUniversity ------------------------------------------------------
@@ -976,8 +1177,16 @@ async function processUniversity(row, ctx) {
     reason: null,
     error: null,
     runId: runId || null,
+    detectionSignals: null,
+    boardSource: null,
   };
   const done = (patch) => ({ ...base, ...patch });
+  const budgetErrorPatch = (error, extra = {}) => ({
+    finalDecision: "ERROR",
+    reason: error.code === "UNIVERSITY_TIMEOUT_EXCEEDED" ? "university_timeout_exceeded" : "request_budget_exceeded",
+    error: error.message,
+    ...extra,
+  });
 
   const university = findCatalogUniversity(catalog, row.id);
   if (!university) return done({ finalDecision: "BLOCK_MISSING", reason: "no_catalog_block" });
@@ -997,9 +1206,7 @@ async function processUniversity(row, ctx) {
       homeResponse = await gate.fetch(row.site);
     } catch (error) {
       base.requestCount = gate.count;
-      if (error.code === "REQUEST_BUDGET_EXCEEDED") {
-        return done({ finalDecision: "ERROR", reason: "request_budget_exceeded", error: error.message });
-      }
+      if (isGateBudgetError(error)) return done(budgetErrorPatch(error));
       return done({ finalDecision: "ERROR", reason: "home_fetch_error", error: error.message });
     }
     if (!homeResponse || !homeResponse.ok) {
@@ -1009,19 +1216,23 @@ async function processUniversity(row, ctx) {
     let finalHomeUrl = homeResponse.url || row.site;
     let homeResolvedUrl = null;
 
-    // [req 2 (conditional)] 한국 대학 루트는 대부분 meta-refresh / JS
-    // `location.*` 스텁으로 실제 홈을 넘긴다(HTTP 3xx 아님). 딱 1회만 따라간다.
-    const redirectTarget = extractClientRedirect(homeHtml, finalHomeUrl);
-    if (redirectTarget && safeOrigin(redirectTarget)) {
+    // [req 2] 한국 대학 루트는 대부분 meta-refresh / JS `location.*` 스텁으로
+    // 실제 홈을 넘긴다(HTTP 3xx 아님). 최대 4회까지 따라간다(§F).
+    for (let hop = 0; hop < 4; hop += 1) {
+      const redirectTarget = extractClientRedirect(homeHtml, finalHomeUrl);
+      if (!redirectTarget || !safeOrigin(redirectTarget)) break;
       let followed;
       try {
         followed = await gate.fetch(redirectTarget);
       } catch (error) {
         base.requestCount = gate.count;
-        if (error.code === "REQUEST_BUDGET_EXCEEDED") {
-          return done({ finalDecision: "ERROR", reason: "request_budget_exceeded", error: error.message });
-        }
-        return done({ finalDecision: "ERROR", reason: "home_redirect_fetch_error", error: error.message });
+        if (isGateBudgetError(error)) return done(budgetErrorPatch(error, { homeResolvedUrl }));
+        return done({
+          finalDecision: "ERROR",
+          reason: "home_redirect_fetch_error",
+          error: error.message,
+          homeResolvedUrl,
+        });
       }
       if (!followed || !followed.ok) {
         return done({
@@ -1034,82 +1245,23 @@ async function processUniversity(row, ctx) {
       homeResolvedUrl = followed.url || redirectTarget;
       homeHtml = await followed.text();
       finalHomeUrl = homeResolvedUrl;
-      // 1 hop only: 따라간 페이지도 스텁이면 더 쫓지 않는다.
-      if (extractClientRedirect(homeHtml, finalHomeUrl)) {
-        return done({
-          finalDecision: "NOT_NARA_CMS",
-          reason: "redirect_loop_or_double_stub",
-          requestCount: gate.count,
-          homeResolvedUrl,
-        });
-      }
+    }
+    // 4회를 다 돌았는데도 여전히 스텁이면(리다이렉트 대상이 계속 존재) 포기.
+    if (extractClientRedirect(homeHtml, finalHomeUrl)) {
+      return done({
+        finalDecision: "NOT_NARA_CMS",
+        reason: "redirect_loop_or_double_stub",
+        requestCount: gate.count,
+        homeResolvedUrl,
+      });
     }
     base.homeResolvedUrl = homeResolvedUrl;
 
     const host = safeHost(finalHomeUrl) || safeHost(row.site);
     const origin = safeOrigin(finalHomeUrl) || safeOrigin(row.site);
 
-    if (!detectNaraCms(homeHtml, { host }).isNara) {
-      return done({
-        finalDecision: "NOT_NARA_CMS",
-        reason: "no_nara_pattern",
-        requestCount: gate.count,
-        homeResolvedUrl,
-      });
-    }
-
-    // board discovery -- top 3 nav links only (request-budget protection)
-    const navLinks = extractNavBoardLinks(homeHtml).slice(0, 3);
-    const boardCandidates = [];
-
-    for (const link of navLinks) {
-      const direct = extractSiteAndBoardId(link.href, { host });
-      if (direct) {
-        boardCandidates.push({
-          site: direct.site,
-          boardId: direct.boardId,
-          category: classifyBoardCategory(link.text),
-          linkText: link.text,
-          subviewUrl: absoluteUrl(link.href, origin),
-        });
-      }
-    }
-
-    if (!boardCandidates.length) {
-      for (const link of navLinks) {
-        const subviewUrl = absoluteUrl(link.href, origin);
-        let html = "";
-        try {
-          const response = await gate.fetch(subviewUrl);
-          if (response && response.ok) html = await response.text();
-        } catch (error) {
-          base.requestCount = gate.count;
-          if (error.code === "REQUEST_BUDGET_EXCEEDED") {
-            return done({ finalDecision: "ERROR", reason: "request_budget_exceeded", error: error.message });
-          }
-        }
-        const found = extractSiteAndBoardId(html, { host });
-        if (found) {
-          boardCandidates.push({
-            site: found.site,
-            boardId: found.boardId,
-            category: classifyBoardCategory(link.text),
-            linkText: link.text,
-            subviewUrl,
-          });
-        }
-      }
-    }
-
-    const best = pickBestBoard(boardCandidates);
-    if (!best) {
-      return done({ finalDecision: "DIAGNOSE_FAILED", reason: "no_board_found", requestCount: gate.count });
-    }
-    base.site = best.site;
-    base.boardId = best.boardId;
-    base.category = best.category;
-
-    // [req 5] robots.txt
+    // [req 3] robots.txt -- 1회만 fetch 하고 이후(Nara 판정 + robots path 판정)
+    // 재사용한다(신규 위치, §F step 6).
     let robotsBody = "";
     let robotsStatus = null;
     let robotsError = null;
@@ -1121,9 +1273,7 @@ async function processUniversity(row, ctx) {
       robotsBody = await response.text();
     } catch (error) {
       base.requestCount = gate.count;
-      if (error.code === "REQUEST_BUDGET_EXCEEDED") {
-        return done({ finalDecision: "ERROR", reason: "request_budget_exceeded", error: error.message });
-      }
+      if (isGateBudgetError(error)) return done(budgetErrorPatch(error, { homeResolvedUrl }));
       robotsError = error;
     }
     const robotsClass = classifyRobotsFetchResult({
@@ -1133,6 +1283,112 @@ async function processUniversity(row, ctx) {
       body: robotsBody,
     });
     const robotsGroups = parseRobotsGroups(robotsBody);
+    const robotsSitemapUrls = extractRobotsSitemapUrls(robotsBody);
+
+    // [req 4] `{origin}/xmlSite/siteMap.do` -- 실패/404 면 null(시그널 B
+    // 미매칭, §B 게시판 후보는 nav 폴백).
+    let sitemapHtml = null;
+    try {
+      const response = await gate.fetch(`${origin}/xmlSite/siteMap.do`);
+      if (response && response.ok) {
+        const body = await response.text();
+        if (body) sitemapHtml = body;
+      }
+    } catch (error) {
+      base.requestCount = gate.count;
+      if (isGateBudgetError(error)) return done(budgetErrorPatch(error, { homeResolvedUrl }));
+      // 비-예산 에러는 sitemap 미확보로 취급하고 nav 폴백으로 계속 진행한다.
+    }
+
+    // [req 5] 다중 시그널 Nara 판정(§A).
+    const detection = detectNaraCms(homeHtml, { host, robotsSitemapUrls, sitemapHtml });
+    base.detectionSignals = { isNara: detection.isNara, evidence: detection.evidence, signals: detection.signals };
+    if (!detection.isNara) {
+      return done({
+        finalDecision: "NOT_NARA_CMS",
+        reason: "no_nara_pattern",
+        requestCount: gate.count,
+        homeResolvedUrl,
+      });
+    }
+
+    // [req 6] 게시판 후보 -- sitemap 우선, nav 폴백(§B).
+    let boardCandidates = [];
+    if (sitemapHtml) {
+      const entries = extractSitemapMenuEntries(sitemapHtml)
+        .map((e) => ({ ...e, category: classifyBoardCategory(e.text) }))
+        .filter((e) => e.category);
+      boardCandidates = prioritizeBoardCandidates(entries)
+        .slice(0, MAX_BOARD_CANDIDATES)
+        .map((e) => ({
+          site: e.site,
+          menuId: e.menuId,
+          category: e.category,
+          linkText: e.text,
+          subviewUrl: absoluteUrl(e.href, origin),
+          directBoardId: null,
+        }));
+      if (boardCandidates.length) base.boardSource = "sitemap";
+    }
+    if (!boardCandidates.length) {
+      boardCandidates = extractNavBoardLinks(homeHtml)
+        .slice(0, MAX_BOARD_CANDIDATES)
+        .map((link) => {
+          const direct = extractSiteAndBoardId(link.href, { host });
+          return {
+            site: direct ? direct.site : null,
+            menuId: null,
+            category: classifyBoardCategory(link.text),
+            linkText: link.text,
+            subviewUrl: absoluteUrl(link.href, origin),
+            directBoardId: direct ? direct.boardId : null,
+          };
+        })
+        .filter((c) => c.category);
+      if (boardCandidates.length) base.boardSource = "nav";
+    }
+    if (!boardCandidates.length) {
+      return done({
+        finalDecision: "DIAGNOSE_FAILED",
+        reason: "no_board_found",
+        requestCount: gate.count,
+        homeResolvedUrl,
+      });
+    }
+
+    // [req 7] 후보별 실제 검증(rss-collector 재사용) 후 첫 통과 후보 채택(§C).
+    let selection;
+    try {
+      selection = await selectValidatedBoard({
+        candidates: boardCandidates,
+        university,
+        host,
+        origin,
+        gate,
+        rssCollectorImpl,
+      });
+    } catch (error) {
+      base.requestCount = gate.count;
+      if (isGateBudgetError(error)) return done(budgetErrorPatch(error, { homeResolvedUrl }));
+      throw error;
+    }
+    if (!selection.board) {
+      return done({
+        finalDecision: "DIAGNOSE_FAILED",
+        reason: `no_valid_board_found tried=${selection.triedCount} [${selection.failures
+          .map((f) => f.reason)
+          .join(",")}]`,
+        requestCount: gate.count,
+        homeResolvedUrl,
+      });
+    }
+    const best = selection.board;
+    base.site = best.site;
+    base.boardId = best.boardId;
+    base.category = best.category;
+
+    // [req 8] robots path 판정 -- 확정된 site/boardId 로, 캐시된 robotsGroups
+    // 재사용(재fetch 없음, §F step 11).
     const robotsPaths = [
       "/bbs/",
       `/bbs/${best.site}/`,
@@ -1142,7 +1398,12 @@ async function processUniversity(row, ctx) {
     const robotsVerdict = evaluateRobots({ ...robotsClass, groups: robotsGroups }, { paths: robotsPaths });
     base.robots = robotsVerdict;
     if (robotsVerdict.verdict === "ROBOTS_BLOCKED") {
-      return done({ finalDecision: "ROBOTS_BLOCKED", reason: robotsVerdict.reason, requestCount: gate.count });
+      return done({
+        finalDecision: "ROBOTS_BLOCKED",
+        reason: robotsVerdict.reason,
+        requestCount: gate.count,
+        homeResolvedUrl,
+      });
     }
 
     // candidate source (memory only)
@@ -1159,7 +1420,8 @@ async function processUniversity(row, ctx) {
     });
     base.rssUrl = source.rssUrl;
 
-    // [req 6-8] in-memory preflight (no catalog writes)
+    // [req 9] in-memory preflight (no catalog writes) -- 이미 검증된 rssResult
+    // 재사용(§D, rssList.do 재조회 방지).
     const preflight = await runPreflight({
       university,
       source,
@@ -1167,6 +1429,7 @@ async function processUniversity(row, ctx) {
       fetchGate: gate,
       rssCollectorImpl,
       minAccepted,
+      prefetchedRssResult: selection.rssResult,
     });
     base.preflight = {
       acceptedCount: preflight.acceptedCount,
@@ -1175,7 +1438,12 @@ async function processUniversity(row, ctx) {
     };
     base.usedDateSelector = preflight.usedDateSelector;
     if (!preflight.ok) {
-      return done({ finalDecision: "DIAGNOSE_FAILED", reason: preflight.reason, requestCount: gate.count });
+      return done({
+        finalDecision: "DIAGNOSE_FAILED",
+        reason: preflight.reason,
+        requestCount: gate.count,
+        homeResolvedUrl,
+      });
     }
     if (preflight.usedDateSelector && preflight.usedDateSelector !== source.detailSelectors.date) {
       source.detailSelectors.date = preflight.usedDateSelector;
@@ -1268,6 +1536,7 @@ async function runBatch(options = {}) {
     limit = 10,
     universityId = null,
     resume = false,
+    retryDecisions = null,
     dryRun = false,
     auditFile = DEFAULT_AUDIT_FILE,
     catalogFile = DEFAULT_CATALOG_FILE,
@@ -1304,6 +1573,7 @@ async function runBatch(options = {}) {
     limit,
     universityId,
     resume,
+    retryDecisions,
   });
 
   // Regression evidence is collected once, and only when a write is possible
@@ -1373,7 +1643,7 @@ async function runBatch(options = {}) {
     runId,
     startedAt,
     finishedAt,
-    options: { limit, universityId, resume, dryRun },
+    options: { limit, universityId, resume, dryRun, retryDecisions },
     results,
     summary,
     regressionEvidence,
@@ -1416,6 +1686,7 @@ async function main() {
       auditFile: options.auditFile || DEFAULT_AUDIT_FILE,
       runId: options.runId || null,
       minAccepted: options.minAccepted,
+      retryDecisions: options.retryDecisions,
     });
   } catch (error) {
     // eslint-disable-next-line no-console
@@ -1436,6 +1707,7 @@ module.exports = {
   DEFAULT_REPORT_DIR,
   NEWS_NAV_KEYWORDS,
   DATE_SELECTOR_FALLBACKS,
+  MAX_BOARD_CANDIDATES,
   parseCliArgs,
   matchesCandidateFilter,
   isVariantCampus,
@@ -1443,11 +1715,17 @@ module.exports = {
   universityHasCatalogSource,
   selectCandidates,
   extractClientRedirect,
+  extractRobotsSitemapUrls,
+  robotsSignalIndicatesNara,
+  sitemapSignalIndicatesNara,
   detectNaraCms,
   extractNavBoardLinks,
   classifyBoardCategory,
+  extractSitemapMenuEntries,
+  prioritizeBoardCandidates,
   pickBestBoard,
   extractSiteAndBoardId,
+  selectValidatedBoard,
   buildCandidateSource,
   deriveShortName,
   verifyRssFeed,
@@ -1464,6 +1742,7 @@ module.exports = {
   mergeState,
   writeStateAtomic,
   createFetchGate,
+  isGateBudgetError,
   processUniversity,
   runBatch,
   main,
